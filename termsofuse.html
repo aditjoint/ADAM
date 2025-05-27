@@ -22,20 +22,24 @@
       box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
       position: relative;
       z-index: 1;
+      overflow: hidden; /* prevents watermark overflow */
     }
 
     .container::before {
       content: "ADAM Consult & ADIT Joint LLP";
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(-30deg);
+      inset: 2rem; /* matches padding of container */
+      display: flex;
+      justify-content: center;
+      align-items: center;
       font-size: 4rem;
       color: rgba(43, 79, 129, 0.1);
       white-space: nowrap;
       pointer-events: none;
       user-select: none;
+      transform: rotate(-30deg);
       z-index: 0;
+      overflow: hidden;
     }
 
     .header-content {
@@ -135,8 +139,7 @@
 
     <h2>1. Acceptance of Terms</h2>
     <p>
-      By accessing or using the ADAM Consult website or services, operated jointly by ADAM Consult and ADIT Joint LLP, you agree to comply with and be bound by these Terms of Use and Acceptable User Policy, which govern your use of the website and services.
-    </p>
+      By accessing or using the ADAM Consult website or services—operated jointly by ADAM Consult, ADIT Joint LLP, and consortium partners directly involved—you agree to comply with and be bound by these Terms of Use and Acceptable User Policy, which govern your use of the website and services.</p>
 
     <h2>2. Use of Website and Services</h2>
     <p>
@@ -186,7 +189,7 @@
 
     <h2>10. Indemnity</h2>
     <p>
-      You agree to indemnify, defend, and hold harmless ADAM Consult, ADIT Joint LLP, their affiliates, and their respective officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses arising out of your use of the website or violation of these Terms of Use.
+      You agree to indemnify, defend, and hold harmless ADAM Consult, ADIT Joint LLP, their affiliates, and their respective officers, directors, employees, advisors, and /agents from and against any claims, liabilities, damages, losses, and expenses arising out of your use of the website or violation of these Terms of Use.
     </p>
 
     <h2>11. Governing Law</h2>
