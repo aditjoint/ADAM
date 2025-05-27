@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Terms of Use & Acceptable User Policy | ADAM Consult</title>
+  <title>Non-Disclosure Agreement (NDA) | ADAM Consult</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     body {
@@ -13,25 +13,27 @@
       padding: 0;
       color: #333;
       position: relative;
+      min-height: 100vh;
     }
 
     body::before {
-      content: "ADAM Consult & ADIT Joint LLP";
+      content: "ADAM Consult / ADIT JOINT LLP";
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
+      font-size: 5rem;
+      color: rgba(200, 200, 200, 0.08);
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 9999;
+      transform: rotate(-30deg);
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 4rem;
-      color: rgba(43, 79, 129, 0.06);
-      white-space: nowrap;
-      pointer-events: none;
-      user-select: none;
-      transform: rotate(-30deg);
-      z-index: 0;
+      text-align: center;
+      overflow: hidden;
     }
 
     .container {
@@ -41,8 +43,7 @@
       background-color: #fff;
       box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
       position: relative;
-      z-index: 1;
-      overflow: hidden;
+      z-index: 10;
     }
 
     .header-content {
@@ -51,8 +52,6 @@
       align-items: center;
       padding-bottom: 1.5rem;
       border-bottom: 1px solid #e0e0e0;
-      position: relative;
-      z-index: 2;
     }
 
     .logo {
@@ -96,10 +95,12 @@
 
     p {
       margin: 1rem 0;
+      line-height: 1.6;
     }
 
     ul {
       margin: 0.5rem 0 1.5rem 2rem;
+      line-height: 1.6;
     }
 
     footer {
@@ -107,8 +108,6 @@
       font-size: 0.9rem;
       color: #777;
       margin: 2rem 0 1rem;
-      position: relative;
-      z-index: 2;
     }
 
     a {
@@ -122,19 +121,19 @@
 </head>
 <body>
   <div class="container">
+    <!-- Header -->
     <div class="header-content">
-      <a href="../index.html" class="logo">
+      <a href="index.html" class="logo">
         <div class="logo-icon"><span class="letter">A</span></div>
         <span class="logo-text">ADAM Consult</span>
       </a>
       <div class="cta-button">
-        <a href="../contact.html" class="btn-primary">Get In Touch</a>
+        <a href="contact.html" class="btn-primary">Get In Touch</a>
       </div>
       <div class="mobile-menu-toggle">
         <i class="fas fa-bars"></i>
       </div>
     </div>
-
 
      <!-- Main Content -->
     <h1>Terms of Use & Acceptable User Policy</h1>
@@ -284,6 +283,7 @@
       <a href="mailto:adamconsultservice@gmail.com">adamconsultservice@gmail.com</a>.
     </p>
 
+   <!-- Footer -->
     <footer>
       &copy; 2025 ADAM Consult, ADIT Joint LLP. All rights reserved.
     </footer>
