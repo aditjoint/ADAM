@@ -70,11 +70,3 @@
 .card h3 {
   margin-top: 0;
 }
-
-/* Fix: Ensure nav items remain bold */
-.navbar-nav > li > a,
-.nav-links > li > a,
-.dropdown > a {
-  font-weight: 700 !important;
-  color: #fff; /* Optional: ensure color is consistent */
-}
