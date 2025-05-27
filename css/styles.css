@@ -1496,7 +1496,7 @@ header {
 }
 
 /* --------------------------------------------
-   Footer
+   
 -------------------------------------------- */
 footer {
     background-color: #212529;
@@ -1721,7 +1721,7 @@ ul {
 }
 
 footer {
-  text-align: center;
+  text-align: left;
   font-size: 0.9rem;
   color: #777;
   margin: 2rem 0 1rem;
