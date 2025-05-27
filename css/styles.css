@@ -1666,8 +1666,3 @@ body::before {
   z-index: 0;
   white-space: nowrap;
 }
-
-.container {
-  position: relative;
-  z-index: 1;
-}
