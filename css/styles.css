@@ -1679,3 +1679,34 @@ footer {
   z-index: 1;
 }
 
+.container {
+  position: relative;
+  z-index: 1;
+  background-color: #fff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
+  padding: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.container::before {
+  content: "ADAM Consult / ADIT Joint LLP";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  font-size: 4rem;
+  color: rgba(43, 79, 129, 0.1);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  font-weight: bold;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+
+
+
+
