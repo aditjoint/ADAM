@@ -12,6 +12,22 @@
       margin: 0;
       padding: 0;
       color: #333;
+      position: relative;
+      z-index: 0;
+    }
+
+    body::before {
+      content: "ADAM Consult - Confidential";
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 4rem;
+      color: rgba(43, 79, 129, 0.08);
+      white-space: nowrap;
+      z-index: -1;
+      pointer-events: none;
+      user-select: none;
     }
 
     .container {
@@ -20,21 +36,6 @@
       padding: 2rem;
       background-color: #fff;
       box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
-      position: relative;
-      z-index: 1;
-    }
-
-    .container::before {
-      content: "ADAM Consult - Confidential";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(-30deg);
-      font-size: 6rem;
-      color: rgba(43, 79, 129, 0.06);
-      white-space: nowrap;
-      pointer-events: none;
-      z-index: 0;
     }
 
     .header-content {
@@ -110,7 +111,6 @@
 </head>
 <body>
   <div class="container">
-    <!-- Header -->
     <div class="header-content">
       <a href="index.html" class="logo">
         <div class="logo-icon"><span class="letter">A</span></div>
