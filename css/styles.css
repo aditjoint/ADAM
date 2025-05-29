@@ -1649,7 +1649,7 @@ body {
 }
 
 body::before {
-  content: "ADAM Consult - ADIT Joint LLP - Confidential";
+  content: "ADAM Consult - ADIT Joint LLP";
   position: fixed;
   top: 50%;
   left: 50%;
