@@ -1638,7 +1638,8 @@ footer {
     margin-bottom: 0;
     font-size: var(--font-size-sm);
 }
-body {
+
+{
   position: relative;
   min-height: 100vh;
   margin: 0;
