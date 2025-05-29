@@ -1638,46 +1638,104 @@ footer {
     margin-bottom: 0;
     font-size: var(--font-size-sm);
 }
-{
-  position: relative;
-  min-height: 100vh;
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6f8;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-}
-
-.watermark {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 9999;
-  background-repeat: repeat;
-  background-image: repeating-linear-gradient(
-    -45deg,
-    rgba(0, 0, 0, 0.05) 0,
-    rgba(0, 0, 0, 0.05) 1px,
-    transparent 1px,
-    transparent 100px
-  );
-}
-
-.container::before {
-  content: "CONFIDENTIAL";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-30deg);
-  font-size: 6rem;
-  color: rgba(43, 79, 129, 0.06); /* Very light blue */
-  white-space: nowrap;
-  pointer-events: none;
+  color: #333;
+  position: relative;
   z-index: 0;
 }
 
+body::before {
+  content: "ADAM Consult - Confidential";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-55deg);
+  font-size: 4rem;
+  color: rgba(43, 79, 129, 0.08);
+  white-space: nowrap;
+  z-index: -1;
+  pointer-events: none;
+  user-select: none;
+}
+
 .container {
-  position: relative;
-  z-index: 1;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #fff;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-icon {
+  background-color: #2b4f81;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2b4f81;
+}
+
+.btn-primary {
+  background-color: #2b4f81;
+  color: #fff;
+  padding: 0.6rem 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+h1, h2 {
+  color: #2b4f81;
+}
+
+h1 {
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.5rem;
+  margin-top: 1rem;
+}
+
+p {
+  margin: 1rem 0;
+}
+
+ul {
+  margin: 0.5rem 0 1.5rem 2rem;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+  margin: 2rem 0 1rem;
+}
+
+a {
+  color: #2b4f81;
+}
+
+.mobile-menu-toggle {
+  display: none;
 }
