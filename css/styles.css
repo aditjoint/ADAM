@@ -1685,7 +1685,15 @@ body::before {
   user-select: none;
   z-index: 0;
 }
-
+.watermark span {
+  position: absolute;
+  left: -50%;
+  width: 200%;
+  font-size: 1.5rem;
+  color: rgba(43, 79, 129, 0.06);
+  transform: rotate(-35deg);
+  white-space: nowrap;
+}
 .watermark span:nth-child(1) {
   top: 10%;
 }
