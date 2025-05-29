@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<body>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,22 +12,6 @@
       margin: 0;
       padding: 0;
       color: #333;
-      position: relative;
-      z-index: 0;
-    }
-
-    body::before {
-      content: "ADAM Consult - Confidential";
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(-30deg);
-      font-size: 4rem;
-      color: rgba(43, 79, 129, 0.08);
-      white-space: nowrap;
-      z-index: -1;
-      pointer-events: none;
-      user-select: none;
     }
 
     .container {
@@ -37,6 +20,21 @@
       padding: 2rem;
       background-color: #fff;
       box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
+      position: relative;
+      z-index: 1;
+    }
+
+    .container::before {
+      content: "ADAM Consult - Confidential";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 6rem;
+      color: rgba(43, 79, 129, 0.06);
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 0;
     }
 
     .header-content {
@@ -137,56 +135,4 @@
 
     <h2>2. Obligations of Receiving Party</h2>
     <ul>
-      <li>Maintain strict confidentiality of all Confidential Information received.</li>
-      <li>Use the Confidential Information solely for the purpose of evaluating or conducting business with ADAM Consult.</li>
-      <li>Not disclose Confidential Information to any third party without prior written consent from ADAM Consult.</li>
-      <li>Take reasonable precautions to protect the confidentiality of the information.</li>
-    </ul>
-
-    <h2>3. Exclusions from Confidential Information</h2>
-    <p>Confidential Information does not include information that:</p>
-    <ul>
-      <li>Is or becomes publicly known through no breach of this Agreement by the Receiving Party.</li>
-      <li>Is received from a third party without breach of any obligation of confidentiality.</li>
-      <li>Is independently developed by the Receiving Party without use of or reference to the Confidential Information.</li>
-      <li>Is required to be disclosed by law or governmental authority, provided the Receiving Party gives prompt notice to ADAM Consult.</li>
-    </ul>
-
-    <h2>4. Term and Termination</h2>
-    <p>This Agreement remains in effect during the term of the relationship and for a period of five (5) years following termination or conclusion of any engagement or business relationship between the parties.</p>
-
-    <h2>5. No License or Ownership Rights</h2>
-    <p>Nothing in this Agreement grants the Receiving Party any rights or licenses to use or exploit the Confidential Information except as expressly permitted for evaluation purposes.</p>
-
-    <h2>6. Limitation of Liability</h2>
-    <p>ADAM Consult shall not be held liable for any direct, indirect, incidental, consequential, or punitive damages arising from the use or inability to use the Confidential Information or any solutions or services provided by ADAM Consult, its registered partners, or advisors.</p>
-
-    <h2>7. Independent Testing and Validation</h2>
-    <p>Although the solutions and offerings provided by ADAM Consult and its registered partners/advisors are designed in good faith to meet the Receiving Party’s technical requirements and follow best practices and best efforts basis, the Receiving Party is responsible for independently testing, validating, and measuring the consequential benefits and losses arising from the implementation of such solutions throughout the entire deal and support lifecycle.</p>
-
-    <h2>8. No Liability for Third-Party Communications</h2>
-    <p>ADAM Consult shall not be responsible or liable for any communications, agreements, transactions, or dealings that occur directly between the Receiving Party and third parties, including partners, advisors, or other entities, without the direct involvement of ADAM Consult.</p>
-
-    <h2>9. Return or Destruction of Confidential Information</h2>
-    <p>Upon written request from ADAM Consult, the Receiving Party shall promptly return or destroy all materials containing Confidential Information and provide a written certification of such return or destruction.</p>
-
-    <h2>10. Governing Law and Dispute Resolution</h2>
-    <p>This Agreement shall be governed by and construed in accordance with the laws of India. Any disputes arising under this Agreement shall be subject to the exclusive jurisdiction of the courts of India.</p>
-
-    <h2>11. Miscellaneous</h2>
-    <ul>
-      <li>This Agreement constitutes the entire agreement between the parties regarding the subject matter herein.</li>
-      <li>No amendments or modifications shall be valid unless in writing and signed by both parties.</li>
-      <li>If any provision of this Agreement is held invalid or unenforceable, the remaining provisions shall remain in full force and effect.</li>
-    </ul>
-
-    <h2>Contact Information</h2>
-    <p>For questions or requests related to this NDA, please contact us at <a href="mailto:adamconsultservice@adamconsult.com">adamconsultservice@gmail.com</a>.</p>
-
-    <!-- Footer -->
-    <footer>
-      &copy; 2025 ADAM Consult, ADIT Joint LLP. All rights reserved.
-    </footer>
-  </div>
-</body>
-</html>
+      <li>Maintain strict confidentiality of all Confidential Information received
