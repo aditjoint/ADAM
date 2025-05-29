@@ -1653,7 +1653,7 @@ body::before {
   position: fixed;
   bottom: 0;
   left: 0;
-  transform: rotate(45deg) transalate (-20%, 20%);
+  transform: rotate(75deg) transalate (-20%, 20%);
   font-size: 2rem;
   color: rgba(43, 79, 129, 0.07);
   white-space: nowrap;
