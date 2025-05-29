@@ -14,6 +14,28 @@
       padding: 0;
       color: #333;
     }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      background-color: #fff;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
+      position: relative;
+      z-index: 1;
+    }
+
+    .container::before {
+      content: "ADAM Consult - ADIT Joint LLP";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 4rem;
+      color: rgba(43, 79, 129, 0.06);
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 0;
+    }
 
     .container {
       max-width: 960px;
