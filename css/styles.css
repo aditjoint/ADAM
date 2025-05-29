@@ -1663,9 +1663,25 @@ body::before {
 }
 
 .container {
+  position: relative; /* Ensure watermark is positioned relative to this */
   max-width: 960px;
   margin: 0 auto;
   padding: 2rem;
   background-color: #fff;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
+  overflow: hidden; /* Prevent watermark from spilling out */
+}
+
+.container::before {
+  content: "ADAM Consult - Confidential";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: rotate(35deg) translate(-20%, 0%);
+  font-size: 2.2rem;
+  color: rgba(43, 79, 129, 0.07);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
 }
