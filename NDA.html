@@ -13,6 +13,20 @@
       padding: 0;
       color: #333;
     }
+    
+    body::before {
+      content: "ADAM Consult - Confidential";
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 4rem;
+      color: rgba(43, 79, 129, 0.08);
+      white-space: nowrap;
+      z-index: -1;
+      pointer-events: none;
+      user-select: none;
+    }
 
     .container {
       max-width: 960px;
@@ -109,24 +123,7 @@
       </div>
     </div>
 
- <!-- Watermark Layer -->
-  <div class="watermark"></div>
 
-  <!-- Main Page Content -->
-  <div class="container">
-    <!-- Header -->
-    <div class="header-content">
-      <a href="index.html" class="logo">
-        <div class="logo-icon"><span class="letter">A</span></div>
-        <span class="logo-text">ADAM Consult</span>
-      </a>
-      <div class="cta-button">
-        <a href="contact.html" class="btn-primary">Get In Touch</a>
-      </div>
-      <div class="mobile-menu-toggle">
-        <i class="fas fa-bars"></i>
-      </div>
-    </div>
 
     <!-- Main Content -->
     <h1>Non-Disclosure Agreement (NDA)</h1>
