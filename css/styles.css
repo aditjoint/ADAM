@@ -1649,7 +1649,7 @@ body {
   z-index: 0;
 }
 
-body::before {
+body.watermarked::before {
   content: "ADAM Consult - ADIT Joint LLP";
   position: fixed;
   bottom: 0;
@@ -1662,4 +1662,3 @@ body::before {
   pointer-events: none;
   user-select: none;
 }
-
