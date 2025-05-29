@@ -1666,7 +1666,7 @@ body::before {
   position: relative; /* Ensure watermark is positioned relative to this */
   max-width: 960px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1.5rem;
   background-color: #fff;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
   overflow: hidden; /* Prevent watermark from spilling out */
