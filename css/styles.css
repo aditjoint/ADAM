@@ -1664,15 +1664,20 @@ footer {
   );
 }
 
-.watermark::before {
-  content: "ADAM Consult / ADIT Joint LLP — Intellectual Property";
+.container::before {
+  content: "CONFIDENTIAL";
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-30deg);
-  font-size: 24px;
-  color: rgba(0, 0, 0, 0.08);
+  font-size: 6rem;
+  color: rgba(43, 79, 129, 0.06); /* Very light blue */
   white-space: nowrap;
   pointer-events: none;
+  z-index: 0;
 }
 
+.container {
+  position: relative;
+  z-index: 1;
+}
