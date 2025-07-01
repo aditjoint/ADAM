@@ -1098,55 +1098,57 @@ header {
 /* --------------------------------------------
    Call to Action Section
 -------------------------------------------- */
+/* Define colors */
 :root {
-  --soft-peach: #fff3e8;
-  --peach-text: #4a2f1b;
-  --accent-orange: #e67e22;
+  --soft-peach: #fff7f0;         /* Soft, warm non-blue color */
+  --peach-border: #f2e3d9;
+  --text-dark: #3b2f2f;
+  --button-orange: #e67e22;
+  --button-orange-hover: #cf711c;
   --white: #ffffff;
-  --light-border: #f2dfd0;
 }
 
+/* CTA Section: Now a narrow band with soft peach background */
 .cta-section {
     background-color: var(--soft-peach);
-    border-top: 1px solid var(--light-border);
-    border-bottom: 1px solid var(--light-border);
-    padding: 20px 0; /* Very narrow band */
+    border-top: 1px solid var(--peach-border);
+    border-bottom: 1px solid var(--peach-border);
+    padding: 12px 0; /* Visibly narrow band */
 }
 
 .cta-content {
-    text-align: center;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
-    color: var(--peach-text);
+    text-align: center;
+    padding: 0 16px;
 }
 
 .cta-content h2 {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
-    margin: 0 0 6px;
-    color: var(--peach-text);
+    margin: 0;
+    color: var(--text-dark);
 }
 
 .cta-content p {
-    font-size: 14px;
-    margin: 0 0 10px;
-    color: var(--peach-text);
+    display: none; /* Remove for minimal layout */
 }
 
 .cta-content .btn-primary {
-    background-color: var(--accent-orange);
+    margin-left: 16px;
+    background-color: var(--button-orange);
     color: var(--white);
     border: none;
-    padding: 8px 20px;
+    padding: 6px 18px;
     font-size: 14px;
     border-radius: 4px;
-    text-decoration: none;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
     display: inline-block;
+    text-decoration: none;
 }
 
 .cta-content .btn-primary:hover {
-    background-color: #cf711c;
+    background-color: var(--button-orange-hover);
     color: var(--white);
 }
 
