@@ -1099,58 +1099,56 @@ header {
    Call to Action Section
 -------------------------------------------- */
 :root {
-  --soft-blue: #e9f2fb;         /* Elegant soft blue */
-  --deep-blue: #0056D2;         /* CTA button color */
-  --cta-text: #1a1a1a;          /* Dark readable text */
+  --soft-peach: #fff3e8;
+  --peach-text: #4a2f1b;
+  --accent-orange: #e67e22;
   --white: #ffffff;
-  --gray-border: #d0e6f7;
+  --light-border: #f2dfd0;
 }
 
-/* CTA Section Styling */
 .cta-section {
-    background-color: var(--soft-blue);
-    padding: 40px 0; /* Narrow height */
-    border-top: 1px solid var(--gray-border);
-    border-bottom: 1px solid var(--gray-border);
-    text-align: center;
+    background-color: var(--soft-peach);
+    border-top: 1px solid var(--light-border);
+    border-bottom: 1px solid var(--light-border);
+    padding: 20px 0; /* Very narrow band */
 }
 
 .cta-content {
+    text-align: center;
     max-width: 900px;
     margin: 0 auto;
-    color: var(--cta-text);
+    color: var(--peach-text);
 }
 
 .cta-content h2 {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 600;
-    margin-bottom: 10px;
-    color: var(--cta-text);
+    margin: 0 0 6px;
+    color: var(--peach-text);
 }
 
 .cta-content p {
-    font-size: 16px;
-    margin-bottom: 20px;
-    color: #333;
+    font-size: 14px;
+    margin: 0 0 10px;
+    color: var(--peach-text);
 }
 
 .cta-content .btn-primary {
-    background-color: var(--deep-blue);
+    background-color: var(--accent-orange);
     color: var(--white);
     border: none;
-    padding: 10px 24px;
-    font-size: 15px;
+    padding: 8px 20px;
+    font-size: 14px;
     border-radius: 4px;
-    transition: all 0.3s ease;
     text-decoration: none;
+    transition: all 0.3s ease;
     display: inline-block;
 }
 
 .cta-content .btn-primary:hover {
-    background-color: #003a99;
+    background-color: #cf711c;
     color: var(--white);
 }
-
 
 
 /* --------------------------------------------
