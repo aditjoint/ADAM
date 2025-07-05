@@ -43,11 +43,16 @@
   </style>
 </head>
 
-<body>
+
+
+  <body>
+  <!-- ✅ HEADER PLACEHOLDER -->
   <div id="header-placeholder"></div>
+
  
-  
-<script>
+  <!-- ✅ HEADER LOAD SCRIPT -->
+ 
+  <script>
   fetch("../header.html")
     .then(res => res.text())
     .then(html => {
@@ -89,7 +94,6 @@
     })
     .catch(err => console.error("Header load failed:", err));
 </script>
-
 
 
   
