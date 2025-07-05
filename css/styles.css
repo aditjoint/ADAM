@@ -221,7 +221,6 @@ section {
 body {
   padding-top: 80px; /* Adjust if header is taller/shorter */
 }
-
 header {
     background-color: var(--white);
     box-shadow: var(--shadow-sm);
@@ -231,14 +230,12 @@ header {
     z-index: 1000;
     transition: all 0.3s ease-in-out;
 }
-
 .header-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: var(--spacing-sm) 0;
 }
-
 /* Logo *
 .logo a {
     display: flex;
