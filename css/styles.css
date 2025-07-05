@@ -219,11 +219,16 @@ section {
    Header & Navigation
 -------------------------------------------- */
 header {
-    background-color: var(--white);
-    box-shadow: var(--shadow-sm);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background: white; /* or your theme color */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+body {
+  padding-top: 80px; /* Adjust depending on your header height */
 }
 
 .header-content {
@@ -233,7 +238,7 @@ header {
     padding: var(--spacing-sm) 0;
 }
 
-/* Logo */
+/* Logo *
 .logo a {
     display: flex;
     align-items: center;
