@@ -1,210 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Digital Transformation Services - ADAM Consult</title>
-  <meta name="description" content="Our digital transformation services help businesses modernize operations, implement enterprise IT strategies, develop custom web applications, and automate processes." />
-
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="../css/styles.css" />
-  <link rel="stylesheet" href="../css/responsive.css" />
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology Infrastructure Services - ADAM Consult</title>
+    <meta name="description" content="Our comprehensive technology infrastructure services include data center solutions, enterprise IT infrastructure, network architecture, and server solutions.">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../index.html">
+                        <div class="logo-icon">
+                            <span class="letter">A</span>
+                        </div>
+                        <span class="logo-text">ADAM Consult</span>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">Consult Service <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                    <li><a href="../services/technology-infrastructure.html">Technology Infrastructure</a></li>
+                                    <li><a href="../services/digital-transformation.html">Digital Transformation</a></li>
+                                    <li><a href="../services/sustainability-solutions.html">Sustainability Solutions</a></li>
+                                    <li><a href="../services/process-automation.html">Process Automation</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">Current Affairs <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../currentaffairs/news.html">News</a></li>
+                                <li><a href="../currentaffairs/campaign.html">Campaigns</a></li>
+                                <li><a href="../currentaffairs/events.html">Events</a></li>
+                                <li><a href="../currentaffairs/projects.html">Projects</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="cta-button">
+                    <a href="../contact.html" class="btn btn-primary">Get In Touch</a>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
 
 </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Section - ADAM Consult</title>
 
-<body>
-  <!-- ✅ HEADER PLACEHOLDER -->
-  <div id="header-placeholder"></div>
-
-  <!-- ✅ HEADER LOAD SCRIPT -->
-  <script>
-    fetch("../header.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("header-placeholder").innerHTML = html;
-
-        // Mobile menu toggle
-        const toggleButton = document.querySelector(".mobile-menu-toggle");
-        const navLinks = document.querySelector(".main-nav");
-
-        if (toggleButton && navLinks) {
-          toggleButton.addEventListener("click", function () {
-            navLinks.classList.toggle("active");
-          });
+    <style>
+        body {
+        .news-section {
+            background-color: #ffffff;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 5px solid #eee;
+        }
+        .news-section h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        .news-article {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto 40px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            max-width: 800px;
+        }
+        .news-article h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #007BFF;
+        }
+        .news-article p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
         }
 
-        // Mobile dropdown toggle
-        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-        dropdownToggles.forEach(toggle => {
-          toggle.addEventListener('click', function (e) {
-            e.preventDefault();
-            const dropdownMenu = this.nextElementSibling;
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Utkal Electrotechnic</title>
+  <style>
+    .left-align {
+      text-align: left;
+      max-width: 800px;
+      margin: 0 auto;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="left-align">
 
-            // Close other dropdowns
-            document.querySelectorAll('.dropdown-menu').forEach(menu => {
-              if (menu !== dropdownMenu) {
-                menu.style.display = 'none';
-              }
-            });
 
-            // Toggle current dropdown
-            if (dropdownMenu.style.display === 'block') {
-              dropdownMenu.style.display = 'none';
-            } else {
-              dropdownMenu.style.display = 'block';
-            }
-          });
-        });
-      })
-      .catch(err => console.error("Header load failed:", err));
-  </script>
+            
+    </style>    
 
+<body>
 
 <!-- News Section -->
 <section class="news-section">
-    <h2>News / Recommendations</h2>
+    <h2>News / Latest Recommendations / Advertise</h2>
 
-    <div class="news-article">
-        <h3>BizSuite-ERP Solutions</h3>
-        <p>A simple, affordable ERP built for growing businesses — covering finance, inventory, compliance etc. with a modular approach and budget friendly approach.</p>
-        <p>INDUSTRY specific solutions for Education, Learning, Healthcare, Manufacturing verticals and other verticals modular fitment from below modules:</p>
-       <img src="../images/erp1.png" alt="Card 17">
-        <p>A highly scalable, modular ERP solution engineered to streamline and automate core business functions across Sales, Buying, CRM, Accounts, Projects, Support, Payroll, HRMS, Quality Management, Production Planning, Maintenance, Inventory, Assets, Utilities, Subcontracting, Bulk Transactions, Payment Gateways, EDI, Telephony, Communication, Portals, Social, Contacts, Printing, Geo-tagging, Email, Workflow, Analytics, Automation, Website, and Core ERP. Built with seamless integration, customization, and performance at its core, this platform empowers businesses with real-time visibility, intelligent workflows, and centralized control across all departments.</p>
-        
-    </div>
-    
 <div class="news-article">
     <h3 style="color: #007BFF;">Utkal Electrotechnic – Industrial Electromagnetic Solutions</h3>
     <p>Specialized products for power and automation sectors built with precision and durability.</p>
     <p style="margin-top: 10px;"> Utkal Electrotechnic offers a comprehensive range of industrial products based on electromagnetic field technology. Our products meet stringent quality standards, ensuring high durability, cost efficiency, and long service life.</p>
     <p>We also provide tailor-made specifications to suit customer-specific requirements across industrial and infrastructure applications.</p>
-    <ul style="padding-left: 18px; list-style-position: inside;">
+<ul style="padding-left: 18px; list-style-position: inside;">
     <li>Instrument Transformers</li>
     <li>Indoor Current Transformers (CTs)</li>
     <li>Indoor Voltage Transformers (VTs)</li>
-    </ul>
+</ul>
     <p>
         All products are built for reliability and compliance with national and international standards.
     </p>
 
          <a
             href="/Utkal Electrotechnic2.png" target="_blank">
-            <img src="Utkal Electrotechnic1.png" alt="Utkal Electrotechnic Screenshot" style="max-width:100%; height:auto; border-radius:8px;">
+            <img src="Utkal Electrotechnic2.png" alt="Utkal Electrotechnic Screenshot" style="max-width:100%; height:auto; border-radius:8px;">
         </a><br>
+    
+    <div
+    <a href="../contact.html" class="btn btn-primary">Contact Us</a>
 </div>
- 
-<div class="news-article">
+</div>
+    
+    <div class="news-article">
         <h3 style="color: #007BFF;">ISO Certification Services</span></h2>
         <p>Helping you achieve global standards in Quality and Information Security</p>
+
     <div 
         <h3 style="color: #28A745;">ISO 9001: Quality Management System</h3>
         <p><strong>Achieve Operational Excellence</strong></p>
         <p>Deliver consistent, high-quality products and services. Enhance customer satisfaction, streamline internal processes, and strengthen your market reputation with global certification.</p>
-     <img src="../images/batch.png" alt="Card 9">
+
     <div 
         <h3 style="color: #28A745;">ISO 27001: Information Security Management</h3>
         <p><strong>Secure Your Business. Earn Client Trust.</strong></p>
-        <img src="../images/isms.png" alt="Card 15">
-
         <p>Protect sensitive data, comply with international standards, and build trust through certified information security practices.</p>
     </div>
-          
+          <p># Indian MSME customers: For a free initial consulting (window open till June-2025), you may please book a limited session by sending email request.</p>
+        <a href="../contact.html" class="btn btn-primary">Contact Us</a>
     </div>
-    
-    <div class="news-article"style="display: none;">
-        <h3>Global Audit Checklist Solution</h3>
-        <p>Features include pre-built templates, multi-region compliance support, actionable insights, scheduling automation, and detailed reporting — all in one platform.</p>
-      
     </div>
     </div>
     
     <div class="news-article">
-        <h3>Green Initiatives</h3>
-        <p>In partnership with key institutions, Develop Energy Management Solutions to lead its push into sustainable innovation and green consulting services.</p>
-        <img src="../images/dc.png" alt="Card 14">
+        <h3>Global Audit Checklist Solution</h3>
+        <p>Features include pre-built templates, multi-region compliance support, actionable insights, scheduling automation, and detailed reporting — all in one platform.</p>
+        <a href="../contact.html" class="btn btn-primary">Contact Us</a>
+    </div>
+    
+    <div class="news-article">
+        <h3>ADAM Consult works with actfour technologies</h3>
+        <p>Introducing Enterprise Products and Solutions for Budget Control and Global Audit Compliance</p>
+        <p>This comprehensive suite offers automated tracking, real-time alerts, forecasting, ERP integration, and more — all tailored to global compliance needs.</p>
+        <a href="../contact.html" class="btn btn-primary">Contact Us</a>
+    </div>
+
+    <div class="news-article">
+        <h3>ERP Solutions</h3>
+        <p>A simple, affordable ERP built for growing businesses — covering finance, inventory, compliance, and more with a modular approach and zero overhead.</p>
+        <p>For an application Demo, please contact us</p>
+        <p>https://erp.adamconsult.com</p>
+        <a href="../contact.html" class="btn btn-primary">Contact Us</a>
+    </div>
+
+    <div class="news-article">
+        <h3>ERP and shiftingsands Launch Visuals</h3>
+        <a href="/ERP.png" target="_blank">
+            <img src="ERP.png" alt="ERP Screenshot" style="max-width:100%; height:auto; border-radius:8px;">
+        </a><br>
+        <a href="/shiftingsands.png" target="_blank">
+            <img src="shiftingsands.png" alt="shiftingsands Screenshot" style="max-width:100%; height:auto; border-radius:8px; margin-top: 20px;">
+        </a>
     <div
-    <h3>Revolutionizing Data Center Facilities with Smart PUE Optimization & Resilient Energy Storage</h3>
-    <p><strong>ADAM Consult</strong> Modernize data center infrastructure by integrating next-generation technologies to enhance energy efficiency, reliability, and environmental sustainability.</p>
-    <img src="../images/pue.png" alt="Card 16">
-    <p><strong>Intelligent PUE Optimization</strong><br>
+        <h3>shiftingsands Brochure</h3>
+        <a href="https://drive.google.com/drive/folders/1RiUIZUtrbX0VkNGNtTHGtBwjqp-osXIx-" target="_blank" class="btn btn-primary">View shiftingsands</a>
+    </div>
+    </div>
+    
+    <div class="news-article">
+        <h3>ADAM Consult's Upcoming Green Initiatives</h3>
+        <p>In partnership with key institutions, ADAM Consult is aiming to develop Energy Management Solutions to lead its push into sustainable innovation and green consulting services.</p>
+        
+    <div
+    <h3>Revolutionizing Data Center Facilities: Smart PUE Optimization & Resilient Energy Storage</h3>
+    <p><strong>ADAM Consult</strong> help modernizing data center infrastructure by integrating next-generation technologies to enhance energy efficiency, reliability, and environmental sustainability.</p>
+
+    <p><strong>🔹 Intelligent PUE Optimization</strong><br>
     Leveraging AI-powered environmental controls, dynamic workload balancing, and predictive cooling systems, drive down Power Usage Effectiveness (PUE) to near-ideal levels. Through advanced DCIM (Data Center Infrastructure Management) platforms and IoT-enabled sensors, ensure real-time energy monitoring and adaptive optimization—reducing energy waste and carbon footprint across hyperscale and edge facilities.</p>
 
-    <p><strong>Advanced Energy Storage & Power Resilience</strong><br>
-    In collaboration with leading battery technology innovators, we guide/ facilitate the deployment of high-efficiency, low-latency Energy Storage Systems (ESS) including Lithium Titanate (LTO). These systems offer seamless backup, frequency regulation, and peak shaving, ensuring uptime even during grid instability. Our modular, fire-safe storage designs support rapid scalability and compliance with Tier III+ and Tier IV data center standards.</p>
+    <p><strong>🔹 Advanced Energy Storage & Power Resilience</strong><br>
+    In collaboration with leading battery technology innovators, ADAM Consult facilitate the deployment of high-efficiency, low-latency Energy Storage Systems (ESS) including Lithium Titanate (LTO). These systems offer seamless backup, frequency regulation, and peak shaving, ensuring uptime even during grid instability. Our modular, fire-safe storage designs support rapid scalability and compliance with Tier III+ and Tier IV data center standards.</p>
 
-    <p><strong>ESG-Driven Design & Compliance</strong><br>
+    <p><strong>🔹 ESG-Driven Design & Compliance</strong><br>
     With a focus on green certifications like LEED, Energy Star, and ISO 50001, our solutions not only reduce OPEX but also align with clients’ environmental, social, and governance (ESG) commitments—positioning them as leaders in sustainable digital infrastructure.</p>
 
     <p>Whether designing new-age colocation hubs or upgrading legacy sites, <strong>ADAM Consult</strong> delivers future-ready, resilient, and efficient data center strategies tailored for a decarbonized, digitally accelerated world.</p>
+
+        <a href="../contact.html" class="btn btn-primary">Contact Us</a>
         </div>
     </div>
-    
-<div class="news-article">
-    <!--Smart Waste Management -->
-  <h3> Smart Waste Management & Circular Resource Optimization</h3>
-  <p><strong>Strategic advisory across the waste value chain</strong> — transforming waste into value through data intelligence, circularity, and ESG-driven planning.</p>
-    <li>AI-Enhanced Segregation & Intelligent Tracking: Implementation of AI/IoT-based systems for real-time waste profiling and automation at source across institutions and industry setups.</li>
-    <li>Circular Waste-to-Value Systems: Consulting for reuse pathways, recovery models, and integration with recycling/MRF partners to enable closed-loop operations.</li>
-    <li>ESG Metrics & Zero-Waste Roadmaps: Compliance with SWM Rules, EPR, and sustainability disclosures with audit-ready traceability and CSR alignment.</li>
-  </ul>
-    </div>
-</div>
+        
+        
+
 </section>
 
+</body>
     
-   <!-- Call to Action Section -->
-    <section class="cta-section">
+    <!-- Footer -->
+    <footer>
         <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Transform Your Infrastructure?</h2>
-                <p>Contact us today to discuss how our technology and engineering solutions can help your organization achieve efficiency, sustainability, and innovation.</p>
-                <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <span class="letter">A</span>
+                        </div>
+                        <span class="logo-text">ADAM Consult</span>
+                    </div>
+                    <p>ADAM Consult is a strategic gateway and modular collaboration hub that empowers cross-sector innovation. By uniting investors, partners, consultants, and customers in a unified ecosystem, it enables high-impact partnerships that drive efficiency, connectivity, and long-term value across industries. It accelerates industrial intelligence through advanced data solutions and digital integration.</p>
+                 
+  <div class="social-links">
+    <a href="https://www.facebook.com/yourprofile" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://twitter.com/yourprofile" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://www.instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/yourprofile" target="_blank"><i class="fab fa-youtube"></i></a>
+  </div>
+
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="../../index.html">Home</a></li>
+                            <li><a href="../../services/technology-infrastructure.html">Services</a></li>
+                            <li><a href="../../about.html">About Us</a></li>
+                            <li><a href="../../advisors.html">Advisors</a></li>
+                            <li><a href="../../partners.html">Partners</a></li>
+                            <li><a href="../../investment">Investor Portfolio</a></li>
+                            <li><a href="../../resources">Resources</a></li>
+                            <li><a href="../../contact.html">Contact</a></li>
+                        </ul>
+
+                    </div>
+                    <div class="link-group">
+                        <h3>Legal</h3>
+                                  <p>
+                                    <p><a href="../termsofuse.html">Terms of Use</a></p></p>
+                                    <p><a href="../dataprotection.html">Data Protection Policy</a></p>
+                                    <p><a href="../whistleblowing.html">Whistleblowing Policy</a></p>
+                                    <p><a href="../privacy&cookies.html">Privacy & Cookie Policy</a></p>
+                                 </p>
+
+                    </div>
+                    <div class="link-group">
+                        <h3>Our Location</h3>
+                        <div class="footer-contact-grid">
+                              <a href="https://www.google.com/maps?q=Navi+Mumbai,+India" class="contact-item" target="_blank">
+                              <i class="fas fa-map-marker-alt"></i>
+                                  <span>Navi Mumbai, India</span>
+                                </a>
+                            <a href="tel:+91-2235667733(direct), 8779639965 (whatsapp)" class="contact-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>+91-2235667733</span>
+                            </a>
+                            <a href="mailto:adamconsultservice@gmail.com" class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>adamconsultservice@gmail.com</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ADAM Consult, ADIT Joint LLP. All rights reserved.</p>
             </div>
         </div>
-    </section>
+    </footer>
 
-   <!-- Footer placeholder -->
-  <div id="footer-placeholder"></div>
-
-  <!-- Footer injection script -->
-  <script>
-    fetch("../footer.html")
-      .then(response => {
-        if (!response.ok) throw new Error("Network response was not ok");
-        return response.text();
-      })
-      .then(data => {
-        document.getElementById("footer-placeholder").innerHTML = data;
-      })
-      .catch(error => console.error("Error loading footer:", error));
-  </script>
-
-<!-- In HEAD or before </body> -->
-<script src="/js/protect.js"></script>
-
-<!-- Inline fallback or extra rules -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.body.oncontextmenu = function () { return false; };
-    document.body.style.userSelect = "none";
-    document.body.style.webkitUserSelect = "none";
-    document.body.style.msUserSelect = "none";
-    document.body.onselectstart = function () { return false; };
-    document.body.ondragstart = function () { return false; };
-
-    // Optional additional blocking
-    document.addEventListener('keydown', function (e) {
-      if ((e.ctrlKey || e.metaKey) && ['c', 'x', 'u', 's', 'a'].includes(e.key.toLowerCase())) {
-        e.preventDefault();
-      }
-    });
-  });
-</script>
-
-  
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/dropdown.js"></script>
 </body>
 </html>
