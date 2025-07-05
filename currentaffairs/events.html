@@ -2,17 +2,106 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Digital Transformation Services - ADAM Consult</title>
-  <meta name="description" content="Our digital transformation services help businesses modernize operations, implement enterprise IT strategies, develop custom web applications, and automate processes."/>
+  <meta name="description" content="Our digital transformation services help businesses modernize operations, implement enterprise IT strategies, develop custom web applications, and automate processes." />
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="stylesheet" href="../css/responsive.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
   <style>
+    .campaign-section {
+      background-color: #ff8c00;
+      color: white;
+      padding: 10px 10px;
+      text-align: center;
+      border-bottom: 5px solid #333;
+    }
+    .campaign-title {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    .campaign-description {
+      font-size: 18px;
+      margin-bottom: 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .campaign-image {
+      margin-top: 30px;
+    }
+    .campaign-image img {
+      max-width: 30%;
+      height: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ✅ HEADER PLACEHOLDER -->
+  <div id="header-placeholder"></div>
+
+  <!-- ✅ HEADER LOAD SCRIPT -->
+  <script>
+    fetch("../header.html") // adjust path as needed
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header-placeholder").innerHTML = html;
+
+        // ✅ Mobile menu toggle script (after header loads)
+        const toggleButton = document.querySelector(".mobile-menu-toggle");
+        const navLinks = document.querySelector(".main-nav");
+
+        if (toggleButton && navLinks) {
+          toggleButton.addEventListener("click", function () {
+            navLinks.classList.toggle("active");
+          });
+        }
+      })
+      .catch(err => console.error("Header load failed:", err));
+  </script>
+
+    <!-- Events Section -->
+    <section class="events-section" style="display: none">
+        <h2>Events Registration Opens</h2>
+                <P></P>
+                <p></p>
+                <p></p>
+                <p></p>
+                  <p><strong>Event Schedule will be provided upon registration:</strong>
+                <a href="https://docs.google.com/document/d/1-iS3aG-gXRZcX31cyTrmEpnKbw5tfVhymPE6GO0QiGI/edit?tab=t.nlluu7ncpfw" target="_blank">
+                View/Download from Google Drive</a>
+                </p>
+                <P></P>
+                <p></p>
+                <p></p>
+                <p></p>
+                <p></p>
+              <section style="text-align: center; padding: 20px;">
+              <a href="../images/img7.png" target="_blank">
+              <img src="../images/img7.png" alt="Industry" style="max-width:100%; height:auto; border-radius:8px; display: inline-block;">
+              </a>
+              </section>
+
+        
+        <div class="event-item" style="display: none">
+            <h3>Business Process Automation for MSME customers</h3>
+            <p class="event-date">June 15, 2025 onwards</p>
+            <p>ERP Solutions - automating business process and compliance</p>
+            <a href="#event1" class="view-details">Want to book your session?</a>
+            <p><a href="../contact.html" class="btn btn-primary">Contact Us</a></p>
+        </div>
+  </section>
+     </div>
+
+  <section>
+ <style>
     :root {
       --bg-color: #0f172a;
       --card-bg: #1e293b;
@@ -25,58 +114,32 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Segoe UI', sans-serif;
     }
 
     body {
       background: var(--bg-color);
       color: var(--text-color);
+      padding: 2rem;
     }
 
-    .campaign-section {
-      background-color: #ff8c00;
-      color: white;
-      padding: 10px;
+    h1 {
       text-align: center;
-      border-bottom: 5px solid #333;
-    }
-
-    .campaign-title {
-      font-size: 36px;
-      margin-bottom: 20px;
-    }
-
-    .campaign-description {
-      font-size: 18px;
-      margin-bottom: 30px;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .campaign-image img {
-      max-width: 30%;
-      height: auto;
-      margin-top: 30px;
-    }
-
-    .events-section {
-      background-color: #fff;
-      color: #000;
-      padding: 30px;
-      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--highlight);
     }
 
     .rack-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.5rem;
-      padding: 2rem;
     }
 
     .rack {
       background: var(--card-bg);
       border-radius: 10px;
       padding: 1.5rem;
+      position: relative;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
       transition: transform 0.2s ease;
     }
@@ -93,8 +156,13 @@
 
     .sensor {
       display: flex;
+      align-items: center;
       justify-content: space-between;
       margin-bottom: 0.5rem;
+    }
+
+    .sensor span {
+      font-size: 0.95rem;
     }
 
     .temp-bar {
@@ -108,6 +176,7 @@
     .temp-bar-fill {
       height: 100%;
       background: linear-gradient(90deg, #22d3ee, #facc15);
+      width: 65%;
     }
 
     .status {
@@ -136,99 +205,77 @@
       color: #94a3b8;
     }
   </style>
-</head>
 
-<body>
+  <h1>SAMPLE - IoT-based Environmental Dashboard</h1>
 
-  <!-- ✅ HEADER PLACEHOLDER -->
-  <div id="header-placeholder"></div>
-  <script>
-    fetch("../header.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("header-placeholder").innerHTML = html;
-        const toggleButton = document.querySelector(".mobile-menu-toggle");
-        const navLinks = document.querySelector(".main-nav");
+  <div class="rack-grid">
 
-        if (toggleButton && navLinks) {
-          toggleButton.addEventListener("click", function () {
-            navLinks.classList.toggle("active");
-          });
-        }
-      })
-      .catch(err => console.error("Header load failed:", err));
-  </script>
-
-  <!-- ✅ EVENTS SECTION -->
-  <section class="events-section">
-    <h2>Events Registration Opens</h2>
-    <p><strong>Event Schedule will be provided upon registration:</strong>
-      <a href="https://docs.google.com/document/d/1-iS3aG-gXRZcX31cyTrmEpnKbw5tfVhymPE6GO0QiGI/edit?tab=t.nlluu7ncpfw" target="_blank">
-        View/Download from Google Drive</a>
-    </p>
-    <div>
-      <a href="../images/img7.png" target="_blank">
-        <img src="../images/img7.png" alt="Industry" style="max-width:100%; height:auto; border-radius:8px;">
-      </a>
-    </div>
-    <div class="event-item">
-      <h3>Business Process Automation for MSME Customers</h3>
-      <p class="event-date">June 15, 2025 onwards</p>
-      <p>ERP Solutions - automating business process and compliance</p>
-      <a href="#event1" class="view-details">Want to book your session?</a>
-      <p><a href="../contact.html" class="btn btn-primary">Contact Us</a></p>
-    </div>
-  </section>
-
-  <!-- ✅ DCIM RACK DASHBOARD -->
-  <section class="rack-grid">
     <div class="rack">
-      <div class="rack-title">Cabinet 01</div>
+      <div class="rack-title">Cabinet 01 </div>
       <div class="sensor"><span>Temperature</span><span>36°C</span></div>
       <div class="temp-bar"><div class="temp-bar-fill" style="width: 72%;"></div></div>
+
       <div class="sensor"><span>Humidity</span><span>45%</span></div>
       <div class="sensor"><span>Power Load</span><span>2.3 kW</span></div>
-      <div class="status ok"><i class="fas fa-check-circle"></i> All Systems Normal</div>
+
+      <div class="status ok">
+        <i class="fas fa-check-circle"></i> All Systems Normal
+      </div>
     </div>
 
     <div class="rack">
-      <div class="rack-title">Cabinet 02</div>
+      <div class="rack-title">Cabinet 02 </div>
       <div class="sensor"><span>Temperature</span><span>42°C</span></div>
       <div class="temp-bar"><div class="temp-bar-fill" style="width: 88%; background: red;"></div></div>
+
       <div class="sensor"><span>Humidity</span><span>58%</span></div>
       <div class="sensor"><span>Power Load</span><span>3.5 kW</span></div>
-      <div class="status warning"><i class="fas fa-exclamation-triangle"></i> Temperature High!</div>
+
+      <div class="status warning">
+        <i class="fas fa-exclamation-triangle"></i> Temperature High!
+      </div>
     </div>
 
     <div class="rack">
-      <div class="rack-title">Cabinet 03</div>
+      <div class="rack-title">Cabinet 03 </div>
       <div class="sensor"><span>Temperature</span><span>33°C</span></div>
       <div class="temp-bar"><div class="temp-bar-fill" style="width: 60%;"></div></div>
+
       <div class="sensor"><span>Humidity</span><span>40%</span></div>
       <div class="sensor"><span>Power Load</span><span>1.8 kW</span></div>
-      <div class="status ok"><i class="fas fa-check-circle"></i> Operating Normally</div>
+
+      <div class="status ok">
+        <i class="fas fa-check-circle"></i> Operating Normally
+      </div>
     </div>
 
     <div class="rack">
-      <div class="rack-title">Cabinet 04</div>
+      <div class="rack-title">Cabinet 04 </div>
       <div class="sensor"><span>Temperature</span><span>29°C</span></div>
       <div class="temp-bar"><div class="temp-bar-fill" style="width: 48%; background: #22c55e;"></div></div>
+
       <div class="sensor"><span>Humidity</span><span>35%</span></div>
       <div class="sensor"><span>Power Load</span><span>1.1 kW</span></div>
-      <div class="status ok"><i class="fas fa-check-circle"></i> Good Performance</div>
+
+      <div class="status ok">
+        <i class="fas fa-check-circle"></i> Good Performance
+      </div>
     </div>
+
   </section>
 
-  <!-- ✅ FOOTER -->
-  <div id="footer-placeholder"></div>
-  <script>
-    fetch("../footer.html")
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById("footer-placeholder").innerHTML = data;
-      })
-      .catch(error => console.error("Footer load error:", error));
-  </script>
+ 
+    
+  <!-- Footer placeholder -->
+<div id="footer-placeholder"></div>
+<script>
+  fetch("../footer.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    })
+    .catch(error => console.error("Footer load error:", error));
+</script>
 
 </body>
 </html>
