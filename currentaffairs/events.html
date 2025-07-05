@@ -194,111 +194,126 @@
   }
 </style>
     
-
-  <h1>SAMPLE - IoT-based Environmental Dashboard</h1>
+<!-- IoT Environmental Dashboard Section -->
+<section class="dashboard-section">
+  <h1 style="text-align: center; color: #22d3ee; font-size: 2rem; margin-bottom: 2rem;">SAMPLE - IoT-based Environmental Dashboard</h1>
 
   <div class="rack-grid">
 
+    <!-- Cabinet 01 -->
     <div class="rack">
-      <div class="rack-title">Cabinet 01 </div>
+      <div class="rack-title">Cabinet 01</div>
       <div class="sensor"><span>Temperature</span><span>36°C</span></div>
-      <div class="temp-bar"><div class="temp-bar-fill" style="width: 72%;"></div></div>
-
+      <div class="temp-bar"><div class="temp-bar-fill" style="width: 72%; background: #facc15;"></div></div>
       <div class="sensor"><span>Humidity</span><span>45%</span></div>
       <div class="sensor"><span>Power Load</span><span>2.3 kW</span></div>
-
-      <div class="status ok">
-        <i class="fas fa-check-circle"></i> All Systems Normal
-      </div>
+      <div class="status ok"><i class="fas fa-check-circle"></i> All Systems Normal</div>
     </div>
 
+    <!-- Cabinet 02 -->
     <div class="rack">
-      <div class="rack-title">Cabinet 02 </div>
+      <div class="rack-title">Cabinet 02</div>
       <div class="sensor"><span>Temperature</span><span>42°C</span></div>
-      <div class="temp-bar"><div class="temp-bar-fill" style="width: 88%; background: red;"></div></div>
-
+      <div class="temp-bar"><div class="temp-bar-fill" style="width: 84%; background: #ef4444;"></div></div>
       <div class="sensor"><span>Humidity</span><span>58%</span></div>
       <div class="sensor"><span>Power Load</span><span>3.5 kW</span></div>
-
-      <div class="status warning">
-        <i class="fas fa-exclamation-triangle"></i> Temperature High!
-      </div>
+      <div class="status warning"><i class="fas fa-exclamation-triangle"></i> Temperature High!</div>
     </div>
 
+    <!-- Cabinet 03 -->
     <div class="rack">
-      <div class="rack-title">Cabinet 03 </div>
+      <div class="rack-title">Cabinet 03</div>
       <div class="sensor"><span>Temperature</span><span>33°C</span></div>
-      <div class="temp-bar"><div class="temp-bar-fill" style="width: 60%;"></div></div>
-
+      <div class="temp-bar"><div class="temp-bar-fill" style="width: 66%; background: #facc15;"></div></div>
       <div class="sensor"><span>Humidity</span><span>40%</span></div>
       <div class="sensor"><span>Power Load</span><span>1.8 kW</span></div>
-
-      <div class="status ok">
-        <i class="fas fa-check-circle"></i> Operating Normally
-      </div>
+      <div class="status ok"><i class="fas fa-check-circle"></i> Operating Normally</div>
     </div>
 
+    <!-- Cabinet 04 -->
     <div class="rack">
-      <div class="rack-title">Cabinet 04 </div>
+      <div class="rack-title">Cabinet 04</div>
       <div class="sensor"><span>Temperature</span><span>29°C</span></div>
-      <div class="temp-bar"><div class="temp-bar-fill" style="width: 48%; background: #22c55e;"></div></div>
-
+      <div class="temp-bar"><div class="temp-bar-fill" style="width: 58%; background: #22c55e;"></div></div>
       <div class="sensor"><span>Humidity</span><span>35%</span></div>
       <div class="sensor"><span>Power Load</span><span>1.1 kW</span></div>
-
-      <div class="status ok">
-        <i class="fas fa-check-circle"></i> Good Performance
-      </div>
+      <div class="status ok"><i class="fas fa-check-circle"></i> Good Performance</div>
     </div>
 
-  <div class="rack">
-  <div class="rack-title">Power Monitoring - DC Floor A1</div>
-  <div class="sensor"><span>Input Voltage</span><span>230V</span></div>
-  <div class="sensor"><span>Load Current</span><span>18A</span></div>
-  <div class="sensor"><span>UPS Status</span><span>Active</span></div>
-  <div class="status ok">
-    <i class="fas fa-check-circle"></i> Redundant Power Active
-  </div>
-</div>
-
+    <!-- Fire Alarm -->
     <div class="rack">
-  <div class="rack-title">HVAC Zone 3 - Server Hall</div>
-  <div class="sensor"><span>Room Temp</span><span>27.5°C</span></div>
-  <div class="sensor"><span>Cooling Unit Load</span><span>67%</span></div>
-  <div class="status warning">
-    <i class="fas fa-exclamation-triangle"></i> High Load Detected
-  </div>
-</div>
-
-    <div class="rack">
-  <div class="rack-title">Access Control - Rack Bay 5</div>
-  <div class="sensor"><span>Last Access</span><span>10:32 AM</span></div>
-  <div class="sensor"><span>Auth Method</span><span>RFID</span></div>
-  <div class="status warning">
-    <i class="fas fa-user-lock"></i> Unauthorized Attempt Logged!
-  </div>
-</div>
-    <div class="rack">
-  <div class="rack-title">Leak Sensor - Battery Room</div>
-  <div class="sensor"><span>Leak Detected</span><span>YES</span></div>
-  <div class="sensor"><span>Last Event</span><span>5 mins ago</span></div>
-  <div class="status warning">
-    <i class="fas fa-water"></i> Leak Detected - Escalated
-  </div>
-</div>
-
-<div class="rack">
-  <div class="rack-title">Genset A - Backup Power</div>
-  <div class="sensor"><span>Fuel Level</span><span>78%</span></div>
-  <div class="sensor"><span>Status</span><span>Test Mode</span></div>
-  <div class="status ok">
-    <i class="fas fa-sync-alt"></i> Auto-Start Function OK
-  </div>
-</div>
-    
-
-  </section>
+      <div class="rack-title">Fire Alarm - Rack Area</div>
+      <div class="sensor"><span>Smoke Level</span><span>82%</span></div>
+      <div class="temp-bar"><div class="temp-bar-fill" style="width: 82%; background: #ef4444;"></div></div>
+      <div class="sensor"><span>Temperature</span><span>46°C</span></div>
+      <div class="status warning"><i class="fas fa-fire-alt"></i> 🔥 Fire Risk Detected!</div>
     </div>
+
+    <!-- Vibration Sensor -->
+    <div class="rack">
+      <div class="rack-title">Machine Vibration - Drill Press 07</div>
+      <div class="sensor"><span>Vibration Level</span><span>72%</span></div>
+      <div class="temp-bar"><div class="temp-bar-fill" style="width: 72%; background: #facc15;"></div></div>
+      <div class="sensor"><span>Temp</span><span>39°C</span></div>
+      <div class="status warning"><i class="fas fa-tools"></i> Preventive Maintenance Required</div>
+    </div>
+
+    <!-- Leak Sensor -->
+    <div class="rack">
+      <div class="rack-title">Leak Sensor - Battery Room</div>
+      <div class="sensor"><span>Leak Detected</span><span>YES</span></div>
+      <div class="sensor"><span>Last Event</span><span>5 mins ago</span></div>
+      <div class="status warning"><i class="fas fa-water"></i> Leak Detected - Escalated</div>
+    </div>
+
+    <!-- Access Control -->
+    <div class="rack">
+      <div class="rack-title">Access Control - Rack Bay 5</div>
+      <div class="sensor"><span>Last Access</span><span>10:32 AM</span></div>
+      <div class="sensor"><span>Auth Method</span><span>RFID</span></div>
+      <div class="status warning"><i class="fas fa-user-lock"></i> Unauthorized Attempt Logged!</div>
+    </div>
+
+    <!-- HVAC Load -->
+    <div class="rack">
+      <div class="rack-title">HVAC Zone 3 - Server Hall</div>
+      <div class="sensor"><span>Room Temp</span><span>27.5°C</span></div>
+      <div class="sensor"><span>Cooling Unit Load</span><span>67%</span></div>
+      <div class="temp-bar"><div class="temp-bar-fill" style="width: 67%; background: #facc15;"></div></div>
+      <div class="status warning"><i class="fas fa-exclamation-triangle"></i> High Load Detected</div>
+    </div>
+
+    <!-- Power Monitoring -->
+    <div class="rack">
+      <div class="rack-title">Power Monitoring - DC Floor A1</div>
+      <div class="sensor"><span>Input Voltage</span><span>230V</span></div>
+      <div class="sensor"><span>Load Current</span><span>18A</span></div>
+      <div class="sensor"><span>UPS Status</span><span>Active</span></div>
+      <div class="status ok"><i class="fas fa-check-circle"></i> Redundant Power Active</div>
+    </div>
+
+    <!-- Genset -->
+    <div class="rack">
+      <div class="rack-title">Genset A - Backup Power</div>
+      <div class="sensor"><span>Fuel Level</span><span>78%</span></div>
+      <div class="temp-bar"><div class="temp-bar-fill" style="width: 78%; background: #22c55e;"></div></div>
+      <div class="sensor"><span>Status</span><span>Test Mode</span></div>
+      <div class="status ok"><i class="fas fa-sync-alt"></i> Auto-Start Function OK</div>
+    </div>
+
+    <!-- Asset Tracker -->
+    <div class="rack">
+      <div class="rack-title">Asset Tracker - Zone B</div>
+      <div class="sensor"><span>Movement</span><span>ACTIVE</span></div>
+      <div class="temp-bar"><div class="temp-bar-fill" style="width: 100%; background: orange;"></div></div>
+      <div class="sensor"><span>Last Movement</span><span>1 min ago</span></div>
+      <div class="status warning"><i class="fas fa-shipping-fast"></i> Movement Alert: Confirm Location</div>
+    </div>
+
+  </div>
+</section>
+
+ 
  
     
   <!-- Footer placeholder -->
