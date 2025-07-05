@@ -248,34 +248,36 @@
 </section>
 
     
- <!-- Footer placeholder -->
-<div id="footer-placeholder"></div>
-<script>
-  fetch("../footer.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("footer-placeholder").innerHTML = data;
-    })
-    .catch(error => console.error("Footer load error:", error));
-</script>
+   <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Infrastructure?</h2>
+                <p>Contact us today to discuss how our technology and engineering solutions can help your organization achieve efficiency, sustainability, and innovation.</p>
+                <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
 
-  <!-- In HEAD or before </body> -->
+   <!-- Footer placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Footer injection script -->
+  <script>
+    fetch("../footer.html")
+      .then(response => {
+        if (!response.ok) throw new Error("Network response was not ok");
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById("footer-placeholder").innerHTML = data;
+      })
+      .catch(error => console.error("Error loading footer:", error));
+  </script>
+
+<!-- In HEAD or before </body> -->
 <script src="/js/protect.js"></script>
- <script src="/js/imgProtect.js"></script>
-  
-  <div style="position: relative; display: inline-block;">
-  <img src="yourimage.jpg" style="display: block;" />
-  <div style="
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    z-index: 2;
-  "></div>
-</div>
-  
+
 <!-- Inline fallback or extra rules -->
 <script>
   document.addEventListener('DOMContentLoaded', function () {
