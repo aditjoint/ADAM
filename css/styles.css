@@ -87,6 +87,17 @@ html {
     font-size: 16px;
 }
 
+
+body, * {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -ms-user-select: none !important;
+}
+
+
+
+
+
 body {
     font-family: var(--font-primary);
     font-size: var(--font-size-base);
