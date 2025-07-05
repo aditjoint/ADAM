@@ -219,27 +219,27 @@ section {
    Header & Navigation
 -------------------------------------------- */
 header {
-    background-color: var(--white);
-    box-shadow: var(--shadow-sm);
-    position: fixed;
-    top: 0;
-    width: 100%;  
-    z-index: 1000;
+  background-color: var(--white);
+  box-shadow: var(--shadow-sm);
+  position: fixed;
+  top: 0;
+  width: 100%;  
+  z-index: 1000;
   transition: all 0.3s ease-in-out;
 }
-   
-   /* This is important: ensures the content starts below fixed header */
+
 body {
-  padding-top: 0px; /* Adjust depending on header height */
+  padding-top: 100px; /* ✅ Adjust this if your header height is > 80px */
 }
-   
-}
+
 .header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: var(--spacing-sm) 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) 0;
 }
+
+
 /* Logo */
 .logo a {
     display: flex;
