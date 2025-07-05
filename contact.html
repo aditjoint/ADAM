@@ -44,18 +44,27 @@
 </head>
 
 <body>
-  <!-- ✅ Add header placeholder -->
-  <div id="header-placeholder"></div>
 
-  <!-- ✅ Add script after the placeholder exists -->
+  <div id="header-placeholder"></div>
   <script>
-    fetch("../header.html")
+    fetch("../header.html") // adjust path as needed
       .then(res => res.text())
       .then(html => {
         document.getElementById("header-placeholder").innerHTML = html;
+
+        // Mobile menu toggle script (after header loads)
+        const toggleButton = document.querySelector(".mobile-menu-toggle");
+        const navLinks = document.querySelector(".main-nav");
+
+        if (toggleButton && navLinks) {
+          toggleButton.addEventListener("click", function () {
+            navLinks.classList.toggle("active");
+          });
+        }
       })
       .catch(err => console.error("Header load failed:", err));
   </script>
+  
     <!-- Contact Banner -->
     <section class="contact-banner">
         <div class="container">
