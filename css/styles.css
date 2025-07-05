@@ -223,15 +223,13 @@ body {
 }
 
 header {
-    transition: all 0.3s ease-in-out;
-}
-
-header {
     background-color: var(--white);
     box-shadow: var(--shadow-sm);
     position: fixed;
     top: 0;
+    width: 100%;  
     z-index: 1000;
+    transition: all 0.3s ease-in-out;
 }
 
 .header-content {
