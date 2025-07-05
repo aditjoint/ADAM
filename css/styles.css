@@ -537,12 +537,15 @@ Hero Section
 scss
 Copy
 Edit
+
 .hero-section {
   position: relative;
+  margin-top: 4rem; /* ⬅️ Pushes hero down by approx. 2 line heights */
   padding: var(--spacing-4xl) 0;
   background: linear-gradient(to bottom, var(--primary-light), var(--white));
   overflow: hidden;
 }
+
 
 .hero-content {
   display: flex;
