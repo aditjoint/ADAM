@@ -49,25 +49,51 @@
   <div id="header-placeholder"></div>
 
   <!-- ✅ HEADER LOAD SCRIPT -->
+ 
   <script>
-    fetch("../header.html") // adjust path as needed
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("header-placeholder").innerHTML = html;
+  fetch("../header.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("header-placeholder").innerHTML = html;
 
-        // ✅ Mobile menu toggle script (after header loads)
-        const toggleButton = document.querySelector(".mobile-menu-toggle");
-        const navLinks = document.querySelector(".main-nav");
+      // Mobile menu toggle (hamburger)
+      const toggleButton = document.querySelector(".mobile-menu-toggle");
+      const navLinks = document.querySelector(".main-nav");
 
-        if (toggleButton && navLinks) {
-          toggleButton.addEventListener("click", function () {
-            navLinks.classList.toggle("active");
+      if (toggleButton && navLinks) {
+        toggleButton.addEventListener("click", function () {
+          navLinks.classList.toggle("active");
+        });
+      }
+
+      // ✅ Mobile dropdown toggle logic
+      const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+      dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function (e) {
+          e.preventDefault();
+          const dropdownMenu = this.nextElementSibling;
+
+          // Close other dropdowns
+          document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            if (menu !== dropdownMenu) {
+              menu.style.display = 'none';
+            }
           });
-        }
-      })
-      .catch(err => console.error("Header load failed:", err));
-  </script>
 
+          // Toggle current dropdown
+          if (dropdownMenu.style.display === 'block') {
+            dropdownMenu.style.display = 'none';
+          } else {
+            dropdownMenu.style.display = 'block';
+          }
+        });
+      });
+    })
+    .catch(err => console.error("Header load failed:", err));
+</script>
+
+  
 
   <!-- Campaign Section -->
   <section class="campaign-section"style="display: none">
