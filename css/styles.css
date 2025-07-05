@@ -218,7 +218,6 @@ section {
 /* --------------------------------------------
    Header & Navigation
 -------------------------------------------- */
-
 header {
     background-color: var(--white);
     box-shadow: var(--shadow-sm);
@@ -226,7 +225,6 @@ header {
     top: 0;
     width: 100%;  
     z-index: 1000;
-    transition: all 0.3s ease-in-out;
 }
 .header-content {
     display: flex;
@@ -234,7 +232,7 @@ header {
     justify-content: space-between;
     padding: var(--spacing-sm) 0;
 }
-/* Logo *
+/* Logo */
 .logo a {
     display: flex;
     align-items: center;
