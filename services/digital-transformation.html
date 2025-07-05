@@ -230,5 +230,27 @@
     .catch(error => console.error("Footer load error:", error));
 </script>
 
+  <!-- In HEAD or before </body> -->
+<script src="/js/protect.js"></script>
+
+<!-- Inline fallback or extra rules -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.body.oncontextmenu = function () { return false; };
+    document.body.style.userSelect = "none";
+    document.body.style.webkitUserSelect = "none";
+    document.body.style.msUserSelect = "none";
+    document.body.onselectstart = function () { return false; };
+    document.body.ondragstart = function () { return false; };
+
+    // Optional additional blocking
+    document.addEventListener('keydown', function (e) {
+      if ((e.ctrlKey || e.metaKey) && ['c', 'x', 'u', 's', 'a'].includes(e.key.toLowerCase())) {
+        e.preventDefault();
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
