@@ -232,14 +232,17 @@ header {
 }
 
 body {
-  padding-top: 120px; // Adjust to header height on desktop
+  padding-top: 120px; /* Adjust to header height on desktop */
 }
 
 @media (max-width: 768px) {
   body {
-    padding-top: 160px; // Adjust to larger mobile header
+    padding-top: 160px; /* Adjust to larger mobile header */
   }
 }
+
+
+
 
 .header-content {
   display: flex;
