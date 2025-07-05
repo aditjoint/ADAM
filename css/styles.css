@@ -229,7 +229,7 @@ header {
    
    /* This is important: ensures the content starts below fixed header */
 body {
-  padding-top: 80px; /* Adjust depending on header height */
+  padding-top: 0px; /* Adjust depending on header height */
 }
    
 }
