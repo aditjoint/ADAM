@@ -18,7 +18,7 @@
     .campaign-section {
       background-color: #ff8c00;
       color: white;
-      padding: 10px 10px;
+      padding: 60px 20px;
       text-align: center;
       border-bottom: 5px solid #333;
     }
@@ -40,104 +40,41 @@
       max-width: 30%;
       height: auto;
     }
-  </style>
-</head>
 
-<body>
-  <!-- ✅ HEADER PLACEHOLDER -->
-  <div id="header-placeholder"></div>
+    .news-section {
+      background-color: #ffffff;
+      padding: 50px 20px;
+      text-align: center;
+      border-bottom: 5px solid #eee;
+    }
+    .news-section h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: #333;
+    }
+    .news-article {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 auto 40px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      max-width: 800px;
+    }
+    .news-article h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #007BFF;
+    }
+    .news-article p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
 
-
-  <!-- ✅ HEADER LOAD SCRIPT -->
- 
-  <script>
-  fetch("../header.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("header-placeholder").innerHTML = html;
-
-      // Mobile menu toggle (hamburger)
-      const toggleButton = document.querySelector(".mobile-menu-toggle");
-      const navLinks = document.querySelector(".main-nav");
-
-      if (toggleButton && navLinks) {
-        toggleButton.addEventListener("click", function () {
-          navLinks.classList.toggle("active");
-        });
-      }
-
-      // ✅ Mobile dropdown toggle logic
-      const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-
-      dropdownToggles.forEach(toggle => {
-        toggle.addEventListener('click', function (e) {
-          e.preventDefault();
-          const dropdownMenu = this.nextElementSibling;
-
-          // Close other dropdowns
-          document.querySelectorAll('.dropdown-menu').forEach(menu => {
-            if (menu !== dropdownMenu) {
-              menu.style.display = 'none';
-            }
-          });
-
-          // Toggle current dropdown
-          if (dropdownMenu.style.display === 'block') {
-            dropdownMenu.style.display = 'none';
-          } else {
-            dropdownMenu.style.display = 'block';
-          }
-        });
-      });
-    })
-    .catch(err => console.error("Header load failed:", err));
-</script>
-
-
-
-    <title>News Section - ADAM Consult</title>
-
-    <style>
-        body {
-        .news-section {
-            background-color: #ffffff;
-            padding: 50px 20px;
-            text-align: center;
-            border-bottom: 5px solid #eee;
-        }
-        .news-section h2 {
-            font-size: 32px;
-            margin-bottom: 40px;
-            color: #333;
-        }
-        .news-article {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 0 auto 40px auto;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            max-width: 800px;
-        }
-        .news-article h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: #007BFF;
-        }
-        .news-article p {
-            font-size: 18px;
-            color: #555;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Utkal Electrotechnic</title>
-  <style>
     .left-align {
       text-align: left;
       max-width: 800px;
@@ -147,15 +84,62 @@
     }
   </style>
 </head>
-<body>
-  <div class="left-align">
-
-
-            
-    </style>    
 
 <body>
+  <!-- ✅ HEADER PLACEHOLDER -->
+  <div id="header-placeholder"></div>
 
+  <!-- ✅ HEADER LOAD SCRIPT -->
+  <script>
+    fetch("../header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header-placeholder").innerHTML = html;
+
+        // Mobile menu toggle
+        const toggleButton = document.querySelector(".mobile-menu-toggle");
+        const navLinks = document.querySelector(".main-nav");
+
+        if (toggleButton && navLinks) {
+          toggleButton.addEventListener("click", function () {
+            navLinks.classList.toggle("active");
+          });
+        }
+
+        // Mobile dropdown toggle
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+        dropdownToggles.forEach(toggle => {
+          toggle.addEventListener('click', function (e) {
+            e.preventDefault();
+            const dropdownMenu = this.nextElementSibling;
+
+            // Close other dropdowns
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+              if (menu !== dropdownMenu) {
+                menu.style.display = 'none';
+              }
+            });
+
+            // Toggle current dropdown
+            if (dropdownMenu.style.display === 'block') {
+              dropdownMenu.style.display = 'none';
+            } else {
+              dropdownMenu.style.display = 'block';
+            }
+          });
+        });
+      })
+      .catch(err => console.error("Header load failed:", err));
+  </script>
+
+  <!-- ✅ Campaign Section (Fully Centered) -->
+  <section class="campaign-section">
+    <h2 class="campaign-title">Join Our Exciting Partnership Campaign!</h2>
+    <p class="campaign-description">We are excited to have you with us as we embark on this journey of growth and transformation.</p>
+    <div class="campaign-image">
+      <img src="../images/campaign-banner.png" alt="Partnership Campaign">
+    </div>
+  </section>
 <!-- News Section -->
 <section class="news-section">
     <h2>News / Recommendations</h2>
