@@ -218,10 +218,18 @@ section {
 /* --------------------------------------------
    Header & Navigation
 -------------------------------------------- */
+body {
+  padding-top: 80px; /* Adjust if header is taller/shorter */
+}
+
+header {
+    transition: all 0.3s ease-in-out;
+}
+
 header {
     background-color: var(--white);
     box-shadow: var(--shadow-sm);
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: 1000;
 }
