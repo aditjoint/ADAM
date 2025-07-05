@@ -44,17 +44,14 @@
 </head>
 
 <body>
-  <!-- ✅ HEADER PLACEHOLDER -->
   <div id="header-placeholder"></div>
-
-  <!-- ✅ HEADER LOAD SCRIPT -->
   <script>
     fetch("../header.html") // adjust path as needed
       .then(res => res.text())
       .then(html => {
         document.getElementById("header-placeholder").innerHTML = html;
 
-        // ✅ Mobile menu toggle script (after header loads)
+        // Mobile menu toggle script (after header loads)
         const toggleButton = document.querySelector(".mobile-menu-toggle");
         const navLinks = document.querySelector(".main-nav");
 
@@ -66,7 +63,6 @@
       })
       .catch(err => console.error("Header load failed:", err));
   </script>
-
   
     <!-- Hero Section -->
     <section class="hero">
