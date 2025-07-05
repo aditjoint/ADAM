@@ -102,9 +102,8 @@
 
      <div>
        <section>
-         <style>
- <style>
-  <style>
+
+<style>
   .dashboard-section {
     background: #0f172a;
     color: #e2e8f0;
@@ -139,20 +138,60 @@
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 1rem;
-    color: #38bdf8; /* bright sky blue for visibility */
+    color: #38bdf8;
   }
 
   .sensor {
     display: flex;
     justify-content: space-between;
     margin-bottom: 0.5rem;
-    color: #e0f2fe; /* lighter text inside sensors */
+    color: #f1f5f9;
   }
 
   .sensor span {
     font-size: 0.95rem;
-    color: #f1f5f9; /* slightly brighter sp*
-  </style>
+    color: #f1f5f9;
+  }
+
+  .temp-bar {
+    height: 8px;
+    background: #475569;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 0.3rem;
+  }
+
+  .temp-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #22d3ee, #facc15);
+  }
+
+  .status {
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .status.ok {
+    color: #22c55e; /* Green */
+  }
+
+  .status.warning {
+    color: #facc15; /* Amber/Yellow */
+  }
+
+  .status.critical {
+    color: #ef4444; /* Red */
+  }
+
+  .status i {
+    margin-right: 8px;
+    font-size: 1rem;
+  }
+</style>
+    
 
   <h1>SAMPLE - IoT-based Environmental Dashboard</h1>
 
