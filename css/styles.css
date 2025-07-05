@@ -218,9 +218,7 @@ section {
 /* --------------------------------------------
    Header & Navigation
 -------------------------------------------- */
-body {
-  padding-top: 80px; /* Adjust if header is taller/shorter */
-}
+
 header {
     background-color: var(--white);
     box-shadow: var(--shadow-sm);
