@@ -276,41 +276,7 @@ Deployment of intelligent automation using IoT, embedded systems, robotics, and 
                 <button class="tab-btn" data-tab="tab6">Project and Contract Management</button>
             </div>
             <div class="tab-content">
-
-
-<nav class="main-nav">
-        <ul class="nav-links">
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/about.html">About</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle">Enterprise Advisory <i class="fas fa-chevron-down"></i></a>
-            <ul class="dropdown-menu">
-              <li><a href="/services/technology-infrastructure.html">Technology Infrastructure</a></li>
-              <li><a href="/services/digital-transformation.html">Digital Transformation</a></li>
-              <li><a href="/services/sustainability-solutions.html">Sustainability Solutions</a></li>
-              <li><a href="/services/process-automation.html">Process Automation</a></li>
-              <li><a href="/services/contracts.html">Project & Contract Management</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle">Current Affairs <i class="fas fa-chevron-down"></i></a>
-            <ul class="dropdown-menu">
-              <li><a href="/currentaffairs/news.html">News</a></li>
-              <li><a href="/currentaffairs/campaign.html">Campaigns</a></li>
-              <li><a href="/currentaffairs/events.html">TestCase</a></li>
-              <li><a href="/currentaffairs/projects.html">Projects</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-
-
-
-
-
-
-
-              
+       
 <!-- Tab 1 -->
  <div class="tab-pane active" id="tab1">
     <h3>Industry-Specific ERP Solutions with BizSuite</h3>
@@ -589,6 +555,28 @@ Deployment of intelligent automation using IoT, embedded systems, robotics, and 
     </div>
 </section>
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const targetTab = button.getAttribute('data-tab');
+
+        // Remove active class from all buttons and panes
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabPanes.forEach(pane => pane.classList.remove('active'));
+
+        // Add active class to the clicked button and its tab
+        button.classList.add('active');
+        document.getElementById(targetTab).classList.add('active');
+      });
+    });
+  });
+</script>
+
+  
    <!-- Footer placeholder -->
   <div id="footer-placeholder"></div>
 
@@ -605,6 +593,7 @@ Deployment of intelligent automation using IoT, embedded systems, robotics, and 
       .catch(error => console.error("Error loading footer:", error));
   </script>
 
+  
   <!-- In HEAD or before </body> -->
 <script src="/js/protect.js"></script>
  <script src="/js/imgProtect.js"></script>
