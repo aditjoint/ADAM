@@ -1,35 +1,21 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Block right-click on text or images only
-  document.body.addEventListener('contextmenu', e => {
-    const tag = e.target.tagName.toLowerCase();
-    if (tag === 'img' || tag === 'p' || tag === 'span' || tag === 'div') {
+// protect.js
+document.addEventListener('DOMContentLoaded', function () {
+  // Disable right-click
+  document.body.oncontextmenu = function () { return false; };
+
+  // Disable selection
+  document.body.style.userSelect = "none";
+  document.body.style.webkitUserSelect = "none";
+  document.body.style.msUserSelect = "none";
+
+  // Disable drag & text selection
+  document.body.onselectstart = function () { return false; };
+  document.body.ondragstart = function () { return false; };
+
+  // Disable keyboard shortcuts
+  document.addEventListener('keydown', function (e) {
+    if ((e.ctrlKey || e.metaKey) && ['c', 'x', 'u', 's', 'a'].includes(e.key.toLowerCase())) {
       e.preventDefault();
     }
-  });
-
-  // Block text/image selection
-  document.body.addEventListener('selectstart', e => {
-    const tag = e.target.tagName.toLowerCase();
-    if (tag === 'img' || tag === 'p' || tag === 'span' || tag === 'div') {
-      e.preventDefault();
-    }
-  });
-
-  // Block dragging of images
-  document.body.addEventListener('dragstart', e => {
-    if (e.target.tagName.toLowerCase() === 'img') {
-      e.preventDefault();
-    }
-  });
-
-  // Block keyboard copy/view source shortcuts (Ctrl+C, Ctrl+U, etc.)
-  document.addEventListener('keydown', e => {
-    const blockedKeys = ['c', 'x', 'u', 's', 'p', 'a'];
-    if ((e.ctrlKey || e.metaKey) && blockedKeys.includes(e.key.toLowerCase())) {
-      if (!(e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) {
-        e.preventDefault();
-      }
-    }
-    if (e.key === 'F12') e.preventDefault(); // Prevent DevTools
   });
 });
