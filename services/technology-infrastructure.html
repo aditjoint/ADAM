@@ -201,16 +201,21 @@
     </section>
 
 <!-- Footer -->
-<div id="footer-placeholder"></div>
 <script>
-  fetch("../footer.html")  // adjust path as needed
+  fetch("../footer.html")
     .then(res => res.text())
     .then(html => {
       document.getElementById("footer-placeholder").innerHTML = html;
 
-      // Now load the protection script AFTER footer is inserted
+      // Dynamically load script after footer loads
       const script = document.createElement("script");
-      script.src = "../js/imgTextProtect.js"; // or "js/imgTextProtect.js" in root
+      script.src = "../js/imgTextProtect.js";
+      script.onload = function () {
+        // If the script needs DOMContentLoaded, ensure it runs now
+        if (typeof window.triggerProtectScript === 'function') {
+          window.triggerProtectScript();
+        }
+      };
       document.body.appendChild(script);
     });
 </script>
