@@ -622,6 +622,95 @@ Edit
   font-size: 14px;
 }
 
+
+/* Hero Video */
+.hero-video {
+  position: relative;
+  height: 100vh;
+  color: #fff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 23, 45, 0.6); /* optional dark overlay */
+  z-index: -1;
+}
+
+.hero-video .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle-large {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-description {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.hero-buttons .btn {
+  padding: 12px 24px;
+  font-weight: 600;
+  border-radius: 6px;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: #007BFF;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #fff;
+  color: #007BFF;
+  border: 2px solid #007BFF;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #28A745;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+
+
 /* Hero Cards */
 .hero-services {
   flex: 1 1 45%;
