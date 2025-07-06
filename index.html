@@ -556,13 +556,17 @@ Deployment of intelligent automation using IoT, embedded systems, robotics, and 
     </div>
 </section>
 
+    
     <!-- Footer -->
+    
+<div id="footer-placeholder"></div>
 <script>
-  fetch('/includes/footer.html')
-    .then(res => res.text())
+  fetch('/footer.html')
+    .then(response => response.text())
     .then(data => {
       document.getElementById('footer-placeholder').innerHTML = data;
-    });
+    })
+    .catch(error => console.error('Failed to load footer:', error));
 </script>
 
     <!-- In HEAD or before </body> -->
