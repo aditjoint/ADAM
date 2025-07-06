@@ -63,14 +63,13 @@
 }
 
 /* Reset & Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  width: 100%;
+  overflow-x: hidden;
+}
 }
 body {
   font-family: var(--font-primary);
@@ -80,7 +79,7 @@ body {
   background-color: var(--white);
   overflow-x: hidden;
 }
-img {
+img, video, iframe, table {
   max-width: 100%;
   height: auto;
 }
@@ -177,9 +176,9 @@ body {
   background: var(--white);
   box-shadow: var(--shadow-md);
   border-radius: var(--border-radius-sm);
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+  opacity: 0;
+  visibility: hiddden;
+  transform: translateY(10px);
   transition: all var(--transition-normal);
   z-index: 999;
 }
