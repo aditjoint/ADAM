@@ -5,12 +5,17 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
   });
 
-  // Disable text selection
+  // Prevent text selection and copy
   document.addEventListener("selectstart", function (e) {
     e.preventDefault();
   });
 
-  // Disable image dragging
+  // Prevent drag
+  document.addEventListener("dragstart", function (e) {
+    e.preventDefault();
+  });
+
+  // Prevent image dragging and selection
   document.querySelectorAll("img").forEach(img => {
     img.setAttribute("draggable", "false");
     img.addEventListener("mousedown", function (e) {
@@ -18,9 +23,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Prevent keyboard shortcuts like Ctrl+C, Ctrl+U, etc.
+  // Block keyboard shortcuts like Ctrl+C, Ctrl+V, Ctrl+U, Ctrl+P, etc.
   document.addEventListener("keydown", function (e) {
-    const blockedKeys = ['c', 'x', 'u', 's', 'p', 'i', 'j', 'k']; // Disable Ctrl + C, X, U, S, P, I, A, V
+    const blockedKeys = ['c', 'x', 'v', 'u', 'p', 'i', 'j', 'k', 'a']; // Disable Ctrl + C, X, V, U, P, I, J, K
     if ((e.ctrlKey || e.metaKey) && blockedKeys.includes(e.key.toLowerCase())) {
       e.preventDefault();
     }
@@ -31,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Prevent printing (Ctrl + P) and right-click print options
+  // Prevent printing (Ctrl + P)
   window.onbeforeprint = function () {
     document.body.innerHTML = "<h1 style='color:red;text-align:center;margin-top:20vh;'>⚠️ Printing is disabled on this site.</h1>";
     setTimeout(() => {
@@ -39,4 +44,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 500);
   };
 
+  // Block 'Save As' and 'Print' dialog (Ctrl+S and Ctrl+P)
+  document.addEventListener('keydown', function (e) {
+    if ((e.ctrlKey && e.key === 'p') || (e.ctrlKey && e.key === 's')) {
+      e.preventDefault();
+    }
+  });
+
+  // Prevent Developer Tools (F12, right-click)
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "F12" || (e.ctrlKey && e.key === "Shift" && e.keyCode === 73)) {
+      e.preventDefault();
+    }
+  });
 });
