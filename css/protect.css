@@ -31,7 +31,20 @@ img {
   }
 }
 
-/* 🌐 Block right-click, text selection, drag, and context menu */
+/* 🖱️ Block right-click context menu */
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body, html {
+  overflow: hidden;
+  cursor: none;
+}
+
+/* 🚫 Disable all right-click, dragging, and selection */
 * {
   -webkit-user-select: none !important;
   -moz-user-select: none !important;
@@ -39,14 +52,43 @@ img {
   user-select: none !important;
 }
 
+input, textarea, select, label, a, button {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+}
+
 /* Block image right-click and drag */
 img {
-  pointer-events: none !important;
+  -webkit-user-drag: none !important;
   user-drag: none !important;
+  pointer-events: none !important;
   -webkit-touch-callout: none !important;
 }
 
 /* 🚫 Block Keyboard Shortcuts (Ctrl + C, V, X, U, P, I, S, etc.) */
 @keyframes no-select {
-  0% {background-color: #FF0000;}
+  0% {background-color: #FF0000;}   /* css/protect.css */
+}
+
+html, body {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+}
+
+input, textarea, select, label, a, button {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+}
+
+img {
+  -webkit-user-drag: none !important;
+  user-drag: none !important;
+  pointer-events: none !important;
+  -webkit-touch-callout: none !important;
 }
