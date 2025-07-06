@@ -1,23 +1,26 @@
 document.addEventListener('DOMContentLoaded', function () {
+  const allowInputs = ['INPUT', 'TEXTAREA', 'BUTTON', 'A', 'SELECT'];
+
+  // Prevent copying text/image except from inputs or buttons
   document.body.addEventListener('copy', function (e) {
-    e.preventDefault();
+    if (!allowInputs.includes(e.target.tagName)) e.preventDefault();
   });
 
   document.body.addEventListener('cut', function (e) {
-    e.preventDefault();
+    if (!allowInputs.includes(e.target.tagName)) e.preventDefault();
   });
 
   document.body.addEventListener('dragstart', function (e) {
-    e.preventDefault();
+    if (!allowInputs.includes(e.target.tagName)) e.preventDefault();
   });
 
+  // Prevent Ctrl+C/X/S/P, but allow all other keys and clicks
   document.addEventListener('keydown', function (e) {
     const key = e.key.toLowerCase();
-    const ctrlCmd = e.ctrlKey || e.metaKey;
+    const ctrlOrCmd = e.ctrlKey || e.metaKey;
 
-    // Block Ctrl+C, Ctrl+X, Ctrl+S, Ctrl+P (copy, cut, save, print)
-    if (ctrlCmd && ['c', 'x', 's', 'p'].includes(key)) {
-      e.preventDefault();
+    if (ctrlOrCmd && ['c', 'x', 's', 'p'].includes(key)) {
+      if (!allowInputs.includes(e.target.tagName)) e.preventDefault();
     }
   });
 });
