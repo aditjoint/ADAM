@@ -47,10 +47,20 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Prevent printing entirely (Ctrl+P and Print Dialog)
+  // Block printing (Ctrl+P, print dialog, screen capture)
   window.onbeforeprint = function () {
-    alert("Printing is disabled on this site.");
-    return false; // prevent print dialog
+    document.body.innerHTML = "<h1 style='color:red;text-align:center;margin-top:20vh;'>⚠️ Printing is disabled on this site.</h1>";
+    setTimeout(() => {
+      window.close();
+    }, 500);
+
+    return false; // Prevent printing altogether
+  };
+
+  // Block print dialog via window.print()
+  window.print = function () {
+    console.log("Printing is disabled.");
+    return false; // Prevent the window.print method
   };
 
   // Block image right-click and drag
