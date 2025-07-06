@@ -182,11 +182,6 @@
             <li><i class="fas fa-check-circle"></i> Custom Accuracy & Burden Ratings</li>
         </ul>
         <ul></ul>
-                 
- <!-- PDF Brochure Link -->
-        <a href="https://drive.google.com/drive/folders/1ikIJekJuhtF7uMvXtBNQGGlTvFPOiB33" target="_blank" class="btn btn-outline-secondary" style="margin-top: 10px;">
-            <i class="fas fa-file-pdf"></i> Download Brochure (CT-PT:Test Certificates are provided upon request, during actual ordering) 
-        </a>
         </div>
                         </div>
                         </div>
@@ -205,23 +200,21 @@
         </div>
     </section>
 
-<!-- Safe Load Order -->
-<script src="../js/main.js"></script>
-<script src="../js/dropdown.js"></script>
-<script src="../js/imgTextProtect.js"></script>
-
-    
- <!-- Footer -->
+<!-- Footer -->
 <div id="footer-placeholder"></div>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    fetch("footer.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("footer-placeholder").innerHTML = html;
-      });
-  });
+  fetch("../footer.html")  // adjust path as needed
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("footer-placeholder").innerHTML = html;
+
+      // Now load the protection script AFTER footer is inserted
+      const script = document.createElement("script");
+      script.src = "../js/imgTextProtect.js"; // or "js/imgTextProtect.js" in root
+      document.body.appendChild(script);
+    });
 </script>
+
 
 </body>
 </html>
