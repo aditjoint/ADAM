@@ -1,24 +1,25 @@
-
 document.addEventListener('DOMContentLoaded', function () {
-  // Disable right-click on images and paragraph text only
+  const protectedTags = ['IMG', 'P', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6'];
+
+  // Disable right-click on images and text
   document.body.addEventListener('contextmenu', function (e) {
-    if (e.target.tagName === 'IMG' || e.target.tagName === 'P') {
+    if (protectedTags.includes(e.target.tagName)) {
       e.preventDefault();
     }
   });
 
-  // Disable dragging of images
+  // Disable dragging images
   document.body.addEventListener('dragstart', function (e) {
     if (e.target.tagName === 'IMG') {
       e.preventDefault();
     }
   });
 
-  // Disable text selection on paragraph or heading content
-  document.body.addEventListener('selectstart', function (e) {
-    const tag = e.target.tagName;
-    if (['P', 'SPAN', 'DIV', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6'].includes(tag)) {
-      e.preventDefault();
-    }
+  // Disable text selection on main content only
+  const contentSections = document.querySelectorAll('.protect-text');
+  contentSections.forEach(section => {
+    section.style.userSelect = 'none';
+    section.style.webkitUserSelect = 'none';
+    section.style.msUserSelect = 'none';
   });
 });
