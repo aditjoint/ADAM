@@ -153,6 +153,251 @@
         </div>
     </section>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Digital Transformation Services - ADAM Consult</title>
+  <meta name="description" content="Our digital transformation services help businesses modernize operations, implement enterprise IT strategies, develop custom web applications, and automate processes." />
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+    }
+
+    .campaign-section {
+      background-color: #ff8c00;
+      color: white;
+      padding: 10px 10px;
+      text-align: center;
+      border-bottom: 5px solid #333;
+    }
+
+    .projects-section {
+      background-color: #ffffff;
+      padding: 50px 20px;
+      text-align: center;
+      border-bottom: 5px solid #eee;
+    }
+
+    .projects-section h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: #333;
+    }
+
+    .projects-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .project-card {
+      background-color: #f9f9f9;
+      padding: 20px;
+      width: 250px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      text-align: left;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-card h3 {
+      font-size: 24px;
+      color: #007BFF;
+    }
+
+    .view-details {
+      color: #007BFF;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .view-details:hover {
+      text-decoration: underline;
+    }
+
+    .rack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+
+    .rack {
+      background: #1e293b;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .rack:hover {
+      transform: scale(1.02);
+    }
+
+    .rack-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .sensor {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .temp-bar {
+      height: 8px;
+      background: #334155;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 0.5rem 0;
+    }
+
+    .temp-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #22d3ee, #facc15);
+    }
+
+    .ok { color: #10b981; }
+    .warning { color: #ef4444; }
+
+    .image-card {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2rem;
+      gap: 1rem;
+    }
+
+    .image-card img {
+      width: 100px;
+      height: auto;
+      margin: 10px;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.8rem;
+      padding: 20px;
+      color: #888;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ HEADER -->
+  <div id="header-placeholder"></div>
+  <script>
+    fetch("../header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header-placeholder").innerHTML = html;
+        const toggleButton = document.querySelector(".mobile-menu-toggle");
+        const navLinks = document.querySelector(".main-nav");
+        if (toggleButton && navLinks) {
+          toggleButton.addEventListener("click", () => navLinks.classList.toggle("active"));
+        }
+      });
+  </script>
+
+  <!-- ✅ CAMPAIGN -->
+  <div class="campaign-section">
+    <h1>Digital Transformation Services</h1>
+    <p>Modernize operations, automate processes, and build enterprise-grade IT systems tailored for your industry.</p>
+  </div>
+
+  <!-- ✅ PROJECTS -->
+  <section class="projects-section">
+    <h2>Our Work in Action</h2>
+    <div class="projects-container">
+      <div class="project-card">
+        <h3>BizSuite</h3>
+        <p>Digital solutions for MSMEs with barcode traceability and batch tracking.</p>
+        <a class="view-details" href="#project1">Ongoing Project</a>
+      </div>
+      <div class="project-card">
+        <h3>Real Estate CRM</h3>
+        <p>Lead nurturing, visit scheduling, buyer analytics.</p>
+        <a class="view-details" href="#project2">Sample Project</a>
+      </div>
+      <div class="project-card">
+        <h3>ISP CRM Suite</h3>
+        <p>Ticketing, request management, customer insights.</p>
+        <a class="view-details" href="#project3">Sample Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ IOT DCIM DASHBOARD -->
+  <section class="rack-grid">
+    <div class="rack">
+      <div class="rack-title">Cabinet 01 - Manufacturing</div>
+      <div class="sensor"><span>Temp</span><span>36°C</span></div>
+      <div class="temp-bar"><div class="temp-bar-fill" style="width: 72%;"></div></div>
+      <div class="sensor"><span>Humidity</span><span>45%</span></div>
+      <div class="sensor"><span>Power</span><span>2.3 kW</span></div>
+      <div class="ok"><i class="fas fa-check-circle"></i> All Systems Normal</div>
+    </div>
+    <div class="rack">
+      <div class="rack-title">Cabinet 02 - BFSI</div>
+      <div class="sensor"><span>Temp</span><span>42°C</span></div>
+      <div class="temp-bar"><div class="temp-bar-fill" style="width: 88%; background:red;"></div></div>
+      <div class="sensor"><span>Humidity</span><span>58%</span></div>
+      <div class="sensor"><span>Power</span><span>3.5 kW</span></div>
+      <div class="warning"><i class="fas fa-exclamation-triangle"></i> High Temperature!</div>
+    </div>
+  </section>
+
+  <!-- ✅ INDUSTRY IMAGES -->
+  <div class="image-card">
+    <img src="../images/ai.png" alt="AI" />
+    <img src="../images/ev.png" alt="EV" />
+    <img src="../images/retail.png" alt="Retail" />
+    <img src="../images/solar.png" alt="Solar" />
+    <img src="../images/school.png" alt="School" />
+    <img src="../images/chem.png" alt="Chemicals" />
+    <img src="../images/electronics.png" alt="Electronics" />
+    <img src="../images/foods.png" alt="Foods" />
+    <img src="../images/logistics.png" alt="Logistics" />
+    <img src="../images/steel.png" alt="Steel" />
+  </div>
+
+  <!-- ✅ FOOTER -->
+  <div id="footer-placeholder"></div>
+  <script>
+    fetch("../footer.html")
+      .then(res => res.text())
+      .then(html => document.getElementById("footer-placeholder").innerHTML = html);
+  </script>
+
+</body>
+</html>
+
+
+
+
+    
     <!-- Footer -->
     <footer>
         <div class="container">
