@@ -67,139 +67,171 @@
         </div>
     </header>
 
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Real-Time Environmental Monitoring Dashboard</title>
+
+  <title>DCIM Dashboard - Real-Time Environmental Monitoring</title>
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <style>
     /* General Styles */
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Arial', sans-serif;
       background-color: #f4f7fa;
-      color: #333;
       margin: 0;
       padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
     }
 
     h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
+      font-size: 40px;
+      color: #333;
+      margin-bottom: 15px;
+      text-align: center;
     }
 
     p {
       font-size: 18px;
+      color: #777;
+      text-align: center;
+      margin-bottom: 20px;
     }
 
     .campaign-section {
-      background: #fff;
+      margin: 0 20px;
       padding: 20px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      margin: 20px;
+      background-color: #fff;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
       border-radius: 10px;
       text-align: center;
     }
 
-    /* Rack Grid */
+    /* Grid Layout for Cards */
     .rack-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 20px;
       padding: 20px;
+      max-width: 1200px;
+      width: 100%;
     }
 
+    /* Individual Card Styling */
     .rack {
-      background: #fff;
-      padding: 15px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.9));
+      padding: 25px;
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-align: center;
+    }
+
+    .rack:hover {
+      transform: translateY(-10px);
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
     }
 
     .rack-title {
-      font-size: 20px;
-      font-weight: bold;
-      margin-bottom: 10px;
+      font-size: 22px;
+      font-weight: 600;
       color: #333;
+      margin-bottom: 15px;
     }
 
     .sensor {
       font-size: 16px;
-      margin-bottom: 10px;
-    }
-
-    .temp-bar {
-      background: #e0e0e0;
-      height: 10px;
-      margin: 10px 0;
-      border-radius: 5px;
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
       width: 100%;
     }
 
-    .temp-bar-fill {
-      height: 10px;
-      border-radius: 5px;
+    .sensor span {
+      font-weight: 500;
     }
 
+    .temp-bar {
+      width: 100%;
+      height: 8px;
+      border-radius: 5px;
+      background: #ddd;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .temp-bar-fill {
+      height: 100%;
+      border-radius: 5px;
+      position: absolute;
+    }
+
+    /* Statuses */
     .status {
       font-size: 14px;
-      margin-top: 10px;
       font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 5px;
+      margin-top: 15px;
+      text-align: center;
     }
 
     .status.ok {
-      color: green;
+      background-color: #28a745;
+      color: white;
     }
 
     .status.warning {
-      color: orange;
+      background-color: #ffc107;
+      color: #333;
     }
 
     .status.alert {
-      color: red;
+      background-color: #dc3545;
+      color: white;
     }
 
-    .warning, .ok {
-      font-size: 16px;
-    }
-
+    /* Icons */
     .fas {
       margin-right: 8px;
     }
 
-    /* Icons */
-    .fas.fa-check-circle {
-      color: green;
+    .icon-ok {
+      color: #28a745;
     }
 
-    .fas.fa-exclamation-triangle {
-      color: orange;
+    .icon-warning {
+      color: #ffc107;
     }
 
-    .fas.fa-user-lock {
-      color: red;
+    .icon-alert {
+      color: #dc3545;
     }
 
-    .fas.fa-water {
-      color: blue;
+    /* Responsiveness */
+    @media (max-width: 768px) {
+      .rack-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      }
+
+      .rack {
+        padding: 20px;
+      }
     }
 
-    .fas.fa-sync-alt {
-      color: green;
-    }
-
-    .fas.fa-exclamation-circle {
-      color: red;
-    }
   </style>
 </head>
 <body>
   <!-- ✅ TestCase -->
   <div class="campaign-section">
-    <h1>TestCase</h1>
-    <p>Real-Time Environmental Monitoring and Alerts</p>
+    <h1>DCIM Environmental Monitoring Dashboard</h1>
+    <p>Monitor your Data Center & Environmental Infrastructure in Real-Time</p>
   </div>
 
   <!-- ✅ IOT DCIM DASHBOARD -->
@@ -209,11 +241,13 @@
       <div class="rack-title">Cabinet 01 - Manufacturing</div>
       <div class="sensor"><span>Temp</span><span>36°C</span></div>
       <div class="temp-bar">
-        <div class="temp-bar-fill" style="width: 72%; background: green;"></div>
+        <div class="temp-bar-fill" style="width: 72%; background: #28a745;"></div>
       </div>
       <div class="sensor"><span>Humidity</span><span>45%</span></div>
       <div class="sensor"><span>Power</span><span>2.3 kW</span></div>
-      <div class="ok"><i class="fas fa-check-circle"></i> All Systems Normal</div>
+      <div class="status ok">
+        <i class="fas fa-check-circle icon-ok"></i> All Systems Normal
+      </div>
     </div>
 
     <!-- Cabinet 02 - BFSI -->
@@ -221,11 +255,13 @@
       <div class="rack-title">Cabinet 02 - BFSI</div>
       <div class="sensor"><span>Temp</span><span>42°C</span></div>
       <div class="temp-bar">
-        <div class="temp-bar-fill" style="width: 88%; background: red;"></div>
+        <div class="temp-bar-fill" style="width: 88%; background: #dc3545;"></div>
       </div>
       <div class="sensor"><span>Humidity</span><span>58%</span></div>
       <div class="sensor"><span>Power</span><span>3.5 kW</span></div>
-      <div class="warning"><i class="fas fa-exclamation-triangle"></i> High Temperature!</div>
+      <div class="status alert">
+        <i class="fas fa-exclamation-triangle icon-alert"></i> High Temperature!
+      </div>
     </div>
 
     <!-- Power Monitoring - DC Floor A1 -->
@@ -235,7 +271,7 @@
       <div class="sensor"><span>Load Current</span><span>18A</span></div>
       <div class="sensor"><span>UPS Status</span><span>Active</span></div>
       <div class="status ok">
-        <i class="fas fa-check-circle"></i> Redundant Power Active
+        <i class="fas fa-check-circle icon-ok"></i> Redundant Power Active
       </div>
     </div>
 
@@ -245,7 +281,7 @@
       <div class="sensor"><span>Room Temp</span><span>27.5°C</span></div>
       <div class="sensor"><span>Cooling Unit Load</span><span>67%</span></div>
       <div class="status warning">
-        <i class="fas fa-exclamation-triangle"></i> High Load Detected
+        <i class="fas fa-exclamation-triangle icon-warning"></i> High Load Detected
       </div>
     </div>
 
@@ -254,8 +290,8 @@
       <div class="rack-title">Access Control - Rack Bay 5</div>
       <div class="sensor"><span>Last Access</span><span>10:32 AM</span></div>
       <div class="sensor"><span>Auth Method</span><span>RFID</span></div>
-      <div class="status warning">
-        <i class="fas fa-user-lock"></i> Unauthorized Attempt Logged!
+      <div class="status alert">
+        <i class="fas fa-user-lock icon-alert"></i> Unauthorized Attempt Logged!
       </div>
     </div>
 
@@ -264,8 +300,8 @@
       <div class="rack-title">Leak Sensor - Battery Room</div>
       <div class="sensor"><span>Leak Detected</span><span>YES</span></div>
       <div class="sensor"><span>Last Event</span><span>5 mins ago</span></div>
-      <div class="status warning">
-        <i class="fas fa-water"></i> Leak Detected - Escalated
+      <div class="status alert">
+        <i class="fas fa-water icon-alert"></i> Leak Detected - Escalated
       </div>
     </div>
 
@@ -275,34 +311,11 @@
       <div class="sensor"><span>Fuel Level</span><span>78%</span></div>
       <div class="sensor"><span>Status</span><span>Test Mode</span></div>
       <div class="status ok">
-        <i class="fas fa-sync-alt"></i> Auto-Start Function OK
+        <i class="fas fa-sync-alt icon-ok"></i> Auto-Start Function OK
       </div>
     </div>
   </section>
 
-  <!-- Additional sections with respective threshold bars -->
-  <section class="rack-grid">
-    <!-- Power Monitoring - DC Floor A2 -->
-    <div class="rack">
-      <div class="rack-title">Power Monitoring - DC Floor A2</div>
-      <div class="sensor"><span>Input Voltage</span><span>240V</span></div>
-      <div class="sensor"><span>Load Current</span><span>22A</span></div>
-      <div class="sensor"><span>UPS Status</span><span>Inactive</span></div>
-      <div class="status warning">
-        <i class="fas fa-exclamation-triangle"></i> UPS Inactive - Check System
-      </div>
-    </div>
-
-    <!-- HVAC Zone 2 - Data Center -->
-    <div class="rack">
-      <div class="rack-title">HVAC Zone 2 - Data Center</div>
-      <div class="sensor"><span>Room Temp</span><span>21.5°C</span></div>
-      <div class="sensor"><span>Cooling Unit Load</span><span>45%</span></div>
-      <div class="status ok">
-        <i class="fas fa-check-circle"></i> Temperature within Optimal Range
-      </div>
-    </div>
-  </section>
 </body>
 </html>
 
