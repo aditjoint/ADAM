@@ -2,6 +2,7 @@
 <header>
   <div class="container">
     <div class="header-content">
+      <!-- Logo -->
       <div class="logo">
         <a href="/index.html">
           <div class="logo-icon">
@@ -11,10 +12,18 @@
         </a>
       </div>
 
-      <nav class="main-nav">
+      <!-- Mobile Menu Toggle -->
+      <div class="mobile-menu-toggle" id="mobile-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="main-nav" id="main-nav">
         <ul class="nav-links">
           <li><a href="/index.html">Home</a></li>
           <li><a href="/about.html">About</a></li>
+
+          <!-- Enterprise Advisory Dropdown -->
           <li class="dropdown">
             <a href="#" class="dropdown-toggle">Enterprise Advisory <i class="fas fa-chevron-down"></i></a>
             <ul class="dropdown-menu">
@@ -25,6 +34,8 @@
               <li><a href="/services/contracts.html">Project & Contract Management</a></li>
             </ul>
           </li>
+
+          <!-- Current Affairs Dropdown -->
           <li class="dropdown">
             <a href="#" class="dropdown-toggle">Current Affairs <i class="fas fa-chevron-down"></i></a>
             <ul class="dropdown-menu">
@@ -37,14 +48,10 @@
         </ul>
       </nav>
 
+      <!-- Call to Action -->
       <div class="cta-button">
         <a href="/contact.html" class="btn btn-primary">Get In Touch</a>
-      </div>
-      <div class="mobile-menu-toggle">
-        <i class="fas fa-bars"></i>
       </div>
     </div>
   </div>
 </header>
-<!-- In HEAD or before </body> -->
-<script src="/js/protect.js"></script>
