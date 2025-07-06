@@ -559,7 +559,9 @@ Deployment of intelligent automation using IoT, embedded systems, robotics, and 
     
     <!-- Footer -->
     
+<!-- Footer Placeholder -->
 <div id="footer-placeholder"></div>
+
 <script>
   fetch('/footer.html')
     .then(response => response.text())
@@ -569,41 +571,17 @@ Deployment of intelligent automation using IoT, embedded systems, robotics, and 
     .catch(error => console.error('Failed to load footer:', error));
 </script>
 
-    <!-- In HEAD or before </body> -->
+<!-- Include your Protection JS file -->
 <script src="/js/protect.js"></script>
- <script src="/js/imgProtect.js"></script>
-  
-  <div style="position: relative; display: inline-block;">
-  <img src="yourimage.jpg" style="display: block;" />
-  <div style="
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    z-index: 2;
-  "></div>
-</div>
-  
-<!-- Inline fallback or extra rules -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.body.oncontextmenu = function () { return false; };
-    document.body.style.userSelect = "none";
-    document.body.style.webkitUserSelect = "none";
-    document.body.style.msUserSelect = "none";
-    document.body.onselectstart = function () { return false; };
-    document.body.ondragstart = function () { return false; };
 
-    // Optional additional blocking
-    document.addEventListener('keydown', function (e) {
-      if ((e.ctrlKey || e.metaKey) && ['c', 'x', 'u', 's', 'a'].includes(e.key.toLowerCase())) {
-        e.preventDefault();
-      }
-    });
-  });
+<!-- Image Protection (if necessary) -->
+<script src="/js/imgProtect.js"></script>
+
+<!-- Inline fallback or extra rules (if needed) -->
+<script>
+  // Additional specific logic, if needed
 </script>
+
   
 </body>
 </html>
