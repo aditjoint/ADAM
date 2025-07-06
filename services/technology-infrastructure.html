@@ -220,18 +220,19 @@
     </section>
 
 
-<!-- Footer -->
+<!-- Footer Placeholder -->
 <div id="footer-placeholder"></div>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    fetch("footer.html")
+    fetch("../footer.html") // Use "footer.html" on index.html
       .then(res => res.text())
       .then(html => {
         document.getElementById("footer-placeholder").innerHTML = html;
 
-        // 🔒 Load protection script AFTER footer is injected
+        // 🔒 Load protection script AFTER footer
         const protect = document.createElement("script");
-        protect.src = "../js/imgTextProtect.js"; // Adjust path if needed
+        protect.src = "../js/imgTextProtect.js"; // "js/imgTextProtect.js" for homepage
         document.body.appendChild(protect);
       });
   });
