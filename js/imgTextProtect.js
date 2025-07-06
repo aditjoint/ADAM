@@ -1,45 +1,44 @@
-// js/imgTextProtect.js
 document.addEventListener('DOMContentLoaded', function () {
-  // Block right-click and drag
-  document.body.oncontextmenu = function () { return false; };
-  document.body.style.userSelect = 'none';
-  document.body.style.webkitUserSelect = 'none';
-  document.body.style.msUserSelect = 'none';
-  document.body.style.mozUserSelect = 'none';
+  // Prevent right-click menu
+  document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+  });
 
-  // Disable image right-click and drag
-  const images = document.querySelectorAll('img');
-  images.forEach(img => {
-    img.setAttribute('draggable', 'false');
-    img.addEventListener('contextmenu', function (e) {
+  // Disable text selection
+  document.addEventListener("selectstart", function (e) {
+    e.preventDefault();
+  });
+
+  // Disable image dragging
+  document.querySelectorAll("img").forEach(img => {
+    img.setAttribute("draggable", "false");
+    img.addEventListener("mousedown", function (e) {
       e.preventDefault();
     });
   });
 
-  // Disable print and prevent DevTools (Ctrl+P, F12, etc.)
+  // Disable text selection (double-click, right-click, etc.)
+  document.body.style.userSelect = "none";
+  document.body.onselectstart = function () { return false; };
+
+  // Prevent keyboard shortcuts (e.g., Ctrl+C, Ctrl+U, Ctrl+S, etc.)
   document.addEventListener('keydown', function (e) {
-    // Block Ctrl+P (Print)
-    if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
-      e.preventDefault();
-    }
-    // Block F12 (DevTools)
-    if (e.key === 'F12') {
-      e.preventDefault();
-    }
-    // Block other keyboard shortcuts like Ctrl+C, Ctrl+U, etc.
-    const blockedKeys = ['c', 'x', 'u', 's', 'a', 'i', 'j', 'k'];
+    const blockedKeys = ['c', 'x', 'u', 's', 'p', 'i', 'a', 'v']; // Disable Ctrl + C, X, U, S, P, I, A, V
     if ((e.ctrlKey || e.metaKey) && blockedKeys.includes(e.key.toLowerCase())) {
       e.preventDefault();
     }
+
+    // Block F12 (DevTools) and Ctrl+P (Print dialog)
+    if (e.key === "F12" || (e.ctrlKey && e.key === "p")) {
+      e.preventDefault();
+    }
   });
 
-  // Block text selection
-  document.addEventListener('selectstart', function (e) {
-    e.preventDefault();
-  });
-
-  // Prevent double-click selection
-  document.addEventListener('mousedown', function (e) {
-    if (e.detail > 1) e.preventDefault();
-  });
+  // Prevent the page from being printed using the print dialog (Ctrl+P)
+  window.onbeforeprint = function () {
+    document.body.innerHTML = "<h1 style='color:red;text-align:center;margin-top:20vh;'>⚠️ Printing is disabled on this site.</h1>";
+    setTimeout(() => {
+      window.close();
+    }, 500);
+  };
 });
