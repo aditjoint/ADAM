@@ -1,148 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ADAM Consult - Your Trusted Partner in Engineering, Infrastructure, and Digital Growth</title>
-  <meta name="description" content="We provide integrated solutions across Static Machinery, Equipment, Energy Distribution and Metering, IT and Non-IT Facility Infrastructure, Digital Transformation (Telecom, IT, and Industrial Automation), Strategic Consulting, and Product Marketing. With a focus on innovation and operational excellence, we help organizations modernize their infrastructure, optimize performance, and achieve sustainable growth across diverse sectors.">
+  <meta name="description" content="We provide integrated solutions across Static Machinery, Equipment, Energy Distribution and Metering, IT and Non-IT Facility Infrastructure, Digital Transformation (Telecom, IT, and Industrial Automation), Strategic Consulting, and Product Marketing. With a focus on innovation and operational excellence, we help organizations modernize their infrastructure, optimize performance, and achieve sustainable growth across diverse sectors." />
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="../css/styles.css">
-  <link rel="stylesheet" href="../css/responsive.css">
-  <link rel="stylesheet" href="../css/protect.css"> <!-- 🔒 Protection CSS -->
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
+  <link rel="stylesheet" href="../css/protect.css" /> <!-- 🔒 Protection CSS -->
 
   <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-</head>
-  <!-- DO NOT TOUCH ABOVE CODES -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
-<body>
-    <!-- Header Section -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="../index.html">
-                        <div class="logo-icon">
-                            <span class="letter">A</span>
-                        </div>
-                        <span class="logo-text">ADAM Consult</span>
-                    </a>
-                </div>
-                <nav class="main-nav">
-                    <ul class="nav-links">
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../about.html">About</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle">Enterprise Advisory<i class="fas fa-chevron-down"></i></a>
-                            <ul class="dropdown-menu">
-                                    <li><a href="../services/technology-infrastructure.html">Technology Infrastructure</a></li>
-                                    <li><a href="../services/digital-transformation.html">Digital Transformation</a></li>
-                                    <li><a href="../services/sustainability-solutions.html">Sustainability Solutions</a></li>
-                                    <li><a href="../services/process-automation.html">Process Automation</a></li>
-                                    <li><a href="../services/contracts.html">Project & Contract Management</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle">Current Affairs <i class="fas fa-chevron-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="../currentaffairs/news.html">News</a></li>
-                                <li><a href="../currentaffairs/campaign.html">Campaigns</a></li>
-                                <li><a href="../currentaffairs/events.html">Events</a></li>
-                                <li><a href="../currentaffairs/projects.html">Projects</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="cta-button">
-                    <a href="../contact.html" class="btn btn-primary">Get In Touch</a>
-                </div>
-                <div class="mobile-menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
-        </div>
-    </header>
-
-
-<head>
-
-  <title>DCIM Dashboard - Real-Time Environmental Monitoring</title>
-  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <!-- Added DCIM dashboard CSS here -->
   <style>
-    /* General Styles */
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f4f7fa;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      flex-direction: column;
-    }
-
-    h1 {
-      font-size: 40px;
-      color: #333;
-      margin-bottom: 15px;
-      text-align: center;
-    }
-
-    p {
-      font-size: 18px;
-      color: #777;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
+    /* DCIM Cards CSS */
     .campaign-section {
-      margin: 0 20px;
+      margin: 40px 20px 20px;
       padding: 20px;
       background-color: #fff;
-      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       border-radius: 10px;
       text-align: center;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    /* Grid Layout for Cards */
+    .campaign-section h1 {
+      font-size: 36px;
+      color: #222;
+      margin-bottom: 10px;
+    }
+
+    .campaign-section p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 0;
+    }
+
     .rack-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 20px;
       padding: 20px;
       max-width: 1200px;
+      margin: 0 auto 60px;
       width: 100%;
     }
 
-    /* Individual Card Styling */
     .rack {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.9));
+      background: linear-gradient(135deg, #ffffffcc, #f0f0f0cc);
       padding: 25px;
-      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
       border-radius: 12px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
+      cursor: default;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
+      min-height: 200px;
+      user-select: none;
     }
 
     .rack:hover {
-      transform: translateY(-10px);
-      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
     }
 
     .rack-title {
       font-size: 22px;
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 15px;
+      font-weight: 700;
+      color: #222;
+      margin-bottom: 18px;
     }
 
     .sensor {
@@ -151,254 +87,148 @@
       display: flex;
       justify-content: space-between;
       width: 100%;
+      font-weight: 600;
+      color: #333;
     }
 
-    .sensor span {
-      font-weight: 500;
+    .sensor span:last-child {
+      font-weight: 700;
+      color: #000;
     }
 
     .temp-bar {
       width: 100%;
-      height: 8px;
+      height: 10px;
       border-radius: 5px;
       background: #ddd;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.7);
     }
 
     .temp-bar-fill {
       height: 100%;
       border-radius: 5px;
       position: absolute;
+      top: 0;
+      left: 0;
+      transition: width 0.5s ease;
     }
 
     /* Statuses */
     .status {
       font-size: 14px;
-      font-weight: bold;
-      padding: 8px 15px;
-      border-radius: 5px;
-      margin-top: 15px;
+      font-weight: 700;
+      padding: 10px 20px;
+      border-radius: 6px;
+      margin-top: auto;
       text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      user-select: none;
     }
 
     .status.ok {
       background-color: #28a745;
-      color: white;
+      color: #fff;
+      box-shadow: 0 0 10px #28a745aa;
     }
 
     .status.warning {
       background-color: #ffc107;
-      color: #333;
+      color: #444;
+      box-shadow: 0 0 10px #ffc107aa;
     }
 
     .status.alert {
       background-color: #dc3545;
-      color: white;
+      color: #fff;
+      box-shadow: 0 0 10px #dc3545aa;
     }
 
-    /* Icons */
     .fas {
-      margin-right: 8px;
+      font-size: 18px;
+      margin-right: 6px;
+      flex-shrink: 0;
     }
 
-    .icon-ok {
-      color: #28a745;
-    }
-
-    .icon-warning {
-      color: #ffc107;
-    }
-
-    .icon-alert {
-      color: #dc3545;
-    }
-
-    /* Responsiveness */
+    /* Responsive Adjustments */
     @media (max-width: 768px) {
       .rack-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        padding: 15px;
       }
-
       .rack {
         padding: 20px;
       }
     }
-
   </style>
-
-/* General Styles */
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f4f7fa;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      height: 100vh;
-      flex-direction: column;
-    }
-
-    h1 {
-      font-size: 40px;
-      color: #333;
-      margin-bottom: 15px;
-      text-align: center;
-    }
-
-    p {
-      font-size: 18px;
-      color: #777;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .campaign-section {
-      margin: 0 20px;
-      padding: 20px;
-      background-color: #fff;
-      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    /* Grid Layout for Cards */
-    .rack-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 20px;
-      padding: 20px;
-      max-width: 1200px;
-      width: 100%;
-    }
-
-    /* Individual Card Styling */
-    .rack {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.9));
-      padding: 25px;
-      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
-      border-radius: 12px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    .rack:hover {
-      transform: translateY(-10px);
-      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .rack-title {
-      font-size: 22px;
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 15px;
-    }
-
-    .sensor {
-      font-size: 16px;
-      margin-bottom: 15px;
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-    }
-
-    .sensor span {
-      font-weight: 500;
-    }
-
-    .temp-bar {
-      width: 100%;
-      height: 8px;
-      border-radius: 5px;
-      background: #ddd;
-      margin-bottom: 10px;
-      position: relative;
-    }
-
-    .temp-bar-fill {
-      height: 100%;
-      border-radius: 5px;
-      position: absolute;
-    }
-
-    /* Statuses */
-    .status {
-      font-size: 14px;
-      font-weight: bold;
-      padding: 8px 15px;
-      border-radius: 5px;
-      margin-top: 15px;
-      text-align: center;
-    }
-
-    .status.ok {
-      background-color: #28a745;
-      color: white;
-    }
-
-    .status.warning {
-      background-color: #ffc107;
-      color: #333;
-    }
-
-    .status.alert {
-      background-color: #dc3545;
-      color: white;
-    }
-
-    /* Icons */
-    .fas {
-      margin-right: 8px;
-    }
-
-    .icon-ok {
-      color: #28a745;
-    }
-
-    .icon-warning {
-      color: #ffc107;
-    }
-
-    .icon-alert {
-      color: #dc3545;
-    }
-
-    /* Hover and Responsive Effects */
-    .rack:hover .rack-title {
-      color: #0066cc;
-    }
-
-    .rack-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 20px;
-      width: 100%;
-    }
-
-    /* Adjust for smaller screens */
-    @media (max-width: 768px) {
-      .rack {
-        padding: 20px;
-      }
-    }
-  
 </head>
+
 <body>
-  <!-- ✅ TestCase -->
+  <!-- Header Section -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <a href="../index.html">
+            <div class="logo-icon">
+              <span class="letter">A</span>
+            </div>
+            <span class="logo-text">ADAM Consult</span>
+          </a>
+        </div>
+        <nav class="main-nav">
+          <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle">Enterprise Advisory
+                <i class="fas fa-chevron-down"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="../services/technology-infrastructure.html">Technology Infrastructure</a></li>
+                <li><a href="../services/digital-transformation.html">Digital Transformation</a></li>
+                <li><a href="../services/sustainability-solutions.html">Sustainability Solutions</a></li>
+                <li><a href="../services/process-automation.html">Process Automation</a></li>
+                <li><a href="../services/contracts.html">Project & Contract Management</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle">Current Affairs
+                <i class="fas fa-chevron-down"></i>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="../currentaffairs/news.html">News</a></li>
+                <li><a href="../currentaffairs/campaign.html">Campaigns</a></li>
+                <li><a href="../currentaffairs/events.html">Events</a></li>
+                <li><a href="../currentaffairs/projects.html">Projects</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <div class="cta-button">
+          <a href="../contact.html" class="btn btn-primary">Get In Touch</a>
+        </div>
+        <div class="mobile-menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Campaign Section -->
   <div class="campaign-section">
     <h1>DCIM Environmental Monitoring Dashboard</h1>
     <p>Monitor your Data Center & Environmental Infrastructure in Real-Time</p>
   </div>
 
-  <!-- ✅ IOT DCIM DASHBOARD -->
+  <!-- DCIM Monitoring Cards Grid -->
   <section class="rack-grid">
-    <!-- Cabinet 01 - Manufacturing -->
+    <!-- Example Card -->
     <div class="rack">
       <div class="rack-title">Cabinet 01 - Manufacturing</div>
       <div class="sensor"><span>Temp</span><span>36°C</span></div>
@@ -408,11 +238,10 @@
       <div class="sensor"><span>Humidity</span><span>45%</span></div>
       <div class="sensor"><span>Power</span><span>2.3 kW</span></div>
       <div class="status ok">
-        <i class="fas fa-check-circle icon-ok"></i> All Systems Normal
+        <i class="fas fa-check-circle"></i> All Systems Normal
       </div>
     </div>
 
-    <!-- Cabinet 02 - BFSI -->
     <div class="rack">
       <div class="rack-title">Cabinet 02 - BFSI</div>
       <div class="sensor"><span>Temp</span><span>42°C</span></div>
@@ -422,237 +251,81 @@
       <div class="sensor"><span>Humidity</span><span>58%</span></div>
       <div class="sensor"><span>Power</span><span>3.5 kW</span></div>
       <div class="status alert">
-        <i class="fas fa-exclamation-triangle icon-alert"></i> High Temperature!
+        <i class="fas fa-exclamation-triangle"></i> High Temperature!
       </div>
     </div>
 
-    <!-- Power Monitoring - DC Floor A1 -->
     <div class="rack">
       <div class="rack-title">Power Monitoring - DC Floor A1</div>
       <div class="sensor"><span>Input Voltage</span><span>230V</span></div>
       <div class="sensor"><span>Load Current</span><span>18A</span></div>
       <div class="sensor"><span>UPS Status</span><span>Active</span></div>
       <div class="status ok">
-        <i class="fas fa-check-circle icon-ok"></i> Redundant Power Active
+        <i class="fas fa-check-circle"></i> Redundant Power Active
       </div>
     </div>
 
-    <!-- HVAC Zone 3 - Server Hall -->
     <div class="rack">
       <div class="rack-title">HVAC Zone 3 - Server Hall</div>
       <div class="sensor"><span>Room Temp</span><span>27.5°C</span></div>
       <div class="sensor"><span>Cooling Unit Load</span><span>67%</span></div>
       <div class="status warning">
-        <i class="fas fa-exclamation-triangle icon-warning"></i> High Load Detected
+        <i class="fas fa-exclamation-triangle"></i> High Load Detected
       </div>
     </div>
 
-    <!-- Access Control - Rack Bay 5 -->
     <div class="rack">
       <div class="rack-title">Access Control - Rack Bay 5</div>
       <div class="sensor"><span>Last Access</span><span>10:32 AM</span></div>
       <div class="sensor"><span>Auth Method</span><span>RFID</span></div>
       <div class="status alert">
-        <i class="fas fa-user-lock icon-alert"></i> Unauthorized Attempt Logged!
+        <i class="fas fa-user-lock"></i> Unauthorized Attempt Logged!
       </div>
     </div>
 
-    <!-- Leak Sensor - Battery Room -->
     <div class="rack">
       <div class="rack-title">Leak Sensor - Battery Room</div>
       <div class="sensor"><span>Leak Detected</span><span>YES</span></div>
       <div class="sensor"><span>Last Event</span><span>5 mins ago</span></div>
       <div class="status alert">
-        <i class="fas fa-water icon-alert"></i> Leak Detected - Escalated
+        <i class="fas fa-water"></i> Leak Detected - Escalated
       </div>
     </div>
 
-    <!-- Genset A - Backup Power -->
     <div class="rack">
       <div class="rack-title">Genset A - Backup Power</div>
       <div class="sensor"><span>Fuel Level</span><span>78%</span></div>
       <div class="sensor"><span>Status</span><span>Test Mode</span></div>
       <div class="status ok">
-        <i class="fas fa-sync-alt icon-ok"></i> Auto-Start Function OK
+        <i class="fas fa-sync-alt"></i> Auto-Start Function OK
       </div>
     </div>
 
-
-<!-- Humidity Control - Data Room -->
-<div class="rack">
-  <div class="rack-title">Humidity Control - Data Room</div>
-  <div class="sensor"><span>Humidity Level</span><span>70%</span></div>
-  <div class="sensor"><span>Alarm Status</span><span>Active</span></div>
-  <div class="status alert">
-    <i class="fas fa-exclamation-triangle icon-alert"></i> Humidity Too High!
-  </div>
-</div>
-
-<!-- Access Control - Rack Bay 2 -->
-<div class="rack">
-  <div class="rack-title">Access Control - Rack Bay 2</div>
-  <div class="sensor"><span>Last Access</span><span>9:15 AM</span></div>
-  <div class="sensor"><span>Auth Method</span><span>Biometric</span></div>
-  <div class="status ok">
-    <i class="fas fa-check-circle icon-ok"></i> Access Normal
-  </div>
-</div>
-
-<!-- Leak Sensor - Storage Room -->
-<div class="rack">
-  <div class="rack-title">Leak Sensor - Storage Room</div>
-  <div class="sensor"><span>Leak Detected</span><span>NO</span></div>
-  <div class="sensor"><span>Last Event</span><span>2 hours ago</span></div>
-  <div class="status ok">
-    <i class="fas fa-check-circle icon-ok"></i> No Leak Detected
-  </div>
-</div>
-
-<!-- Power Supply - DC Floor B1 -->
-<div class="rack">
-  <div class="rack-title">Power Supply - DC Floor B1</div>
-  <div class="sensor"><span>Input Voltage</span><span>240V</span></div>
-  <div class="sensor"><span>Load Current</span><span>15A</span></div>
-  <div class="sensor"><span>UPS Status</span><span>Active</span></div>
-  <div class="status ok">
-    <i class="fas fa-check-circle icon-ok"></i> Power Stable
-  </div>
-</div>
-
-<!-- Water Leak Detection - Battery Backup Room -->
-<div class="rack">
-  <div class="rack-title">Water Leak Detection - Battery Backup Room</div>
-  <div class="sensor"><span>Leak Detected</span><span>YES</span></div>
-  <div class="sensor"><span>Last Event</span><span>5 mins ago</span></div>
-  <div class="status alert">
-    <i class="fas fa-exclamation-circle icon-alert"></i> Leak Detected!
-  </div>
-</div>
-
-<!-- Voltage Monitoring - Power Grid -->
-<div class="rack">
-  <div class="rack-title">Voltage Monitoring - Power Grid</div>
-  <div class="sensor"><span>Voltage</span><span>215V</span></div>
-  <div class="sensor"><span>Current</span><span>18A</span></div>
-  <div class="status warning">
-    <i class="fas fa-exclamation-triangle icon-warning"></i> Voltage Low
-  </div>
-</div>
-
-<!-- Fuel Monitoring - Backup Generator -->
-<div class="rack">
-  <div class="rack-title">Fuel Monitoring - Backup Generator</div>
-  <div class="sensor"><span>Fuel Level</span><span>85%</span></div>
-  <div class="sensor"><span>Status</span><span>Idle</span></div>
-  <div class="status ok">
-    <i class="fas fa-check-circle icon-ok"></i> Fuel Level OK
-  </div>
-</div>
-
-<!-- Cabinet 03 - Healthcare -->
-    <div class="rack">
-      <div class="rack-title">Cabinet 03 - Healthcare</div>
-      <div class="sensor"><span>Temp</span><span>25°C</span></div>
-      <div class="temp-bar">
-        <div class="temp-bar-fill" style="width: 50%; background: #28a745;"></div>
-      </div>
-      <div class="sensor"><span>Humidity</span><span>50%</span></div>
-      <div class="sensor"><span>Power</span><span>1.8 kW</span></div>
-      <div class="status ok">
-        <i class="fas fa-check-circle icon-ok"></i> All Systems Normal
-      </div>
-    </div>
-
-    <!-- Cabinet 04 - Telecom -->
-    <div class="rack">
-      <div class="rack-title">Cabinet 04 - Telecom</div>
-      <div class="sensor"><span>Temp</span><span>48°C</span></div>
-      <div class="temp-bar">
-        <div class="temp-bar-fill" style="width: 96%; background: #dc3545;"></div>
-      </div>
-      <div class="sensor"><span>Humidity</span><span>60%</span></div>
-      <div class="sensor"><span>Power</span><span>4.2 kW</span></div>
-      <div class="status alert">
-        <i class="fas fa-exclamation-triangle icon-alert"></i> High Temperature!
-      </div>
-    </div>
-
-    <!-- Cabinet 05 - Data Center Cooling -->
-    <div class="rack">
-      <div class="rack-title">Cabinet 05 - Data Center Cooling</div>
-      <div class="sensor"><span>Temp</span><span>22°C</span></div>
-      <div class="temp-bar">
-        <div class="temp-bar-fill" style="width: 44%; background: #28a745;"></div>
-      </div>
-      <div class="sensor"><span>Humidity</span><span>40%</span></div>
-      <div class="sensor"><span>Power</span><span>2.5 kW</span></div>
-      <div class="status ok">
-        <i class="fas fa-check-circle icon-ok"></i> All Systems Normal
-      </div>
-    </div>
-
-    <!-- UPS Monitoring - UPS Room -->
-    <div class="rack">
-      <div class="rack-title">UPS Monitoring - UPS Room</div>
-      <div class="sensor"><span>Battery Voltage</span><span>12.5V</span></div>
-      <div class="sensor"><span>Battery Health</span><span>Fair</span></div>
-      <div class="sensor"><span>Load Current</span><span>10A</span></div>
-      <div class="status warning">
-        <i class="fas fa-exclamation-triangle icon-warning"></i> Battery Health is Fair
-      </div>
-    </div>
-
-    <!-- Generator - Backup Power -->
-    <div class="rack">
-      <div class="rack-title">Generator - Backup Power</div>
-      <div class="sensor"><span>Fuel Level</span><span>55%</span></div>
-      <div class="sensor"><span>Status</span><span>Online</span></div>
-      <div class="status ok">
-        <i class="fas fa-sync-alt icon-ok"></i> Auto-Start Function OK
-      </div>
-    </div>
-
-    <!-- Power Monitoring - DC Floor A3 -->
-    <div class="rack">
-      <div class="rack-title">Power Monitoring - DC Floor A3</div>
-      <div class="sensor"><span>Input Voltage</span><span>200V</span></div>
-      <div class="sensor"><span>Load Current</span><span>20A</span></div>
-      <div class="sensor"><span>UPS Status</span><span>Inactive</span></div>
-      <div class="status alert">
-        <i class="fas fa-exclamation-circle icon-alert"></i> Low Voltage & UPS Inactive
-      </div>
-    </div>
-    
-    
+    <!-- Add more cards here as needed... -->
   </section>
 
+  <!-- DO NOT TOUCH BELOW CODES -->
 
-
-
-
- <!-- DO NOT TOUCH BELOW CODES -->
-  
   <!-- Footer Placeholder -->
-<div id="footer-placeholder"></div>
+  <div id="footer-placeholder"></div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    fetch("../footer.html") // Use "footer.html" on index.html
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("footer-placeholder").innerHTML = html;
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch("../footer.html") // Use "footer.html" on index.html
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("footer-placeholder").innerHTML = html;
 
-        // 🔒 Load protection script AFTER footer
-        const protect = document.createElement("script");
-        protect.src = "../js/imgTextProtect.js"; // "js/imgTextProtect.js" for homepage
-        document.body.appendChild(protect);
-      });
-  });
-</script>
+          // 🔒 Load protection script AFTER footer
+          const protect = document.createElement("script");
+          protect.src = "../js/imgTextProtect.js"; // "js/imgTextProtect.js" for homepage
+          document.body.appendChild(protect);
+        });
+    });
+  </script>
 
-<!-- Your other scripts -->
-<script src="../js/main.js"></script>
-<script src="../js/dropdown.js"></script>
-
+  <!-- Your other scripts -->
+  <script src="../js/main.js"></script>
+  <script src="../js/dropdown.js"></script>
 </body>
 </html>
