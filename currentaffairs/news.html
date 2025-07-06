@@ -15,9 +15,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
   <style>
+    /* Ensure the body has a white background */
+    body {
+      background-color: #ffffff; /* White background for the body */
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+
     /* General card style */
     .card {
-      background-color: #ffffff; /* Ensure all cards have the same background color */
+      background-color: #ffffff; /* White background for cards */
       padding: 20px;
       border-radius: var(--border-radius-lg);
       box-shadow: var(--shadow-sm);
@@ -25,59 +32,124 @@
       transition: transform 0.3s ease;
     }
 
-    /* On hover, make cards slightly elevated */
     .card:hover {
       transform: translateY(-5px);
       box-shadow: var(--shadow-md);
     }
 
-    /* Consistent color for text */
-    .card h3 {
-      color: #0056b3; /* Headings should have consistent color */
-    }
-
     /* Section styles */
     .news-section {
-      background-color: #ffffff;
+      background-color: #ffffff; /* Ensure the section has a white background */
       padding: 50px 20px;
       text-align: center;
       border-bottom: 5px solid #eee;
     }
+
     .news-article {
       display: flex;
       flex-direction: column;
       align-items: center;
       margin: 0 auto 40px auto;
       padding: 20px;
-      background-color: #f9f9f9;
+      background-color: #f9f9f9; /* Ensure a soft background for individual articles */
       border: 1px solid #ddd;
       border-radius: 8px;
       max-width: 800px;
     }
+
     .news-article h3 {
       font-size: 24px;
       margin-bottom: 10px;
       color: #007BFF;
     }
+
     .news-article p {
       font-size: 18px;
       color: #555;
       margin-bottom: 20px;
       line-height: 1.6;
     }
+
+    /* Campaign Section styling */
+    .campaign-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px 20px;
+      background-color: #f8f9fa; /* Light background for the campaign section */
+    }
+
+    .campaign-section div {
+      max-width: 800px;
+    }
+
+    .campaign-section h2 {
+      font-size: 2rem;
+      color: #0056b3;
+      margin-bottom: 1rem;
+    }
+
+    .campaign-section p {
+      font-size: 1.125rem;
+      color: #666;
+    }
   </style>
 </head>
+
 <body>
+  <!-- ✅ HEADER PLACEHOLDER -->
+  <div id="header-placeholder"></div>
+
+  <!-- ✅ HEADER LOAD SCRIPT -->
+  <script>
+  fetch("../header.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("header-placeholder").innerHTML = html;
+
+      // Mobile menu toggle (hamburger)
+      const toggleButton = document.querySelector(".mobile-menu-toggle");
+      const navLinks = document.querySelector(".main-nav");
+
+      if (toggleButton && navLinks) {
+        toggleButton.addEventListener("click", function () {
+          navLinks.classList.toggle("active");
+        });
+      }
+
+      // ✅ Mobile dropdown toggle logic
+      const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+      dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function (e) {
+          e.preventDefault();
+          const dropdownMenu = this.nextElementSibling;
+
+          // Close other dropdowns
+          document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            if (menu !== dropdownMenu) {
+              menu.style.display = 'none';
+            }
+          });
+
+          // Toggle current dropdown
+          if (dropdownMenu.style.display === 'block') {
+            dropdownMenu.style.display = 'none';
+          } else {
+            dropdownMenu.style.display = 'block';
+          }
+        });
+      });
+    })
+    .catch(err => console.error("Header load failed:", err));
+  </script>
 
   <!-- Campaign Section -->
-  <section style="display: flex; justify-content: center; align-items: center; text-align: center; padding: 100px 20px; background-color: #f8f9fa;">
-    <div style="max-width: 800px;">
-      <h2 style="font-size: 2rem; color: #0056b3; margin-bottom: 1rem;">
-        Join Our Exciting Partnership Campaign!
-      </h2>
-      <p style="font-size: 1.125rem; color: #666;">
-        We are excited to have you with us as we embark on this journey of growth and transformation.
-      </p>
+  <section class="campaign-section">
+    <div>
+      <h2>Join Our Exciting Partnership Campaign!</h2>
+      <p>We are excited to have you with us as we embark on this journey of growth and transformation.</p>
     </div>
   </section>
 
