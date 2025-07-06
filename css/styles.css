@@ -444,118 +444,110 @@ header {
 /* --------------------------------------------
    Hero Section
 -------------------------------------------- */
-.hero {
-    position: relative;
-    background-color: #0a2040;
-    background-image: linear-gradient(rgba(10, 32, 64, 0.85), rgba(10, 32, 64, 0.9)), url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: var(--white);
-    overflow: hidden;
-    padding: var(--spacing-4xl) 0;
+/* HERO SECTION OVERLAY FIX */
+.hero-section {
+  position: relative;
+  padding: 120px 0 100px;
+  background: linear-gradient(to bottom right, rgba(0, 37, 82, 0.85), rgba(0, 37, 82, 0.85)),
+              url('../images/your-background.jpg') center/cover no-repeat;
+  color: #fff;
 }
 
 .hero-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--spacing-2xl);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .hero-text {
-    flex: 1;
+  flex: 1;
 }
 
-.hero-subtitle {
-    display: inline-block;
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--white);
-    font-size: var(--font-size-sm);
-    padding: var(--spacing-xs) var(--spacing-md);
-    border-radius: var(--border-radius-sm);
-    margin-bottom: var(--spacing-md);
+.hero-text h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 20px;
 }
 
-.hero-title {
-    font-size: var(--font-size-4xl);
-    color: var(--white);
-    margin-bottom: var(--spacing-sm);
+.hero-text p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
-.hero-subtitle-large {
-    font-size: var(--font-size-xl);
-    color: var(--white);
-    font-weight: 500;
-    margin-bottom: var(--spacing-md);
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
 }
 
-.hero-description {
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--spacing-xl);
-    max-width: 600px;
-    color: rgba(255, 255, 255, 0.9);
+.hero-buttons .btn {
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #fff;
 }
 
-.certification-badges {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: var(--spacing-xl);
-    gap: var(--spacing-md);
+.btn-primary {
+  background-color: #007bff;
 }
 
-.badge {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: var(--spacing-xs) var(--spacing-md);
-    border-radius: var(--border-radius-sm);
-    font-size: var(--font-size-sm);
-    display: flex;
-    align-items: center;
+.btn-outline {
+  border: 2px solid #fff;
+  color: #fff;
 }
 
-.badge img {
-    height: 20px;
-    margin-right: var(--spacing-xs);
-}
-
-/* Hero Services */
 .hero-services {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-md);
-    flex: 0 0 400px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  flex: 1;
 }
 
 .service-card {
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border-radius: var(--border-radius-md);
-    padding: var(--spacing-lg);
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  padding: 20px;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-    background-color: rgba(255, 255, 255, 0.15);
-}
-
-.service-card i {
-    font-size: var(--font-size-2xl);
-    color: var(--white);
-    margin-bottom: var(--spacing-md);
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .service-card h3 {
-    font-size: var(--font-size-lg);
-    color: var(--white);
-    margin-bottom: var(--spacing-xs);
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 600;
 }
 
 .service-card p {
-    font-size: var(--font-size-sm);
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* RESPONSIVE FIXES */
+@media (max-width: 992px) {
+  .hero-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-services {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
 }
 
 /* --------------------------------------------
