@@ -468,20 +468,31 @@
     <!-- Add more cards here as needed... -->
   </section>
 
+  
+
   <!-- DO NOT TOUCH BELOW CODES -->
+  
+  <!-- Footer Placeholder -->
+<div id="footer-placeholder"></div>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("../footer.html") // Use "footer.html" on index.html
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("footer-placeholder").innerHTML = html;
 
+        // 🔒 Load protection script AFTER footer
+        const protect = document.createElement("script");
+        protect.src = "../js/imgTextProtect.js"; // "js/imgTextProtect.js" for homepage
+        document.body.appendChild(protect);
+      });
+  });
+</script>
 
-          // 🔒 Load protection script AFTER footer
-          const protect = document.createElement("script");
-          protect.src = "../js/imgTextProtect.js"; // "js/imgTextProtect.js" for homepage
-          document.body.appendChild(protect);
-        });
-    });
-  </script>
+<!-- Your other scripts -->
+<script src="../js/main.js"></script>
+<script src="../js/dropdown.js"></script>
 
-  <!-- Your other scripts -->
-  <script src="../js/main.js"></script>
-  <script src="../js/dropdown.js"></script>
 </body>
 </html>
