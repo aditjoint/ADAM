@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADAM Consult - Your Trusted Partner in Engineering, Infrastructure, and Digital Growth</title>
+  <meta name="description" content="We provide integrated solutions across Static Machinery, Equipment, Energy Distribution and Metering, IT and Non-IT Facility Infrastructure, Digital Transformation (Telecom, IT, and Industrial Automation), Strategic Consulting, and Product Marketing. With a focus on innovation and operational excellence, we help organizations modernize their infrastructure, optimize performance, and achieve sustainable growth across diverse sectors.">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/protect.css"> <!-- 🔒 Protection CSS -->
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+  <!-- DO NOT TOUCH ABOVE CODES -->
+  
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Digital Transformation Services - ADAM Consult</title>
@@ -209,42 +228,29 @@
     </div> <!-- .container -->
   </section> <!-- .contact-section -->
 
+   <!-- DO NOT TOUCH BELOW CODES -->
+  
   <!-- Footer Placeholder -->
-  <div id="footer-placeholder"></div>
+<div id="footer-placeholder"></div>
 
-  <!-- Footer Inject Script -->
-  <script>
-    fetch("../footer.html")
-      .then(response => {
-        if (!response.ok) throw new Error("Network response was not ok");
-        return response.text();
-      })
-      .then(data => {
-        document.getElementById("footer-placeholder").innerHTML = data;
-      })
-      .catch(error => console.error("Error loading footer:", error));
-  </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("../footer.html") // Use "footer.html" on index.html
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("footer-placeholder").innerHTML = html;
 
-  <!-- Protect Scripts -->
-  <script src="/js/protect.js"></script>
-  <script src="/js/imgProtect.js"></script>
-
-  <!-- Optional: Disable Right-Click, Copy -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      document.body.oncontextmenu = () => false;
-      document.body.style.userSelect = "none";
-      document.body.style.webkitUserSelect = "none";
-      document.body.style.msUserSelect = "none";
-      document.body.onselectstart = () => false;
-      document.body.ondragstart = () => false;
-      document.addEventListener('keydown', function (e) {
-        if ((e.ctrlKey || e.metaKey) && ['c', 'x', 'u', 's', 'a'].includes(e.key.toLowerCase())) {
-          e.preventDefault();
-        }
+        // 🔒 Load protection script AFTER footer
+        const protect = document.createElement("script");
+        protect.src = "../js/imgTextProtect.js"; // "js/imgTextProtect.js" for homepage
+        document.body.appendChild(protect);
       });
-    });
-  </script>
+  });
+</script>
+
+<!-- Your other scripts -->
+<script src="../js/main.js"></script>
+<script src="../js/dropdown.js"></script>
 
 </body>
 </html>
