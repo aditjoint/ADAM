@@ -1,174 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Digital Transformation Services - ADAM Consult</title>
-  <meta name="description" content="Our digital transformation services help businesses modernize operations, implement enterprise IT strategies, develop custom web applications, and automate processes." />
-
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="../css/styles.css" />
-  <link rel="stylesheet" href="../css/responsive.css" />
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
-
-  <style>
-    .campaign-section {
-      background-color: #ff8c00;
-      color: white;
-      padding: 10px 10px;
-      text-align: center;
-      border-bottom: 5px solid #333;
-    }
-    .campaign-title {
-      font-size: 36px;
-      margin-bottom: 20px;
-    }
-    .campaign-description {
-      font-size: 18px;
-      margin-bottom: 30px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .campaign-image {
-      margin-top: 30px;
-    }
-    .campaign-image img {
-      max-width: 30%;
-      height: auto;
-    }
-  </style>
-</head>
-
-<body>
-  <!-- ✅ HEADER PLACEHOLDER -->
-  <div id="header-placeholder"></div>
-
- 
-  <!-- ✅ HEADER LOAD SCRIPT -->
- 
-  <script>
-  fetch("../header.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("header-placeholder").innerHTML = html;
-
-      // Mobile menu toggle (hamburger)
-      const toggleButton = document.querySelector(".mobile-menu-toggle");
-      const navLinks = document.querySelector(".main-nav");
-
-      if (toggleButton && navLinks) {
-        toggleButton.addEventListener("click", function () {
-          navLinks.classList.toggle("active");
-        });
-      }
-
-      // ✅ Mobile dropdown toggle logic
-      const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-
-      dropdownToggles.forEach(toggle => {
-        toggle.addEventListener('click', function (e) {
-          e.preventDefault();
-          const dropdownMenu = this.nextElementSibling;
-
-          // Close other dropdowns
-          document.querySelectorAll('.dropdown-menu').forEach(menu => {
-            if (menu !== dropdownMenu) {
-              menu.style.display = 'none';
-            }
-          });
-
-          // Toggle current dropdown
-          if (dropdownMenu.style.display === 'block') {
-            dropdownMenu.style.display = 'none';
-          } else {
-            dropdownMenu.style.display = 'block';
-          }
-        });
-      });
-    })
-    .catch(err => console.error("Header load failed:", err));
-</script>
-
- <!-- Advisors Section -->
-<section class="advisors-section" style="padding: 40px 0; background-color: #f9f9f9;">
-  <div class="container" style="max-width: 1100px; margin: 0 auto;">
-    <div class="section-header" style="text-align: center; margin-bottom: 40px;">
-      <h1>Advisory Board, Sponsors and Contributors</h1>
-      <p>Meet our expert advisors who provide strategic guidance and industry expertise</p>
-    </div>
-
-    <!-- Advisor Cards Grid -->
-    <div class="advisors-grid" style="display: flex; flex-direction: column; gap: 30px;">
-
-      <!-- Advisor Card 1 -->
-      <div class="advisor-card" style="display: flex; align-items: flex-start; gap: 20px; border: 1px solid #ddd; padding: 20px; border-radius: 8px; background-color: #fff;">
-        <div class="advisor-content" style="flex: 1;">
-          <h3>Lalitendu S</h3>
-          <h4>Founder, Consultant and Advisor – Industrial Infrastructure, Electronics, Telecom, IT, and Automation</h4>
-          <p><strong>Focus:</strong> Vision, Strategic Growth, Leadership</p>
-          <p>A seasoned engineering professional at core and a dynamic business leader with over 30 years of industry experience, Lalitendu has spearheaded transformative initiatives in Industrial Automation, Manufacturing, Telecom, IT, Information Security, and Data Center Facility (BOT) operations. He excels in driving innovation, scaling operations, and building high-performing teams, all while maintaining a clear vision for sustainable, technology-enabled growth. His work encompasses strategy, partnerships, and investor relations.</p>
-          <p><strong>Expertise:</strong> Product Strategy, Infrastructure & Engineering, Service Designs</p>
-        </div>
-        <div class="advisor-photo">
-          <img src="personphotos/markup_1000208160.jpg" alt="Lalitendu S" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px;">
-        </div>
-      </div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advisors - ADAM Consult</title>
+    <meta name="description" content="Meet our expert advisors at ADAM Consult who provide strategic guidance and industry expertise.">
     
-</section>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/advisors.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+  <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <div class="logo-icon">
+                            <span class="letter">A</span>
+                        </div>
+                        <span class="logo-text">ADAM Consult</span>
+                    </a>
+                </div>
+                  <nav class="main-nav">
+                    <ul class="nav-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">Consult Service <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                    <li><a href="../services/technology-infrastructure.html">Technology Infrastructure</a></li>
+                                    <li><a href="../services/digital-transformation.html">Digital Transformation</a></li>
+                                    <li><a href="../services/sustainability-solutions.html">Sustainability Solutions</a></li>
+                                    <li><a href="../services/process-automation.html">Process Automation</a></li>
+                                    <li><a href="../services/contracts.html">Project & Contract Management</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">Current Affairs <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../currentaffairs/news.html">News</a></li>
+                                <li><a href="../currentaffairs/campaign.html">Campaigns</a></li>
+                                <li><a href="../currentaffairs/events.html">Events</a></li>
+                                <li><a href="../currentaffairs/projects.html">Projects</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="cta-button">
+                    <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
 
- <!-- Footer placeholder -->
-<div id="footer-placeholder"></div>
-<script>
-  fetch("../footer.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("footer-placeholder").innerHTML = data;
-    })
-    .catch(error => console.error("Footer load error:", error));
-</script>
+    <!-- Advisors Section -->
+        <section class="advisors-section" style="display: none;">
+        <div class="container">
+            <div class="section-header">
+                <h1> Advisory Board, Sponsors and Contributors</h1>
+                <p>Meet our expert advisors who provide strategic guidance and industry expertise</p>
+            </div>
+          
+            <div class="advisors-grid">
+                <div class="advisor-card">
+                    <div class="advisor-content">
+                        <h3>Lalitendu S</h3>
+                        <h4>Consultant and Advisor - Infrastruture, Engineering and Automation</h4>
+                        <p class="advisor-focus"><strong>Focus:</strong> Vision, Strategic Growth, Leadership</p>
+                        <p class="advisor-bio">A seasoned techno-commercial practitioner and business leader with 30+ years of industry experience across India and overseas, Lalitendu has led impactful initiatives in Industrial Automation Engineering, Manufacturing, Telecom, IT, Information Security, Data Centers Facility(BOT) and Digital Practice. He drives innovation, scales operations, and builds high-performing teams with a clear vision for sustainable, tech-enabled growth—overseeing strategy, partnerships, and investor relations. </p>
+                        <p class="advisor-expertise"><strong>Expertise:</strong> Business strategy, projects, operations, team building, stakeholder management</p>
+                        </div>
+                    </div>
+                <div class="advisor-card">
+                    <div class="advisor-content">
+                        <h3>Lalatendu S</h3>
+                        <h4>Consultant and Advisor - Energy, Regulatory</h4>
+                        <p class="advisor-focus"><strong>Focus:</strong> Global Expansion, Cross-Border Partnerships</p>
+                        <p class="advisor-bio">Lalatendu brings 30+ years of cross-continental expertise in energy distribution, regulatory strategy, and metering technology. He has led major energy audit and loss-reduction initiatives across India and Africa, saving millions in revenue. A pioneer in systems like HVCMS and grid metering solutions, his work supports governments and utilities in driving efficiency, compliance, and digital transformation. </p>
+                        <p class="advisor-expertise"><strong>Expertise:</strong> International trade, channel development, global compliance, strategic alliances</p>
+                        </div>
+                     </div>
+                <div class="advisor-card">
+                    <div class="advisor-content">
+                        <h3>Debashish Bhattahcharjee</h3>
+                        <h4>Consultant and Advisor - Marketing, Strategy</h4>
+                        <p class="advisor-focus"><strong>Focus:</strong> Expansion, Brand Strategy, International Relations</p>
+                        <p class="advisor-bio">With a strong background in brand strategy, consulting, and full-time work on UN projects, Debashish has led award-winning campaigns and launched global B2B and consumer brands. He excels at crafting compelling narratives and executing high-impact go-to-market strategies. A creative at heart, pupularly known Deb is also the co-producer of OASS, a film recognized at the Cannes Film Festival.</p>
+                        <p class="advisor-expertise"><strong>Expertise:</strong> Marketing, strategy </p>
+                    </div>
+                       </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Advisor Enrollment -->
+    <section class="advisor-enrollment">
+        <div class="container">
+            <h2>Join Our Advisory Panel</h2>
+            <p>Share your expertise and help shape the future of technology and infrastructure by joining our advisory network. We're seeking experienced professionals passionate about innovation and strategic impact. To express your interest, please send a separate email to <strong>adamconsultservice@gmail.com</strong>:</P>
+            <p>Please consult the Legal section for comprehensive information on our Non-Disclosure Agreement (NDA) and other policies.</p>
+            <form id="advisorEnrollmentForm" class="enrollment-form">
+                <div class="form-group">
+                    <input type="text" id="name" name="name" required placeholder="Full Name">
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" name="email" required placeholder="Email Address">
+                </div>
+                <div class="form-group">
+                    <textarea id="expertise" name="expertise" required placeholder="Professional experiences, Areas of expertise/ specialization and a link to your Linkedin Profile:"></textarea>
+                </div>
+                <div class="form-group">
+                  <input type="submit" value="Send your email to: adamconsultservice@gmail.com" class="btn btn-primary" disabled>
+                </div>
+            </form>
+        </div>
+    </section>
 
-        <!-- In HEAD or before </body> -->
-<script src="/js/protect.js"></script>
- <script src="/js/imgProtect.js"></script>
-  
-  <div style="position: relative; display: inline-block;">
-  <img src="yourimage.jpg" style="display: block;" />
-  <div style="
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    z-index: 2;
-  "></div>
-</div>
-  
-<!-- Inline fallback or extra rules -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.body.oncontextmenu = function () { return false; };
-    document.body.style.userSelect = "none";
-    document.body.style.webkitUserSelect = "none";
-    document.body.style.msUserSelect = "none";
-    document.body.onselectstart = function () { return false; };
-    document.body.ondragstart = function () { return false; };
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <span class="letter">A</span>
+                        </div>
+                        <span class="logo-text">ADAM Consult</span>
+                    </div>
+                    <p>ADAM Consult is a strategic gateway and modular collaboration hub that empowers cross-sector innovation. By uniting investors, partners, consultants, and customers in a unified ecosystem, it enables high-impact partnerships that drive efficiency, connectivity, and long-term value across industries. It accelerates industrial intelligence through advanced data solutions and digital integration.</p>
+                 
+  <div class="social-links">
+    <a href="https://www.facebook.com/yourprofile" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://twitter.com/yourprofile" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://www.instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/yourprofile" target="_blank"><i class="fab fa-youtube"></i></a>
+  </div>
 
-    // Optional additional blocking
-    document.addEventListener('keydown', function (e) {
-      if ((e.ctrlKey || e.metaKey) && ['c', 'x', 'u', 's', 'a'].includes(e.key.toLowerCase())) {
-        e.preventDefault();
-      }
-    });
-  });
-</script>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="../../index.html">Home</a></li>
+                            <li><a href="../../services/technology-infrastructure.html">Services</a></li>
+                            <li><a href="../../about.html">About Us</a></li>
+                            <li><a href="../../advisors.html">Advisors</a></li>
+                            <li><a href="../../partners.html">Partners</a></li>
+                            <li><a href="../../investment">Investor Portfolio</a></li>
+                            <li><a href="../../resources">Resources</a></li>
+                            <li><a href="../../contact.html">Contact</a></li>
+                        </ul>
 
+                    </div>
+                    <div class="link-group">
+                        <h3>Legal</h3>
+                                  <p>
+                                    <p><a href="../termsofuse.html">Terms of Use</a></p></p>
+                                    <p><a href="../dataprotection.html">Data Protection Policy</a></p>
+                                    <p><a href="../whistleblowing.html">Whistleblowing Policy</a></p>
+                                    <p><a href="../privacy&cookies.html">Privacy & Cookie Policy</a></p>
+                                 </p>
 
+                    </div>
+                    <div class="link-group">
+                        <h3>Our Location</h3>
+                        <div class="footer-contact-grid">
+                            <a href="https://www.google.com/maps?q=Navi+Mumbai,+India" class="contact-item" target="_blank">
+                              <i class="fas fa-map-marker-alt"></i>
+                                  <span>Navi Mumbai, India</span>
+                                </a>
+                            <a href="tel:+91-2235667733(direct)" class="contact-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>+91-2235667733</span>
+                            </a>
+                            <a href="mailto:adamconsultservice@gmail.com" class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>adamconsultservice@gmail.com</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ADAM Consult, ADIT Joint LLP. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/advisor-enrollment.js"></script>
 </body>
 </html>
-
