@@ -1,18 +1,15 @@
-// protect.js
 document.addEventListener('DOMContentLoaded', function () {
-  // Disable right-click
-  document.body.oncontextmenu = function () { return false; };
+  // Disable right-click only on text or images (specific sections, not globally)
+  document.body.oncontextmenu = function (e) {
+    if (e.target.tagName === 'IMG' || e.target.tagName === 'P') {
+      return false;
+    }
+  };
 
-  // Disable selection
+  // Disable text selection globally (optional, can be restricted to specific elements)
   document.body.style.userSelect = "none";
-  document.body.style.webkitUserSelect = "none";
-  document.body.style.msUserSelect = "none";
 
-  // Disable drag & text selection
-  document.body.onselectstart = function () { return false; };
-  document.body.ondragstart = function () { return false; };
-
-  // Disable keyboard shortcuts
+  // Prevent key shortcuts for copying, viewing source etc.
   document.addEventListener('keydown', function (e) {
     if ((e.ctrlKey || e.metaKey) && ['c', 'x', 'u', 's', 'a'].includes(e.key.toLowerCase())) {
       e.preventDefault();
