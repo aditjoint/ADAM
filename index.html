@@ -556,23 +556,22 @@ Deployment of intelligent automation using IoT, embedded systems, robotics, and 
     </div>
 </section>
 
-    <!-- Footer -->
+ <!-- Footer -->
 <div id="footer-placeholder"></div>
 <script>
-  fetch("footer.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("footer-placeholder").innerHTML = html;
-    });
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("footer-placeholder").innerHTML = html;
+      });
+  });
 </script>
 
-       
-    <!-- Scripts -->
-    <script src="../js/main.js"></script>
-    <script src="../js/dropdown.js"></script>
-   <script src="js/imgTextProtect.js"></script>
+<!-- Safe Load Order for Scripts -->
+<script src="js/main.js"></script>
+<script src="js/dropdown.js"></script>
+<script src="js/imgTextProtect.js"></script>
 
-
-    
 </body>
 </html>
