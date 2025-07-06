@@ -26,9 +26,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (e.detail > 1 && !isAllowed(e.target)) e.preventDefault();
   });
 
-  // Block right-click
+  // Block right-click (context menu)
   document.addEventListener("contextmenu", function (e) {
-    if (!isAllowed(e.target)) e.preventDefault();
+    e.preventDefault();  // Disable right-click
   });
 
   // Block keyboard shortcuts like Ctrl+C, Ctrl+U, etc.
@@ -38,16 +38,23 @@ document.addEventListener("DOMContentLoaded", function () {
       (e.ctrlKey || e.metaKey) &&
       ["c", "x", "u", "s", "p", "i", "j", "k"].includes(key)
     ) {
-      if (!isAllowed(e.target)) e.preventDefault();
+      e.preventDefault();  // Disable these keys
     }
 
-    // Block Ctrl+P (Print dialog) and F12 (DevTools)
+    // Block F12 (DevTools), Ctrl+P (Print dialog)
     if (e.key === "F12" || (e.ctrlKey && e.key === "p")) {
       e.preventDefault();
     }
   });
 
-  // Block printing (Ctrl+P, print dialog, screen capture)
+  // Prevent access to page source (Ctrl+U or right-click -> View page source)
+  document.addEventListener("keydown", function (e) {
+    if ((e.ctrlKey || e.metaKey) && e.key === "u") {
+      e.preventDefault();  // Block Ctrl+U (View Source)
+    }
+  });
+
+  // Prevent the print dialog from appearing
   window.onbeforeprint = function () {
     document.body.innerHTML = "<h1 style='color:red;text-align:center;margin-top:20vh;'>⚠️ Printing is disabled on this site.</h1>";
     setTimeout(() => {
@@ -63,7 +70,8 @@ document.addEventListener("DOMContentLoaded", function () {
     return false; // Prevent the window.print method
   };
 
-  // Block image right-click and drag
+  // Block QR code generation through browser extensions (harder to block)
+  // Just making sure the page content is not easily copied
   document.querySelectorAll("img").forEach(img => {
     img.setAttribute("draggable", "false");
     img.addEventListener("contextmenu", e => e.preventDefault());
