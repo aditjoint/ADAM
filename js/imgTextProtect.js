@@ -1,5 +1,8 @@
-(function () {
-  const ALLOW_TAGS = ["BUTTON", "A", "INPUT", "TEXTAREA", "SELECT", "LABEL"];
+// js/imgTextProtect.js
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Prevent selecting text unless it's an input, button, etc.
+  const ALLOW_TAGS = ["BUTTON", "A", "SELECT", "INPUT", "TEXTAREA", "LABEL"];
 
   function isAllowed(target) {
     while (target && target !== document.body) {
@@ -9,30 +12,41 @@
     return false;
   }
 
-  document.addEventListener("contextmenu", function (e) {
-    if (!isAllowed(e.target)) e.preventDefault();
-  });
-
-  document.addEventListener("dragstart", function (e) {
-    if (!isAllowed(e.target)) e.preventDefault();
-  });
-
+  // Prevent text selection
   document.addEventListener("selectstart", function (e) {
     if (!isAllowed(e.target)) e.preventDefault();
   });
 
+  // Prevent drag
+  document.addEventListener("dragstart", function (e) {
+    if (!isAllowed(e.target)) e.preventDefault();
+  });
+
+  // Prevent double-click selection
   document.addEventListener("mousedown", function (e) {
     if (e.detail > 1 && !isAllowed(e.target)) e.preventDefault();
   });
 
+  // Block right-click
+  document.addEventListener("contextmenu", function (e) {
+    if (!isAllowed(e.target)) e.preventDefault();
+  });
+
+  // Block keyboard shortcuts like Ctrl+C, Ctrl+U, etc.
   document.addEventListener("keydown", function (e) {
     const key = e.key.toLowerCase();
-    if ((e.ctrlKey || e.metaKey) && ["c", "x", "s", "p", "u", "v"].includes(key)) {
+    if (
+      (e.ctrlKey || e.metaKey) &&
+      ["c", "x", "u", "s", "p", "i", "j", "k"].includes(key)
+    ) {
       if (!isAllowed(e.target)) e.preventDefault();
     }
   });
 
-  window.addEventListener("load", () => {
-    document.body.style.userSelect = "none";
+  // Block image right-click and drag
+  document.querySelectorAll("img").forEach(img => {
+    img.setAttribute("draggable", "false");
+    img.addEventListener("contextmenu", e => e.preventDefault());
+    img.addEventListener("mousedown", e => e.preventDefault());
   });
-})();
+});
