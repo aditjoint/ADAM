@@ -1,100 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Digital Transformation Services - ADAM Consult</title>
-  <meta name="description" content="Our digital transformation services help businesses modernize operations, implement enterprise IT strategies, develop custom web applications, and automate processes." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Transformation Services - ADAM Consult</title>
+    <meta name="description" content="Our digital transformation services help businesses modernize operations, implement enterprise IT strategies, develop custom web applications, and automate processes.">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="../css/styles.css" />
-  <link rel="stylesheet" href="../css/responsive.css" />
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../index.html">
+                        <div class="logo-icon">
+                            <span class="letter">A</span>
+                        </div>
+                        <span class="logo-text">ADAM Consult</span>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">Enterprise Advisory<i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../services/technology-infrastructure.html">Technology Infrastructure</a></li>
+                                <li><a href="../services/digital-transformation.html">Digital Transformation</a></li>
+                                <li><a href="../services/sustainability-solutions.html">Sustainability Solutions</a></li>
+                                <li><a href="../services/process-automation.html">Process Automation</a></li>
+                                <li><a href="../services/contracts.html">Project & Contract Management</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">Current Affairs <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../currentaffairs/news.html">News</a></li>
+                                <li><a href="../currentaffairs/campaign.html">Campaigns</a></li>
+                                <li><a href="../currentaffairs/events.html">Events</a></li>
+                                <li><a href="../currentaffairs/projects.html">Projects</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="cta-button">
+                    <a href="../contact.html" class="btn btn-primary">Get In Touch</a>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
 
-  <style>
-    .campaign-section {
-      background-color: #ff8c00;
-      color: white;
-      padding: 10px 10px;
-      text-align: center;
-      border-bottom: 5px solid #333;
-    }
-    .campaign-title {
-      font-size: 36px;
-      margin-bottom: 20px;
-    }
-    .campaign-description {
-      font-size: 18px;
-      margin-bottom: 30px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .campaign-image {
-      margin-top: 30px;
-    }
-    .campaign-image img {
-      max-width: 30%;
-      height: auto;
-    }
-  </style>
+
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Section</title>
+    
+    <style>
+        .events-section {
+            background-color: #ffffff;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 5px solid #eee;
+        }
+        .events-section h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        .event-item {
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: left;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .event-item h3 {
+            font-size: 28px;
+            color: #007BFF;
+            margin-bottom: 10px;
+        }
+        .event-item p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .event-item .event-date {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .view-details {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .view-details:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
-
 <body>
-  <!-- ✅ HEADER PLACEHOLDER -->
-  <div id="header-placeholder"></div>
 
-
-  <!-- ✅ HEADER LOAD SCRIPT -->
- 
-  <script>
-  fetch("../header.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("header-placeholder").innerHTML = html;
-
-      // Mobile menu toggle (hamburger)
-      const toggleButton = document.querySelector(".mobile-menu-toggle");
-      const navLinks = document.querySelector(".main-nav");
-
-      if (toggleButton && navLinks) {
-        toggleButton.addEventListener("click", function () {
-          navLinks.classList.toggle("active");
-        });
-      }
-
-      // ✅ Mobile dropdown toggle logic
-      const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-
-      dropdownToggles.forEach(toggle => {
-        toggle.addEventListener('click', function (e) {
-          e.preventDefault();
-          const dropdownMenu = this.nextElementSibling;
-
-          // Close other dropdowns
-          document.querySelectorAll('.dropdown-menu').forEach(menu => {
-            if (menu !== dropdownMenu) {
-              menu.style.display = 'none';
-            }
-          });
-
-          // Toggle current dropdown
-          if (dropdownMenu.style.display === 'block') {
-            dropdownMenu.style.display = 'none';
-          } else {
-            dropdownMenu.style.display = 'block';
-          }
-        });
-      });
-    })
-    .catch(err => console.error("Header load failed:", err));
-</script>
-
-  
-  
     <!-- Events Section -->
     <section class="events-section" style="display: none">
         <h2>Events Registration Opens</h2>
@@ -117,6 +143,7 @@
               </a>
               </section>
 
+        
         <div class="event-item" style="display: none">
             <h3>Business Process Automation for MSME customers</h3>
             <p class="event-date">June 15, 2025 onwards</p>
@@ -124,278 +151,82 @@
             <a href="#event1" class="view-details">Want to book your session?</a>
             <p><a href="../contact.html" class="btn btn-primary">Contact Us</a></p>
         </div>
-  </section>
-  
-     </div>
-
-     <div>
-       <section>
-  
-    <!-- TestCase Section -->
-         
-<style>
-  .dashboard-section {
-    background: #0f172a;
-    color: #e2e8f0;
-    padding: 2rem;
-  }
-
-  .dashboard-section h1 {
-    text-align: center;
-    margin-bottom: 2rem;
-    color: #22d3ee;
-  }
-
-  .rack-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .rack {
-    background: #1e293b;
-    border-radius: 10px;
-    padding: 1.5rem;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    transition: transform 0.2s ease;
-  }
-
-  .rack:hover {
-    transform: scale(1.02);
-  }
-
-  .rack-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: #38bdf8;
-  }
-
-  .sensor {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-    color: #f1f5f9;
-  }
-
-  .sensor span {
-    font-size: 0.95rem;
-    color: #f1f5f9;
-  }
-
-  .temp-bar {
-    height: 8px;
-    background: #475569;
-    border-radius: 20px;
-    overflow: hidden;
-    margin-top: 0.3rem;
-  }
-
-  .temp-bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #22d3ee, #facc15);
-  }
-
-  .status {
-    margin-top: 1rem;
-    display: flex;
-    align-items: center;
-    font-size: 0.95rem;
-    font-weight: 500;
-  }
-
-  .status.ok {
-    color: #22c55e; /* Green */
-  }
-
-  .status.warning {
-    color: #facc15; /* Amber/Yellow */
-  }
-
-  .status.critical {
-    color: #ef4444; /* Red */
-  }
-
-  .status i {
-    margin-right: 8px;
-    font-size: 1rem;
-  }
-</style>
-    
-<!-- IoT Environmental Dashboard Section -->
-<section class="dashboard-section">
-  <h1 style="text-align: center; color: #22d3ee; font-size: 2rem; margin-bottom: 2rem;">SAMPLE - IoT-based Environmental Dashboard</h1>
-
-  <div class="rack-grid">
-
-    <!-- Cabinet 01 -->
-    <div class="rack">
-      <div class="rack-title">Cabinet 01</div>
-      <div class="sensor"><span>Temperature</span><span>36°C</span></div>
-      <div class="temp-bar"><div class="temp-bar-fill" style="width: 72%; background: #facc15;"></div></div>
-      <div class="sensor"><span>Humidity</span><span>45%</span></div>
-      <div class="sensor"><span>Power Load</span><span>2.3 kW</span></div>
-      <div class="status ok"><i class="fas fa-check-circle"></i> All Systems Normal</div>
-    </div>
-
-    <!-- Cabinet 02 -->
-    <div class="rack">
-      <div class="rack-title">Cabinet 02</div>
-      <div class="sensor"><span>Temperature</span><span>42°C</span></div>
-      <div class="temp-bar"><div class="temp-bar-fill" style="width: 84%; background: #ef4444;"></div></div>
-      <div class="sensor"><span>Humidity</span><span>58%</span></div>
-      <div class="sensor"><span>Power Load</span><span>3.5 kW</span></div>
-      <div class="status warning"><i class="fas fa-exclamation-triangle"></i> Temperature High!</div>
-    </div>
-
-    <!-- Cabinet 03 -->
-    <div class="rack">
-      <div class="rack-title">Cabinet 03</div>
-      <div class="sensor"><span>Temperature</span><span>33°C</span></div>
-      <div class="temp-bar"><div class="temp-bar-fill" style="width: 66%; background: #facc15;"></div></div>
-      <div class="sensor"><span>Humidity</span><span>40%</span></div>
-      <div class="sensor"><span>Power Load</span><span>1.8 kW</span></div>
-      <div class="status ok"><i class="fas fa-check-circle"></i> Operating Normally</div>
-    </div>
-
-    <!-- Cabinet 04 -->
-    <div class="rack">
-      <div class="rack-title">Cabinet 04</div>
-      <div class="sensor"><span>Temperature</span><span>29°C</span></div>
-      <div class="temp-bar"><div class="temp-bar-fill" style="width: 58%; background: #22c55e;"></div></div>
-      <div class="sensor"><span>Humidity</span><span>35%</span></div>
-      <div class="sensor"><span>Power Load</span><span>1.1 kW</span></div>
-      <div class="status ok"><i class="fas fa-check-circle"></i> Good Performance</div>
-    </div>
-
-    <!-- Fire Alarm -->
-    <div class="rack">
-      <div class="rack-title">Fire Alarm - Rack Area</div>
-      <div class="sensor"><span>Smoke Level</span><span>82%</span></div>
-      <div class="temp-bar"><div class="temp-bar-fill" style="width: 82%; background: #ef4444;"></div></div>
-      <div class="sensor"><span>Temperature</span><span>46°C</span></div>
-      <div class="status warning"><i class="fas fa-fire-alt"></i> 🔥 Fire Risk Detected!</div>
-    </div>
-
-    <!-- Vibration Sensor -->
-    <div class="rack">
-      <div class="rack-title">Machine Vibration - Drill Press 07</div>
-      <div class="sensor"><span>Vibration Level</span><span>72%</span></div>
-      <div class="temp-bar"><div class="temp-bar-fill" style="width: 72%; background: #facc15;"></div></div>
-      <div class="sensor"><span>Temp</span><span>39°C</span></div>
-      <div class="status warning"><i class="fas fa-tools"></i> Preventive Maintenance Required</div>
-    </div>
-
-    <!-- Leak Sensor -->
-    <div class="rack">
-      <div class="rack-title">Leak Sensor - Battery Room</div>
-      <div class="sensor"><span>Leak Detected</span><span>YES</span></div>
-      <div class="sensor"><span>Last Event</span><span>5 mins ago</span></div>
-      <div class="status warning"><i class="fas fa-water"></i> Leak Detected - Escalated</div>
-    </div>
-
-    <!-- Access Control -->
-    <div class="rack">
-      <div class="rack-title">Access Control - Rack Bay 5</div>
-      <div class="sensor"><span>Last Access</span><span>10:32 AM</span></div>
-      <div class="sensor"><span>Auth Method</span><span>RFID</span></div>
-      <div class="status warning"><i class="fas fa-user-lock"></i> Unauthorized Attempt Logged!</div>
-    </div>
-
-    <!-- HVAC Load -->
-    <div class="rack">
-      <div class="rack-title">HVAC Zone 3 - Server Hall</div>
-      <div class="sensor"><span>Room Temp</span><span>27.5°C</span></div>
-      <div class="sensor"><span>Cooling Unit Load</span><span>67%</span></div>
-      <div class="temp-bar"><div class="temp-bar-fill" style="width: 67%; background: #facc15;"></div></div>
-      <div class="status warning"><i class="fas fa-exclamation-triangle"></i> High Load Detected</div>
-    </div>
-
-    <!-- Power Monitoring -->
-    <div class="rack">
-      <div class="rack-title">Power Monitoring - DC Floor A1</div>
-      <div class="sensor"><span>Input Voltage</span><span>230V</span></div>
-      <div class="sensor"><span>Load Current</span><span>18A</span></div>
-      <div class="sensor"><span>UPS Status</span><span>Active</span></div>
-      <div class="status ok"><i class="fas fa-check-circle"></i> Redundant Power Active</div>
-    </div>
-
-    <!-- Genset -->
-    <div class="rack">
-      <div class="rack-title">Genset A - Backup Power</div>
-      <div class="sensor"><span>Fuel Level</span><span>78%</span></div>
-      <div class="temp-bar"><div class="temp-bar-fill" style="width: 78%; background: #22c55e;"></div></div>
-      <div class="sensor"><span>Status</span><span>Test Mode</span></div>
-      <div class="status ok"><i class="fas fa-sync-alt"></i> Auto-Start Function OK</div>
-    </div>
-
-    <!-- Asset Tracker -->
-    <div class="rack">
-      <div class="rack-title">Asset Tracker - Zone B</div>
-      <div class="sensor"><span>Movement</span><span>ACTIVE</span></div>
-      <div class="temp-bar"><div class="temp-bar-fill" style="width: 100%; background: orange;"></div></div>
-      <div class="sensor"><span>Last Movement</span><span>1 min ago</span></div>
-      <div class="status warning"><i class="fas fa-shipping-fast"></i> Movement Alert: Confirm Location</div>
-    </div>
-
-  </div>
-</section>
-
- 
-  </div>
-</section>
-
- 
-    
-   <!-- Call to Action Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Transform Your Infrastructure?</h2>
-                <p>Contact us today to discuss how our technology and engineering solutions can help your organization achieve efficiency, sustainability, and innovation.</p>
-                <a href="contact.html" class="btn btn-primary">Get In Touch</a>
-            </div>
-        </div>
     </section>
 
-   <!-- Footer placeholder -->
-  <div id="footer-placeholder"></div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <span class="letter">A</span>
+                        </div>
+                        <span class="logo-text">ADAM Consult</span>
+                    </div>
+                    <p>ADAM Consult is a strategic gateway and modular collaboration hub that empowers cross-sector innovation. By uniting investors, partners, consultants, and customers in a unified ecosystem, it enables high-impact partnerships that drive efficiency, connectivity, and long-term value across industries. It accelerates industrial intelligence through advanced data solutions and digital integration.</p>
+                 
+  <div class="social-links">
+    <a href="https://www.facebook.com/yourprofile" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://twitter.com/yourprofile" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://www.instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/yourprofile" target="_blank"><i class="fab fa-youtube"></i></a>
+  </div>
 
-  <!-- Footer injection script -->
-  <script>
-    fetch("../footer.html")
-      .then(response => {
-        if (!response.ok) throw new Error("Network response was not ok");
-        return response.text();
-      })
-      .then(data => {
-        document.getElementById("footer-placeholder").innerHTML = data;
-      })
-      .catch(error => console.error("Error loading footer:", error));
-  </script>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="../../index.html">Home</a></li>
+                            <li><a href="../../services/technology-infrastructure.html">Services</a></li>
+                            <li><a href="../../about.html">About Us</a></li>
+                            <li><a href="../../advisors.html">Advisors</a></li>
+                            <li><a href="../../partners.html">Partners</a></li>
+                            <li><a href="../../investment">Investor Portfolio</a></li>
+                            <li><a href="../../resources">Resources</a></li>
+                            <li><a href="../../contact.html">Contact</a></li>
+                        </ul>
 
-<!-- In HEAD or before </body> -->
-<script src="/js/protect.js"></script>
+                    </div>
+                    <div class="link-group">
+                        <h3>Legal</h3>
+                                  <p>
+                                    <p><a href="../termsofuse.html">Terms of Use</a></p></p>
+                                    <p><a href="../dataprotection.html">Data Protection Policy</a></p>
+                                    <p><a href="../whistleblowing.html">Whistleblowing Policy</a></p>
+                                    <p><a href="../privacy&cookies.html">Privacy & Cookie Policy</a></p>
+                                 </p>
 
-<!-- Inline fallback or extra rules -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.body.oncontextmenu = function () { return false; };
-    document.body.style.userSelect = "none";
-    document.body.style.webkitUserSelect = "none";
-    document.body.style.msUserSelect = "none";
-    document.body.onselectstart = function () { return false; };
-    document.body.ondragstart = function () { return false; };
+                    </div>
+                    <div class="link-group">
+                        <h3>Our Location</h3>
+                        <div class="footer-contact-grid">
+                              <a href="https://www.google.com/maps?q=Navi+Mumbai,+India" class="contact-item" target="_blank">
+                              <i class="fas fa-map-marker-alt"></i>
+                                  <span>Navi Mumbai, India</span>
+                                </a>
+                            <a href="tel:+91-2235667733(direct), 8779639965 (whatsapp)" class="contact-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>+91-2235667733</span>
+                            </a>
+                            <a href="mailto:adamconsultservice@gmail.com" class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>adamconsultservice@gmail.com</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ADAM Consult, ADIT Joint LLP. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-    // Optional additional blocking
-    document.addEventListener('keydown', function (e) {
-      if ((e.ctrlKey || e.metaKey) && ['c', 'x', 'u', 's', 'a'].includes(e.key.toLowerCase())) {
-        e.preventDefault();
-      }
-    });
-  });
-</script>
-
-  
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/dropdown.js"></script>
 </body>
 </html>
