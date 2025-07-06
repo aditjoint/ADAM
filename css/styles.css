@@ -532,99 +532,6 @@ Edit
 
 /* Hero Section Styles */
 .hero {
-  background: url('../images/indexhero.mp4') center center / cover no-repeat;
-  padding: 100px 0;
-  color: #fff;
-  position: relative;
-  z-index: 1;
-}
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 23, 45, 0.7); /* dark overlay */
-  z-index: -1;
-}
-
-.hero-content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  gap: 40px;
-}
-
-.hero-text {
-  flex: 1 1 45%;
-}
-
-.hero-subtitle,
-.hero-subtitle-large {
-  font-weight: 500;
-}
-
-.hero-subtitle-large {
-  font-size: 24px;
-  margin-top: 10px;
-}
-
-.hero-title {
-  font-size: 42px;
-  margin: 10px 0;
-  font-weight: 700;
-}
-
-.hero-description {
-  font-size: 16px;
-  margin: 20px 0;
-  line-height: 1.6;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 15px;
-  margin-top: 20px;
-}
-
-.hero-buttons .btn {
-  padding: 12px 24px;
-  border: none;
-  text-decoration: none;
-  font-weight: 600;
-  border-radius: 6px;
-  transition: background 0.3s ease;
-}
-
-.btn-primary {
-  background-color: #007BFF;
-  color: #fff;
-}
-
-.btn-secondary {
-  background-color: #fff;
-  color: #007BFF;
-  border: 2px solid #007BFF;
-}
-
-.badge {
-  display: inline-block;
-  background-color: #28A745;
-  color: #fff;
-  padding: 6px 12px;
-  border-radius: 20px;
-  margin-top: 15px;
-  font-size: 14px;
-}
-
-
-/* Hero Section Styles */
-.hero {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -637,8 +544,8 @@ Edit
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  z-index: 1;
+  object-fit: cover;  /* Makes sure the video covers the entire background */
+  z-index: -1;  /* Keeps the video behind other elements */
 }
 
 .hero-overlay {
@@ -648,23 +555,19 @@ Edit
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5); /* Optional dark overlay */
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 40px 20px;
-  text-align: center;
-}
-
-.hero-video .container {
-  position: relative;
-  z-index: 1;
+  z-index: 1;  /* Places the overlay in front of the video */
 }
 
 .hero-content {
-  max-width: 1200px;
-  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  z-index: 2; /* Ensures that the text content appears above the overlay and video */
   padding: 0 20px;
+  height: 100%;
 }
 
 .hero-title {
@@ -681,6 +584,13 @@ Edit
   font-size: 1rem;
   margin-bottom: 2rem;
   line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  justify-content: center;
 }
 
 .hero-buttons .btn {
@@ -712,58 +622,14 @@ Edit
   font-size: 14px;
 }
 
-
-
 /* Hero Cards */
 .hero-services {
-  flex: 1 1 45%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-}
+  max-width: 1200px;
+  margin:
 
-.service-card {
-  background: rgba(255, 255, 255, 0.95);
-  color: #222;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(6px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
-}
-
-.service-card i {
-  font-size: 28px;
-  margin-bottom: 10px;
-  color: #007BFF;
-}
-
-.service-card h3 {
-  margin-bottom: 10px;
-  font-size: 20px;
-}
-
-.service-card p {
-  font-size: 15px;
-  line-height: 1.5;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .hero-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero-services {
-    grid-template-columns: 1fr;
-  }
-}
 
 /* --------------------------------------------
    About Section
