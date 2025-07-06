@@ -1,40 +1,54 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Exclude interactive elements by class or ID
-  const safeSelectors = [
-    '#mobile-menu-toggle',             // Mobile menu
-    '.tab-button',                     // Tab controls
-    '.nav-item',                       // Navigation items
-    '.menu-toggle',                    // Hamburger button
-    '.dropdown',                       // Dropdowns if any
-    '.tab-link',                       // Custom tab links
+  const allowedSelectors = [
+    '.tab-btn',              // Service section tab buttons
+    '.mobile-menu-toggle',   // Hamburger mobile toggle
+    '.dropdown-toggle',      // Dropdown triggers
+    '.dropdown-menu',        // Dropdown items
+    '.main-nav',             // Nav container
+    '.nav-links',            // Nav links
+    '.btn',                  // CTA buttons
   ];
 
-  function isSafeTarget(target) {
-    return safeSelectors.some(selector => target.closest(selector));
+  // Helper to check if target is inside any allowed elements
+  function isAllowedTarget(target) {
+    return allowedSelectors.some(selector => {
+      return target.closest(selector);
+    });
   }
 
-  // Disable right-click unless inside safe elements
+  // Disable right-click unless it's on allowed elements
   document.body.oncontextmenu = function (e) {
-    if (isSafeTarget(e.target)) return true;
+    if (isAllowedTarget(e.target)) return true;
+    e.preventDefault();
     return false;
   };
 
-  // Disable selection unless inside safe elements
+  // Disable selection except on allowed
   document.body.onselectstart = function (e) {
-    if (isSafeTarget(e.target)) return true;
+    if (isAllowedTarget(e.target)) return true;
+    e.preventDefault();
     return false;
   };
 
+  // Disable dragging except on allowed
   document.body.ondragstart = function (e) {
-    if (isSafeTarget(e.target)) return true;
+    if (isAllowedTarget(e.target)) return true;
+    e.preventDefault();
     return false;
   };
 
-  // Block DevTools and keyboard shortcuts
+  // General user-select styles (can override in CSS for allowed)
+  document.body.style.userSelect = 'none';
+  document.body.style.webkitUserSelect = 'none';
+  document.body.style.msUserSelect = 'none';
+
+  // Disable specific keyboard shortcuts
   document.addEventListener('keydown', function (e) {
     if ((e.ctrlKey || e.metaKey) && ['c', 'x', 'u', 's', 'a', 'p'].includes(e.key.toLowerCase())) {
       e.preventDefault();
     }
-    if (e.key === 'F12') e.preventDefault();
+    if (e.key === 'F12') {
+      e.preventDefault(); // Block DevTools
+    }
   });
 });
