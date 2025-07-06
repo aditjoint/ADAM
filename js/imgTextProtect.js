@@ -43,6 +43,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+      // Block F12 (DevTools) and Ctrl+P (Print dialog)
+    if (e.key === "F12" || (e.ctrlKey && e.key === "p")) {
+      e.preventDefault();
+    }
+  });
+
+  // Prevent printing (Ctrl + P) and right-click print options
+  window.onbeforeprint = function () {
+    document.body.innerHTML = "<h1 style='color:red;text-align:center;margin-top:20vh;'>⚠️ Printing is disabled on this site.</h1>";
+    setTimeout(() => {
+      window.close();
+    }, 500);
+
   // Block image right-click and drag
   document.querySelectorAll("img").forEach(img => {
     img.setAttribute("draggable", "false");
