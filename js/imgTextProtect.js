@@ -1,18 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Disable drag on all images and selected text areas
+  // Disable drag on images and common text containers
   document.body.addEventListener('dragstart', function (e) {
     const tag = e.target.tagName.toLowerCase();
-    if (tag === 'img' || tag === 'p' || tag === 'span' || tag === 'div') {
+    if (['img', 'p', 'span', 'div'].includes(tag)) {
       e.preventDefault();
     }
   });
 
-  // Block Ctrl or Shift key combos (used for copy/inspect/print/etc.)
+  // Block Ctrl or Shift key combinations commonly used for copy/dev tools
   document.addEventListener('keydown', function (e) {
     if (e.ctrlKey || e.shiftKey) {
-      const key = e.key.toLowerCase();
-      const blockKeys = ['c', 'u', 's', 'p', 'a', 'x', 'i'];
-      if (blockKeys.includes(key)) {
+      const blocked = ['c', 'u', 's', 'p', 'a', 'x', 'i'];
+      if (blocked.includes(e.key.toLowerCase())) {
         e.preventDefault();
       }
     }
