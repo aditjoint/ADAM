@@ -1,16 +1,24 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Target only elements with class "protect-text"
-  const protectedAreas = document.querySelectorAll('.protect-text');
-
-  protectedAreas.forEach(function (area) {
-    // Disable right-click context menu
-    area.addEventListener('contextmenu', function (e) {
+  // Right-click disable only on images and text
+  document.body.addEventListener('contextmenu', function (e) {
+    const tag = e.target.tagName.toLowerCase();
+    if (tag === 'img' || tag === 'p' || tag === 'span' || tag === 'div') {
       e.preventDefault();
-    });
+    }
+  });
 
-    // Disable drag (mainly for images)
-    area.addEventListener('dragstart', function (e) {
+  // Prevent dragging of images
+  document.body.addEventListener('dragstart', function (e) {
+    if (e.target.tagName.toLowerCase() === 'img') {
       e.preventDefault();
-    });
+    }
+  });
+
+  // Disable print shortcut (Ctrl+P / Cmd+P)
+  document.addEventListener('keydown', function (e) {
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'p') {
+      e.preventDefault();
+      alert("Printing is disabled on this page.");
+    }
   });
 });
