@@ -32,9 +32,10 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!isAllowed(e.target)) e.preventDefault();
   });
 
-  // Block keyboard shortcuts like Ctrl+C, Ctrl+U, etc.
+  // Block keyboard shortcuts like Ctrl+C, Ctrl+U, Ctrl+S, Ctrl+P etc.
   document.addEventListener("keydown", function (e) {
     const key = e.key.toLowerCase();
+
     if (
       (e.ctrlKey || e.metaKey) &&
       ["c", "x", "u", "s", "p", "i", "j", "k"].includes(key)
@@ -48,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Prevent printing (Ctrl + P) and right-click print options
+  // Block Print Dialog (Ctrl+P) - we use the beforeprint event
   window.onbeforeprint = function () {
     document.body.innerHTML = "<h1 style='color:red;text-align:center;margin-top:20vh;'>⚠️ Printing is disabled on this site.</h1>";
     setTimeout(() => {
