@@ -557,10 +557,13 @@ Deployment of intelligent automation using IoT, embedded systems, robotics, and 
 </section>
 
     <!-- Footer -->
-    <footer>
-      &copy; 2025 ADAM Consult, ADIT Joint LLP. All rights reserved.
-    </footer>
-  </div>
+<script>
+  fetch('/includes/footer.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+    });
+</script>
 
     <!-- In HEAD or before </body> -->
 <script src="/js/protect.js"></script>
