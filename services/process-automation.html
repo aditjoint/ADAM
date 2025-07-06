@@ -1,99 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Digital Transformation Services - ADAM Consult</title>
-  <meta name="description" content="Our digital transformation services help businesses modernize operations, implement enterprise IT strategies, develop custom web applications, and automate processes." />
-
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="../css/styles.css" />
-  <link rel="stylesheet" href="../css/responsive.css" />
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
-
-  <style>
-    .campaign-section {
-      background-color: #ff8c00;
-      color: white;
-      padding: 10px 10px;
-      text-align: center;
-      border-bottom: 5px solid #333;
-    }
-    .campaign-title {
-      font-size: 36px;
-      margin-bottom: 20px;
-    }
-    .campaign-description {
-      font-size: 18px;
-      margin-bottom: 30px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .campaign-image {
-      margin-top: 30px;
-    }
-    .campaign-image img {
-      max-width: 30%;
-      height: auto;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process Automation - ADAM Consult</title>
+    <meta name="description" content="Our process automation solutions streamline operations, reduce errors, and boost productivity through intelligent automation of your business processes.">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
-    <!-- ✅ HEADER PLACEHOLDER -->
-  <div id="header-placeholder"></div>
-
-  
-  <!-- ✅ HEADER LOAD SCRIPT -->
- 
-  <script>
-  fetch("../header.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("header-placeholder").innerHTML = html;
-
-      // Mobile menu toggle (hamburger)
-      const toggleButton = document.querySelector(".mobile-menu-toggle");
-      const navLinks = document.querySelector(".main-nav");
-
-      if (toggleButton && navLinks) {
-        toggleButton.addEventListener("click", function () {
-          navLinks.classList.toggle("active");
-        });
-      }
-
-      // ✅ Mobile dropdown toggle logic
-      const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-
-      dropdownToggles.forEach(toggle => {
-        toggle.addEventListener('click', function (e) {
-          e.preventDefault();
-          const dropdownMenu = this.nextElementSibling;
-
-          // Close other dropdowns
-          document.querySelectorAll('.dropdown-menu').forEach(menu => {
-            if (menu !== dropdownMenu) {
-              menu.style.display = 'none';
-            }
-          });
-
-          // Toggle current dropdown
-          if (dropdownMenu.style.display === 'block') {
-            dropdownMenu.style.display = 'none';
-          } else {
-            dropdownMenu.style.display = 'block';
-          }
-        });
-      });
-    })
-    .catch(err => console.error("Header load failed:", err));
-</script>
-
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../index.html">
+                        <div class="logo-icon">
+                            <span class="letter">A</span>
+                        </div>
+                        <span class="logo-text">ADAM Consult</span>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">Enterprise Advisory<i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                    <li><a href="../services/technology-infrastructure.html">Technology Infrastructure</a></li>
+                                    <li><a href="../services/digital-transformation.html">Digital Transformation</a></li>
+                                    <li><a href="../services/sustainability-solutions.html">Sustainability Solutions</a></li>
+                                    <li><a href="../services/process-automation.html">Process Automation</a></li>
+                                    <li><a href="../services/contracts.html">Project & Contract Management</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">Current Affairs <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../currentaffairs/news.html">News</a></li>
+                                <li><a href="../currentaffairs/campaign.html">Campaigns</a></li>
+                                <li><a href="../currentaffairs/events.html">Events</a></li>
+                                <li><a href="../currentaffairs/projects.html">Projects</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="cta-button">
+                    <a href="../contact.html" class="btn btn-primary">Get In Touch</a>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
 
     <!-- Service Header Section -->
     <section class="service-header">
@@ -305,38 +274,81 @@
         </div>
     </section>
 
-  <!-- Footer placeholder -->
-<div id="footer-placeholder"></div>
-<script>
-  fetch("../footer.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("footer-placeholder").innerHTML = data;
-    })
-    .catch(error => console.error("Footer load error:", error));
-</script>
-<!-- In HEAD or before </body> -->
-<script src="/js/protect.js"></script>
+    <!-- Footer -->
+  <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <span class="letter">A</span>
+                        </div>
+                        <span class="logo-text">ADAM Consult</span>
+                    </div>
+                    <p>ADAM Consult is a strategic gateway and modular collaboration hub that empowers cross-sector innovation. By uniting investors, partners, consultants, and customers in a unified ecosystem, it enables high-impact partnerships that drive efficiency, connectivity, and long-term value across industries. It accelerates industrial intelligence through advanced data solutions and digital integration.</p>
+                 
+  <div class="social-links">
+    <a href="https://www.facebook.com/yourprofile" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://twitter.com/yourprofile" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://www.instagram.com/yourprofile" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.youtube.com/yourprofile" target="_blank"><i class="fab fa-youtube"></i></a>
+  </div>
 
-<!-- Inline fallback or extra rules -->
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.body.oncontextmenu = function () { return false; };
-    document.body.style.userSelect = "none";
-    document.body.style.webkitUserSelect = "none";
-    document.body.style.msUserSelect = "none";
-    document.body.onselectstart = function () { return false; };
-    document.body.ondragstart = function () { return false; };
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="../../index.html">Home</a></li>
+                            <li><a href="../../services/technology-infrastructure.html">Services</a></li>
+                            <li><a href="../../about.html">About Us</a></li>
+                            <li><a href="../../advisors.html">Advisors</a></li>
+                            <li><a href="../../partners.html">Partners</a></li>
+                            <li><a href="../../investment">Investor Portfolio</a></li>
+                            <li><a href="../../resources">Resources</a></li>
+                            <li><a href="../../contact.html">Contact</a></li>
+                        </ul>
 
-    // Optional additional blocking
-    document.addEventListener('keydown', function (e) {
-      if ((e.ctrlKey || e.metaKey) && ['c', 'x', 'u', 's', 'a'].includes(e.key.toLowerCase())) {
-        e.preventDefault();
-      }
-    });
-  });
-</script>
+                    </div>
+                    <div class="link-group">
+                        <h3>Legal</h3>
+                                  <p>
+                                    <p><a href="../termsofuse.html">Terms of Use</a></p></p>
+                                    <p><a href="../dataprotection.html">Data Protection Policy</a></p>
+                                    <p><a href="../whistleblowing.html">Whistleblowing Policy</a></p>
+                                    <p><a href="../privacy&cookies.html">Privacy & Cookie Policy</a></p>
+                                 </p>
 
+                    </div>
+                    <div class="link-group">
+                        <h3>Our Location</h3>
+                        <div class="footer-contact-grid">
+                           <a href="https://www.google.com/maps?q=Navi+Mumbai,+India" class="contact-item" target="_blank">
+                              <i class="fas fa-map-marker-alt"></i>
+                                  <span>Navi Mumbai, India</span>
+                                </a>
+                            <a href="tel:+91-2235667733(direct), 8779639965 (whatsapp)" class="contact-item">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>+91-2235667733</span>
+                            </a>
+                            <a href="mailto:adamconsultservice@gmail.com" class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>adamconsultservice@gmail.com</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ADAM Consult, ADIT Joint LLP. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/dropdown.js"></script>
 </body>
 </html>
-
