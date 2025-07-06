@@ -1,159 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ADAM Consult</title>
-  <meta name="description" content="Our digital transformation services help businesses modernize operations, implement enterprise IT strategies, develop custom web applications, and automate processes." />
-
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="../css/styles.css" />
-  <link rel="stylesheet" href="../css/responsive.css" />
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
-
-  <style>
-    /* Ensure the body has a white background */
-    body {
-      background-color: #ffffff; /* White background for the body */
-      margin: 0;
-      font-family: 'Roboto', sans-serif;
-    }
-
-    /* General card style */
-    .card {
-      background-color: #ffffff; /* White background for cards */
-      padding: 20px;
-      border-radius: var(--border-radius-lg);
-      box-shadow: var(--shadow-sm);
-      margin: var(--spacing-lg) 0;
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-md);
-    }
-
-    /* Section styles */
-    .news-section {
-      background-color: #ffffff; /* Ensure the section has a white background */
-      padding: 50px 20px;
-      text-align: center;
-      border-bottom: 5px solid #eee;
-    }
-
-    .news-article {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 0 auto 40px auto;
-      padding: 20px;
-      background-color: #f9f9f9; /* Ensure a soft background for individual articles */
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      max-width: 800px;
-    }
-
-    .news-article h3 {
-      font-size: 24px;
-      margin-bottom: 10px;
-      color: #007BFF;
-    }
-
-    .news-article p {
-      font-size: 18px;
-      color: #555;
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-
-    /* Campaign Section styling */
-    .campaign-section {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 100px 20px;
-      background-color: #f8f9fa; /* Light background for the campaign section */
-    }
-
-    .campaign-section div {
-      max-width: 800px;
-    }
-
-    .campaign-section h2 {
-      font-size: 2rem;
-      color: #0056b3;
-      margin-bottom: 1rem;
-    }
-
-    .campaign-section p {
-      font-size: 1.125rem;
-      color: #666;
-    }
-  </style>
-</head>
-
-<body>
-  <!-- ✅ HEADER PLACEHOLDER -->
-  <div id="header-placeholder"></div>
-
-  <!-- ✅ HEADER LOAD SCRIPT -->
-  <script>
-  fetch("../header.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("header-placeholder").innerHTML = html;
-
-      // Mobile menu toggle (hamburger)
-      const toggleButton = document.querySelector(".mobile-menu-toggle");
-      const navLinks = document.querySelector(".main-nav");
-
-      if (toggleButton && navLinks) {
-        toggleButton.addEventListener("click", function () {
-          navLinks.classList.toggle("active");
-        });
-      }
-
-      // ✅ Mobile dropdown toggle logic
-      const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-
-      dropdownToggles.forEach(toggle => {
-        toggle.addEventListener('click', function (e) {
-          e.preventDefault();
-          const dropdownMenu = this.nextElementSibling;
-
-          // Close other dropdowns
-          document.querySelectorAll('.dropdown-menu').forEach(menu => {
-            if (menu !== dropdownMenu) {
-              menu.style.display = 'none';
-            }
-          });
-
-          // Toggle current dropdown
-          if (dropdownMenu.style.display === 'block') {
-            dropdownMenu.style.display = 'none';
-          } else {
-            dropdownMenu.style.display = 'block';
-          }
-        });
-      });
-    })
-    .catch(err => console.error("Header load failed:", err));
-  </script>
-
-  <!-- Campaign Section -->
-  <section class="campaign-section">
-    <div>
-      <h2>Join Our Exciting Partnership Campaign!</h2>
-      <p>We are excited to have you with us as we embark on this journey of growth and transformation.</p>
-    </div>
-  </section>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology Infrastructure Services - ADAM Consult</title>
+    <meta name="description" content="Our comprehensive technology infrastructure services include data center solutions, enterprise IT infrastructure, network architecture, and server solutions.">
     
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="../index.html">
+                        <div class="logo-icon">
+                            <span class="letter">A</span>
+                        </div>
+                        <span class="logo-text">ADAM Consult</span>
+                    </a>
+                </div>
+                <nav class="main-nav">
+                    <ul class="nav-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../about.html">About</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">Consult Service <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                    <li><a href="../services/technology-infrastructure.html">Technology Infrastructure</a></li>
+                                    <li><a href="../services/digital-transformation.html">Digital Transformation</a></li>
+                                    <li><a href="../services/sustainability-solutions.html">Sustainability Solutions</a></li>
+                                    <li><a href="../services/process-automation.html">Process Automation</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle">Current Affairs <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../currentaffairs/news.html">News</a></li>
+                                <li><a href="../currentaffairs/campaign.html">Campaigns</a></li>
+                                <li><a href="../currentaffairs/events.html">Events</a></li>
+                                <li><a href="../currentaffairs/projects.html">Projects</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="cta-button">
+                    <a href="../contact.html" class="btn btn-primary">Get In Touch</a>
+                </div>
+                <div class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+</head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News Section - ADAM Consult</title>
@@ -209,10 +119,14 @@
   </style>
 </head>
 <body>
-  <div class="left-align">  
+  <div class="left-align">
+
+
+            
     </style>    
 
 <body>
+
 <!-- News Section -->
 <section class="news-section">
     <h2>News / Latest Recommendations / Advertise</h2>
@@ -282,7 +196,19 @@
         <a href="../contact.html" class="btn btn-primary">Contact Us</a>
     </div>
 
-
+    <div class="news-article">
+        <h3>ERP and shiftingsands Launch Visuals</h3>
+        <a href="/ERP.png" target="_blank">
+            <img src="ERP.png" alt="ERP Screenshot" style="max-width:100%; height:auto; border-radius:8px;">
+        </a><br>
+        <a href="/shiftingsands.png" target="_blank">
+            <img src="shiftingsands.png" alt="shiftingsands Screenshot" style="max-width:100%; height:auto; border-radius:8px; margin-top: 20px;">
+        </a>
+    <div
+        <h3>shiftingsands Brochure</h3>
+        <a href="https://drive.google.com/drive/folders/1RiUIZUtrbX0VkNGNtTHGtBwjqp-osXIx-" target="_blank" class="btn btn-primary">View shiftingsands</a>
+    </div>
+    </div>
     
     <div class="news-article">
         <h3>ADAM Consult's Upcoming Green Initiatives</h3>
