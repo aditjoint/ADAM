@@ -1,54 +1,58 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const allowedSelectors = [
-    '.tab-btn',              // Service section tab buttons
-    '.mobile-menu-toggle',   // Hamburger mobile toggle
-    '.dropdown-toggle',      // Dropdown triggers
-    '.dropdown-menu',        // Dropdown items
-    '.main-nav',             // Nav container
-    '.nav-links',            // Nav links
-    '.btn',                  // CTA buttons
+  const ALLOWED_CLASSES = [
+    'tab-btn',
+    'mobile-menu-toggle',
+    'dropdown-toggle',
+    'dropdown-menu',
+    'main-nav',
+    'nav-links',
+    'btn'
   ];
 
-  // Helper to check if target is inside any allowed elements
-  function isAllowedTarget(target) {
-    return allowedSelectors.some(selector => {
-      return target.closest(selector);
-    });
+  function isInsideAllowedElement(target) {
+    while (target && target !== document.body) {
+      if (target.classList) {
+        for (const cls of ALLOWED_CLASSES) {
+          if (target.classList.contains(cls)) return true;
+        }
+      }
+      target = target.parentElement;
+    }
+    return false;
   }
 
-  // Disable right-click unless it's on allowed elements
-  document.body.oncontextmenu = function (e) {
-    if (isAllowedTarget(e.target)) return true;
-    e.preventDefault();
-    return false;
-  };
+  // Disable right-click unless inside allowed elements
+  document.body.addEventListener('contextmenu', function (e) {
+    if (!isInsideAllowedElement(e.target)) {
+      e.preventDefault();
+    }
+  });
 
-  // Disable selection except on allowed
-  document.body.onselectstart = function (e) {
-    if (isAllowedTarget(e.target)) return true;
-    e.preventDefault();
-    return false;
-  };
+  // Disable text selection
+  document.body.addEventListener('selectstart', function (e) {
+    if (!isInsideAllowedElement(e.target)) {
+      e.preventDefault();
+    }
+  });
 
-  // Disable dragging except on allowed
-  document.body.ondragstart = function (e) {
-    if (isAllowedTarget(e.target)) return true;
-    e.preventDefault();
-    return false;
-  };
+  // Disable drag
+  document.body.addEventListener('dragstart', function (e) {
+    if (!isInsideAllowedElement(e.target)) {
+      e.preventDefault();
+    }
+  });
 
-  // General user-select styles (can override in CSS for allowed)
+  // CSS user-select disable globally
   document.body.style.userSelect = 'none';
   document.body.style.webkitUserSelect = 'none';
   document.body.style.msUserSelect = 'none';
 
-  // Disable specific keyboard shortcuts
+  // Disable developer shortcuts
   document.addEventListener('keydown', function (e) {
-    if ((e.ctrlKey || e.metaKey) && ['c', 'x', 'u', 's', 'a', 'p'].includes(e.key.toLowerCase())) {
+    const key = e.key.toLowerCase();
+    if ((e.ctrlKey || e.metaKey) && ['c', 'x', 'u', 's', 'a', 'p'].includes(key)) {
       e.preventDefault();
     }
-    if (e.key === 'F12') {
-      e.preventDefault(); // Block DevTools
-    }
+    if (key === 'f12') e.preventDefault();
   });
 });
