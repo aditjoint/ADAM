@@ -45,3 +45,8 @@ img {
   user-drag: none !important;
   -webkit-touch-callout: none !important;
 }
+
+/* 🚫 Block Keyboard Shortcuts (Ctrl + C, V, X, U, P, I, S, etc.) */
+@keyframes no-select {
+  0% {background-color: #FF0000;}
+}
