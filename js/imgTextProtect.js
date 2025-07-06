@@ -1,21 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Disable drag for image and text elements
-  document.body.addEventListener('dragstart', function (e) {
-    const tag = e.target.tagName.toLowerCase();
-    if (['img', 'p', 'span', 'div', 'section', 'article'].includes(tag)) {
+  // Disable drag events for all images and text
+  document.querySelectorAll('img, p, span, div').forEach(el => {
+    el.setAttribute('draggable', 'false');
+  });
+
+  // Block specific key combinations: Ctrl+C, Ctrl+P, Ctrl+U
+  document.addEventListener('keydown', function (e) {
+    if ((e.ctrlKey || e.metaKey) && ['c', 'p', 'u'].includes(e.key.toLowerCase())) {
       e.preventDefault();
     }
   });
-
-  // Block only specific Ctrl key shortcuts (but not arrow, tab, mouse etc.)
-  document.addEventListener('keydown', function (e) {
-    if (e.ctrlKey) {
-      const key = e.key.toLowerCase();
-      if (['c', 's', 'u', 'p'].includes(key)) {
-        e.preventDefault();
-        console.warn('Copy/Save/ViewSource/Print disabled');
-      }
-    }
-  });
 });
-
