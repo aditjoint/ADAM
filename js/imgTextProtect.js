@@ -41,9 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
     ) {
       if (!isAllowed(e.target)) e.preventDefault();
     }
-  });
 
-      // Block F12 (DevTools) and Ctrl+P (Print dialog)
+    // Block F12 (DevTools) and Ctrl+P (Print dialog)
     if (e.key === "F12" || (e.ctrlKey && e.key === "p")) {
       e.preventDefault();
     }
@@ -54,7 +53,8 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.innerHTML = "<h1 style='color:red;text-align:center;margin-top:20vh;'>⚠️ Printing is disabled on this site.</h1>";
     setTimeout(() => {
       window.close();
-    }, 500);
+    }, 500);  // Close window automatically after a brief delay
+  };
 
   // Block image right-click and drag
   document.querySelectorAll("img").forEach(img => {
