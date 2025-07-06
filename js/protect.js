@@ -1,18 +1,24 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Disable right-click only on text or images (specific sections, not globally)
+  // Disable right-click on images and text only
   document.body.oncontextmenu = function (e) {
     if (e.target.tagName === 'IMG' || e.target.tagName === 'P') {
-      return false;
+      return false; // Block right-click
     }
   };
 
-  // Disable text selection globally (optional, can be restricted to specific elements)
+  // Disable text selection on the page
   document.body.style.userSelect = "none";
+  document.body.style.webkitUserSelect = "none";
+  document.body.style.msUserSelect = "none";
 
-  // Prevent key shortcuts for copying, viewing source etc.
+  // Prevent drag & select
+  document.body.onselectstart = function () { return false; };
+  document.body.ondragstart = function () { return false; };
+
+  // Block copying keyboard shortcuts like Ctrl+C, Ctrl+S, Ctrl+U, etc.
   document.addEventListener('keydown', function (e) {
     if ((e.ctrlKey || e.metaKey) && ['c', 'x', 'u', 's', 'a'].includes(e.key.toLowerCase())) {
-      e.preventDefault();
+      e.preventDefault(); // Block these keys
     }
   });
 });
