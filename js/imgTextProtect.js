@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Disable drag on images and common text containers
+  // Disable drag for image and text elements only
   document.body.addEventListener('dragstart', function (e) {
     const tag = e.target.tagName.toLowerCase();
     if (['img', 'p', 'span', 'div'].includes(tag)) {
@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Block Ctrl or Shift key combinations commonly used for copy/dev tools
+  // Block only specific Ctrl key shortcuts (no mouse or arrow interference)
   document.addEventListener('keydown', function (e) {
-    if (e.ctrlKey || e.shiftKey) {
-      const blocked = ['c', 'u', 's', 'p', 'a', 'x', 'i'];
-      if (blocked.includes(e.key.toLowerCase())) {
+    if (e.ctrlKey) {
+      const key = e.key.toLowerCase();
+      if (['c', 'u', 's', 'p'].includes(key)) {
         e.preventDefault();
       }
     }
