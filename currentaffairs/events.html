@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Digital Transformation Services - ADAM Consult</title>
-  <meta name="description" content="Our digital transformation services help businesses modernize operations, implement enterprise IT strategies, develop custom web applications, and automate processes." />
-  
-  <!-- Styles -->
-  <link rel="stylesheet" href="../css/styles.css" />
-  <link rel="stylesheet" href="../css/responsive.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADAM Consult - Your Trusted Partner in Engineering, Infrastructure, and Digital Growth</title>
+  <meta name="description" content="We provide integrated solutions across Static Machinery, Equipment, Energy Distribution and Metering, IT and Non-IT Facility Infrastructure, Digital Transformation (Telecom, IT, and Industrial Automation), Strategic Consulting, and Product Marketing. With a focus on innovation and operational excellence, we help organizations modernize their infrastructure, optimize performance, and achieve sustainable growth across diverse sectors.">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/protect.css"> <!-- 🔒 Protection CSS -->
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
 
   <style>
     body {
@@ -206,13 +213,27 @@
     <img src="../images/steel.png" alt="Steel" />
   </div>
 
-  <!-- ✅ FOOTER -->
-  <div id="footer-placeholder"></div>
-  <script>
-    fetch("../footer.html")
+  <!-- Footer Placeholder -->
+<div id="footer-placeholder"></div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("../footer.html") // Use "footer.html" on index.html
       .then(res => res.text())
-      .then(html => document.getElementById("footer-placeholder").innerHTML = html);
-  </script>
+      .then(html => {
+        document.getElementById("footer-placeholder").innerHTML = html;
+
+        // 🔒 Load protection script AFTER footer
+        const protect = document.createElement("script");
+        protect.src = "../js/imgTextProtect.js"; // "js/imgTextProtect.js" for homepage
+        document.body.appendChild(protect);
+      });
+  });
+</script>
+
+<!-- Your other scripts -->
+<script src="../js/main.js"></script>
+<script src="../js/dropdown.js"></script>
 
 </body>
 </html>
