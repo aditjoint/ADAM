@@ -530,120 +530,148 @@ Edit
   flex-wrap: wrap;
 }
 
-/* --------------------------------------------
-   Hero Section
--------------------------------------------- */
-
-.hero-section {
+/* Hero Section Styles */
+.hero {
+  background: url('../images/office-bg.jpg') center center / cover no-repeat;
+  padding: 100px 0;
+  color: #fff;
   position: relative;
-  padding: var(--spacing-4xl) 0;
-  background: linear-gradient(to bottom, var(--primary-light), var(--white));
-  overflow: hidden;
+  z-index: 1;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 23, 45, 0.7); /* dark overlay */
+  z-index: -1;
 }
 
 .hero-content {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
-  gap: var(--spacing-2xl);
-  max-width: var(--container-max-width);
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--container-padding);
+  padding: 0 20px;
+  gap: 40px;
 }
 
 .hero-text {
-  flex: 1;
+  flex: 1 1 45%;
 }
 
-.hero-text h1 {
-  font-size: var(--font-size-4xl);
-  color: var(--text-dark);
-  margin-bottom: var(--spacing-md);
+.hero-subtitle,
+.hero-subtitle-large {
+  font-weight: 500;
 }
 
-.hero-text p {
-  color: var(--text-medium);
-  font-size: var(--font-size-lg);
-  margin-bottom: var(--spacing-lg);
+.hero-subtitle-large {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+.hero-title {
+  font-size: 42px;
+  margin: 10px 0;
+  font-weight: 700;
+}
+
+.hero-description {
+  font-size: 16px;
+  margin: 20px 0;
+  line-height: 1.6;
 }
 
 .hero-buttons {
   display: flex;
-  gap: var(--spacing-md);
-  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
 }
 
-/* Hero Services Cards */
+.hero-buttons .btn {
+  padding: 12px 24px;
+  border: none;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #007BFF;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #fff;
+  color: #007BFF;
+  border: 2px solid #007BFF;
+}
+
+.badge {
+  display: inline-block;
+  background-color: #28A745;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+/* Hero Cards */
 .hero-services {
-  flex: 1;
+  flex: 1 1 45%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-lg);
+  gap: 20px;
 }
 
 .service-card {
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: var(--border-radius-lg);
-  padding: var(--spacing-xl);
-  box-shadow: var(--shadow-md);
-  backdrop-filter: blur(10px);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-  cursor: pointer;
+  background: rgba(255, 255, 255, 0.95);
+  color: #222;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+.service-card i {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #007BFF;
 }
 
 .service-card h3 {
-  font-size: var(--font-size-xl);
-  margin-bottom: var(--spacing-sm);
-  color: var(--text-dark);
+  margin-bottom: 10px;
+  font-size: 20px;
 }
 
 .service-card p {
-  font-size: var(--font-size-sm);
-  color: var(--text-medium);
-  line-height: 1.4;
+  font-size: 15px;
+  line-height: 1.5;
 }
 
-/* Responsive Hero Layout */
-@media (max-width: 992px) {
+/* Responsive */
+@media (max-width: 768px) {
   .hero-content {
     flex-direction: column;
     text-align: center;
   }
 
-  .hero-text {
-    width: 100%;
-  }
-
   .hero-services {
-    width: 100%;
     grid-template-columns: 1fr;
-    margin-top: var(--spacing-2xl);
-  }
-
-  .service-card {
-    padding: var(--spacing-lg);
   }
 }
-
-/* Optional: Fade-in Animation */
-.fade-in-up {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 
 /* --------------------------------------------
    About Section
