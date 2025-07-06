@@ -470,15 +470,7 @@
 
   <!-- DO NOT TOUCH BELOW CODES -->
 
-  <!-- Footer Placeholder -->
-  <div id="footer-placeholder"></div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      fetch("../footer.html") // Use "footer.html" on index.html
-        .then((res) => res.text())
-        .then((html) => {
-          document.getElementById("footer-placeholder").innerHTML = html;
 
           // 🔒 Load protection script AFTER footer
           const protect = document.createElement("script");
