@@ -2,13 +2,10 @@
 <header>
   <div class="container">
     <div class="header-content">
-      
       <!-- Logo -->
       <div class="logo">
         <a href="/index.html">
-          <div class="logo-icon">
-            <span class="letter">A</span>
-          </div>
+          <div class="logo-icon"><span class="letter">A</span></div>
           <span class="logo-text">ADAM Consult</span>
         </a>
       </div>
@@ -42,30 +39,28 @@
         </ul>
       </nav>
 
-      <!-- Call to Action -->
+      <!-- CTA Button -->
       <div class="cta-button">
         <a href="/contact.html" class="btn btn-primary">Get In Touch</a>
       </div>
 
-      <!-- Mobile Menu Icon -->
-      <div class="mobile-menu-toggle" id="menuToggle">
+      <!-- Mobile Toggle -->
+      <div class="mobile-menu-toggle" id="mobileToggle">
         <i class="fas fa-bars"></i>
       </div>
     </div>
   </div>
 </header>
 
-<!-- Mobile Menu Script -->
+<!-- JavaScript to handle mobile nav toggle -->
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.getElementById("menuToggle");
-    const mainNav = document.getElementById("mainNav");
-
-    menuToggle.addEventListener("click", function () {
-      mainNav.classList.toggle("active");
+  document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.getElementById('mobileToggle');
+    const nav = document.getElementById('mainNav');
+    toggle.addEventListener('click', function () {
+      nav.classList.toggle('active');
     });
   });
 </script>
 
-<!-- Load this before </body> -->
-<script src="/js/protect.js"></script>
+<!-- Op
