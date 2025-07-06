@@ -559,12 +559,16 @@ Deployment of intelligent automation using IoT, embedded systems, robotics, and 
     <!-- Footer -->
 <div id="footer-placeholder"></div>
 <script>
-  fetch("components/footer.html")
-    .then(response => response.text())
+  fetch("footer.html")
+    .then(res => res.text())
     .then(html => {
       document.getElementById("footer-placeholder").innerHTML = html;
     });
 </script>
+
+<script src="imgTextProtect.js"></script>
+
+    
 
 </body>
 </html>
