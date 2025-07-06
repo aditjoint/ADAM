@@ -2,6 +2,7 @@
 <header>
   <div class="container">
     <div class="header-content">
+      
       <!-- Logo -->
       <div class="logo">
         <a href="/index.html">
@@ -12,18 +13,12 @@
         </a>
       </div>
 
-      <!-- Mobile Menu Toggle -->
-      <div class="mobile-menu-toggle" id="mobile-toggle">
-        <i class="fas fa-bars"></i>
-      </div>
-
       <!-- Navigation -->
-      <nav class="main-nav" id="main-nav">
+      <nav class="main-nav" id="mainNav">
         <ul class="nav-links">
           <li><a href="/index.html">Home</a></li>
           <li><a href="/about.html">About</a></li>
 
-          <!-- Enterprise Advisory Dropdown -->
           <li class="dropdown">
             <a href="#" class="dropdown-toggle">Enterprise Advisory <i class="fas fa-chevron-down"></i></a>
             <ul class="dropdown-menu">
@@ -35,7 +30,6 @@
             </ul>
           </li>
 
-          <!-- Current Affairs Dropdown -->
           <li class="dropdown">
             <a href="#" class="dropdown-toggle">Current Affairs <i class="fas fa-chevron-down"></i></a>
             <ul class="dropdown-menu">
@@ -52,6 +46,26 @@
       <div class="cta-button">
         <a href="/contact.html" class="btn btn-primary">Get In Touch</a>
       </div>
+
+      <!-- Mobile Menu Icon -->
+      <div class="mobile-menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </div>
     </div>
   </div>
 </header>
+
+<!-- Mobile Menu Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.getElementById("menuToggle");
+    const mainNav = document.getElementById("mainNav");
+
+    menuToggle.addEventListener("click", function () {
+      mainNav.classList.toggle("active");
+    });
+  });
+</script>
+
+<!-- Load this before </body> -->
+<script src="/js/protect.js"></script>
