@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Allowed tags to interact with (e.g., nav, buttons, inputs)
-  const ALLOW_TAGS = ["BUTTON", "A", "SELECT", "INPUT", "TEXTAREA", "LABEL"];
+  // Allowed interactive tags (to not block them)
+  const ALLOW_TAGS = ["BUTTON", "A", "INPUT", "TEXTAREA", "SELECT", "LABEL", "NAV", "UL", "LI"];
 
-  function isAllowedTarget(target) {
-    // Traverse up the DOM to check if parent is allowed
+  function isAllowed(target) {
     while (target && target !== document.body) {
       if (ALLOW_TAGS.includes(target.tagName)) return true;
       target = target.parentElement;
@@ -11,36 +10,34 @@ document.addEventListener("DOMContentLoaded", function () {
     return false;
   }
 
-  // Prevent drag (images/text)
+  // Block drag
   document.addEventListener("dragstart", function (e) {
-    if (!isAllowedTarget(e.target)) e.preventDefault();
+    if (!isAllowed(e.target)) e.preventDefault();
   });
 
-  // Prevent text selection
+  // Block text selection
   document.addEventListener("selectstart", function (e) {
-    if (!isAllowedTarget(e.target)) e.preventDefault();
+    if (!isAllowed(e.target)) e.preventDefault();
   });
 
-  // Prevent Ctrl+C / Ctrl+X / Ctrl+S / Ctrl+P
+  // Block Ctrl + C / X / P / S
   document.addEventListener("keydown", function (e) {
     const key = e.key.toLowerCase();
     if ((e.ctrlKey || e.metaKey) && ["c", "x", "s", "p"].includes(key)) {
-      if (!isAllowedTarget(e.target)) e.preventDefault();
+      if (!isAllowed(e.target)) e.preventDefault();
     }
   });
 
-  // Block context menu (optional: you can remove if you want right-click)
+  // Optional: block context menu
   document.addEventListener("contextmenu", function (e) {
-    if (!isAllowedTarget(e.target)) e.preventDefault();
+    if (!isAllowed(e.target)) e.preventDefault();
   });
 
-  // Prevent double click selection
+  // Block double-click selection
   document.addEventListener("mousedown", function (e) {
-    if (e.detail > 1 && !isAllowedTarget(e.target)) {
-      e.preventDefault();
-    }
+    if (e.detail > 1 && !isAllowed(e.target)) e.preventDefault();
   });
 
-  // Optional: Disable user-select globally (as a fallback)
+  // Prevent user selection globally
   document.body.style.userSelect = "none";
 });
