@@ -104,16 +104,17 @@ h1, h2, h3, h4, h5, h6 {
 header {
   background-color: var(--white);
   box-shadow: var(--shadow-sm);
-  position: fixed;         /* Fixed position */
+  position: fixed;
   top: 0;
-  width: 100%;             /* ✅ fixed */
+  left: 0;
+  width: 100%;
   z-index: 1000;
   height: 70px;
 }
-
 body {
-  padding-top: 70px;       /* Prevent content from being hidden behind fixed header */
+  padding-top: 70px; /* Prevents content from going under fixed header */
 }
+
 .header-content {
   display: flex;
   justify-content: space-between;
