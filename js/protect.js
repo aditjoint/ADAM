@@ -1,41 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const allowed = [
-    'mobile-menu-toggle',
-    'dropdown-toggle',
-    'tab-btn',
-    'btn', // include your CTA buttons
-  ];
-
-  function isAllowedTarget(el) {
-    return (
-      el.closest('.mobile-menu-toggle') ||
-      el.closest('.dropdown-toggle') ||
-      el.closest('.tab-btn') ||
-      el.closest('.btn')
-    );
-  }
-
-  // BLOCK right‑click except on allowed
+  // Block right-click on text or images only
   document.body.addEventListener('contextmenu', e => {
-    if (!isAllowedTarget(e.target)) e.preventDefault();
+    const tag = e.target.tagName.toLowerCase();
+    if (tag === 'img' || tag === 'p' || tag === 'span' || tag === 'div') {
+      e.preventDefault();
+    }
   });
 
-  // BLOCK select/dragstart except in allowed
-  ['selectstart', 'dragstart'].forEach(evt =>
-    document.body.addEventListener(evt, e => {
-      if (!isAllowedTarget(e.target)) e.preventDefault();
-    })
-  );
-
-  // BLOCK key shortcuts
-  document.addEventListener('keydown', e => {
-    if (
-      (e.ctrlKey || e.metaKey) &&
-      ['c','x','u','s','p'].includes(e.key.toLowerCase())
-    ) {
-      // allow if focused inside allowed
-      if (!isAllowedTarget(e.target)) e.preventDefault();
+  // Block text/image selection
+  document.body.addEventListener('selectstart', e => {
+    const tag = e.target.tagName.toLowerCase();
+    if (tag === 'img' || tag === 'p' || tag === 'span' || tag === 'div') {
+      e.preventDefault();
     }
-    if (e.key === 'F12') e.preventDefault();
+  });
+
+  // Block dragging of images
+  document.body.addEventListener('dragstart', e => {
+    if (e.target.tagName.toLowerCase() === 'img') {
+      e.preventDefault();
+    }
+  });
+
+  // Block keyboard copy/view source shortcuts (Ctrl+C, Ctrl+U, etc.)
+  document.addEventListener('keydown', e => {
+    const blockedKeys = ['c', 'x', 'u', 's', 'p', 'a'];
+    if ((e.ctrlKey || e.metaKey) && blockedKeys.includes(e.key.toLowerCase())) {
+      if (!(e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) {
+        e.preventDefault();
+      }
+    }
+    if (e.key === 'F12') e.preventDefault(); // Prevent DevTools
   });
 });
