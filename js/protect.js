@@ -1,58 +1,41 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const ALLOWED_CLASSES = [
-    'tab-btn',
+document.addEventListener('DOMContentLoaded', () => {
+  const allowed = [
     'mobile-menu-toggle',
     'dropdown-toggle',
-    'dropdown-menu',
-    'main-nav',
-    'nav-links',
-    'btn'
+    'tab-btn',
+    'btn', // include your CTA buttons
   ];
 
-  function isInsideAllowedElement(target) {
-    while (target && target !== document.body) {
-      if (target.classList) {
-        for (const cls of ALLOWED_CLASSES) {
-          if (target.classList.contains(cls)) return true;
-        }
-      }
-      target = target.parentElement;
-    }
-    return false;
+  function isAllowedTarget(el) {
+    return (
+      el.closest('.mobile-menu-toggle') ||
+      el.closest('.dropdown-toggle') ||
+      el.closest('.tab-btn') ||
+      el.closest('.btn')
+    );
   }
 
-  // Disable right-click unless inside allowed elements
-  document.body.addEventListener('contextmenu', function (e) {
-    if (!isInsideAllowedElement(e.target)) {
-      e.preventDefault();
-    }
+  // BLOCK right‑click except on allowed
+  document.body.addEventListener('contextmenu', e => {
+    if (!isAllowedTarget(e.target)) e.preventDefault();
   });
 
-  // Disable text selection
-  document.body.addEventListener('selectstart', function (e) {
-    if (!isInsideAllowedElement(e.target)) {
-      e.preventDefault();
-    }
-  });
+  // BLOCK select/dragstart except in allowed
+  ['selectstart', 'dragstart'].forEach(evt =>
+    document.body.addEventListener(evt, e => {
+      if (!isAllowedTarget(e.target)) e.preventDefault();
+    })
+  );
 
-  // Disable drag
-  document.body.addEventListener('dragstart', function (e) {
-    if (!isInsideAllowedElement(e.target)) {
-      e.preventDefault();
+  // BLOCK key shortcuts
+  document.addEventListener('keydown', e => {
+    if (
+      (e.ctrlKey || e.metaKey) &&
+      ['c','x','u','s','p'].includes(e.key.toLowerCase())
+    ) {
+      // allow if focused inside allowed
+      if (!isAllowedTarget(e.target)) e.preventDefault();
     }
-  });
-
-  // CSS user-select disable globally
-  document.body.style.userSelect = 'none';
-  document.body.style.webkitUserSelect = 'none';
-  document.body.style.msUserSelect = 'none';
-
-  // Disable developer shortcuts
-  document.addEventListener('keydown', function (e) {
-    const key = e.key.toLowerCase();
-    if ((e.ctrlKey || e.metaKey) && ['c', 'x', 'u', 's', 'a', 'p'].includes(key)) {
-      e.preventDefault();
-    }
-    if (key === 'f12') e.preventDefault();
+    if (e.key === 'F12') e.preventDefault();
   });
 });
