@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     img.style.userSelect = "none";
     img.style.webkitUserSelect = "none";
     img.style.msUserSelect = "none";
-    img.style.pointerEvents = "none"; // If image is not clickable
+
   });
 });
 
