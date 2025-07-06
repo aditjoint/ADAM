@@ -1,5 +1,6 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Allowed interactive tags (to not block them)
+// js/imgTextProtect.js
+
+function initProtection() {
   const ALLOW_TAGS = ["BUTTON", "A", "INPUT", "TEXTAREA", "SELECT", "LABEL", "NAV", "UL", "LI"];
 
   function isAllowed(target) {
@@ -10,17 +11,14 @@ document.addEventListener("DOMContentLoaded", function () {
     return false;
   }
 
-  // Block drag
   document.addEventListener("dragstart", function (e) {
     if (!isAllowed(e.target)) e.preventDefault();
   });
 
-  // Block text selection
   document.addEventListener("selectstart", function (e) {
     if (!isAllowed(e.target)) e.preventDefault();
   });
 
-  // Block Ctrl + C / X / P / S
   document.addEventListener("keydown", function (e) {
     const key = e.key.toLowerCase();
     if ((e.ctrlKey || e.metaKey) && ["c", "x", "s", "p"].includes(key)) {
@@ -28,16 +26,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Optional: block context menu
   document.addEventListener("contextmenu", function (e) {
     if (!isAllowed(e.target)) e.preventDefault();
   });
 
-  // Block double-click selection
   document.addEventListener("mousedown", function (e) {
     if (e.detail > 1 && !isAllowed(e.target)) e.preventDefault();
   });
 
-  // Prevent user selection globally
   document.body.style.userSelect = "none";
-});
+}
+
+// Allow manual trigger if script loads after DOM is ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initProtection);
+} else {
+  initProtection();
+}
+
+// For dynamic trigger support
+window.triggerProtectScript = initProtection;
