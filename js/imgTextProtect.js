@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
+
   // Prevent right-click menu
   document.addEventListener("contextmenu", function (e) {
     e.preventDefault();
@@ -17,13 +18,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Disable text selection (double-click, right-click, etc.)
-  document.body.style.userSelect = "none";
-  document.body.onselectstart = function () { return false; };
-
-  // Prevent keyboard shortcuts (e.g., Ctrl+C, Ctrl+U, Ctrl+S, etc.)
-  document.addEventListener('keydown', function (e) {
-    const blockedKeys = ['c', 'x', 'u', 's', 'p', 'i', 'a', 'v']; // Disable Ctrl + C, X, U, S, P, I, A, V
+  // Prevent keyboard shortcuts like Ctrl+C, Ctrl+U, etc.
+  document.addEventListener("keydown", function (e) {
+    const blockedKeys = ['c', 'x', 'u', 's', 'p', 'i', 'j', 'k']; // Disable Ctrl + C, X, U, S, P, I, A, V
     if ((e.ctrlKey || e.metaKey) && blockedKeys.includes(e.key.toLowerCase())) {
       e.preventDefault();
     }
@@ -34,11 +31,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Prevent the page from being printed using the print dialog (Ctrl+P)
+  // Prevent printing (Ctrl + P) and right-click print options
   window.onbeforeprint = function () {
     document.body.innerHTML = "<h1 style='color:red;text-align:center;margin-top:20vh;'>⚠️ Printing is disabled on this site.</h1>";
     setTimeout(() => {
       window.close();
     }, 500);
   };
+
 });
