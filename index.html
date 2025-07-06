@@ -16,6 +16,31 @@
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+
+<!-- 🔒 Protection CSS -->
+  <style>
+    html, body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    input, textarea, select, label {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
+    }
+  </style>
+</head>
+
+
+
+
+
+
 </head>
 <body>
     <!-- Header Section -->
@@ -557,20 +582,26 @@ Deployment of intelligent automation using IoT, embedded systems, robotics, and 
 </section>
 
 
-  <!-- Footer -->
+<!-- Footer -->
 <div id="footer-placeholder"></div>
 <script>
-  fetch("footer.html")  // adjust path as needed
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("footer-placeholder").innerHTML = html;
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("footer-placeholder").innerHTML = html;
 
-      // Now load the protection script AFTER footer is inserted
-      const script = document.createElement("script");
-      script.src = "js/imgTextProtect.js"; // or "js/imgTextProtect.js" in root
-      document.body.appendChild(script);
-    });
+        // 🔒 Load protection script AFTER footer is injected
+        const protect = document.createElement("script");
+        protect.src = "js/imgTextProtect.js"; // Adjust path if needed
+        document.body.appendChild(protect);
+      });
+  });
 </script>
+
+<!-- Your other scripts -->
+<script src="js/main.js"></script>
+<script src="js/dropdown.js"></script>
 
 </body>
 </html>
