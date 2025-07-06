@@ -531,12 +531,9 @@ Edit
 }
 
 /* --------------------------------------------
-Hero Section
+   Hero Section
 -------------------------------------------- */
 
-scss
-Copy
-Edit
 .hero-section {
   position: relative;
   padding: var(--spacing-4xl) 0;
