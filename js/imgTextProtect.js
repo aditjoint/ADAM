@@ -1,5 +1,4 @@
 // js/imgTextProtect.js
-
 document.addEventListener("DOMContentLoaded", function () {
   // Prevent selecting text unless it's an input, button, etc.
   const ALLOW_TAGS = ["BUTTON", "A", "SELECT", "INPUT", "TEXTAREA", "LABEL"];
@@ -32,10 +31,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!isAllowed(e.target)) e.preventDefault();
   });
 
-  // Block keyboard shortcuts like Ctrl+C, Ctrl+U, Ctrl+S, Ctrl+P etc.
+  // Block keyboard shortcuts like Ctrl+C, Ctrl+U, etc.
   document.addEventListener("keydown", function (e) {
     const key = e.key.toLowerCase();
-
     if (
       (e.ctrlKey || e.metaKey) &&
       ["c", "x", "u", "s", "p", "i", "j", "k"].includes(key)
@@ -43,18 +41,16 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!isAllowed(e.target)) e.preventDefault();
     }
 
-    // Block F12 (DevTools) and Ctrl+P (Print dialog)
+    // Block Ctrl+P (Print dialog) and F12 (DevTools)
     if (e.key === "F12" || (e.ctrlKey && e.key === "p")) {
       e.preventDefault();
     }
   });
 
-  // Block Print Dialog (Ctrl+P) - we use the beforeprint event
+  // Prevent printing entirely (Ctrl+P and Print Dialog)
   window.onbeforeprint = function () {
-    document.body.innerHTML = "<h1 style='color:red;text-align:center;margin-top:20vh;'>⚠️ Printing is disabled on this site.</h1>";
-    setTimeout(() => {
-      window.close();
-    }, 500);  // Close window automatically after a brief delay
+    alert("Printing is disabled on this site.");
+    return false; // prevent print dialog
   };
 
   // Block image right-click and drag
