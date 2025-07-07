@@ -210,7 +210,8 @@ section {
 header {
     background-color: var(--white);
     box-shadow: var(--shadow-sm);
-    position: sticky;
+    position: fixed;
+    left: 0;
     top: 0;
     z-index: 1000;
 }
