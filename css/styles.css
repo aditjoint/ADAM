@@ -205,37 +205,36 @@ section {
 }
 
 /* --------------------------------------------
-   Header & Navigation – Fixed, Full Width, Responsive
+   Header & Navigation – Fixed without altering look
 -------------------------------------------- */
 
-/* Fix the header */
+/* Keep visual style but fix to top */
 header {
-    background-color: var(--white);
-    box-shadow: var(--shadow-sm);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 70px; /* consistent height */
     z-index: 1000;
+    background-color: var(--white);
+    box-shadow: var(--shadow-sm);
 }
 
-/* Push page content down so it's not hidden behind header */
+/* Add body padding so content isn't hidden behind fixed header */
 body {
-    margin: 0;
-    padding-top: 70px; /* match header height */
+    padding-top: 80px; /* match actual rendered header height */
 }
 
-/* Flex container inside header */
+/* Keep your existing header-content styles */
 .header-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 100%;
-    padding: 0 20px;
+    padding: var(--spacing-sm) 0;
 }
 
-/* Logo styling */
+/* (No changes below this line unless you want improvements) */
+
+/* Logo */
 .logo a {
     display: flex;
     align-items: center;
@@ -249,7 +248,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 8px;
+    margin-right: var(--spacing-xs);
 }
 .logo-icon .letter {
     color: var(--white);
@@ -262,10 +261,9 @@ body {
     font-size: 1.2rem;
 }
 
-/* Navigation styles */
+/* Navigation */
 .main-nav {
     display: flex;
-    align-items: center;
 }
 .nav-links {
     display: flex;
@@ -274,16 +272,16 @@ body {
     padding: 0;
 }
 .nav-links li {
-    margin: 0 12px;
     position: relative;
+    margin: 0 var(--spacing-md);
 }
 .nav-links a {
     display: inline-block;
-    padding: 10px 0;
+    padding: var(--spacing-sm) 0;
     color: var(--text-dark);
     font-weight: 500;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color var(--transition-fast);
 }
 .nav-links a:hover,
 .nav-links a.active {
@@ -292,14 +290,14 @@ body {
 .nav-links a.active::after {
     content: '';
     position: absolute;
-    bottom: -2px;
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 3px;
     background-color: var(--primary-color);
 }
 
-/* Dropdown styles */
+/* Dropdown Menu */
 .dropdown {
     position: relative;
 }
@@ -308,30 +306,31 @@ body {
     align-items: center;
 }
 .dropdown-toggle i {
-    margin-left: 6px;
-    font-size: 0.8rem;
-    transition: transform 0.3s ease;
+    margin-left: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    transition: transform var(--transition-fast);
 }
 .dropdown-menu {
     position: absolute;
     top: 100%;
     left: 0;
-    z-index: 999;
+    z-index: 1000;
     min-width: 220px;
+    padding: var(--spacing-sm) 0;
     background-color: var(--white);
-    border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-md);
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
-    transition: all 0.3s ease;
+    transition: all var(--transition-normal);
 }
 .dropdown-menu li {
     margin: 0;
 }
 .dropdown-menu a {
     display: block;
-    padding: 10px 16px;
+    padding: var(--spacing-sm) var(--spacing-md);
     color: var(--text-dark);
     font-weight: 400;
     white-space: nowrap;
@@ -348,19 +347,16 @@ body {
     transform: rotate(180deg);
 }
 
-/* Hamburger / Mobile menu toggle */
+/* Mobile Menu Toggle */
 .mobile-menu-toggle {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 1.8rem;
-    color: var(--text-dark);
-    padding: 0 10px;
-    height: 100%;
+    font-size: 1.5rem;
     cursor: pointer;
+    color: var(--text-dark);
+    padding: 0 var(--spacing-md);
+    height: 100%;
 }
-
-/* Hide hamburger on desktop */
 @media (min-width: 768px) {
     .mobile-menu-toggle {
         display: none;
@@ -369,13 +365,7 @@ body {
 
 /* CTA Button */
 .cta-button .btn {
-    padding: 8px 20px;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
+    padding: var(--spacing-sm) var(--spacing-lg);
 }
 
 /* --------------------------------------------
