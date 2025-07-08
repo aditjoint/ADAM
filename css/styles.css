@@ -221,7 +221,7 @@ header {
 
 /* Add body padding so content isn't hidden behind fixed header */
 body {
-    padding-top: 80px; /* match actual rendered header height */
+    padding-top: 64px; /* match actual rendered header height */
 }
 
 /* Keep your existing header-content styles */
