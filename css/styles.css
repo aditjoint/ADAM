@@ -204,241 +204,232 @@ section {
     margin: var(--spacing-3xl) 0;
 }
 
-/* ====================================
-   Header & Navigation
-==================================== */
+/* --------------------------------------------
+   Fixed Header (Visually Stable & Responsive)
+-------------------------------------------- */
+
+:root {
+  --primary-color: #A80000;
+  --primary-light: #f4e5e5;
+  --white: #ffffff;
+  --text-dark: #333333;
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
 
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background: #ffffff;
+  background-color: var(--white);
+  box-shadow: var(--shadow-sm);
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 body {
-  padding-top: 110px; /* Make room for fixed header */
+  margin: 0;
+  padding-top: 80px; /* Match header height */
 }
 
-/* ======================
-   Logo
-====================== */
-.logo {
-  display: flex;
-  align-items: center;
-}
-
-.logo-icon {
-  width: 40px;
-  height: 40px;
-  background-color: #A80000;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 8px;
-  transition: background-color 0.3s ease;
-}
-
-.logo-text {
-  font-size: 20px;
-  font-weight: 600;
-  color: #333;
-}
-
-.logo a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: inherit;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.logo a:focus,
-.logo a:active {
-  outline: none;
-  background-color: transparent !important;
-  color: inherit !important;
-}
-
-/* ======================
-   Header Layout
-====================== */
+/* Header inner layout */
 .header-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 24px;
+  padding: 18px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* ======================
-   Navigation
-====================== */
+/* Logo Styles */
+.logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.logo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+.logo-icon .letter {
+  color: var(--white);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.logo-text {
+  color: var(--text-dark);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* Navigation Bar */
 .main-nav {
   display: flex;
   align-items: center;
 }
-
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 24px;
-  padding-left: 0;
   margin: 0;
+  padding: 0;
 }
-
 .nav-links li {
   position: relative;
+  margin: 0 12px;
 }
-
 .nav-links a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  padding: 8px;
   display: inline-block;
-  -webkit-tap-highlight-color: transparent;
+  padding: 8px 0;
+  color: var(--text-dark);
+  font-weight: 500;
+  text-decoration: none;
 }
-
 .nav-links a:hover {
-  color: #A80000;
+  color: var(--primary-color);
+}
+.nav-links a.active {
+  color: var(--primary-color);
 }
 
-.nav-links a:focus,
-.nav-links a:active {
-  outline: none;
-  background-color: transparent !important;
-  color: #A80000;
+/* Optional underline only on large screens */
+@media (min-width: 768px) {
+  .nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+  }
+}
+@media (max-width: 767px) {
+  .nav-links a.active::after {
+    display: none;
+  }
 }
 
-/* ======================
-   Dropdown Menu
-====================== */
+/* Dropdown Menu */
+.dropdown {
+  position: relative;
+}
+.dropdown-toggle {
+  display: flex;
+  align-items: center;
+}
+.dropdown-toggle i {
+  font-size: 0.8rem;
+  margin-left: 6px;
+  transition: transform 0.3s;
+}
 .dropdown-menu {
   position: absolute;
   top: 100%;
   left: 0;
-  background: #fff;
-  min-width: 200px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  background-color: var(--white);
+  min-width: 220px;
+  box-shadow: var(--shadow-md);
+  border-radius: 4px;
   padding: 12px 0;
-  display: none;
-  z-index: 999;
   opacity: 0;
   visibility: hidden;
+  transform: translateY(10px);
   transition: all 0.3s ease;
+  z-index: 999;
 }
-
-.dropdown:hover .dropdown-menu {
+.dropdown-menu li {
+  margin: 0;
+}
+.dropdown-menu a {
   display: block;
-  opacity: 1;
-  visibility: visible;
-}
-
-.dropdown.open .dropdown-menu {
-  display: block;
-  opacity: 1;
-  visibility: visible;
-}
-
-/* ======================
-   CTA Button
-====================== */
-.cta-button .btn {
-  background-color: #A80000;
-  color: white;
   padding: 10px 16px;
-  border-radius: 4px;
-  font-weight: 600;
+  color: var(--text-dark);
   text-decoration: none;
-  transition: background-color 0.3s;
-  -webkit-tap-highlight-color: transparent;
+  white-space: nowrap;
+}
+.dropdown-menu a:hover {
+  background-color: var(--primary-light);
+}
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.dropdown:hover .dropdown-toggle i {
+  transform: rotate(180deg);
 }
 
+/* CTA Button */
+.cta-button .btn {
+  padding: 8px 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+  color: var(--white);
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
 .cta-button .btn:hover {
   background-color: #800000;
 }
 
-.cta-button .btn:focus,
-.cta-button .btn:active {
-  outline: none;
-  background-color: #800000;
-  color: white;
-}
-
-/* ======================
-   Mobile Menu
-====================== */
+/* Mobile Toggle */
 .mobile-menu-toggle {
   display: none;
-  font-size: 24px;
+  font-size: 1.6rem;
+  color: var(--text-dark);
+  padding: 0 12px;
   cursor: pointer;
-  color: #A80000;
 }
 
-/* ======================
-   Responsive
-====================== */
+/* Responsive Nav */
 @media (max-width: 768px) {
   .main-nav {
     display: none;
     flex-direction: column;
-    background-color: #fff;
+    background-color: var(--white);
+    width: 100%;
     position: absolute;
     top: 72px;
     left: 0;
-    width: 100%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-md);
+    padding: 12px 0;
   }
-
   .main-nav.open {
     display: flex;
   }
-
   .nav-links {
     flex-direction: column;
-    gap: 0;
   }
-
   .nav-links li {
-    width: 100%;
+    margin: 0;
   }
-
   .nav-links a {
-    display: block;
-    width: 100%;
     padding: 12px 20px;
     border-bottom: 1px solid #eee;
   }
-
   .dropdown-menu {
     position: relative;
     box-shadow: none;
+    transform: none;
     opacity: 1 !important;
     visibility: visible !important;
-    display: none;
   }
-
-  .dropdown.open .dropdown-menu {
-    display: block;
+  .dropdown:hover .dropdown-menu {
+    display: none; /* Disable hover on mobile */
   }
-
   .mobile-menu-toggle {
-    display: block;
+    display: flex;
   }
-
   .cta-button {
-    display: none;
-  }
-
-  .logo-icon {
-    background-color: #A80000; /* Reinforce color on mobile */
-    color: white;
+    display: none; /* Optional: hide on mobile */
   }
 }
 
