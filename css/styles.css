@@ -176,11 +176,11 @@ header {
 /* Fix: match this to actual rendered header height */
 body {
   margin: 0;
-  padding-top: 120px;  /* or 120px if needed */
+  padding-top: 100px;  /* or 120px if needed */
 }
 
 main, .page-content, .container {
-  margin-top: 20px;
+  margin-top: 80px;
 
 
 .logo a {
