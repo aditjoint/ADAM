@@ -154,21 +154,28 @@ section {
    Header & Navigation (Blue Theme)
 -------------------------------------------- */
 
+/* Header */
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: var(--white);
-    box-shadow: var(--shadow-sm);
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--white);
+  box-shadow: var(--shadow-sm);
+  z-index: 1000;
+}
+
+/* Fix: match this to actual rendered header height */
+body {
+  padding-top: 120px;  /* or 120px if needed */
+  margin: 0;
 }
 
 .header-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 18px 24px;
+    padding: 12px 24px;
     max-width: var(--container-max-width);
     margin: 0 auto;
 }
