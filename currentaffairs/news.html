@@ -17,38 +17,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
-  <!-- DO NOT TOUCH ABOVE CODES -->
-
-<body>
-    <!-- Header Section -->
-<!-- Header Section (modular) -->
-<div id="header-placeholder"></div>
-
-<script src="js/protect.js"></script> <!-- Your existing JS -->
-<script>
-  window.addEventListener("DOMContentLoaded", function () {
-    fetch("header.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("header-placeholder").outerHTML = html;
-
-        document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
-          toggle.addEventListener("click", function (e) {
-            e.preventDefault();
-            this.parentElement.classList.toggle("open");
-          });
-        });
-
-        const menuToggle = document.querySelector(".mobile-menu-toggle");
-        if (menuToggle) {
-          menuToggle.addEventListener("click", () => {
-            document.querySelector(".main-nav").classList.toggle("open");
-          });
-        }
-      });
-  });
-</script>
-
+    
 <body>
     <!-- Header Section -->
     <header>
@@ -62,7 +31,7 @@
                         <span class="logo-text">ADAM Consult</span>
                     </a>
                 </div>
-                <nav class="main-nav">
+                  <nav class="main-nav">
                     <ul class="nav-links">
                         <li><a href="../index.html">Home</a></li>
                         <li><a href="../about.html">About</a></li>
@@ -73,7 +42,7 @@
                                     <li><a href="../services/digital-transformation.html">Digital Transformation</a></li>
                                     <li><a href="../services/sustainability-solutions.html">Sustainability Solutions</a></li>
                                     <li><a href="../services/process-automation.html">Process Automation</a></li>
-                                    <li><a href="../services/contracts.html">Project & Contract Management</a></li>
+                                   <li><a href="../services/contracts.html">Project & Contract Management</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
