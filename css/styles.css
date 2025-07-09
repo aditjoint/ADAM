@@ -167,7 +167,7 @@ header {
 
 /* Fix: match this to actual rendered header height */
 body {
-  padding-top: 120px;  /* or 120px if needed */
+  padding-top: 80px;  /* or 120px if needed */
   margin: 0;
 }
 
@@ -175,7 +175,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 24px;
+    padding: 12px 16px;
     max-width: var(--container-max-width);
     margin: 0 auto;
 }
