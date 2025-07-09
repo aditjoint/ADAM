@@ -19,6 +19,35 @@
 </head>
   <!-- DO NOT TOUCH ABOVE CODES -->
 
+<body>
+    <!-- Header Section -->
+<!-- Header Section (modular) -->
+<div id="header-placeholder"></div>
+
+<script src="js/protect.js"></script> <!-- Your existing JS -->
+<script>
+  window.addEventListener("DOMContentLoaded", function () {
+    fetch("header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header-placeholder").outerHTML = html;
+
+        document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
+          toggle.addEventListener("click", function (e) {
+            e.preventDefault();
+            this.parentElement.classList.toggle("open");
+          });
+        });
+
+        const menuToggle = document.querySelector(".mobile-menu-toggle");
+        if (menuToggle) {
+          menuToggle.addEventListener("click", () => {
+            document.querySelector(".main-nav").classList.toggle("open");
+          });
+        }
+      });
+  });
+</script>
 
 <body>
     <!-- Header Section -->
