@@ -1,36 +1,29 @@
-<body>
-  <!-- Modular Header -->
-  <div id="header-placeholder"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header-placeholder").innerHTML = html;
 
-  <!-- Page content here -->
-  <main class="main-content">...</main>
-
-  <!-- Load Header Dynamically -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      fetch("header.html")
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById("header-placeholder").innerHTML = html;
-
-          // Enable dropdowns
-          document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
-            toggle.addEventListener("click", function (e) {
-              e.preventDefault();
-              this.parentElement.classList.toggle("open");
-            });
+        // ⬇️ Dropdown toggle (only header logic)
+        document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
+          toggle.addEventListener("click", function (e) {
+            e.preventDefault();
+            this.parentElement.classList.toggle("open");
           });
-
-          // Enable mobile menu
-          const menuToggle = document.querySelector(".mobile-menu-toggle");
-          if (menuToggle) {
-            menuToggle.addEventListener("click", () => {
-              document.querySelector(".main-nav").classList.toggle("open");
-            });
-          }
         });
-    });
-  </script>
+
+        // 📱 Mobile menu toggle (only header logic)
+        const menuToggle = document.querySelector(".mobile-menu-toggle");
+        if (menuToggle) {
+          menuToggle.addEventListener("click", () => {
+            document.querySelector(".main-nav").classList.toggle("open");
+          });
+        }
+      });
+  });
+</script>
+
 
   <!-- Optional: Protect JS -->
   <script src="js/protect.js"></script>
