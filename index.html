@@ -83,56 +83,6 @@
   </div>
 </header>
 
-<!-- PAGE CONTENT STARTS HERE -->
-
-<!-- Hero Section -->
-<!-- ... -->
-
-<!-- About Section -->
-<!-- ... -->
-
-<!-- Values Section -->
-<!-- ... -->
-
-<!-- Expertise Section -->
-<!-- ... -->
-
-<!-- Industry Image Section -->
-<!-- ... -->
-
-<!-- Service Tabs Section -->
-<!-- ... -->
-
-<!-- CTA Section -->
-<!-- ... -->
-
-<!-- Footer -->
-<div id="footer-placeholder"></div>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    fetch("footer.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("footer-placeholder").innerHTML = html;
-
-        // 🔒 Load protection script AFTER footer is injected
-        const protect = document.createElement("script");
-        protect.src = "js/imgTextProtect.js"; // Adjust path if needed
-        document.body.appendChild(protect);
-      });
-  });
-</script>
-
-<!-- Scripts -->
-<script src="js/main.js"></script>
-<script src="js/dropdown.js"></script>
-
-</body>
-</html>
-
-
- <!-- DO NOT TOUCH ABOVE -->
-
 <body>
     <!-- Hero Section -->
     <section class="hero">
