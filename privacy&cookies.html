@@ -1,6 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <!-- 🔒 Inline Protection Fallback -->
+ <link rel="stylesheet" href="/css/protect.css" /> <!-- 🔒 Protection CSS -->
+  <style>
+    html, body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    input, textarea, select, label, a, button {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
+    }
+  </style>
+</head>
+  
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -239,46 +257,20 @@
 </p>
 
     <!-- Footer -->
-    <footer>
-      &copy; 2025 ADAM Consult, ADIT Joint LLP. All rights reserved.
-    </footer>
-  </div>
+   
 
-  <!-- In HEAD or before </body> -->
-<script src="/js/protect.js"></script>
- <script src="/js/imgProtect.js"></script>
-  
-  <div style="position: relative; display: inline-block;">
-  <img src="yourimage.jpg" style="display: block;" />
-  <div style="
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    z-index: 2;
-  "></div>
-</div>
-  
-<!-- Inline fallback or extra rules -->
+<!-- Footer -->
+<footer>
+  &copy; 2025 ADAM Consult, ADIT Joint LLP. All rights reserved.
+</footer>
+
+<!-- Load protection script AFTER footer -->
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    document.body.oncontextmenu = function () { return false; };
-    document.body.style.userSelect = "none";
-    document.body.style.webkitUserSelect = "none";
-    document.body.style.msUserSelect = "none";
-    document.body.onselectstart = function () { return false; };
-    document.body.ondragstart = function () { return false; };
-
-    // Optional additional blocking
-    document.addEventListener('keydown', function (e) {
-      if ((e.ctrlKey || e.metaKey) && ['c', 'x', 'u', 's', 'a'].includes(e.key.toLowerCase())) {
-        e.preventDefault();
-      }
-    });
+  document.addEventListener("DOMContentLoaded", function () {
+    const protect = document.createElement("script");
+    protect.src = "../js/imgTextProtect.js"; // Adjust path as needed
+    document.body.appendChild(protect);
   });
 </script>
 
 </body>
-</html>
