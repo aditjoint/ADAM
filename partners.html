@@ -1,57 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- metadata here -->
-  <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="/css/responsive.css">
-  <link rel="stylesheet" href="/css/protect.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- 🔐 Inline page protection fallback -->
-  <style>
-    html, body {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-    input, textarea, select, label, a, button {
-      -webkit-user-select: text;
-      -moz-user-select: text;
-      -ms-user-select: text;
-      user-select: text;
-    }
-  </style>
-</head>
-
 <body>
-  <!-- 🔁 Reusable header load -->
+  <!-- Modular Header -->
   <div id="header-placeholder"></div>
 
-  <!-- Main content here -->
-  <main class="main-content">
-    <!-- Your page blocks -->
-  </main>
+  <!-- Page content here -->
+  <main class="main-content">...</main>
 
-  <!-- Footer optional -->
-  <footer>© ADAM Consult</footer>
-
-  <!-- 🔁 Load Header Script -->
+  <!-- Load Header Dynamically -->
   <script>
-    fetch("/components/header.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("header-placeholder").innerHTML = data;
+    document.addEventListener("DOMContentLoaded", function () {
+      fetch("header.html")
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById("header-placeholder").innerHTML = html;
 
-        // 🔽 Dropdown functionality
-        const toggles = document.querySelectorAll('.dropdown-toggle');
-        toggles.forEach(toggle => {
-          toggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            const parent = this.parentElement;
-            parent.classList.toggle('open');
+          // Enable dropdowns
+          document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
+            toggle.addEventListener("click", function (e) {
+              e.preventDefault();
+              this.parentElement.classList.toggle("open");
+            });
           });
+
+          // Enable mobile menu
+          const menuToggle = document.querySelector(".mobile-menu-toggle");
+          if (menuToggle) {
+            menuToggle.addEventListener("click", () => {
+              document.querySelector(".main-nav").classList.toggle("open");
+            });
+          }
         });
+    });
+  </script>
+
+  <!-- Optional: Protect JS -->
+  <script src="js/protect.js"></script>
+</body>
 
         // 📱 Mobile menu (optional)
         const mobileToggle = document.querySelector('.mobile-menu-toggle');
