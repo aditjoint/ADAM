@@ -1,6 +1,24 @@
-
 <!DOCTYPE html>
 <html lang="en">
+<head>
+  <!-- 🔒 Inline Protection Fallback -->
+ <link rel="stylesheet" href="/css/protect.css" /> <!-- 🔒 Protection CSS -->
+  <style>
+    html, body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    input, textarea, select, label, a, button {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
+    }
+  </style>
+</head>
+  
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -209,21 +227,18 @@
 
 </ul>
 
+<!-- Footer -->
+<footer>
+  &copy; 2025 ADAM Consult, ADIT Joint LLP. All rights reserved.
+</footer>
 
-    <!-- Footer -->
-    <footer>
-      &copy; 2025 ADAM Consult, ADIT Joint LLP. All rights reserved.
-    </footer>
-  </div>
-
-
-   // 🔒 Load protection script AFTER footer
-        const protect = document.createElement("script");
-        protect.src = "../js/imgTextProtect.js"; // "js/imgTextProtect.js" for homepage
-        document.body.appendChild(protect);
-      });
+<!-- Load protection script AFTER footer -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const protect = document.createElement("script");
+    protect.src = "../js/imgTextProtect.js"; // Adjust path as needed
+    document.body.appendChild(protect);
   });
 </script>
 
 </body>
-</html>
