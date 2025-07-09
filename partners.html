@@ -1,11 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADAM Consult - Your Trusted Partner in Engineering, Infrastructure, and Digital Growth</title>
+  <meta name="description" content="We provide integrated solutions across Static Machinery, Equipment, Energy Distribution and Metering, IT and Non-IT Facility Infrastructure, Digital Transformation (Telecom, IT, and Industrial Automation), Strategic Consulting, and Product Marketing. With a focus on innovation and operational excellence, we help organizations modernize their infrastructure, optimize performance, and achieve sustainable growth across diverse sectors.">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/protect.css"> <!-- 🔒 Protection CSS -->
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+  <!-- DO NOT TOUCH ABOVE CODES -->
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    fetch("header.html")
+    fetch("../header.html")  // Adjust path if needed
       .then(res => res.text())
       .then(html => {
         document.getElementById("header-placeholder").innerHTML = html;
 
-        // ⬇️ Dropdown toggle (only header logic)
+        // ✅ Header-only functionality
+
+        // Dropdown toggle
         document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
           toggle.addEventListener("click", function (e) {
             e.preventDefault();
@@ -13,7 +36,7 @@
           });
         });
 
-        // 📱 Mobile menu toggle (only header logic)
+        // Mobile menu toggle
         const menuToggle = document.querySelector(".mobile-menu-toggle");
         if (menuToggle) {
           menuToggle.addEventListener("click", () => {
@@ -23,7 +46,6 @@
       });
   });
 </script>
-
 
   <!-- Optional: Protect JS -->
   <script src="js/protect.js"></script>
