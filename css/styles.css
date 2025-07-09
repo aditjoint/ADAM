@@ -204,6 +204,49 @@ section {
     margin: var(--spacing-3xl) 0;
 }
 
+
+/* --------------------------------------------
+Header - Test
+-------------------------------------------- */
+
+header.adam-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--white);
+  z-index: 1000;
+  box-shadow: var(--shadow-sm);
+}
+body {
+  padding-top: 80px;
+}
+
+.dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}
+.dropdown.open .dropdown-menu {
+  display: block;
+}
+
+.main-nav.open {
+  display: block;
+}
+
+                
+
+
+
+
+
+
+
+
+
+
+
 /* --------------------------------------------
    Header & Navigation
 -------------------------------------------- */
@@ -1670,33 +1713,3 @@ body.watermarked::before {
   pointer-events: none;
   user-select: none;
 }
-
-
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: var(--white);
-  z-index: 1000;
-  box-shadow: var(--shadow-sm);
-}
-
-body {
-  margin: 0;
-  padding-top: 80px; /* Prevent overlap */
-}
-
-.dropdown .dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-}
-.dropdown.open .dropdown-menu {
-  display: block;
-}
-
-.main-nav.open {
-  display: block;
-}
-                
