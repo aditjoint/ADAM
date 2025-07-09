@@ -205,7 +205,7 @@ section {
 }
 
 /* ====================================
-   Header & Navigation - Final Fixed
+   Header & Navigation
 ==================================== */
 
 header {
@@ -219,16 +219,12 @@ header {
 }
 
 body {
-  padding-top: 120px; /* Adjusted to avoid merging with fixed header */
+  padding-top: 110px; /* Make room for fixed header */
 }
 
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 24px;
-}
-
+/* ======================
+   Logo
+====================== */
 .logo {
   display: flex;
   align-items: center;
@@ -246,6 +242,7 @@ body {
   align-items: center;
   justify-content: center;
   margin-right: 8px;
+  transition: background-color 0.3s ease;
 }
 
 .logo-text {
@@ -254,6 +251,34 @@ body {
   color: #333;
 }
 
+.logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.logo a:focus,
+.logo a:active {
+  outline: none;
+  background-color: transparent !important;
+  color: inherit !important;
+}
+
+/* ======================
+   Header Layout
+====================== */
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+}
+
+/* ======================
+   Navigation
+====================== */
 .main-nav {
   display: flex;
   align-items: center;
@@ -263,8 +288,8 @@ body {
   list-style: none;
   display: flex;
   gap: 24px;
+  padding-left: 0;
   margin: 0;
-  padding: 0;
 }
 
 .nav-links li {
@@ -276,24 +301,24 @@ body {
   color: #333;
   font-weight: 500;
   padding: 8px;
-  transition: color 0.3s ease;
-}
-
-/* 🔵 Blue underline fix */
-.nav-links a:focus,
-.nav-links a:active,
-.dropdown-menu a:focus,
-.dropdown-menu a:active {
-  outline: none;
-  text-decoration: none;
-  color: #A80000;
+  display: inline-block;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .nav-links a:hover {
   color: #A80000;
 }
 
-/* Dropdown menu */
+.nav-links a:focus,
+.nav-links a:active {
+  outline: none;
+  background-color: transparent !important;
+  color: #A80000;
+}
+
+/* ======================
+   Dropdown Menu
+====================== */
 .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -302,18 +327,28 @@ body {
   min-width: 200px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   padding: 12px 0;
+  display: none;
+  z-index: 999;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
-  z-index: 999;
 }
 
-.dropdown.open .dropdown-menu {
+.dropdown:hover .dropdown-menu {
+  display: block;
   opacity: 1;
   visibility: visible;
 }
 
-/* CTA Button */
+.dropdown.open .dropdown-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ======================
+   CTA Button
+====================== */
 .cta-button .btn {
   background-color: #A80000;
   color: white;
@@ -322,20 +357,33 @@ body {
   font-weight: 600;
   text-decoration: none;
   transition: background-color 0.3s;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .cta-button .btn:hover {
   background-color: #800000;
 }
 
-/* Mobile menu toggle */
+.cta-button .btn:focus,
+.cta-button .btn:active {
+  outline: none;
+  background-color: #800000;
+  color: white;
+}
+
+/* ======================
+   Mobile Menu
+====================== */
 .mobile-menu-toggle {
   display: none;
   font-size: 24px;
   cursor: pointer;
+  color: #A80000;
 }
 
-/* Responsive Navigation */
+/* ======================
+   Responsive
+====================== */
 @media (max-width: 768px) {
   .main-nav {
     display: none;
@@ -373,20 +421,24 @@ body {
     box-shadow: none;
     opacity: 1 !important;
     visibility: visible !important;
-    display: block !important;
+    display: none;
   }
 
-  .dropdown:hover .dropdown-menu {
-    display: none; /* Disable hover dropdowns on mobile */
+  .dropdown.open .dropdown-menu {
+    display: block;
   }
 
   .mobile-menu-toggle {
     display: block;
-    color: #A80000;
   }
 
   .cta-button {
     display: none;
+  }
+
+  .logo-icon {
+    background-color: #A80000; /* Reinforce color on mobile */
+    color: white;
   }
 }
 
