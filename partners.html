@@ -19,33 +19,9 @@
 </head>
   <!-- DO NOT TOUCH ABOVE CODES -->
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    fetch("../header.html")  // Adjust path if needed
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("header-placeholder").innerHTML = html;
 
-        // ✅ Header-only functionality
+  <div id="header-placeholder"></div>
 
-        // Dropdown toggle
-        document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
-          toggle.addEventListener("click", function (e) {
-            e.preventDefault();
-            this.parentElement.classList.toggle("open");
-          });
-        });
-
-        // Mobile menu toggle
-        const menuToggle = document.querySelector(".mobile-menu-toggle");
-        if (menuToggle) {
-          menuToggle.addEventListener("click", () => {
-            document.querySelector(".main-nav").classList.toggle("open");
-          });
-        }
-      });
-  });
-</script>
 
   <!-- Optional: Protect JS -->
   <script src="js/protect.js"></script>
@@ -159,6 +135,43 @@
 <!-- Your other scripts -->
 <script src="../js/main.js"></script>
 <script src="../js/dropdown.js"></script>
+
+
+
+
+
+<script>
+  window.addEventListener("DOMContentLoaded", function () {
+    fetch("header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header-placeholder").outerHTML = html;
+
+        // Enable dropdowns
+        document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
+          toggle.addEventListener("click", function (e) {
+            e.preventDefault();
+            this.parentElement.classList.toggle("open");
+          });
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.querySelector(".mobile-menu-toggle");
+        if (menuToggle) {
+          menuToggle.addEventListener("click", () => {
+            document.querySelector(".main-nav").classList.toggle("open");
+          });
+        }
+      });
+  });
+</script>
+
+
+
+
+
+
+
 
 </body>
 </html>
