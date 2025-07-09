@@ -205,7 +205,7 @@ section {
 }
 
 /* ====================================
-   Header & Navigation
+   Header & Navigation - Final Fixed
 ==================================== */
 
 header {
@@ -219,7 +219,7 @@ header {
 }
 
 body {
-  padding-top: 110px; /* Make room for fixed header */
+  padding-top: 120px; /* Adjusted to avoid merging with fixed header */
 }
 
 .header-content {
@@ -263,6 +263,8 @@ body {
   list-style: none;
   display: flex;
   gap: 24px;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links li {
@@ -274,6 +276,17 @@ body {
   color: #333;
   font-weight: 500;
   padding: 8px;
+  transition: color 0.3s ease;
+}
+
+/* 🔵 Blue underline fix */
+.nav-links a:focus,
+.nav-links a:active,
+.dropdown-menu a:focus,
+.dropdown-menu a:active {
+  outline: none;
+  text-decoration: none;
+  color: #A80000;
 }
 
 .nav-links a:hover {
@@ -289,23 +302,13 @@ body {
   min-width: 200px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   padding: 12px 0;
-  display: none;
-  z-index: 999;
-}
-
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-/* JS-enabled dropdown toggle */
-.dropdown .dropdown-menu {
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s ease;
+  z-index: 999;
 }
 
 .dropdown.open .dropdown-menu {
-  display: block;
   opacity: 1;
   visibility: visible;
 }
@@ -325,7 +328,7 @@ body {
   background-color: #800000;
 }
 
-/* Mobile menu toggle button */
+/* Mobile menu toggle */
 .mobile-menu-toggle {
   display: none;
   font-size: 24px;
@@ -368,6 +371,9 @@ body {
   .dropdown-menu {
     position: relative;
     box-shadow: none;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
   }
 
   .dropdown:hover .dropdown-menu {
@@ -380,16 +386,9 @@ body {
   }
 
   .cta-button {
-    display: none; /* Optional: hide CTA on small screens */
+    display: none;
   }
 }
-
-
-
-
-
-
-
 
 /* --------------------------------------------
    Buttons
