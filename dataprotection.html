@@ -218,19 +218,18 @@
 </p>
 
 
-    <!-- Footer -->
-    <footer>
-      &copy; 2025 ADAM Consult, ADIT Joint LLP. All rights reserved.
-    </footer>
-  </div>
+ <!-- Footer -->
+<footer>
+  &copy; 2025 ADAM Consult, ADIT Joint LLP. All rights reserved.
+</footer>
 
-  // 🔒 Load protection script AFTER footer
-        const protect = document.createElement("script");
-        protect.src = "../js/imgTextProtect.js"; // "js/imgTextProtect.js" for homepage
-        document.body.appendChild(protect);
-      });
+<!-- Load protection script AFTER footer -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const protect = document.createElement("script");
+    protect.src = "../js/imgTextProtect.js"; // Adjust path as needed
+    document.body.appendChild(protect);
   });
 </script>
 
 </body>
-</html>
