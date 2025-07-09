@@ -34,56 +34,106 @@
   </style>
 </head>
 
-    
 <body>
-    <!-- Header Section -->
- <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <a href="index.html">
-                        <div class="logo-icon">
-                            <span class="letter">A</span>
-                        </div>
-                        <span class="logo-text">ADAM Consult</span>
-                    </a>
-                </div>
-                  <nav class="main-nav">
-                    <ul class="nav-links">
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../about.html">About</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle">Enterprise Advisory<i class="fas fa-chevron-down"></i></a>
-                            <ul class="dropdown-menu">
-                                    <li><a href="../services/technology-infrastructure.html">Technology Infrastructure</a></li>
-                                    <li><a href="../services/digital-transformation.html">Digital Transformation</a></li>
-                                    <li><a href="../services/sustainability-solutions.html">Sustainability Solutions</a></li>
-                                    <li><a href="../services/process-automation.html">Process Automation</a></li>
-                                   <li><a href="../services/contracts.html">Project & Contract Management</a></li>
-    
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle">Current Affairs <i class="fas fa-chevron-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="../currentaffairs/news.html">News</a></li>
-                                <li><a href="../currentaffairs/campaign.html">Campaigns</a></li>
-                                <li><a href="../currentaffairs/events.html">Testcase</a></li>
-                                <li><a href="../currentaffairs/projects.html">Actions</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="cta-button">
-                    <a href="contact.html" class="btn btn-primary">Get In Touch</a>
-                </div>
-                <div class="mobile-menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </div>
-        </div>
- </header>
 
+<!-- Header Section -->
+<header>
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">
+        <a href="index.html">
+          <div class="logo-icon">
+            <span class="letter">A</span>
+          </div>
+          <span class="logo-text">ADAM Consult</span>
+        </a>
+      </div>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Enterprise Advisory<i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="../services/technology-infrastructure.html">Technology Infrastructure</a></li>
+              <li><a href="../services/digital-transformation.html">Digital Transformation</a></li>
+              <li><a href="../services/sustainability-solutions.html">Sustainability Solutions</a></li>
+              <li><a href="../services/process-automation.html">Process Automation</a></li>
+              <li><a href="../services/contracts.html">Project & Contract Management</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle">Current Affairs <i class="fas fa-chevron-down"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="../currentaffairs/news.html">News</a></li>
+              <li><a href="../currentaffairs/campaign.html">Campaigns</a></li>
+              <li><a href="../currentaffairs/events.html">Testcase</a></li>
+              <li><a href="../currentaffairs/projects.html">Actions</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="cta-button">
+        <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+      </div>
+      <div class="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE CONTENT STARTS HERE -->
+
+<!-- Hero Section -->
+<!-- ... -->
+
+<!-- About Section -->
+<!-- ... -->
+
+<!-- Values Section -->
+<!-- ... -->
+
+<!-- Expertise Section -->
+<!-- ... -->
+
+<!-- Industry Image Section -->
+<!-- ... -->
+
+<!-- Service Tabs Section -->
+<!-- ... -->
+
+<!-- CTA Section -->
+<!-- ... -->
+
+<!-- Footer -->
+<div id="footer-placeholder"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("footer-placeholder").innerHTML = html;
+
+        // 🔒 Load protection script AFTER footer is injected
+        const protect = document.createElement("script");
+        protect.src = "js/imgTextProtect.js"; // Adjust path if needed
+        document.body.appendChild(protect);
+      });
+  });
+</script>
+
+<!-- Scripts -->
+<script src="js/main.js"></script>
+<script src="js/dropdown.js"></script>
+
+</body>
+</html>
+
+
+ <!-- DO NOT TOUCH ABOVE -->
+
+<body>
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
