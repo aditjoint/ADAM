@@ -1,46 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ADAM Consult - Your Trusted Partner in Engineering, Infrastructure, and Digital Growth</title>
-  <meta name="description" content="We provide integrated solutions across Static Machinery, Equipment, Energy Distribution and Metering, IT and Non-IT Facility Infrastructure, Digital Transformation (Telecom, IT, and Industrial Automation), Strategic Consulting, and Product Marketing. With a focus on innovation and operational excellence, we help organizations modernize their infrastructure, optimize performance, and achieve sustainable growth across diverse sectors.">
+  <meta name="description" content="We provide integrated solutions across Static Machinery, Equipment, Energy Distribution and Metering, IT and Non-IT Facility Infrastructure, Digital Transformation (Telecom, IT, and Industrial Automation), Strategic Consulting, and Product Marketing. With a focus on innovation and operational excellence, we help organizations modernize their infrastructure, optimize performance, and achieve sustainable growth across diverse sectors." />
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="../css/styles.css">
-  <link rel="stylesheet" href="../css/responsive.css">
-  <link rel="stylesheet" href="../css/protect.css"> <!-- 🔒 Protection CSS -->
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+  <link rel="stylesheet" href="/css/protect.css" /> <!-- 🔒 Protection CSS -->
 
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- 🔒 Inline Protection Fallback -->
+  <style>
+    html, body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    input, textarea, select, label, a, button {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
+    }
+  </style>
 </head>
-  <!-- DO NOT TOUCH ABOVE CODES -->
 
-
+<body>
+  <!-- ✅ Header Placeholder -->
   <div id="header-placeholder"></div>
-
-
-  <!-- Optional: Protect JS -->
-  <script src="js/protect.js"></script>
-</body>
-
-        // 📱 Mobile menu (optional)
-        const mobileToggle = document.querySelector('.mobile-menu-toggle');
-        if (mobileToggle) {
-          mobileToggle.addEventListener('click', () => {
-            document.querySelector('.main-nav').classList.toggle('open');
-          });
-        }
-      });
-  </script>
-
-  <!-- 🔐 Protection JS if you use one -->
-  <script src="/js/protect.js"></script>
-</body>
-</html>
 
 <!-- Partners Section -->
 <section class="partners-section"; style="display: none;">
@@ -114,64 +110,37 @@
        
     <!-- DO NOT TOUCH BELOW CODES -->
   
-  <!-- Footer Placeholder -->
-<div id="footer-placeholder"></div>
+   
+    
+  <!-- ✅ Footer Placeholder -->
+  <div id="footer-placeholder"></div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    fetch("../footer.html") // Use "footer.html" on index.html
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("footer-placeholder").innerHTML = html;
-
-        // 🔒 Load protection script AFTER footer
-        const protect = document.createElement("script");
-        protect.src = "../js/imgTextProtect.js"; // "js/imgTextProtect.js" for homepage
-        document.body.appendChild(protect);
-      });
-  });
-</script>
-
-<!-- Your other scripts -->
-<script src="../js/main.js"></script>
-<script src="../js/dropdown.js"></script>
-
-
-
-
-
-<script>
-  window.addEventListener("DOMContentLoaded", function () {
-    fetch("header.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("header-placeholder").outerHTML = html;
-
-        // Enable dropdowns
-        document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
-          toggle.addEventListener("click", function (e) {
-            e.preventDefault();
-            this.parentElement.classList.toggle("open");
-          });
+  <!-- ✅ Load header and footer dynamically -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Header
+      fetch("/header.html")
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById("header-placeholder").innerHTML = html;
         });
 
-        // Mobile menu toggle
-        const menuToggle = document.querySelector(".mobile-menu-toggle");
-        if (menuToggle) {
-          menuToggle.addEventListener("click", () => {
-            document.querySelector(".main-nav").classList.toggle("open");
-          });
-        }
-      });
-  });
-</script>
+      // Footer
+      fetch("/footer.html")
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById("footer-placeholder").innerHTML = html;
 
+          // Load protection script after footer
+          const protect = document.createElement("script");
+          protect.src = "/js/imgTextProtect.js";
+          document.body.appendChild(protect);
+        });
+    });
+  </script>
 
-
-
-
-
-
-
+  <!-- Global Scripts -->
+  <script src="/js/main.js"></script>
+  <script src="/js/dropdown.js"></script>
 </body>
 </html>
