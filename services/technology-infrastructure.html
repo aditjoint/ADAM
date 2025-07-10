@@ -178,27 +178,35 @@
 
   
     
-<!-- Footer -->
-<div id="footer-placeholder"></div>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    fetch("/footer.html") // ✅ Absolute path ensures it loads from root regardless of page location
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("footer-placeholder").innerHTML = html;
+  <!-- ✅ Footer Placeholder -->
+  <div id="footer-placeholder"></div>
 
-        // 🔒 Load protection script AFTER footer is injected
-        const protect = document.createElement("script");
-        protect.src = "/js/imgTextProtect.js"; // ✅ Absolute path
-        document.body.appendChild(protect);
-      });
-  });
-</script>
+  <!-- ✅ Load header and footer dynamically -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Header
+      fetch("/header.html")
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById("header-placeholder").innerHTML = html;
+        });
 
-<!-- Global Scripts -->
-<script src="/js/main.js"></script>
-<script src="/js/dropdown.js"></script>
+      // Footer
+      fetch("/footer.html")
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById("footer-placeholder").innerHTML = html;
+
+          // Load protection script after footer
+          const protect = document.createElement("script");
+          protect.src = "/js/imgTextProtect.js";
+          document.body.appendChild(protect);
+        });
+    });
+  </script>
+
+  <!-- Global Scripts -->
+  <script src="/js/main.js"></script>
+  <script src="/js/dropdown.js"></script>
 </body>
 </html>
-
-
