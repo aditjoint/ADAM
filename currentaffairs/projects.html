@@ -35,56 +35,8 @@
 </head>
 
 <body>
-
-<!-- ✅ Header Starts -->
-<header>
-  <div class="container">
-    <div class="header-content">
-      <div class="logo">
-        <a href="/index.html">
-          <div class="logo-icon">
-            <span class="letter">A</span>
-          </div>
-          <span class="logo-text">ADAM Consult</span>
-        </a>
-      </div>
-
-      <nav class="main-nav">
-        <ul class="nav-links">
-          <li><a href="/index.html">Home</a></li>
-          <li><a href="/about.html">About</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle">Enterprise Advisory <i class="fas fa-chevron-down"></i></a>
-            <ul class="dropdown-menu">
-              <li><a href="/services/technology-infrastructure.html">Technology Infrastructure</a></li>
-              <li><a href="/services/digital-transformation.html">Digital Transformation</a></li>
-              <li><a href="/services/sustainability-solutions.html">Sustainability Solutions</a></li>
-              <li><a href="/services/process-automation.html">Process Automation</a></li>
-              <li><a href="/services/contracts.html">Project & Contract Management</a></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle">Current Affairs <i class="fas fa-chevron-down"></i></a>
-            <ul class="dropdown-menu">
-              <li><a href="/currentaffairs/news.html">News</a></li>
-              <li><a href="/currentaffairs/campaign.html">Campaigns</a></li>
-              <li><a href="/currentaffairs/events.html">Testcase</a></li>
-              <li><a href="/currentaffairs/projects.html">Actions</a></li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-
-      <div class="cta-button">
-        <a href="/contact.html" class="btn btn-primary">Get In Touch</a>
-      </div>
-
-      <div class="mobile-menu-toggle">
-        <i class="fas fa-bars"></i>
-      </div>
-    </div>
-  </div>
-</header>
+  <!-- ✅ Header Placeholder -->
+  <div id="header-placeholder"></div>
   
 
     <meta charset="UTF-8">
@@ -204,25 +156,38 @@
 
        
     <!-- DO NOT TOUCH BELOW CODES -->
-  <!-- Footer -->
-<div id="footer-placeholder"></div>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    fetch("/footer.html") // ✅ Absolute path ensures it loads from root regardless of page location
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("footer-placeholder").innerHTML = html;
+  
+    
+  <!-- ✅ Footer Placeholder -->
+  <div id="footer-placeholder"></div>
 
-        // 🔒 Load protection script AFTER footer is injected
-        const protect = document.createElement("script");
-        protect.src = "/js/imgTextProtect.js"; // ✅ Absolute path
-        document.body.appendChild(protect);
-      });
-  });
-</script>
+  <!-- ✅ Load header and footer dynamically -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Header
+      fetch("/header.html")
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById("header-placeholder").innerHTML = html;
+        });
 
-<!-- Global Scripts -->
-<script src="/js/main.js"></script>
-<script src="/js/dropdown.js"></script>
+      // Footer
+      fetch("/footer.html")
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById("footer-placeholder").innerHTML = html;
+
+          // Load protection script after footer
+          const protect = document.createElement("script");
+          protect.src = "/js/imgTextProtect.js";
+          document.body.appendChild(protect);
+        });
+    });
+  </script>
+
+  <!-- Global Scripts -->
+  <script src="/js/main.js"></script>
+  <script src="/js/dropdown.js"></script>
 </body>
 </html>
+  
