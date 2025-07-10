@@ -1,38 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ADAM Consult - Your Trusted Partner in Engineering, Infrastructure, and Digital Growth</title>
-  <meta name="description" content="We provide integrated solutions across Static Machinery, Equipment, Energy Distribution and Metering, IT and Non-IT Facility Infrastructure, Digital Transformation (Telecom, IT, and Industrial Automation), Strategic Consulting, and Product Marketing. With a focus on innovation and operational excellence, we help organizations modernize their infrastructure, optimize performance, and achieve sustainable growth across diverse sectors.">
-
-  <!-- Stylesheets -->
-  <link rel="stylesheet" href="../css/styles.css">
-  <link rel="stylesheet" href="../css/responsive.css">
-  <link rel="stylesheet" href="../css/protect.css"> <!-- 🔒 Protection CSS -->
-
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-</head>
-  <!-- DO NOT TOUCH ABOVE CODES -->
-  
-<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Digital Transformation Services - ADAM Consult</title>
-  <meta name="description" content="Our digital transformation services help businesses modernize operations, implement enterprise IT strategies, develop custom web applications, and automate processes." />
+  <title>ADAM Consult - Your Trusted Partner in Engineering, Infrastructure, and Digital Growth</title>
+  <meta name="description" content="We provide integrated solutions across Static Machinery, Equipment, Energy Distribution and Metering, IT and Non-IT Facility Infrastructure, Digital Transformation (Telecom, IT, and Industrial Automation), Strategic Consulting, and Product Marketing. With a focus on innovation and operational excellence, we help organizations modernize their infrastructure, optimize performance, and achieve sustainable growth across diverse sectors." />
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="../css/styles.css" />
-  <link rel="stylesheet" href="../css/responsive.css" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+  <link rel="stylesheet" href="/css/protect.css" /> <!-- 🔒 Protection CSS -->
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
+  <!-- 🔒 Inline Protection Fallback -->
+  <style>
+    html, body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    input, textarea, select, label, a, button {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ✅ Header Placeholder -->
+  <div id="header-placeholder"></div>
+  
+  
+  <!-- DO NOT TOUCH ABOVE CODES -->
+  
   <style>
     .campaign-section {
       background-color: #ff8c00;
@@ -62,60 +70,6 @@
   </style>
 </head>
 
-<body>
-
-<body>
-  <!-- ✅ HEADER PLACEHOLDER -->
-  <div id="header-placeholder"></div>
-
- 
-  <!-- ✅ HEADER LOAD SCRIPT -->
- 
-  <script>
-  fetch("../header.html")
-    .then(res => res.text())
-    .then(html => {
-      document.getElementById("header-placeholder").innerHTML = html;
-
-      // Mobile menu toggle (hamburger)
-      const toggleButton = document.querySelector(".mobile-menu-toggle");
-      const navLinks = document.querySelector(".main-nav");
-
-      if (toggleButton && navLinks) {
-        toggleButton.addEventListener("click", function () {
-          navLinks.classList.toggle("active");
-        });
-      }
-
-      // ✅ Mobile dropdown toggle logic
-      const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-
-      dropdownToggles.forEach(toggle => {
-        toggle.addEventListener('click', function (e) {
-          e.preventDefault();
-          const dropdownMenu = this.nextElementSibling;
-
-          // Close other dropdowns
-          document.querySelectorAll('.dropdown-menu').forEach(menu => {
-            if (menu !== dropdownMenu) {
-              menu.style.display = 'none';
-            }
-          });
-
-          // Toggle current dropdown
-          if (dropdownMenu.style.display === 'block') {
-            dropdownMenu.style.display = 'none';
-          } else {
-            dropdownMenu.style.display = 'block';
-          }
-        });
-      });
-    })
-    .catch(err => console.error("Header load failed:", err));
-</script>
-
-  
-  
   <!-- Contact Banner -->
   <section class="contact-banner">
     <div class="container">
@@ -229,28 +183,38 @@
   </section> <!-- .contact-section -->
 
    <!-- DO NOT TOUCH BELOW CODES -->
-  
-  <!-- Footer Placeholder -->
-<div id="footer-placeholder"></div>
+    
+    
+  <!-- ✅ Footer Placeholder -->
+  <div id="footer-placeholder"></div>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    fetch("../footer.html") // Use "footer.html" on index.html
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("footer-placeholder").innerHTML = html;
+  <!-- ✅ Load header and footer dynamically -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Header
+      fetch("/header.html")
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById("header-placeholder").innerHTML = html;
+        });
 
-        // 🔒 Load protection script AFTER footer
-        const protect = document.createElement("script");
-        protect.src = "../js/imgTextProtect.js"; // "js/imgTextProtect.js" for homepage
-        document.body.appendChild(protect);
-      });
-  });
-</script>
+      // Footer
+      fetch("/footer.html")
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById("footer-placeholder").innerHTML = html;
 
-<!-- Your other scripts -->
-<script src="../js/main.js"></script>
-<script src="../js/dropdown.js"></script>
+          // Load protection script after footer
+          const protect = document.createElement("script");
+          protect.src = "/js/imgTextProtect.js";
+          document.body.appendChild(protect);
+        });
+    });
+  </script>
 
+  <!-- Global Scripts -->
+  <script src="/js/main.js"></script>
+  <script src="/js/dropdown.js"></script>
 </body>
 </html>
+ 
