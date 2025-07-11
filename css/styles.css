@@ -592,7 +592,7 @@ body {
     height: 400px;
     border-radius: var(--border-radius-md);
     overflow: hidden;
-    background-image: url('https://www.vecteezy.com/video/56211950-esg-and-esg-2-compliance');
+    background-image: ../images/SmartInfoLogiks.png;
     background-size: cover;
     background-position: center;
     box-shadow: var(--shadow-lg);
