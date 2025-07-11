@@ -1,64 +1,71 @@
-/* ===== GLOBAL PROTECTION CSS ===== */
+/* ===== protect.css — Global Content & Image Protection ===== */
 
-/* ✅ Safe for all platforms - allow scroll & form interactions */
+/* ✅ Base layout and scroll control */
 html, body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;       /* Prevent horizontal scroll */
-  overflow-y: auto;         /* ✅ Keep vertical scroll */
-  user-select: text !important;
-  -webkit-user-select: text !important;
-  -moz-user-select: text !important;
-  -ms-user-select: text !important;
-  touch-action: pan-y;      /* ✅ Fix mobile scroll issues */
+  overflow-x: hidden;
+  overflow-y: auto;
+  touch-action: pan-y;
   -webkit-touch-callout: none;
 }
 
-/* ✅ Allow text input and form interactions */
+/* ✅ Allow input & form interaction */
 input, textarea, select, label, a, button {
   user-select: text !important;
   -webkit-user-select: text !important;
   -moz-user-select: text !important;
   -ms-user-select: text !important;
+  pointer-events: auto;
 }
 
-/* 🚫 Protect images from dragging and long-press save */
+/* 🚫 Block interaction with images */
 img {
   pointer-events: none !important;
   -webkit-user-drag: none !important;
   user-drag: none !important;
+  user-select: none !important;
   -webkit-touch-callout: none !important;
 }
 
-/* 🚫 Prevent selection on headings, static text (optional) */
-h1, h2, h3, h4, h5, h6, p, span, strong, div:not(.allow-select) {
+/* 🚫 Disable selection on static content */
+h1, h2, h3, h4, h5, h6,
+p, span, strong,
+div:not(.allow-select) {
   user-select: none !important;
   -webkit-user-select: none !important;
   -moz-user-select: none !important;
   -ms-user-select: none !important;
 }
 
-/* 🖨️ Prevent printing completely */
+/* 🖨️ Fully block printing */
 @media print {
   body {
     display: none !important;
   }
 }
 
+/* ✅ Optional: Protected image utility class */
 img.protected-img {
-  -webkit-user-drag: none;
-  user-select: none;
-  pointer-events: none; /* if you want to fully disable interaction */
+  pointer-events: none !important;
+  -webkit-user-drag: none !important;
+  user-select: none !important;
 }
 
+/* ✅ Optional overlay wrapper to block save-as and drag */
 .img-wrapper {
   position: relative;
   display: inline-block;
 }
+.img-wrapper img {
+  display: block;
+}
 .img-overlay {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: transparent;
   z-index: 2;
 }
