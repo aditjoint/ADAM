@@ -52,6 +52,14 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
   });
 
+// Disable Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+  if ((e.ctrlKey && e.shiftKey && ['I', 'J'].includes(e.key.toUpperCase())) || 
+      (e.ctrlKey && e.key.toUpperCase() === 'U')) {
+    e.preventDefault();
+    alert("This shortcut is disabled");
+    return false;
+  }
+  
   // 🛑 Prevent Printing
   window.onbeforeprint = function () {
     document.body.innerHTML = "<h1 style='color:red;text-align:center;margin-top:20vh;'>⚠️ Printing is disabled on this site.</h1>";
