@@ -1675,3 +1675,41 @@ img.protected-img {
   user-select: none;
   pointer-events: none; /* if you want to fully disable interaction */
 }
+
+@media (max-width: 768px) {
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-md);
+    display: none; /* Hidden by default */
+  }
+
+  .main-nav.open {
+    display: flex; /* Show when toggled */
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-links li {
+    margin: var(--spacing-sm) 0;
+    width: 100%;
+  }
+
+  .nav-links a {
+    width: 100%;
+  }
+
+  .mobile-menu-toggle {
+    display: block; /* Show hamburger icon on small screens */
+  }
+}
+
