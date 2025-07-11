@@ -17,6 +17,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize service card hover effects
     initServiceCardEffects();
+
+      // Push the body content down by the actual header height
+    const header = document.querySelector("header");
+    if (header) {
+        const headerHeight = header.offsetHeight;
+        document.body.style.paddingTop = `${headerHeight}px`;
+    }
 });
 
 /**
