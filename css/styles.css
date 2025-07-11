@@ -632,6 +632,25 @@ body {
 }
 
 /* --------------------------------------------
+   Responsive Fix for Mobile Devices
+-------------------------------------------- */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .about-image .image-container {
+    height: 250px;
+  }
+
+  .values-container {
+    flex-direction: column;
+  }
+}
+
+
+/* --------------------------------------------
    Expertise Section
 -------------------------------------------- */
 .expertise {
