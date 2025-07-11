@@ -592,7 +592,7 @@ body {
     height: 400px;
     border-radius: var(--border-radius-md);
     overflow: hidden;
-    background-image: (../images/SmartInfoLogiks.png);
+    background-image: (https://unsplash.com/photos/a-computer-screen-with-a-lot-of-text-on-it-fN6HM1hrgxk);
     background-size: cover;
     background-position: center;
     box-shadow: var(--shadow-lg);
