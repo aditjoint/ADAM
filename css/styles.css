@@ -1670,3 +1670,8 @@ body.watermarked::before {
   pointer-events: none;
   user-select: none;
 }
+img.protected-img {
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none; /* if you want to fully disable interaction */
+}
