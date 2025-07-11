@@ -44,3 +44,21 @@ h1, h2, h3, h4, h5, h6, p, span, strong, div:not(.allow-select) {
     display: none !important;
   }
 }
+
+img.protected-img {
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none; /* if you want to fully disable interaction */
+}
+
+.img-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.img-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: transparent;
+  z-index: 2;
+}
