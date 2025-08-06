@@ -1727,3 +1727,23 @@ body.watermarked::before {
   }
 }
 
+
+
+/* Expand view height only on mobile */
+@media only screen and (max-width: 768px) {
+  :root {
+    --vh: 1vh;
+  }
+
+  body,
+  html {
+    height: calc(var(--vh, 1vh) * 100);
+    overflow-x: hidden;
+  }
+
+  .mobile-fullscreen {
+    height: calc(var(--vh, 1vh) * 100);
+    min-height: 100vh;
+  }
+}
+
