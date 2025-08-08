@@ -155,90 +155,63 @@
 
 
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ISO Cards</title>
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f0f2f5;
-      margin: 0;
-      padding: 0;
-    }
-
-    section {
-      display: flex;
-      justify-content: center;
-      padding: 50px 20px;
-    }
-
-    .card-container {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 30px;
-      flex-wrap: wrap;
-      max-width: 1200px;
-    }
-
-    .news-article {
-      background: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      padding: 25px;
-      max-width: 450px;
-      width: 100%;
-      box-sizing: border-box;
-      text-align: center;
-    }
-
-    .news-article h3 {
-      margin-top: 0;
-      color: #007BFF;
-    }
-
-    .news-article p {
-      margin: 10px 0;
-      color: #333;
-    }
-
-    .news-article img {
-      max-width: 100%;
-      height: auto;
-      margin: 15px 0;
-      border-radius: 8px;
-    }
-
-    @media (max-width: 900px) {
-      .card-container {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
 </head>
+<body style="margin: 0; font-family: Arial, sans-serif; background: #f4f4f4;">
 
-<body>
-
-  <section>
-    <div class="card-container">
-
+  <section style="padding: 40px 20px;">
+    <div style="
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      align-items: stretch;
+      flex-wrap: wrap;
+    ">
+    
       <!-- Card 1 -->
-      <div class="news-article">
-        <h3>ISO 9001: Quality Management System</h3>
-        <p><strong>Achieve Operational Excellence</strong></p>
+      <div style="
+        flex: 1;
+        max-width: 400px;
+        background: #fff;
+        border-radius: 12px;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      ">
+        <h3 style="color: #007bff; font-size: 20px;">ISO 9001: Quality Management System</h3>
+        <p style="font-weight: bold;">Achieve Operational Excellence</p>
         <p>Deliver consistent, high-quality products and services to meet customer expectations.</p>
-        <img src="../images/batch.png" alt="ISO 9001 Certification" />
+        <img src="https://via.placeholder.com/300x150.png?text=ISO+9001+Image" alt="ISO 9001" style="height: 150px; object-fit: contain; margin: 15px auto;" />
+        <img src="../images/batch.png" alt="Batch Icon" style="height: 80px; object-fit: contain; margin: 15px auto;" />
         <p>Enhance customer satisfaction, streamline internal processes, and strengthen your market reputation with global certification.</p>
       </div>
 
       <!-- Card 2 -->
-      <div class="news-article">
-        <h3>ISO 27001: Information Security Management</h3>
-        <p><strong>Secure Your Business. Earn Client Trust.</strong></p>
-        <img src="../images/isms.png" alt="ISO 27001 Certification" />
+      <div style="
+        flex: 1;
+        max-width: 400px;
+        background: #fff;
+        border-radius: 12px;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      ">
+        <h3 style="color: #007bff; font-size: 20px;">ISO 27001: Information Security Management</h3>
+        <p style="font-weight: bold;">Secure Your Business. Earn Client Trust.</p>
+        <p></p>
+        <img src="https://via.placeholder.com/300x150.png?text=ISO+27001+Image" alt="ISO 27001" style="height: 150px; object-fit: contain; margin: 15px auto;" />
+        <img src="../images/isms.png" alt="ISMS Icon" style="height: 80px; object-fit: contain; margin: 15px auto;" />
         <p>Protect sensitive data, comply with international standards, and build trust through certified information security practices.</p>
       </div>
 
@@ -246,6 +219,8 @@
   </section>
 
 </body>
+</html>
+
 
                  <div class="section-divider"></div>
                 <h3>Our Development Approach</h3>
