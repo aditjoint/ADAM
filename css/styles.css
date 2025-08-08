@@ -1731,57 +1731,64 @@ body.watermarked::before {
 
 
 .team-section {
-  margin-top: 50px;
-  padding-top: 30px;
-  border-top: 1px solid #ddd;
   text-align: center;
+  padding: 40px 20px;
 }
 
 .team-section h3 {
-  font-size: 1.8rem;
-  font-weight: 600;
+  font-size: 1.6rem;
   margin-bottom: 10px;
+  font-weight: 600;
 }
 
 .team-section p {
+  max-width: 700px;
+  margin: 0 auto 30px auto;
   font-size: 1rem;
-  color: #444;
-  margin-bottom: 30px;
+  color: #555;
 }
 
 .team-grid {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
+  flex-wrap: wrap;
+  gap: 40px;
 }
 
 .team-member {
-  flex: 1 1 220px;
-  max-width: 260px;
+  width: 220px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
   text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-5px);
 }
 
 .team-member img {
-  width: 100%;
-  height: auto;
-  border-radius: 50%;
+  width: 90px;
+  height: 90px;
   object-fit: cover;
-  border: 3px solid #ccc;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  margin-bottom: 12px;
 }
 
 .team-member h4 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  margin-top: 12px;
+  margin-bottom: 6px;
 }
 
 .team-member p {
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: 0.9rem;
   color: #333;
+  line-height: 1.4;
 }
-
 
 
 
