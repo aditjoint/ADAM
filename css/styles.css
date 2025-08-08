@@ -1729,6 +1729,69 @@ body.watermarked::before {
 
 
 
+
+.team-section {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid #ddd;
+  text-align: center;
+}
+
+.team-section h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.team-section p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.team-member {
+  flex: 1 1 220px;
+  max-width: 260px;
+  text-align: center;
+}
+
+.team-member img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ccc;
+}
+
+.team-member h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.team-member p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+
+
+
+
+
+
+
+
+
+
 /* Expand view height only on mobile */
 @media only screen and (max-width: 768px) {
   :root {
