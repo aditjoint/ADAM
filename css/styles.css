@@ -1732,63 +1732,61 @@ body.watermarked::before {
 
 .team-section {
   text-align: center;
-  padding: 40px 20px;
+  padding: 20px 0;
 }
 
 .team-section h3 {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin-bottom: 10px;
   font-weight: 600;
 }
 
 .team-section p {
-  max-width: 700px;
-  margin: 0 auto 30px auto;
-  font-size: 1rem;
-  color: #555;
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.team-grid {
+.team-row {
   display: flex;
   justify-content: center;
+  gap: 20px;
   flex-wrap: wrap;
-  gap: 40px;
 }
 
-.team-member {
-  width: 220px;
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+.team-card {
+  width: 180px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
   text-align: center;
-  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-.team-member:hover {
-  transform: translateY(-5px);
-}
-
-.team-member img {
-  width: 90px;
-  height: 90px;
-  object-fit: cover;
+.team-card img {
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
+  object-fit: cover;
   border: 2px solid #ccc;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
-.team-member h4 {
-  font-size: 1.1rem;
-  font-weight: 600;
+.team-card h4 {
+  font-size: 1rem;
   margin-bottom: 6px;
 }
 
-.team-member p {
-  font-size: 0.9rem;
+.team-card p {
+  font-size: 0.8rem;
   color: #333;
-  line-height: 1.4;
+  line-height: 1.3;
 }
+
 
 
 
