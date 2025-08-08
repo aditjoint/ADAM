@@ -182,13 +182,20 @@
 </section>
 
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ISO Certification Services</title>
+  <title>ISO Certification Cards</title>
 
-  <!-- ✅ CSS goes here inside <style> -->
   <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+    }
+
     section {
       display: flex;
       justify-content: center;
@@ -208,8 +215,9 @@
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       padding: 25px;
-      max-width: 600px;
+      max-width: 500px;
       width: 100%;
+      box-sizing: border-box;
       text-align: center;
     }
 
@@ -229,33 +237,10 @@
       margin: 10px 0;
       line-height: 1.5;
     }
-  </style>
-</head>
 
-<body>
-
-  <!-- ✅ HTML content starts here -->
-  <section>
-    <div class="card-container">
-      <div class="news-article">
-        <h3 style="color: #007BFF;">ISO Certification Services</h3>
-        <p>Helping you achieve global standards in Quality and Information Security</p>
-
-        <h3 style="color: #28A745;">ISO 9001: Quality Management System</h3>
-        <p><strong>Achieve Operational Excellence</strong></p>
-        <p>Deliver consistent, high-quality products and services...</p>
-        <img src="../images/batch.png" alt="ISO 9001 Certification" />
-
-        <h3 style="color: #28A745;">ISO 27001: Information Security Management</h3>
-        <p><strong>Secure Your Business. Earn Client Trust.</strong></p>
-        <img src="../images/isms.png" alt="ISO 27001 Certification" />
-        <p>Protect sensitive data, comply with international standards...</p>
-      </div>
-    </div>
-  </section>
-
-</body>
-</html>
+    @media (max-width: 1100px) {
+      .card-container {
+        flex-direction: co
 
 
 
