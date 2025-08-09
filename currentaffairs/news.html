@@ -225,7 +225,184 @@
 </section>
 
 </body>
-    
+
+
+<!-- Paste this into the HTML where you want the image to appear -->
+<style>
+  /* Container */
+  .figure-wrapper {
+    max-width: 980px;
+    margin: 1.5rem auto;
+    padding: 1rem;
+    background: linear-gradient(180deg, rgba(0,0,0,0.85), rgba(0,0,0,0.95));
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  /* Responsive image */
+  .responsive-figure {
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 6px;
+  }
+  .responsive-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    cursor: zoom-in;
+  }
+
+  /* Caption / meta row */
+  .figure-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .figure-caption {
+    font-size: 0.95rem;
+    line-height: 1.3;
+    color: #f3f3f3;
+  }
+
+  .figure-actions {
+    margin-left: auto;
+    display: flex;
+    gap: 0.5rem;
+  }
+  .btn {
+    background: linear-gradient(180deg,#1f8bff,#0066d6);
+    color: #fff;
+    border: none;
+    padding: 0.45rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+  .btn.secondary {
+    background: #2d2d2d;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* Lightbox modal */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(2,2,2,0.85);
+    z-index: 1200;
+    padding: 2rem;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img {
+    max-width: 96%;
+    max-height: 96%;
+    border-radius: 6px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.7);
+    cursor: zoom-out;
+  }
+
+  /* small screens */
+  @media (max-width: 520px){
+    .figure-meta { flex-direction: column; align-items: stretch; }
+    .figure-actions { width: 100%; justify-content: space-between; }
+    .btn { width: 48%; justify-content:center; }
+  }
+</style>
+
+<figure class="figure-wrapper" aria-labelledby="zenaji-figure-title">
+  <div class="responsive-figure" role="group" aria-label="Zenaji LTO applications infographic">
+    <!-- Change path if you store image elsewhere -->
+    <img
+      id="zenaji-img"
+      src="images/ad4970eb-394e-4c34-bf0f-ec3476a8efaa.png"
+      alt="Infographic: Critical applications for Zenaji LTO batteries showing EV charging, data centers, grid-scale, transport, telecoms and more."
+      loading="lazy"
+      width="980"
+      height="605"
+    />
+  </div>
+
+  <figcaption class="figure-meta">
+    <div class="figure-caption">
+      <strong id="zenaji-figure-title">Zenaji LTO — Critical Applications</strong>
+      <div style="opacity:0.85; margin-top:0.25rem; font-size:0.9rem;">
+        High-reliability, long cycle life, frequent daily charge–discharge cycles — ideal for data centers, EV fleets, grid-scale storage and more.
+      </div>
+    </div>
+
+    <div class="figure-actions" role="toolbar" aria-label="Image actions">
+      <!-- Download link: change href if necessary -->
+      <a class="btn" href="images/ad4970eb-394e-4c34-bf0f-ec3476a8efaa.png" download="Zenaji-LTO-Applications.png" title="Download image">
+        ⬇ Download
+      </a>
+      <!-- Open lightbox -->
+      <button class="btn secondary" id="open-lightbox" title="Open larger view">🔍 View</button>
+    </div>
+  </figcaption>
+</figure>
+
+<!-- Lightbox modal -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image view">
+  <img id="lightbox-img" src="images/ad4970eb-394e-4c34-bf0f-ec3476a8efaa.png" alt="Enlarged Zenaji LTO infographic" />
+</div>
+
+<script>
+  // Lightbox open/close behavior
+  (function(){
+    const openBtn = document.getElementById('open-lightbox');
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    const thumb = document.getElementById('zenaji-img');
+
+    function open() {
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      // optional: set high-res src if you host larger version
+      // lbImg.src = 'images/zenaji-highres.png';
+    }
+    function close() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    openBtn.addEventListener('click', open);
+    thumb.addEventListener('click', open);
+    lb.addEventListener('click', function(e){
+      // close when clicking modal background or image
+      close();
+    });
+
+    // keyboard: Esc to close
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && lb.classList.contains('open')) close();
+    });
+  })();
+</script>
+
+
+
+
+
+
+
+
+
+
+  
      <!-- DO NOT TOUCH BELOW CODES -->
   
   
