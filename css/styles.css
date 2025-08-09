@@ -1832,7 +1832,7 @@ body {
   font-family: Arial, sans-serif;
 
   /* Background image setup */
-  background-image: url('/images/sustainability-bg.jpg'); /* Change to your image path */
+  background-image: url('../images/sustainability-bg.jpg'); /* Change to your image path */
   background-size: cover; /* Fill the screen */
   background-position: center;
   background-repeat: no-repeat;
