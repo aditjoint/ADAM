@@ -30,10 +30,20 @@
          style="max-width: 100%; height: auto; margin-top: 20px;" />
   </main>
 
-  <!-- ===== Footer ===== -->
-  <footer>
-    <p>&copy; 2025 ADIT Joint LLP</p>
-  </footer>
+   
+
+<!-- Footer -->
+<footer>
+  &copy; 2025 ADAM Consult, ADIT Joint LLP. All rights reserved.
+</footer>
+
+<!-- Load protection script AFTER footer -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const protect = document.createElement("script");
+    protect.src = "../js/imgTextProtect.js"; // Adjust path as needed
+    document.body.appendChild(protect);
+  });
+</script>
 
 </body>
-</html>
