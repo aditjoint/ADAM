@@ -1123,12 +1123,14 @@ body {
 }
 
 /* --------------------------------------------
-   Call to Action Section
+   Call to Action Section (transparent + shorter)
 -------------------------------------------- */
 .cta-section {
-    background-color: var(--primary-color);
+    background-color: rgba(255, 255, 255, 0.6); /* semi-transparent white */
+    backdrop-filter: blur(6px); /* glass effect */
     color: var(--white);
-    padding: var(--spacing-3xl) 0;
+    padding: var(--spacing-xl) 0; /* reduced height */
+    border-radius: 10px; /* optional rounded look */
 }
 
 .cta-content {
@@ -1143,13 +1145,13 @@ body {
 }
 
 .cta-content p {
-    margin-bottom: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
     color: rgba(255, 255, 255, 0.9);
 }
 
 .cta-content .btn-primary {
     background-color: var(--white);
-    color: var(--primary-color);
+    color: #6ca6a3; /* match your previous accent */
     border-color: var(--white);
 }
 
@@ -1158,6 +1160,7 @@ body {
     color: var(--white);
     border-color: var(--white);
 }
+
 
 /* --------------------------------------------
    Contact Page Styles
