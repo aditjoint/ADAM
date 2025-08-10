@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <!-- 🔒 Inline Protection Fallback -->
- <link rel="stylesheet" href="/css/protect.css" /> <!-- 🔒 Protection CSS -->
+  <link rel="stylesheet" href="/css/protect.css" /> <!-- 🔒 Protection CSS -->
   <style>
     html, body {
       -webkit-user-select: none;
@@ -16,15 +16,7 @@
       -ms-user-select: text;
       user-select: text;
     }
-  </style>
-</head>
-  
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Partnership Agreement ADAM Consult | ADIT JOINT, INDIA | ENDLESS ENERGY GROUP, AUSTRALIA</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
+
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #f4f6f8;
@@ -32,10 +24,12 @@
       padding: 0;
       color: #333;
     }
+
+    /* Container styling */
     .container {
       max-width: 960px;
       margin: 0 auto;
-      padding: 1.5rem;
+      padding: 2rem;
       background-color: #fff;
       box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
       position: relative;
@@ -55,12 +49,12 @@
       z-index: 0;
     }
 
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 2rem;
-      background-color: #fff;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
+    /* Blur effect for main content */
+    .blurred {
+      opacity: 0.5;
+      filter: blur(3px);
+      pointer-events: none;
+      user-select: none;
     }
 
     .header-content {
@@ -114,10 +108,6 @@
       margin: 1rem 0;
     }
 
-    ul {
-      margin: 0.5rem 0 1.5rem 2rem;
-    }
-
     footer {
       text-align: center;
       font-size: 0.9rem;
@@ -150,28 +140,28 @@
       </div>
     </div>
 
-  <!-- ===== Main Content ===== -->
-  <main style="text-align:center; padding: 20px;">
-    <h1>Partnership Agreement</h1>
-    <img src="../images/lto15-partner.png" 
-         alt="Partnership Agreement" 
-         style="max-width: 100%; height: auto; margin-top: 20px;" />
-  </main>
+    <!-- ===== Main Content (Blurred) ===== -->
+    <main class="blurred" style="text-align:center; padding: 20px;">
+      <h1>Partnership Agreement</h1>
+      <img src="../images/lto15-partner.png" 
+           alt="Partnership Agreement" 
+           style="max-width: 100%; height: auto; margin-top: 20px;" />
+    </main>
+  </div>
 
-   
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 ADAM Consult, ADIT Joint LLP. All rights reserved.
+  </footer>
 
-<!-- Footer -->
-<footer>
-  &copy; 2025 ADAM Consult, ADIT Joint LLP. All rights reserved.
-</footer>
-
-<!-- Load protection script AFTER footer -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const protect = document.createElement("script");
-    protect.src = "../js/imgTextProtect.js"; // Adjust path as needed
-    document.body.appendChild(protect);
-  });
-</script>
-
+  <!-- Load protection script AFTER footer -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const protect = document.createElement("script");
+      protect.src = "../js/imgTextProtect.js"; // Adjust path as needed
+      document.body.appendChild(protect);
+    });
+  </script>
 </body>
+</html>
+
