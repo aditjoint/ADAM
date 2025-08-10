@@ -1123,11 +1123,13 @@ body {
 }
 
 
+
+
 /* --------------------------------------------
-   Call to Action Section (soft color, no frosted)
+   Call to Action Section (solid high contrast)
 -------------------------------------------- */
 .cta-section {
-    background-color: #6ca6a3; /* soft teal/greenish tone */
+    background-color: #2b6777; /* deep teal - soft but clear contrast */
     color: var(--white);
     padding: var(--spacing-xl) 0; /* reduced height */
 }
@@ -1150,7 +1152,7 @@ body {
 
 .cta-content .btn-primary {
     background-color: var(--white);
-    color: #6ca6a3;
+    color: #2b6777;
     border-color: var(--white);
 }
 
@@ -1159,7 +1161,6 @@ body {
     color: var(--white);
     border-color: var(--white);
 }
-
 
 
 
