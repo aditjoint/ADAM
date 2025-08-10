@@ -1122,14 +1122,15 @@ body {
     font-size: var(--font-size-sm);
 }
 
+
 /* --------------------------------------------
-   Call to Action Section (frosted glass override)
+   Call to Action Section (frosted glass with dark tint)
 -------------------------------------------- */
 .cta-section {
-    background: rgba(255, 255, 255, 0.15) !important; /* override old blue */
+    background: rgba(20, 20, 20, 0.4) !important; /* darker tint */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    color: var(--white);
+    color: #fff;
     padding: var(--spacing-xl) 0;
     border-radius: 8px;
 }
@@ -1141,18 +1142,18 @@ body {
 }
 
 .cta-content h2 {
-    color: #fff;
+    color: #fff; /* keep bright white */
     margin-bottom: var(--spacing-md);
 }
 
 .cta-content p {
     margin-bottom: var(--spacing-lg);
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.85); /* slightly less bright for paragraph */
 }
 
 .cta-content .btn-primary {
     background-color: var(--white);
-    color: #2b4f81;
+    color: #333; /* dark text for contrast */
     border-color: var(--white);
 }
 
@@ -1161,6 +1162,7 @@ body {
     color: var(--white);
     border-color: var(--white);
 }
+
 
 
 
