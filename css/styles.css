@@ -1123,14 +1123,15 @@ body {
 }
 
 /* --------------------------------------------
-   Call to Action Section (transparent + shorter)
+   Call to Action Section (frosted glass style)
 -------------------------------------------- */
 .cta-section {
-    background-color: rgba(255, 255, 255, 0.6); /* semi-transparent white */
-    backdrop-filter: blur(6px); /* glass effect */
+    background: rgba(255, 255, 255, 0.15); /* semi-transparent white */
+    backdrop-filter: blur(10px); /* frosted glass blur */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
     color: var(--white);
     padding: var(--spacing-xl) 0; /* reduced height */
-    border-radius: 10px; /* optional rounded look */
+    border-radius: 8px; /* optional rounded corners */
 }
 
 .cta-content {
@@ -1140,7 +1141,7 @@ body {
 }
 
 .cta-content h2 {
-    color: var(--white);
+    color: #fff; /* white text for contrast */
     margin-bottom: var(--spacing-md);
 }
 
@@ -1151,7 +1152,7 @@ body {
 
 .cta-content .btn-primary {
     background-color: var(--white);
-    color: #6ca6a3; /* match your previous accent */
+    color: #2b4f81; /* deep blue for button text */
     border-color: var(--white);
 }
 
@@ -1160,6 +1161,7 @@ body {
     color: var(--white);
     border-color: var(--white);
 }
+
 
 
 /* --------------------------------------------
