@@ -1124,15 +1124,12 @@ body {
 
 
 /* --------------------------------------------
-   Call to Action Section (frosted glass with dark tint)
+   Call to Action Section (soft color, no frosted)
 -------------------------------------------- */
 .cta-section {
-    background: rgba(20, 20, 20, 0.4) !important; /* darker tint */
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    color: #fff;
-    padding: var(--spacing-xl) 0;
-    border-radius: 8px;
+    background-color: #6ca6a3; /* soft teal/greenish tone */
+    color: var(--white);
+    padding: var(--spacing-xl) 0; /* reduced height */
 }
 
 .cta-content {
@@ -1142,18 +1139,18 @@ body {
 }
 
 .cta-content h2 {
-    color: #fff; /* keep bright white */
+    color: var(--white);
     margin-bottom: var(--spacing-md);
 }
 
 .cta-content p {
     margin-bottom: var(--spacing-lg);
-    color: rgba(255, 255, 255, 0.85); /* slightly less bright for paragraph */
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .cta-content .btn-primary {
     background-color: var(--white);
-    color: #333; /* dark text for contrast */
+    color: #6ca6a3;
     border-color: var(--white);
 }
 
