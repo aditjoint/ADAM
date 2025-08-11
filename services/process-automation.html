@@ -208,70 +208,113 @@
    </section>
 
   
+<style>
+    .process-section {
+        padding: 40px 0;
+        background: rgba(255, 255, 255, 0.9); /* makes cards pop over background */
+    }
+
+    .process-section h3 {
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 26px;
+        font-weight: 600;
+        color: #222;
+    }
+
+    .process-steps {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        flex-wrap: wrap;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    .process-step {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        padding: 20px 15px;
+        text-align: center;
+        flex: 1;
+        min-width: 250px;
+        max-width: 300px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .process-step:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .process-step .step-icon {
+        font-size: 36px;
+        color: #007bff;
+        margin-bottom: 10px;
+    }
+
+    .process-step h4 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    .process-step p {
+        font-size: 14px;
+        color: #666;
+    }
+</style>
+
 <!-- Development Approach Section -->
-<section class="implementation-section">
-    <div class="section-divider"></div>
-    <h3 style="text-align: center;">Our Development Approach</h3>
-    <div class="implementation-steps">
-        <div class="implementation-step">
-            <div class="step-icon">
-                <i class="fas fa-pencil-ruler"></i>
-            </div>
+<section class="process-section">
+    <h3>Our Development Approach</h3>
+    <div class="process-steps">
+        <div class="process-step">
+            <div class="step-icon"><i class="fas fa-pencil-ruler"></i></div>
             <h4>Software Design & Planning</h4>
             <p>Comprehensive requirements gathering and solution architecture design</p>
         </div>
-        <div class="implementation-step">
-            <div class="step-icon">
-                <i class="fas fa-code-branch"></i>
-            </div>
+        <div class="process-step">
+            <div class="step-icon"><i class="fas fa-code-branch"></i></div>
             <h4>Agile Development</h4>
             <p>Flexible development with frequent deliverables and continuous feedback</p>
         </div>
-        <div class="implementation-step">
-            <div class="step-icon">
-                <i class="fas fa-tasks"></i>
-            </div>
+        <div class="process-step">
+            <div class="step-icon"><i class="fas fa-tasks"></i></div>
             <h4>Testing & Deployment</h4>
             <p>Comprehensive testing and controlled deployment strategies</p>
         </div>
     </div>
 </section>
 
-
 <!-- Implementation Methodology Section -->
-<section class="implementation-section">
-    <h3 style="text-align: center;">Implementation Methodology</h3>
-    <div class="implementation-steps">
-        <div class="implementation-step">
-            <div class="step-icon">
-                <i class="fas fa-clipboard-list"></i>
-            </div>
+<section class="process-section">
+    <h3>Implementation Methodology</h3>
+    <div class="process-steps">
+        <div class="process-step">
+            <div class="step-icon"><i class="fas fa-clipboard-list"></i></div>
             <h4>Assessment</h4>
             <p>Detailed analysis of current processes and automation potential</p>
         </div>
-        <div class="implementation-step">
-            <div class="step-icon">
-                <i class="fas fa-pencil-ruler"></i>
-            </div>
+        <div class="process-step">
+            <div class="step-icon"><i class="fas fa-pencil-ruler"></i></div>
             <h4>Design</h4>
             <p>Custom solution architecture with appropriate technologies</p>
         </div>
-        <div class="implementation-step">
-            <div class="step-icon">
-                <i class="fas fa-cog"></i>
-            </div>
+        <div class="process-step">
+            <div class="step-icon"><i class="fas fa-cog"></i></div>
             <h4>Implementation</h4>
             <p>Phased development and installation with minimal disruption</p>
         </div>
-        <div class="implementation-step">
-            <div class="step-icon">
-                <i class="fas fa-chart-line"></i>
-            </div>
+        <div class="process-step">
+            <div class="step-icon"><i class="fas fa-chart-line"></i></div>
             <h4>Optimization</h4>
             <p>Continuous improvement and system optimization</p>
         </div>
     </div>
 </section>
+
 
 
     <!-- Call to Action Section -->
