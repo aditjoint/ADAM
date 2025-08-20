@@ -20,10 +20,19 @@
   <!-- 🔒 Inline Protection Fallback -->
   <style>
     html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
+
+      /* ✅ Background Image */
+      background-image: url('../images/sustainability-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
     input, textarea, select, label, a, button {
       -webkit-user-select: text;
@@ -32,12 +41,13 @@
       user-select: text;
     }
 
-    /* Projects section styles (fixed nesting) */
+    /* ✅ Projects section */
     .projects-section {
-      background-color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.6); /* semi-transparent */
       padding: 50px 20px;
       text-align: center;
       border-bottom: 5px solid #eee;
+      backdrop-filter: blur(5px); /* glass effect */
     }
     .projects-section h2 {
       font-size: 32px;
@@ -50,15 +60,18 @@
       justify-content: center;
       gap: 20px;
     }
+
+    /* ✅ Project cards with glassmorphism */
     .project-card {
-      background-color: #f9f9f9;
+      background-color: rgba(249, 249, 249, 0.85); 
       padding: 20px;
       width: 250px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 12px;
       text-align: left;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
       transition: transform 0.3s ease;
+      backdrop-filter: blur(10px);
     }
     .project-card:hover {
       transform: translateY(-10px);
@@ -70,7 +83,7 @@
     }
     .project-card p {
       font-size: 16px;
-      color: #555;
+      color: #222;
       margin-bottom: 20px;
       line-height: 1.5;
     }
@@ -82,6 +95,35 @@
     .view-details:hover {
       text-decoration: underline;
     }
+
+    /* ✅ CTA Section */
+    .cta-section {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 60px 20px;
+      text-align: center;
+      color: #fff;
+      backdrop-filter: blur(4px);
+    }
+    .cta-section h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    .cta-section p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    .btn.btn-primary {
+      display: inline-block;
+      background-color: #007BFF;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .btn.btn-primary:hover {
+      background-color: #0056b3;
+    }
   </style>
 </head>
 
@@ -89,36 +131,34 @@
   <!-- ✅ Header Placeholder -->
   <div id="header-placeholder"></div>
 
-  <!-- Projects Section (kept hidden as per original inline style) -->
-  <div class="projects-section" style="display: none;">
+  <!-- Projects Section -->
+  <div class="projects-section">
     <h2>Solutions in Action</h2>
     <div class="projects-container">
       <div class="project-card">
         <h3>BizSuite</h3>
         <p>Digital Solutions for MSMEs to Enterprises — Across Regions, Across Industries.</p>
         <p>Designing and deploying a digital production planning system with integrated barcode traceability, real-time batch tracking, and QC reporting.</p>
-        <p></p>
-        <img src="../images/msme1.png" alt="Card 14">
-        <p></p>
+        <img src="../images/msme1.png" alt="Enterprise Solutions">
         <a href="#project1" class="view-details">Enterprise Solutions</a>
       </div>
 
       <div class="project-card">
-        <h3></h3>
+        <h3>Real Estate Engagement</h3>
         <p>Customer Engagement Tool for Real Estate (Prototype Stage)</p>
         <p>Developing a lead nurturing platform with visit scheduling, personalized follow-ups, and buyer behavior analytics.</p>
         <a href="#project4" class="view-details">Sample Project</a>
       </div>
 
       <div class="project-card">
-        <h3></h3>
+        <h3>ISP CRM</h3>
         <p>CRM Source Code for ISP Operators</p>
         <p>Delivered a customizable CRM with ticketing, service request management, and customer analytics, optimized for regional ISPs.</p>
         <a href="#project5" class="view-details">Sample Project</a>
       </div>
 
       <div class="project-card">
-        <h3></h3>
+        <h3>Digital Marketing</h3>
         <p>Blogging & Digital Marketing Website (Prototype Stage)</p>
         <p>Content-centric platform for brand storytelling, SEO optimization, and influencer outreach.</p>
         <a href="#project6" class="view-details">Sample Project</a>
@@ -126,7 +166,7 @@
     </div>
   </div>
 
-  <!-- Image Cards Section (as in original) -->
+  <!-- Image Cards Section -->
   <div class="card-container">
     <div class="image-card">
       <img src="../images/ai.png" alt="AI" />
@@ -167,7 +207,6 @@
         .then(html => {
           document.getElementById("header-placeholder").innerHTML = html;
 
-          // ✅ Wait for DOM injection, then bind mobile menu
           const toggle = document.getElementById("menu-toggle");
           const nav = document.getElementById("mobile-menu");
 
@@ -177,7 +216,6 @@
             });
           }
 
-          // ✅ Optional: re-run dropdown initialization if needed
           if (typeof initDropdowns === "function") initDropdowns();
         });
 
@@ -187,13 +225,12 @@
         .then(html => {
           document.getElementById("footer-placeholder").innerHTML = html;
 
-          // ✅ Load protection script after footer
           const protect = document.createElement("script");
           protect.src = "/js/imgTextProtect.js";
           document.body.appendChild(protect);
         });
 
-      // ✅ Load core scripts after all above (avoid double-loading)
+      // Core scripts
       const main = document.createElement("script");
       main.src = "/js/main.js";
       main.onload = () => {
@@ -204,12 +241,4 @@
 
       const dropdown = document.createElement("script");
       dropdown.src = "/js/dropdown.js";
-      dropdown.onload = () => {
-        if (typeof initDropdowns === "function") initDropdowns();
-      };
-      document.body.appendChild(dropdown);
-    });
-  </script>
-  <!-- Removed duplicate static script tags to prevent double-initialization -->
-</body>
-</html>
+
