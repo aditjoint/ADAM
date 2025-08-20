@@ -18,12 +18,30 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize service card hover effects
     initServiceCardEffects();
 
-      // Push the body content down by the actual header height
+    // Push the body content down by the actual header height
     const header = document.querySelector("header");
     if (header) {
         const headerHeight = header.offsetHeight;
         document.body.style.paddingTop = `${headerHeight}px`;
     }
+
+    // ===== Mobile Zoom Functionality =====
+    let currentScale = 1;
+    const pageContent = document.getElementById('page-content');
+    const zoomControls = document.getElementById('mobile-zoom-controls');
+
+    // Hide zoom controls on desktop
+    if (zoomControls && window.innerWidth >= 768) {
+        zoomControls.style.display = 'none';
+    }
+
+    window.zoomPage = function(factor) {
+        if (!pageContent) return; // safety check
+        currentScale *= factor;
+        currentScale = Math.min(Math.max(currentScale, 1), 5); // limit zoom 1x - 5x
+        pageContent.style.transformOrigin = "0 0";
+        pageContent.style.transform = `scale(${currentScale})`;
+    };
 });
 
 /**
@@ -35,11 +53,8 @@ function initMobileMenu() {
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
 
     if (mobileMenuToggle && mainNav) {
-        // Toggle the menu when the hamburger icon is clicked
         mobileMenuToggle.addEventListener('click', function () {
             mainNav.classList.toggle('active');
-
-            // Toggle hamburger icon
             const icon = this.querySelector('i');
             if (mainNav.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
@@ -50,7 +65,6 @@ function initMobileMenu() {
             }
         });
 
-        // Close menu on clicking outside
         document.addEventListener('click', function (event) {
             const isInsideNav = mainNav.contains(event.target);
             const isToggle = mobileMenuToggle.contains(event.target);
@@ -58,7 +72,6 @@ function initMobileMenu() {
 
             if (!isInsideNav && !isToggle && isMenuOpen) {
                 mainNav.classList.remove('active');
-
                 const icon = mobileMenuToggle.querySelector('i');
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
@@ -66,7 +79,6 @@ function initMobileMenu() {
         });
     }
 
-    // Dropdown toggle logic for mobile
     if (dropdownToggles.length > 0) {
         dropdownToggles.forEach(toggle => {
             toggle.addEventListener('click', function (e) {
@@ -96,10 +108,8 @@ function initTabs() {
         tabBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const tabId = btn.dataset.tab;
-
                 tabBtns.forEach(b => b.classList.remove('active'));
                 tabPanes.forEach(p => p.classList.remove('active'));
-
                 btn.classList.add('active');
                 document.getElementById(tabId).classList.add('active');
             });
@@ -141,7 +151,6 @@ function initServiceCardEffects() {
             card.addEventListener('mouseenter', function () {
                 this.style.transform = 'translateY(-5px)';
             });
-
             card.addEventListener('mouseleave', function () {
                 this.style.transform = '';
             });
@@ -155,10 +164,8 @@ function initServiceCardEffects() {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         if (this.classList.contains('dropdown-toggle')) return;
-
         const targetId = this.getAttribute('href');
         if (targetId === '#') return;
-
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
             e.preventDefault();
@@ -171,7 +178,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 /**
- * Add active class to navigation links based on current page
+ * Highlight current navigation link
  */
 (function highlightCurrentPage() {
     const currentPage = window.location.pathname;
@@ -180,26 +187,22 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     navLinks.forEach(link => {
         const linkPath = link.getAttribute('href');
         if (link.classList.contains('dropdown-toggle')) return;
-
         if (
             currentPage.endsWith(linkPath) ||
             (currentPage.includes(linkPath) && linkPath !== 'index.html' && linkPath !== '/')
         ) {
             link.classList.add('active');
-
             const parentDropdown = link.closest('.dropdown');
             if (parentDropdown) {
                 const dropdownToggle = parentDropdown.querySelector('.dropdown-toggle');
-                if (dropdownToggle) {
-                    dropdownToggle.classList.add('active');
-                }
+                if (dropdownToggle) dropdownToggle.classList.add('active');
             }
         }
     });
 })();
 
 /**
- * Add subtle parallax effect to hero section
+ * Subtle parallax effect on hero section
  */
 if (document.querySelector('.hero')) {
     window.addEventListener('scroll', function () {
@@ -208,15 +211,3 @@ if (document.querySelector('.hero')) {
         heroSection.style.backgroundPosition = `center ${scroll * 0.3}px`;
     });
 }
-
-
-// Mobile zoom functionality
-let currentScale = 1;
-const pageContent = document.getElementById('page-content');
-
-window.zoomPage = function(factor) {
-    currentScale *= factor;
-    currentScale = Math.min(Math.max(currentScale, 1), 5); // limit zoom 1x - 5x
-    pageContent.style.transformOrigin = "0 0";
-    pageContent.style.transform = `scale(${currentScale})`;
-};
