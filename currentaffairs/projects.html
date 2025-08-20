@@ -31,185 +31,207 @@
       -ms-user-select: text;
       user-select: text;
     }
-
-    /* Projects section styles (fixed nesting) */
-    .projects-section {
-      background-color: #ffffff;
-      padding: 50px 20px;
-      text-align: center;
-      border-bottom: 5px solid #eee;
-    }
-    .projects-section h2 {
-      font-size: 32px;
-      margin-bottom: 40px;
-      color: #333;
-    }
-    .projects-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .project-card {
-      background-color: #f9f9f9;
-      padding: 20px;
-      width: 250px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      text-align: left;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-10px);
-    }
-    .project-card h3 {
-      font-size: 24px;
-      color: #007BFF;
-      margin-bottom: 10px;
-    }
-    .project-card p {
-      font-size: 16px;
-      color: #555;
-      margin-bottom: 20px;
-      line-height: 1.5;
-    }
-    .view-details {
-      color: #007BFF;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .view-details:hover {
-      text-decoration: underline;
-    }
   </style>
-</head>
+
 
 <body>
   <!-- ✅ Header Placeholder -->
   <div id="header-placeholder"></div>
+  
 
-  <!-- Projects Section (kept hidden as per original inline style) -->
-  <div class="projects-section" style="display: none;">
-    <h2>Solutions in Action</h2>
-    <div class="projects-container">
-      <div class="project-card">
-        <h3>BizSuite</h3>
-        <p>Digital Solutions for MSMEs to Enterprises — Across Regions, Across Industries.</p>
-        <p>Designing and deploying a digital production planning system with integrated barcode traceability, real-time batch tracking, and QC reporting.</p>
-        <p></p>
-        <img src="../images/msme1.png" alt="Card 14">
-        <p></p>
-        <a href="#project1" class="view-details">Enterprise Solutions</a>
-      </div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="=device-, initial-scale=1.0">
+  
+    <title>Projects Section</title>
+    <style>
+        body {}
+        .projects-section {
+            background-color: #ffffff;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 5px solid #eee;
+        }
+        .projects-section h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+        .projects-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .project-card {
+            background-color: #f9f9f9;
+            padding: 20px;
+            width: 350px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: left;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        .project-card h3 {
+            font-size: 24px;
+            color: #007BFF;
+            margin-bottom: 10px;
+        }
+        .project-card p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .view-details {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .view-details:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
 
-      <div class="project-card">
-        <h3></h3>
-        <p>Customer Engagement Tool for Real Estate (Prototype Stage)</p>
-        <p>Developing a lead nurturing platform with visit scheduling, personalized follow-ups, and buyer behavior analytics.</p>
-        <a href="#project4" class="view-details">Sample Project</a>
-      </div>
+        <div class="projects-section" style="display": none;">
+        <h2>Solutions in Action</h2>
+        <div class="projects-container">
+            <div class="project-card">
+                <h3>BizSuite</h3>
+                <p>Digital Solutions for MSMEs to Enterprises — Across Regions, Across Industries.</p>
+                <p>Designing and deploying a digital production planning system with integrated barcode traceability, real-time batch tracking, and QC reporting.</p>
+                <p></p>
+                <img src="../images/msme1.png" alt="Card 14">
+                 <p></p>
+                <a href="#project1" class="view-details">Enterprise Solutions</a>
+            </div>
 
-      <div class="project-card">
-        <h3></h3>
-        <p>CRM Source Code for ISP Operators</p>
-        <p>Delivered a customizable CRM with ticketing, service request management, and customer analytics, optimized for regional ISPs.</p>
-        <a href="#project5" class="view-details">Sample Project</a>
-      </div>
+            <div class="project-card">
+                <h3></h3>
+                <p>Customer Engagement Tool for Real Estate (Prototype Stage)</p>
+                <p>Developing a lead nurturing platform with visit scheduling, personalized follow-ups, and buyer behavior analytics.</p>
+                <a href="#project4" class="view-details">Sample Project</a>
+             </div>    
 
-      <div class="project-card">
-        <h3></h3>
-        <p>Blogging & Digital Marketing Website (Prototype Stage)</p>
-        <p>Content-centric platform for brand storytelling, SEO optimization, and influencer outreach.</p>
-        <a href="#project6" class="view-details">Sample Project</a>
-      </div>
-    </div>
-  </div>
+            <div class="project-card">
+                <h3></h3>
+                <p>CRM Source Code for ISP Operators</p>
+                <p>Delivered a customizable CRM with ticketing, service request management, and customer analytics, optimized for regional ISPs.</p>
+                <a href="#project5" class="view-details">Sample Project</a>
+             </div>    
 
-  <!-- Image Cards Section (as in original) -->
+            <div class="project-card">
+                <h3></h3>
+                <p>Blogging & Digital Marketing Website (Prototype Stage)</p>
+                <p>Content-centric platform for brand storytelling, SEO optimization, and influencer outreach.</p>
+                <a href="#project6" class="view-details">Sample Project</a>
+             </div>    
+
   <div class="card-container">
     <div class="image-card">
-      <img src="../images/ai.png" alt="AI" />
-      <img src="../images/ev.png" alt="EV" />
-      <img src="../images/solar.png" alt="Solar" />
-      <img src="../images/school.png" alt="School" />
-      <img src="../images/chem.png" alt="Chemicals" />
-      <img src="../images/electronics.png" alt="Electronics" />
-      <img src="../images/foods.png" alt="Foods" />
-      <img src="../images/logistics.png" alt="Logistics" />
-      <img src="../images/steel.png" alt="Steel" />
-      <img src="../images/bottling.png" alt="Bottling Plant" />
-      <img src="../images/retail.png" alt="Retail" />
-      <img src="../images/img5.png" alt="Drone" />
-    </div>
-  </div>
 
-  <!-- Call to Action Section -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-content">
-        <h2>Ready to Transform Your Infrastructure?</h2>
-        <p>Contact us today to discuss how our technology and engineering solutions can help your organization achieve efficiency, sustainability, and innovation.</p>
-        <a href="../contact.html" class="btn btn-primary">Get In Touch</a>
-      </div>
+<img src="../images/ai.png" alt="AI" />
+<img src="../images/ev.png" alt="EV" />
+<img src="../images/solar.png" alt="Solar" />
+<img src="../images/school.png" alt="School" />
+<img src="../images/chem.png" alt="Chemicals" />
+<img src="../images/electronics.png" alt="Electronics" />
+<img src="../images/foods.png" alt="Foods" />
+<img src="../images/logistics.png" alt="Logistics" />
+<img src="../images/steel.png" alt="Steel" />
+<img src="../images/bottling.png" alt="Bottling Plant" />
+<img src="../images/retail.png" alt="Retail" />
+<img src="../images/img5.png" alt="Drone" />
+     
     </div>
-  </section>
+    </div>
 
+    <!-- Add more cards as needed -->
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Infrastructure?</h2>
+                <p>Contact us today to discuss how our technology and engineering solutions can help your organization achieve efficiency, sustainability, and innovation.</p>
+                <a href="../contact.html" class="btn btn-primary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+
+  
+    <!-- DO NOT TOUCH BELOW CODES -->
+  
+    
   <!-- ✅ Footer Placeholder -->
-  <div id="footer-placeholder"></div>
+  <div id="footer-placeholder"></div>    
+ <!-- ✅ Load header and footer dynamically and then initialize scripts -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Load Header
+    fetch("/header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header-placeholder").innerHTML = html;
 
-  <!-- ✅ Load header and footer dynamically and then initialize scripts -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // Load Header
-      fetch("/header.html")
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById("header-placeholder").innerHTML = html;
+        // ✅ Wait for DOM injection, then bind mobile menu
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.getElementById("mobile-menu");
 
-          // ✅ Wait for DOM injection, then bind mobile menu
-          const toggle = document.getElementById("menu-toggle");
-          const nav = document.getElementById("mobile-menu");
+        if (toggle && nav) {
+          toggle.addEventListener("click", function () {
+            nav.classList.toggle("active");
+          });
+        }
 
-          if (toggle && nav) {
-            toggle.addEventListener("click", function () {
-              nav.classList.toggle("active");
-            });
-          }
-
-          // ✅ Optional: re-run dropdown initialization if needed
-          if (typeof initDropdowns === "function") initDropdowns();
-        });
-
-      // Load Footer
-      fetch("/footer.html")
-        .then(res => res.text())
-        .then(html => {
-          document.getElementById("footer-placeholder").innerHTML = html;
-
-          // ✅ Load protection script after footer
-          const protect = document.createElement("script");
-          protect.src = "/js/imgTextProtect.js";
-          document.body.appendChild(protect);
-        });
-
-      // ✅ Load core scripts after all above (avoid double-loading)
-      const main = document.createElement("script");
-      main.src = "/js/main.js";
-      main.onload = () => {
-        if (typeof initTabs === "function") initTabs();
-        if (typeof initHeroAnimation === "function") initHeroAnimation();
-      };
-      document.body.appendChild(main);
-
-      const dropdown = document.createElement("script");
-      dropdown.src = "/js/dropdown.js";
-      dropdown.onload = () => {
+        // ✅ Optional: re-run dropdown initialization if needed
         if (typeof initDropdowns === "function") initDropdowns();
-      };
-      document.body.appendChild(dropdown);
-    });
-  </script>
-  <!-- Removed duplicate static script tags to prevent double-initialization -->
+      });
+
+    // Load Footer
+    fetch("/footer.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("footer-placeholder").innerHTML = html;
+
+        // ✅ Load protection script after footer
+        const protect = document.createElement("script");
+        protect.src = "/js/imgTextProtect.js";
+        document.body.appendChild(protect);
+      });
+
+    // ✅ Load core scripts after all above
+    const main = document.createElement("script");
+    main.src = "/js/main.js";
+    main.onload = () => {
+      if (typeof initTabs === "function") initTabs();
+      if (typeof initHeroAnimation === "function") initHeroAnimation();
+      // Add other initializers if needed
+    };
+    document.body.appendChild(main);
+
+    const dropdown = document.createElement("script");
+    dropdown.src = "/js/dropdown.js";
+    document.body.appendChild(dropdown);
+  });
+</script>
+  <!-- Global Scripts -->
+  <script src="/js/main.js"></script>
+  <script src="/js/dropdown.js"></script>
 </body>
 </html>
