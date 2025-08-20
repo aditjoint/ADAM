@@ -139,69 +139,57 @@
   </div>
   <!-- Page Content End -->
 
+
+
   <!-- ✅ Footer Placeholder -->
-  <div id="footer-placeholder"></div>    
+<div id="footer-placeholder"></div>    
 
-  <!-- ✅ Load header and footer dynamically and initialize scripts -->
-  <script>
-  document.addEventListener("DOMContentLoaded", function () {
-      // Load Header
-      fetch("/header.html")
-          .then(res => res.text())
-          .then(html => {
-              document.getElementById("header-placeholder").innerHTML = html;
+<!-- ✅ Load header and footer dynamically and then initialize scripts -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Load Header
+    fetch("/header.html")
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById("header-placeholder").innerHTML = html;
 
-              const toggle = document.getElementById("menu-toggle");
-              const nav = document.getElementById("mobile-menu");
-              if (toggle && nav) toggle.addEventListener("click", () => nav.classList.toggle("active"));
+            // Bind mobile menu after header loads
+            const toggle = document.getElementById("menu-toggle");
+            const nav = document.getElementById("mobile-menu");
+            if (toggle && nav) {
+                toggle.addEventListener("click", function () {
+                    nav.classList.toggle("active");
+                });
+            }
 
-              if (typeof initDropdowns === "function") initDropdowns();
-          });
+            // Optional: re-run dropdown initialization if needed
+            if (typeof initDropdowns === "function") initDropdowns();
+        });
 
-      // Load Footer
-      fetch("/footer.html")
-          .then(res => res.text())
-          .then(html => {
-              document.getElementById("footer-placeholder").innerHTML = html;
-
-              const protect = document.createElement("script");
-              protect.src = "/js/imgTextProtect.js";
-              document.body.appendChild(protect);
-
-              if (typeof initMobileZoom === "function") initMobileZoom();
-          });
-
-  <!-- Footer Placeholder -->
-  <div id="footer-placeholder"></div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
     // Load Footer
-    fetch("../footer.html") // adjust path based on your folder structure
+    fetch("/footer.html")
         .then(res => res.text())
         .then(html => {
             document.getElementById("footer-placeholder").innerHTML = html;
 
-            // Load protection script
+            // Load protection script after footer
             const protect = document.createElement("script");
-            protect.src = "../js/imgTextProtect.js";
+            protect.src = "/js/imgTextProtect.js";
             document.body.appendChild(protect);
-        })
-        .catch(err => console.error("Footer load failed:", err));
+
+            // Initialize mobile zoom if footer contains zoom controls
+            if (typeof initMobileZoom === "function") initMobileZoom();
+        });
+
+    // Load core scripts dynamically (once)
+    const main = document.createElement("script");
+    main.src = "/js/main.js";
+    document.body.appendChild(main);
+
+    const dropdown = document.createElement("script");
+    dropdown.src = "/js/dropdown.js";
+    document.body.appendChild(dropdown);
 });
 </script>
-
-    
-      // Load core scripts dynamically (once)
-      const main = document.createElement("script");
-      main.src = "/js/main.js";
-      document.body.appendChild(main);
-
-      const dropdown = document.createElement("script");
-      dropdown.src = "/js/dropdown.js";
-      document.body.appendChild(dropdown);
-  });
-  </script>
-
 </body>
 </html>
