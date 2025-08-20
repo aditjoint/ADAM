@@ -9,7 +9,7 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="/css/styles.css" />
   <link rel="stylesheet" href="/css/responsive.css" />
-  <link rel="stylesheet" href="/css/protect.css" /> <!-- 🔒 Protection CSS -->
+  <link rel="stylesheet" href="/css/protect.css" />
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -17,7 +17,6 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
-  <!-- 🔒 Inline Protection Fallback -->
   <style>
     html, body {
       height: 100%;
@@ -35,7 +34,7 @@
       user-select: text;
     }
 
-    /* ✅ Projects section */
+    /* Projects section */
     .projects-section {
       background-color: rgba(255, 255, 255, 0.6);
       padding: 50px 20px;
@@ -55,14 +54,14 @@
       gap: 20px;
     }
 
-    /* ✅ Project cards */
+    /* Project cards */
     .project-card {
       background-color: rgba(249, 249, 249, 0.85);
       padding: 20px;
       width: 260px;
       border: 1px solid rgba(255, 255, 255, 0.4);
       border-radius: 12px;
-      text-align: center; /* center align card content */
+      text-align: center;
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
       transition: transform 0.3s ease;
       backdrop-filter: blur(10px);
@@ -83,7 +82,7 @@
     }
     .project-card img {
       width: 100%;
-      height: 160px;
+      height: 320px; /* doubled */
       object-fit: cover;
       border-radius: 8px;
       margin-bottom: 12px;
@@ -97,7 +96,7 @@
       text-decoration: underline;
     }
 
-    /* ✅ Image Cards Section */
+    /* Image Cards Section */
     .card-container {
       display: flex;
       justify-content: center;
@@ -105,15 +104,15 @@
     }
     .image-card {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* doubled */
       gap: 20px;
-      max-width: 1000px;
+      max-width: 1200px;
       width: 100%;
       justify-items: center;
     }
     .image-card img {
-      width: 120px;
-      height: 120px;
+      width: 240px;  /* doubled */
+      height: 240px; /* doubled */
       object-fit: contain;
       background: rgba(255, 255, 255, 0.8);
       padding: 10px;
@@ -121,7 +120,7 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
-    /* ✅ CTA Section */
+    /* CTA Section */
     .cta-section {
       background-color: rgba(0, 0, 0, 0.6);
       padding: 60px 20px;
@@ -153,22 +152,24 @@
 </head>
 
 <body>
-  <!-- ✅ Header Placeholder -->
+  <!-- Header Placeholder -->
   <div id="header-placeholder"></div>
 
   <!-- Projects Section -->
   <div class="projects-section">
     <h2>Solutions in Action</h2>
     <div class="projects-container">
+
       <div class="project-card">
+        <img src="../images/msme1.png" alt="Enterprise Solutions">
         <h3>BizSuite</h3>
         <p>Digital Solutions for MSMEs to Enterprises — Across Regions, Across Industries.</p>
         <p>Designing and deploying a digital production planning system with integrated barcode traceability, real-time batch tracking, and QC reporting.</p>
-        <img src="../images/msme1.png" alt="Enterprise Solutions">
         <a href="#project1" class="view-details">Enterprise Solutions</a>
       </div>
 
       <div class="project-card">
+        <img src="../images/realestate.png" alt="Real Estate Engagement">
         <h3>Real Estate Engagement</h3>
         <p>Customer Engagement Tool for Real Estate (Prototype Stage)</p>
         <p>Developing a lead nurturing platform with visit scheduling, personalized follow-ups, and buyer behavior analytics.</p>
@@ -176,6 +177,7 @@
       </div>
 
       <div class="project-card">
+        <img src="../images/crm.png" alt="ISP CRM">
         <h3>ISP CRM</h3>
         <p>CRM Source Code for ISP Operators</p>
         <p>Delivered a customizable CRM with ticketing, service request management, and customer analytics, optimized for regional ISPs.</p>
@@ -183,6 +185,7 @@
       </div>
 
       <div class="project-card">
+        <img src="../images/marketing.png" alt="Digital Marketing">
         <h3>Digital Marketing</h3>
         <p>Blogging & Digital Marketing Website (Prototype Stage)</p>
         <p>Content-centric platform for brand storytelling, SEO optimization, and influencer outreach.</p>
@@ -220,10 +223,10 @@
     </div>
   </section>
 
-  <!-- ✅ Footer Placeholder -->
+  <!-- Footer Placeholder -->
   <div id="footer-placeholder"></div>
 
-  <!-- ✅ Load header and footer dynamically -->
+  <!-- Scripts -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       // Load Header
@@ -231,16 +234,13 @@
         .then(res => res.text())
         .then(html => {
           document.getElementById("header-placeholder").innerHTML = html;
-
           const toggle = document.getElementById("menu-toggle");
           const nav = document.getElementById("mobile-menu");
-
           if (toggle && nav) {
             toggle.addEventListener("click", function () {
               nav.classList.toggle("active");
             });
           }
-
           if (typeof initDropdowns === "function") initDropdowns();
         });
 
@@ -249,7 +249,6 @@
         .then(res => res.text())
         .then(html => {
           document.getElementById("footer-placeholder").innerHTML = html;
-
           const protect = document.createElement("script");
           protect.src = "/js/imgTextProtect.js";
           document.body.appendChild(protect);
@@ -274,3 +273,4 @@
   </script>
 </body>
 </html>
+
