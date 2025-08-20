@@ -208,3 +208,15 @@ if (document.querySelector('.hero')) {
         heroSection.style.backgroundPosition = `center ${scroll * 0.3}px`;
     });
 }
+
+
+// Mobile zoom functionality
+let currentScale = 1;
+const pageContent = document.getElementById('page-content');
+
+window.zoomPage = function(factor) {
+    currentScale *= factor;
+    currentScale = Math.min(Math.max(currentScale, 1), 5); // limit zoom 1x - 5x
+    pageContent.style.transformOrigin = "0 0";
+    pageContent.style.transform = `scale(${currentScale})`;
+};
