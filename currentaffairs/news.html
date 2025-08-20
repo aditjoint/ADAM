@@ -171,6 +171,27 @@
               if (typeof initMobileZoom === "function") initMobileZoom();
           });
 
+  <!-- Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    // Load Footer
+    fetch("../footer.html") // adjust path based on your folder structure
+        .then(res => res.text())
+        .then(html => {
+            document.getElementById("footer-placeholder").innerHTML = html;
+
+            // Load protection script
+            const protect = document.createElement("script");
+            protect.src = "../js/imgTextProtect.js";
+            document.body.appendChild(protect);
+        })
+        .catch(err => console.error("Footer load failed:", err));
+});
+</script>
+
+    
       // Load core scripts dynamically (once)
       const main = document.createElement("script");
       main.src = "/js/main.js";
