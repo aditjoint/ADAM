@@ -144,3 +144,80 @@ if (typeof img !== 'undefined') {
   wrapper.appendChild(img);
   wrapper.appendChild(overlay);
 }
+
+/* ============================================================
+   >>> APPENDED REINFORCEMENTS (do not remove; nothing above changed)
+   ============================================================ */
+
+// 🛡️ Stronger right/middle-click suppression (keeps your original, adds redundancy)
+document.oncontextmenu = function(){ return false; };
+window.addEventListener("contextmenu", function(e){
+  e.preventDefault();
+  e.stopPropagation();
+  return false;
+}, true);
+
+// Block middle-click (auxclick) to stop “open in new tab”
+window.addEventListener("auxclick", function(e){
+  if (e.button === 1 || e.button === 2) {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+  }
+}, true);
+
+// ✅ Preserve normal browsing (left-clicks on links/buttons/inputs still work)
+document.addEventListener("click", function(e){
+  // Allow default for interactive elements
+  const tag = e.target.closest("a, button, input, textarea, select, label, summary, details");
+  if (tag) return; // let it through
+}, true);
+
+// 📱 Allow pinch-zoom while blocking single-finger touches on images
+(function enablePinchZoomButBlockSingleFinger(){
+  // 1) Override the earlier touchAction to allow pinch (we do NOT remove your line above)
+  try { document.documentElement.style.touchAction = "manipulation"; } catch(_) {}
+
+  // 2) Add capture-phase listeners that:
+  //    - Block single-finger taps/long-press on images
+  //    - Allow 2+ fingers (pinch) by stopping lower-level blockers
+  document.addEventListener("touchstart", function(e){
+    const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
+    if (!imgEl) return;
+
+    if (e.touches && e.touches.length >= 2) {
+      // Allow pinch: stop the original bubble-phase preventers from firing
+      e.stopImmediatePropagation();
+      // no preventDefault → browser can handle pinch
+      return;
+    } else if (e.touches && e.touches.length === 1) {
+      // Block single-finger actions on/over images
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      return false;
+    }
+  }, true);
+
+  ["touchmove","touchend","touchcancel"].forEach(evt=>{
+    document.addEventListener(evt, function(e){
+      const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
+      if (!imgEl) return;
+
+      if (e.touches && e.touches.length >= 2) {
+        e.stopImmediatePropagation(); // allow pinch gesture to proceed
+      } else {
+        e.preventDefault(); // block single-finger drag/hold
+        e.stopImmediatePropagation();
+        return false;
+      }
+    }, true);
+  });
+})();
+
+// 🧱 Extra: periodic hardening to reapply global locks
+setInterval(function(){
+  document.oncontextmenu = function(){ return false; };
+}, 1500);
+
+// 🧯 Safety: don’t block scroll/wheel unintentionally
+window.addEventListener("wheel", function(){ /* no-op: keep scrolling */ }, {passive:true});
