@@ -733,6 +733,40 @@
     
   <!-- ✅ Footer Placeholder -->
   <div id="footer-placeholder"></div>    
+
+<!-- Zoom Controls -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  let zoomLevel = 1;
+  const zoomStep = 0.1;
+  const minZoom = 0.5;
+  const maxZoom = 2.0;
+  const body = document.body;
+
+  const zoomInBtn = document.getElementById("zoom-in");
+  const zoomOutBtn = document.getElementById("zoom-out");
+
+  if (zoomInBtn && zoomOutBtn) {
+    zoomInBtn.addEventListener("click", function () {
+      zoomLevel = Math.min(zoomLevel + zoomStep, maxZoom);
+      body.style.transform = `scale(${zoomLevel})`;
+      body.style.transformOrigin = "top center";
+    });
+
+    zoomOutBtn.addEventListener("click", function () {
+      zoomLevel = Math.max(zoomLevel - zoomStep, minZoom);
+      body.style.transform = `scale(${zoomLevel})`;
+      body.style.transformOrigin = "top center";
+    });
+  }
+});
+</script>
+
+<!-- Zoom Controls ends-->
+
+
+
+  
  <!-- ✅ Load header and footer dynamically and then initialize scripts -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
