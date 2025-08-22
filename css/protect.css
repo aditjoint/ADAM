@@ -23,7 +23,7 @@ input, textarea, select, label, a, button {
   pointer-events: auto;
 }
 
-/* 🚫 Block interaction with images, but allow events to JS */
+/* 🚫 Block interaction with images, but allow JS events */
 img {
   -webkit-user-drag: none !important;
   user-drag: none !important;
