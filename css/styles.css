@@ -1802,14 +1802,6 @@ body.watermarked::before {
 
 
 
-
-
-
-
-
-
-
-
 /* Expand view height only on mobile */
 @media only screen and (max-width: 768px) {
   :root {
@@ -1827,8 +1819,6 @@ body.watermarked::before {
     min-height: 100vh;
   }
 }
-
-
 
 /* Add this to your main stylesheet (e.g., styles.css) */
 body {
@@ -1859,4 +1849,17 @@ body::before {
   background-color: rgba(255, 255, 255, 0.85); 
   pointer-events: none;
   z-index: -1;
+}
+
+
+#mobile-zoom-controls {
+  position: floating;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+}
+
+#mobile-zoom-controls button {
+  display: block;
+  margin: 5px 0;
 }
