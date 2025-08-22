@@ -37,14 +37,10 @@
 <body>
   <!-- ✅ Header Placeholder -->
   <div id="header-placeholder"></div>
-
-
-   <!-- Page Content -->
-  <main id="page-content"> ... </main>
+  
 
   
-    <!-- Hero Section -->
-<!-- Hero Section -->
+  <!-- Hero Section -->
 <section class="hero">
   <div class="container">
     <div class="hero-content">
@@ -731,50 +727,6 @@
   
   <!-- ✅ Footer Placeholder -->
   <div id="footer-placeholder"></div>    
-
-<!-- Zoom Controls -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const pageContent = document.getElementById("page-content");
-  const zoomInBtn = document.getElementById("zoom-in");
-  const zoomOutBtn = document.getElementById("zoom-out");
-
-  let zoomLevel = 1;         // start at 100%
-  const zoomStep = 0.1;      // each click changes by 10%
-  const minZoom = 1;         // 100% minimum
-  const maxZoom = 2;         // optional: cap at 200%
-
-  function applyZoom() {
-    pageContent.style.transform = `scale(${zoomLevel})`;
-  }
-
-  zoomInBtn.addEventListener("click", () => {
-    if (zoomLevel < maxZoom) {
-      zoomLevel = +(zoomLevel + zoomStep).toFixed(2);
-      applyZoom();
-    }
-  });
-
-  zoomOutBtn.addEventListener("click", () => {
-    if (zoomLevel > minZoom) {
-      zoomLevel = +(zoomLevel - zoomStep).toFixed(2);
-      applyZoom();
-    }
-  });
-});
-</script>
-
-
-<!-- ✅ Zoom Controls (Fixed Position) -->
-<div id="mobile-zoom-controls">
-  <button id="zoom-in">+</button>
-  <button id="zoom-out">−</button>
-</div></div>
-  
-<!-- Zoom Controls ends-->
-
-
-
   
  <!-- ✅ Load header and footer dynamically and then initialize scripts -->
 <script>
