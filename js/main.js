@@ -208,30 +208,3 @@ if (document.querySelector('.hero')) {
         heroSection.style.backgroundPosition = `center ${scroll * 0.3}px`;
     });
 }
-
-/**
- * Zoom Functionality
- */
-
-let currentZoom = 1;  // starting scale
-const zoomStep = 0.1; // each click increases/decreases 10%
-
-const pageContent = document.getElementById("page-content");
-const zoomInBtn = document.getElementById("zoom-in");
-const zoomOutBtn = document.getElementById("zoom-out");
-
-zoomInBtn.addEventListener("click", () => {
-  currentZoom += zoomStep;
-  applyZoom();
-});
-
-zoomOutBtn.addEventListener("click", () => {
-  if (currentZoom > zoomStep) {
-    currentZoom -= zoomStep;
-    applyZoom();
-  }
-});
-
-function applyZoom() {
-  pageContent.style.transform = `scale(${currentZoom})`;
-}
