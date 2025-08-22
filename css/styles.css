@@ -1850,47 +1850,4 @@ body::before {
   pointer-events: none;
   z-index: -1;
 }
-
-
-
-/* --------------------------------------------
-Mobile zoom control fixed at bottom right
--------------------------------------------- */
-#mobile-zoom-controls {
-  position: fixed; /* <-- was 'floating' */
-  right: max(16px, env(safe-area-inset-right));
-  bottom: max(16px, env(safe-area-inset-bottom));
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 10000; /* ensure it sits above a sticky header */
-}
-
-#mobile-zoom-controls button {
-  padding: 12px 18px;
-  font-size: 20px;
-  border-radius: 8px;
-  border: none;
-  background: #007BFF;
-  color: #fff;
-  cursor: pointer;
-}
-
-#mobile-zoom-controls button:nth-child(2) {
-  background: #555;
-}
-
-/* Hide on desktop wider than 1200px (optional) */
-@media (min-width: 1200px) {
-  #mobile-zoom-controls { display: none; }
-}
-
-/* Page content default */
-#page-content {
-  transition: transform 0.3s ease; /* smooth zoom effect */
-  transform-origin: top center;
-}
-
-
-
-
+/* END STYLE*/
