@@ -4,136 +4,242 @@
  * Version: 1.1
  */
 
+// Execute when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-  // Initialize the mobile menu
-  initMobileMenu();
+    // Initialize the mobile menu functionality
+    initMobileMenu();
 
-  // Initialize tabs (supports both systems)
-  initTabs();
+    // Initialize tab switching functionality
+    initTabs();
 
-  // Initialize scroll animations
-  initScrollAnimation();
+    // Initialize scroll animation
+    initScrollAnimation();
 
-  // Initialize service card effects
-  initServiceCardEffects();
+    // Initialize service card hover effects
+    initServiceCardEffects();
 
-  // Push content down by header height
-  const header = document.querySelector("header");
-  if (header) {
-    document.body.style.paddingTop = `${header.offsetHeight}px`;
-  }
+    // Push the body content down by the actual header height
+    const header = document.querySelector("header");
+    if (header) {
+        const headerHeight = header.offsetHeight;
+        document.body.style.paddingTop = `${headerHeight}px`;
+    }
 
-  // Initialize mobile zoom after DOM loaded
-  initMobileZoom();
+    // Initialize mobile zoom
+    initMobileZoom();
 });
 
-/* -------------------------------
-  Mobile Zoom
---------------------------------*/
-function initMobileZoom() {
-  const zoomControls = document.getElementById('mobile-zoom-controls');
-  if (!zoomControls) return;
-
-  const pageContent = document.getElementById('page-content');
-  if (!pageContent) return;
-
-  let currentScale = 1;
-
-  function zoomPage(factor) {
-    currentScale *= factor;
-    currentScale = Math.min(Math.max(currentScale, 1), 5); // limit 1x - 5x
-    pageContent.style.transformOrigin = "0 0";
-    pageContent.style.transform = `scale(${currentScale})`;
-  }
-
-  const zoomInBtn = document.getElementById('zoom-in');
-  const zoomOutBtn = document.getElementById('zoom-out');
-
-  if (zoomInBtn) zoomInBtn.addEventListener('click', () => zoomPage(1.1));
-  if (zoomOutBtn) zoomOutBtn.addEventListener('click', () => zoomPage(0.9));
-
-  // Hide zoom buttons on desktop
-  if (window.innerWidth >= 768) {
-    zoomControls.style.display = 'none';
-  }
-}
-
-/* -------------------------------
-  Mobile Menu
---------------------------------*/
+/**
+ * Initialize the mobile menu
+ */
 function initMobileMenu() {
-  const toggleBtn = document.querySelector(".mobile-menu-toggle");
-  const menu = document.querySelector("nav ul");
-  if (toggleBtn && menu) {
-    toggleBtn.addEventListener("click", () => {
-      menu.classList.toggle("open");
-    });
-  }
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+    if (mobileMenuToggle && mainNav) {
+        // Toggle the menu when the hamburger icon is clicked
+        mobileMenuToggle.addEventListener('click', function () {
+            mainNav.classList.toggle('active');
+
+            // Toggle hamburger icon
+            const icon = this.querySelector('i');
+            if (mainNav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu on clicking outside
+        document.addEventListener('click', function (event) {
+            const isInsideNav = mainNav.contains(event.target);
+            const isToggle = mobileMenuToggle.contains(event.target);
+            const isMenuOpen = mainNav.classList.contains('active');
+
+            if (!isInsideNav && !isToggle && isMenuOpen) {
+                mainNav.classList.remove('active');
+
+                const icon = mobileMenuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
+
+    // Dropdown toggle logic for mobile
+    if (dropdownToggles.length > 0) {
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function (e) {
+                if (window.innerWidth < 992) {
+                    e.preventDefault();
+                    const parent = this.parentElement;
+                    parent.classList.toggle('active');
+
+                    const icon = this.querySelector('i');
+                    if (icon) {
+                        icon.style.transform = parent.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+                    }
+                }
+            });
+        });
+    }
 }
 
-/* -------------------------------
-  Tabs (Supports both systems)
---------------------------------*/
+/**
+ * Initialize the tab switching functionality
+ */
 function initTabs() {
-  // System 1: data-tab / data-tab-content
-  const tabs1 = document.querySelectorAll("[data-tab]");
-  const contents1 = document.querySelectorAll("[data-tab-content]");
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanes = document.querySelectorAll('.tab-pane');
 
-  tabs1.forEach(tab => {
-    tab.addEventListener("click", () => {
-      tabs1.forEach(t => t.classList.remove("active"));
-      contents1.forEach(c => c.classList.remove("active"));
+    if (tabBtns.length > 0 && tabPanes.length > 0) {
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tabId = btn.dataset.tab;
 
-      tab.classList.add("active");
-      const target = document.querySelector(tab.dataset.tab);
-      if (target) target.classList.add("active");
-    });
-  });
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabPanes.forEach(p => p.classList.remove('active'));
 
-  // System 2: .tab-btn / .tab-pane
-  const tabs2 = document.querySelectorAll(".tab-btn");
-  const panes2 = document.querySelectorAll(".tab-pane");
-
-  tabs2.forEach(btn => {
-    btn.addEventListener("click", () => {
-      tabs2.forEach(b => b.classList.remove("active"));
-      panes2.forEach(p => p.classList.remove("active"));
-
-      btn.classList.add("active");
-      const target = document.getElementById(btn.dataset.tab);
-      if (target) target.classList.add("active");
-    });
-  });
+                btn.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    }
 }
 
-/* -------------------------------
-  Scroll Animations
---------------------------------*/
+/**
+ * Initialize scroll animation effects
+ */
 function initScrollAnimation() {
-  const elements = document.querySelectorAll(".animate-on-scroll");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      }
-    });
-  });
-  elements.forEach(el => observer.observe(el));
+    const elements = document.querySelectorAll('.expertise-card, .service-card, .about-image, .value-box');
+
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8;
+    }
+
+    function handleScrollAnimation() {
+        elements.forEach(element => {
+            if (isInViewport(element)) {
+                element.classList.add('animated');
+            }
+        });
+    }
+
+    handleScrollAnimation();
+    window.addEventListener('scroll', handleScrollAnimation);
 }
 
-/* -------------------------------
-  Service Card Hover Effects
---------------------------------*/
+/**
+ * Initialize service card hover effects
+ */
 function initServiceCardEffects() {
-  const cards = document.querySelectorAll(".service-cards .card");
-  cards.forEach(card => {
-    card.addEventListener("mouseenter", () => {
-      card.classList.add("hovered");
-    });
-    card.addEventListener("mouseleave", () => {
-      card.classList.remove("hovered");
-    });
-  });
+    const serviceCards = document.querySelectorAll('.hero-services .service-card, .expertise-card');
+
+    if (serviceCards.length > 0) {
+        serviceCards.forEach(card => {
+            card.addEventListener('mouseenter', function () {
+                this.style.transform = 'translateY(-5px)';
+            });
+
+            card.addEventListener('mouseleave', function () {
+                this.style.transform = '';
+            });
+        });
+    }
 }
+
+/**
+ * Smooth scroll to anchor links
+ */
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        if (this.classList.contains('dropdown-toggle')) return;
+
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            e.preventDefault();
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+/**
+ * Add active class to navigation links based on current page
+ */
+(function highlightCurrentPage() {
+    const currentPage = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    navLinks.forEach(link => {
+        const linkPath = link.getAttribute('href');
+        if (link.classList.contains('dropdown-toggle')) return;
+
+        if (
+            currentPage.endsWith(linkPath) ||
+            (currentPage.includes(linkPath) && linkPath !== 'index.html' && linkPath !== '/')
+        ) {
+            link.classList.add('active');
+
+            const parentDropdown = link.closest('.dropdown');
+            if (parentDropdown) {
+                const dropdownToggle = parentDropdown.querySelector('.dropdown-toggle');
+                if (dropdownToggle) {
+                    dropdownToggle.classList.add('active');
+                }
+            }
+        }
+    });
+})();
+
+/**
+ * Add subtle parallax effect to hero section
+ */
+if (document.querySelector('.hero')) {
+    window.addEventListener('scroll', function () {
+        const scroll = window.pageYOffset;
+        const heroSection = document.querySelector('.hero');
+        heroSection.style.backgroundPosition = `center ${scroll * 0.3}px`;
+    });
+}
+
+/**
+ * Initialize mobile zoom (NEW)
+ */
+function initMobileZoom() {
+    const zoomControls = document.getElementById('mobile-zoom-controls');
+    const pageContent = document.getElementById('page-content');
+    if (!zoomControls || !pageContent) return;
+
+    let currentScale = 1;
+
+    function zoomPage(factor) {
+        currentScale *= factor;
+        currentScale = Math.min(Math.max(currentScale, 1), 5); // limit 1x - 5x
+        pageContent.style.transformOrigin = "0 0";
+        pageContent.style.transform = `scale(${currentScale})`;
+    }
+
+    const zoomInBtn = document.getElementById('zoom-in');
+    const zoomOutBtn = document.getElementById('zoom-out');
+
+    if (zoomInBtn) zoomInBtn.addEventListener('click', () => zoomPage(1.1));
+    if (zoomOutBtn) zoomOutBtn.addEventListener('click', () => zoomPage(0.9));
+
+    // Hide zoom buttons on desktop
+    if (window.innerWidth >= 768) {
+        zoomControls.style.display = 'none';
+    }
+}
+
 
 
