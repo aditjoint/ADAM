@@ -1,6 +1,6 @@
 /**
- * imgTextProtect.js — Full Maximum Protection (Clean + Hardened)
- * Duplicates removed, all protections retained
+ * imgTextProtect.js — Full Maximum Protection for Static Pages (Hardened)
+ * Combines original protections + hardened extras
  */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -21,11 +21,12 @@ document.addEventListener("DOMContentLoaded", function () {
   ["copy", "cut", "paste"].forEach(event => {
     document.addEventListener(event, e => {
       e.preventDefault();
+      e.stopPropagation();
       alert("Copying is disabled on this site.");
     }, true);
   });
 
-  // 🔒 Block keyboard shortcuts (DevTools / Save / Copy / Print / Select All)
+  // 🔒 Block dangerous keyboard shortcuts
   document.addEventListener("keydown", function (e) {
     const key = e.key.toLowerCase();
     const keyCode = e.keyCode || e.which;
@@ -38,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
       (e.altKey && keyCode === 115) // Alt+F4
     ) {
       e.preventDefault();
+      e.stopPropagation();
       alert("This keyboard shortcut is disabled.");
       return false;
     }
@@ -50,38 +52,37 @@ document.addEventListener("DOMContentLoaded", function () {
     el.addEventListener("touchstart", e => { if(e.touches.length===1) e.preventDefault(); }, {passive:false});
   });
 
-  // 🔒 Protect images completely: block all mouse/touch interaction
+  // 🔒 Absolute Image Protection
   document.querySelectorAll("img").forEach(img => {
     img.setAttribute("draggable", "false");
+    img.style.pointerEvents = "none"; // disable browser native actions
+    img.style.userSelect = "none";
 
     const wrapper = document.createElement("div");
-    wrapper.classList.add("img-wrapper");
     wrapper.style.position = "relative";
     wrapper.style.display = "inline-block";
 
     const overlay = document.createElement("div");
-    overlay.classList.add("img-overlay");
     overlay.style.position = "absolute";
-    overlay.style.top = "0";
-    overlay.style.left = "0";
+    overlay.style.top = 0;
+    overlay.style.left = 0;
     overlay.style.width = "100%";
     overlay.style.height = "100%";
     overlay.style.background = "transparent";
-    overlay.style.zIndex = "9999";
+    overlay.style.zIndex = "999999";
+    overlay.style.cursor = "default";
 
-    // Block all mouse events on overlay
-    ["mousedown", "mouseup", "click", "dblclick", "contextmenu", "dragstart"].forEach(evt => {
-      overlay.addEventListener(evt, e => e.preventDefault());
+    ["click","mousedown","mouseup","dblclick","contextmenu","dragstart"].forEach(evt => {
+      overlay.addEventListener(evt, e => {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }, true);
     });
 
     img.parentNode.insertBefore(wrapper, img);
     wrapper.appendChild(img);
     wrapper.appendChild(overlay);
-
-    // Block touch events for mobile
-    ["touchstart", "touchend", "touchmove", "touchcancel"].forEach(evt => {
-      img.addEventListener(evt, e => e.preventDefault(), {passive:false});
-    });
   });
 
   // 🖨️ Block printing
@@ -91,13 +92,14 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // 🖐️ Ensure pinch zoom works
-  document.documentElement.style.touchAction = "pan-x pan-y";
+  document.documentElement.style.touchAction = "manipulation";
 
-  // 🧱 Optional: Auto-padding for fixed headers
-  const header = document.querySelector("header");
-  if (header) document.body.style.paddingTop = `${header.offsetHeight}px`;
-
-  // -------------------- HARDENING EXTRAS --------------------
+  // 🧱 DevTools detection
+  setInterval(function(){
+    if (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160){
+      document.body.innerHTML = "<h1 style='color:red;text-align:center;margin-top:20vh;'>DevTools Detected — Access Denied</h1>";
+    }
+  }, 1000);
 
   // 🔒 Trap PrintScreen key
   document.addEventListener("keyup", function(e){
@@ -107,29 +109,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // 🔒 Detect DevTools by resize trick
-  setInterval(function(){
-    if (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160){
-      document.body.innerHTML = "<h1 style='color:red;text-align:center;margin-top:20vh;'>DevTools Detected — Access Denied</h1>";
-    }
-  }, 1000);
-
 });
 
-/* ============================================================
-   >>> FINAL REINFORCEMENTS
-   ============================================================ */
+// ============================================================
+// >>> Reinforcement Layer (final hardening)
+// ============================================================
 
-// Strongest right-click suppression
-document.oncontextmenu = () => false;
-window.addEventListener("contextmenu", function (e) {
+// 🛡️ Stronger right/middle-click suppression
+document.oncontextmenu = function(){ return false; };
+window.addEventListener("contextmenu", function(e){
   e.preventDefault();
   e.stopPropagation();
   return false;
 }, true);
 
 // Block middle-click (auxclick)
-window.addEventListener("auxclick", function (e) {
+window.addEventListener("auxclick", function(e){
   if (e.button === 1 || e.button === 2) {
     e.preventDefault();
     e.stopPropagation();
@@ -137,60 +132,21 @@ window.addEventListener("auxclick", function (e) {
   }
 }, true);
 
-// 🚫 Block images from opening directly when clicked/dragged
-["click","mousedown","mouseup"].forEach(evt => {
-  document.addEventListener(evt, function (e) {
-    const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
-    if (imgEl) {
-      e.preventDefault();
-      e.stopPropagation();
-      return false;
-    }
-  }, true);
-});
-
-// ✅ Preserve normal browsing (left-clicks on links/buttons/inputs still work)
-document.addEventListener("click", function (e) {
+// ✅ Allow left-click on interactive elements only
+document.addEventListener("click", function(e){
   const tag = e.target.closest("a, button, input, textarea, select, label, summary, details");
   if (tag) return; // let it through
+  if (e.target.closest("img, .img-wrapper, .img-overlay")) {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+  }
 }, true);
 
-// 📱 Allow pinch-zoom while blocking single-finger touches on images
-(function enablePinchZoomButBlockSingleFinger(){
-  try { document.documentElement.style.touchAction = "manipulation"; } catch(_) {}
-  document.addEventListener("touchstart", function(e){
-    const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
-    if (!imgEl) return;
-
-    if (e.touches && e.touches.length >= 2) {
-      e.stopImmediatePropagation(); // allow pinch
-    } else if (e.touches && e.touches.length === 1) {
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      return false;
-    }
-  }, true);
-
-  ["touchmove","touchend","touchcancel"].forEach(evt=>{
-    document.addEventListener(evt, function(e){
-      const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
-      if (!imgEl) return;
-
-      if (e.touches && e.touches.length >= 2) {
-        e.stopImmediatePropagation(); // allow pinch
-      } else {
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        return false;
-      }
-    }, true);
-  });
-})();
-
-// 🧱 Extra: periodic hardening to reapply global locks
+// 🧱 Periodic re-application of locks
 setInterval(function(){
-  document.oncontextmenu = () => false;
+  document.oncontextmenu = function(){ return false; };
 }, 1500);
 
-// 🧯 Safety: don’t block scroll/wheel unintentionally
+// 🧯 Safety: don’t block scroll
 window.addEventListener("wheel", function(){}, {passive:true});
