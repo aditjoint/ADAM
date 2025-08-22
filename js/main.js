@@ -247,18 +247,14 @@ function initMobileZoom() {
     }
 
     // Hide zoom buttons on desktop
-    if (window.innerWidth >= 768) {
-        zoomControls.style.display = 'none';
-    } else {
-        zoomControls.style.display = 'flex';
-    }
-
-    // Optional: keep buttons visible on orientation change
-    window.addEventListener('resize', () => {
+    function toggleZoomControls() {
         if (window.innerWidth >= 768) {
             zoomControls.style.display = 'none';
         } else {
             zoomControls.style.display = 'flex';
         }
-    });
+    }
+
+    toggleZoomControls();
+    window.addEventListener('resize', toggleZoomControls);
 }
