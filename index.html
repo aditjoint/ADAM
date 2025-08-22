@@ -727,6 +727,34 @@ Deployment of intelligent automation using IoT, embedded systems, robotics, and 
             </div>
         </div>
     </section>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  let zoomLevel = 1;          // Current zoom
+  const zoomStep = 0.1;       // Increment/decrement per click
+  const minZoom = 0.5;        // Minimum zoom
+  const maxZoom = 2.0;        // Maximum zoom
+  const body = document.body;
+
+  const zoomInBtn = document.getElementById("zoom-in");
+  const zoomOutBtn = document.getElementById("zoom-out");
+
+  zoomInBtn.addEventListener("click", function() {
+    zoomLevel = Math.min(zoomLevel + zoomStep, maxZoom);
+    body.style.transform = `scale(${zoomLevel})`;
+    body.style.transformOrigin = "top center";
+  });
+
+  zoomOutBtn.addEventListener("click", function() {
+    zoomLevel = Math.max(zoomLevel - zoomStep, minZoom);
+    body.style.transform = `scale(${zoomLevel})`;
+    body.style.transformOrigin = "top center";
+  });
+});
+</script>
+
   </div> 
   
 
