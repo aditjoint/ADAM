@@ -136,10 +136,8 @@ overlay.classList.add("img-overlay");
   overlay.addEventListener(evt, e => e.preventDefault());
 });
 
-// attach overlay above image
-// NOTE: This block stays from your original, even though images are already wrapped above
-// (kept intentionally, per request to not reduce)
-if (typeof img !== 'undefined') {
+// attach overlay above image safely
+if (typeof img !== 'undefined' && img && img.parentNode) {
   img.parentNode.insertBefore(wrapper, img);
   wrapper.appendChild(img);
   wrapper.appendChild(overlay);
@@ -221,3 +219,57 @@ setInterval(function(){
 
 // 🧯 Safety: don’t block scroll/wheel unintentionally
 window.addEventListener("wheel", function(){ /* no-op: keep scrolling */ }, {passive:true});
+
+
+/* ============================================================
+   >>> FINAL RIGHT-CLICK / MOUSE / TOUCH PROTECTION LAYER
+   ============================================================ */
+
+// Strongest right-click trap (works on all elements)
+window.addEventListener("contextmenu", function (e) {
+  e.preventDefault();
+  e.stopPropagation();
+  alert("Right-click is disabled on this site.");
+  return false;
+}, true);
+
+// Block middle-click (scroll wheel button & auxclick)
+window.addEventListener("auxclick", function (e) {
+  if (e.button === 1 || e.button === 2) {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+  }
+}, true);
+
+// Preserve left-click for interactive elements
+document.addEventListener("click", function (e) {
+  const tag = e.target.closest("a, button, input, textarea, select, label, summary, details");
+  if (tag) return; // let normal clicks through
+}, true);
+
+// Keep scrolling functional
+window.addEventListener("wheel", function () {
+  // no-op: allow scroll
+}, { passive: true });
+
+// Allow pinch zoom but block single-finger long press on images
+document.addEventListener("touchstart", function (e) {
+  const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
+  if (!imgEl) return;
+
+  if (e.touches && e.touches.length >= 2) {
+    // Allow pinch zoom
+    e.stopImmediatePropagation();
+  } else if (e.touches && e.touches.length === 1) {
+    // Block single finger long-press
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    return false;
+  }
+}, true);
+
+// Extra: periodic re-binding to harden protections
+setInterval(function () {
+  document.oncontextmenu = () => false;
+}, 1500);
