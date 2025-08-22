@@ -1,6 +1,6 @@
 /**
- * imgTextProtect.js — Maximum Protection Version
- * Maintains all original protections + aggressive deterrence
+ * imgTextProtect.js — Full Maximum Protection for Static Pages
+ * Aggressive deterrence while preserving pinch zoom and input functionality
  */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, true);
   });
 
-  // 🔒 Block keyboard shortcuts for DevTools / Save / Copy / Print
+  // 🔒 Block keyboard shortcuts for DevTools / Save / Copy / Print / Select All
   document.addEventListener("keydown", function (e) {
     const key = e.key.toLowerCase();
     const keyCode = e.keyCode || e.which;
@@ -43,11 +43,23 @@ document.addEventListener("DOMContentLoaded", function () {
       keyCode === 123 || // F12
       ((e.ctrlKey || e.metaKey) && blockedKeys.includes(key)) || // Ctrl/Cmd+Key
       (e.ctrlKey && e.shiftKey && blockedKeys.includes(key)) || // Ctrl+Shift+Key
-      (e.altKey && keyCode === 115) // Alt+F4 (Windows)
+      (e.altKey && keyCode === 115) // Alt+F4
     ) {
       e.preventDefault();
       alert("This keyboard shortcut is disabled.");
       return false;
+    }
+
+    // Block Ctrl+A / Cmd+A
+    if ((e.ctrlKey || e.metaKey) && key === 'a') {
+      e.preventDefault();
+      alert("Select All is disabled.");
+    }
+
+    // Block Ctrl+P / Cmd+P
+    if ((e.ctrlKey || e.metaKey) && key === 'p') {
+      e.preventDefault();
+      alert("Printing is disabled.");
     }
   }, true); // capture phase
 
@@ -84,20 +96,33 @@ document.addEventListener("DOMContentLoaded", function () {
   // 🖐️ Ensure pinch zoom works
   document.documentElement.style.touchAction = "pan-x pan-y";
 
-  // 🔒 Optional: Block selecting all via Ctrl+A globally
-  document.addEventListener("keydown", function(e) {
-    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "a") {
-      e.preventDefault();
-      alert("Select All is disabled.");
-    }
-  }, true);
+  // 🔒 Overlay protection for images (blocks right-click, drag, and Ctrl)
+  document.querySelectorAll("img").forEach(img => {
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("img-wrapper");
+    wrapper.style.position = "relative";
+    wrapper.style.display = "inline-block";
 
-  // 🔒 Optional: Protect from printing via Ctrl+P
-  document.addEventListener("keydown", function(e) {
-    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "p") {
+    const overlay = document.createElement("div");
+    overlay.classList.add("img-overlay");
+    overlay.style.position = "absolute";
+    overlay.style.top = "0";
+    overlay.style.left = "0";
+    overlay.style.width = "100%";
+    overlay.style.height = "100%";
+    overlay.style.background = "transparent";
+    overlay.style.zIndex = "2";
+
+    overlay.addEventListener("contextmenu", e => {
       e.preventDefault();
-      alert("Printing is disabled.");
-    }
-  }, true);
+      alert("Right-click is disabled on this image.");
+    });
+    overlay.addEventListener("mousedown", e => e.preventDefault());
+    overlay.addEventListener("dragstart", e => e.preventDefault());
+
+    img.parentNode.insertBefore(wrapper, img);
+    wrapper.appendChild(img);
+    wrapper.appendChild(overlay);
+  });
 
 });
