@@ -310,7 +310,7 @@ document.addEventListener("touchstart", function (e) {
     const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
     if (!imgEl) return;
 
-    if (e.touches && e.touches.length >= 2) {
+    if (e.touches && e.touches.length >= 3) {
       // ✅ Allow pinch zoom
       e.stopImmediatePropagation();
     } else {
