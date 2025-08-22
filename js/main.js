@@ -213,7 +213,7 @@ if (document.querySelector('.hero')) {
 }
 
 /**
- * Initialize mobile zoom
+ * Initialize mobile zoom (enhanced for all mobile displays)
  */
 function initMobileZoom() {
     const zoomControls = document.getElementById('mobile-zoom-controls');
@@ -235,8 +235,30 @@ function initMobileZoom() {
     if (zoomInBtn) zoomInBtn.addEventListener('click', () => zoomPage(1.1));
     if (zoomOutBtn) zoomOutBtn.addEventListener('click', () => zoomPage(0.9));
 
+    // Detect high-density mobile displays
+    const pixelRatio = window.devicePixelRatio || 1;
+    if (pixelRatio > 2) {
+        zoomControls.style.bottom = '25px';
+        zoomControls.style.right = '25px';
+        zoomInBtn.style.fontSize = '26px';
+        zoomOutBtn.style.fontSize = '26px';
+        zoomInBtn.style.padding = '20px 25px';
+        zoomOutBtn.style.padding = '20px 25px';
+    }
+
     // Hide zoom buttons on desktop
     if (window.innerWidth >= 768) {
         zoomControls.style.display = 'none';
+    } else {
+        zoomControls.style.display = 'flex';
     }
+
+    // Optional: keep buttons visible on orientation change
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) {
+            zoomControls.style.display = 'none';
+        } else {
+            zoomControls.style.display = 'flex';
+        }
+    });
 }
