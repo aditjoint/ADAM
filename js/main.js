@@ -1,14 +1,14 @@
 /**
  * ADIT Joint - Main JavaScript
  * Author: ADIT Joint
- * Version: 1.0
+ * Version: 1.1
  */
 
 document.addEventListener('DOMContentLoaded', function() {
   // Initialize the mobile menu
   initMobileMenu();
 
-  // Initialize tabs
+  // Initialize tabs (supports both systems)
   initTabs();
 
   // Initialize scroll animations
@@ -22,11 +22,14 @@ document.addEventListener('DOMContentLoaded', function() {
   if (header) {
     document.body.style.paddingTop = `${header.offsetHeight}px`;
   }
+
+  // Initialize mobile zoom after DOM loaded
+  initMobileZoom();
 });
 
-/**
- * Initialize mobile zoom after footer is loaded
- */
+/* -------------------------------
+  Mobile Zoom
+--------------------------------*/
 function initMobileZoom() {
   const zoomControls = document.getElementById('mobile-zoom-controls');
   if (!zoomControls) return;
@@ -56,7 +59,7 @@ function initMobileZoom() {
 }
 
 /* -------------------------------
-  Placeholder functions for site logic
+  Mobile Menu
 --------------------------------*/
 function initMobileMenu() {
   const toggleBtn = document.querySelector(".mobile-menu-toggle");
@@ -68,20 +71,44 @@ function initMobileMenu() {
   }
 }
 
+/* -------------------------------
+  Tabs (Supports both systems)
+--------------------------------*/
 function initTabs() {
-  const tabs = document.querySelectorAll("[data-tab]");
-  const contents = document.querySelectorAll("[data-tab-content]");
-  tabs.forEach(tab => {
+  // System 1: data-tab / data-tab-content
+  const tabs1 = document.querySelectorAll("[data-tab]");
+  const contents1 = document.querySelectorAll("[data-tab-content]");
+
+  tabs1.forEach(tab => {
     tab.addEventListener("click", () => {
-      contents.forEach(c => c.classList.remove("active"));
-      tabs.forEach(t => t.classList.remove("active"));
+      tabs1.forEach(t => t.classList.remove("active"));
+      contents1.forEach(c => c.classList.remove("active"));
+
       tab.classList.add("active");
       const target = document.querySelector(tab.dataset.tab);
       if (target) target.classList.add("active");
     });
   });
+
+  // System 2: .tab-btn / .tab-pane
+  const tabs2 = document.querySelectorAll(".tab-btn");
+  const panes2 = document.querySelectorAll(".tab-pane");
+
+  tabs2.forEach(btn => {
+    btn.addEventListener("click", () => {
+      tabs2.forEach(b => b.classList.remove("active"));
+      panes2.forEach(p => p.classList.remove("active"));
+
+      btn.classList.add("active");
+      const target = document.getElementById(btn.dataset.tab);
+      if (target) target.classList.add("active");
+    });
+  });
 }
 
+/* -------------------------------
+  Scroll Animations
+--------------------------------*/
 function initScrollAnimation() {
   const elements = document.querySelectorAll(".animate-on-scroll");
   const observer = new IntersectionObserver(entries => {
@@ -94,6 +121,9 @@ function initScrollAnimation() {
   elements.forEach(el => observer.observe(el));
 }
 
+/* -------------------------------
+  Service Card Hover Effects
+--------------------------------*/
 function initServiceCardEffects() {
   const cards = document.querySelectorAll(".service-cards .card");
   cards.forEach(card => {
@@ -106,25 +136,4 @@ function initServiceCardEffects() {
   });
 }
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const tabButtons = document.querySelectorAll(".tab-btn");
-  const tabPanes = document.querySelectorAll(".tab-pane");
-
-  tabButtons.forEach(btn => {
-    btn.addEventListener("click", function () {
-      // Remove active class from all buttons
-      tabButtons.forEach(b => b.classList.remove("active"));
-      // Add active class to clicked button
-      this.classList.add("active");
-
-      // Hide all tab panes
-      tabPanes.forEach(pane => pane.classList.remove("active"));
-      // Show the selected tab pane
-      const target = document.getElementById(this.dataset.tab);
-      if (target) target.classList.add("active");
-    });
-  });
-});
-</script>
 
