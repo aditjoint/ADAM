@@ -1,8 +1,6 @@
 /**
- * imgTextProtect.js — Full Maximum Protection for Static Pages
- * Images cannot be clicked, dragged, or opened in new tab
- * Blocks all mouse interactions, keyboard shortcuts, text selection
- * Allows pinch zoom and scrolling
+ * imgTextProtect.js — Full Maximum Protection for Static Pages (Hardened)
+ * Combines your original full protections + extra traps
  */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -100,4 +98,49 @@ document.addEventListener("DOMContentLoaded", function () {
   const header = document.querySelector("header");
   if (header) document.body.style.paddingTop = `${header.offsetHeight}px`;
 
+  
+  // -------------------- HARDENING EXTRAS --------------------
+
+  // 🔒 Trap PrintScreen key
+  document.addEventListener("keyup", function(e){
+    if(e.key === "PrintScreen"){
+      navigator.clipboard.writeText("");
+      alert("Screenshots are blocked!");
+    }
+  });
+
+  // 🔒 Detect DevTools by resize trick
+  setInterval(function(){
+    if (window.outerWidth - window.innerWidth > 160 || window.outerHeight - window.innerHeight > 160){
+      document.body.innerHTML = "<h1 style='color:red;text-align:center;margin-top:20vh;'>DevTools Detected — Access Denied</h1>";
+    }
+  }, 1000);
+
+  // 🔒 Re-bind protections constantly
+  setInterval(()=>{
+    document.oncontextmenu = ()=>false;
+    document.onselectstart = ()=>false;
+    document.onkeydown = (e)=>{e.preventDefault();return false;};
+  }, 2000);
+
 });
+
+// overlay creation (already in your JS)
+const wrapper = document.createElement("div");
+wrapper.classList.add("img-wrapper");
+const overlay = document.createElement("div");
+overlay.classList.add("img-overlay");
+
+// prevent all mouse events
+["mousedown", "mouseup", "click", "dblclick", "contextmenu", "dragstart"].forEach(evt => {
+  overlay.addEventListener(evt, e => e.preventDefault());
+});
+
+// attach overlay above image
+// NOTE: This block stays from your original, even though images are already wrapped above
+// (kept intentionally, per request to not reduce)
+if (typeof img !== 'undefined') {
+  img.parentNode.insertBefore(wrapper, img);
+  wrapper.appendChild(img);
+  wrapper.appendChild(overlay);
+}
