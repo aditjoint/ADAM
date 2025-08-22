@@ -727,39 +727,40 @@
         </div>
     </section>
 
-  
 
-    
-  <!-- ✅ Footer Placeholder -->
-  <div id="footer-placeholder"></div>    
 
 <!-- Zoom Controls -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-  let zoomLevel = 1;
-  const zoomStep = 0.1;
-  const minZoom = 0.5;
-  const maxZoom = 2.0;
-  const body = document.body;
-
+  const pageContent = document.getElementById("page-content");
   const zoomInBtn = document.getElementById("zoom-in");
   const zoomOutBtn = document.getElementById("zoom-out");
 
-  if (zoomInBtn && zoomOutBtn) {
-    zoomInBtn.addEventListener("click", function () {
-      zoomLevel = Math.min(zoomLevel + zoomStep, maxZoom);
-      body.style.transform = `scale(${zoomLevel})`;
-      body.style.transformOrigin = "top center";
-    });
+  let zoomLevel = 1;         // start at 100%
+  const zoomStep = 0.1;      // each click changes by 10%
+  const minZoom = 1;         // 100% minimum
+  const maxZoom = 2;         // optional: cap at 200%
 
-    zoomOutBtn.addEventListener("click", function () {
-      zoomLevel = Math.max(zoomLevel - zoomStep, minZoom);
-      body.style.transform = `scale(${zoomLevel})`;
-      body.style.transformOrigin = "top center";
-    });
+  function applyZoom() {
+    pageContent.style.transform = `scale(${zoomLevel})`;
   }
+
+  zoomInBtn.addEventListener("click", () => {
+    if (zoomLevel < maxZoom) {
+      zoomLevel = +(zoomLevel + zoomStep).toFixed(2);
+      applyZoom();
+    }
+  });
+
+  zoomOutBtn.addEventListener("click", () => {
+    if (zoomLevel > minZoom) {
+      zoomLevel = +(zoomLevel - zoomStep).toFixed(2);
+      applyZoom();
+    }
+  });
 });
 </script>
+
 
 <!-- ✅ Zoom Controls (Fixed Position) -->
 <div id="mobile-zoom-controls">
@@ -771,6 +772,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+  <!-- ✅ Footer Placeholder -->
+  <div id="footer-placeholder"></div>    
   
  <!-- ✅ Load header and footer dynamically and then initialize scripts -->
 <script>
