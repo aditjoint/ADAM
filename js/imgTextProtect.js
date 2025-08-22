@@ -1,6 +1,6 @@
 /**
  * imgTextProtect.js — Full Maximum Protection for Static Pages
- * Aggressive deterrence while preserving pinch zoom and input functionality
+ * Aggressive deterrence while allowing image double-click / Ctrl+Click to open
  */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -63,41 +63,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }, true); // capture phase
 
-  // 🔒 Disable double-click selection
-  document.addEventListener("dblclick", e => e.preventDefault(), true);
-
-  // 🔒 Mobile: Prevent long-press on images, allow pinch zoom
-  document.querySelectorAll("img").forEach(img => {
-    img.setAttribute("draggable", "false");
-    img.addEventListener("mousedown", e => e.preventDefault(), true);
-    img.addEventListener("dragstart", e => e.preventDefault(), true);
-    img.addEventListener("touchstart", e => {
-      if (e.touches.length === 1) e.preventDefault();
-    }, { passive: false });
-    img.addEventListener("touchend", e => {}, { passive: true });
-  });
-
-  // 🔒 Mobile & desktop: Block long-press / selection on all text
+  // 🔒 Disable double-click selection only on text
   document.querySelectorAll("p, h1, h2, h3, h4, h5, h6, span, div, li, td, th, pre, code").forEach(el => {
     el.style.userSelect = "none";
+    el.addEventListener("dblclick", e => e.preventDefault(), true);
     el.addEventListener("touchstart", e => { if(e.touches.length===1) e.preventDefault(); }, {passive:false});
   });
 
-  // 🖨️ Block printing
-  window.onbeforeprint = function () {
-    document.body.innerHTML = "<h1 style='color:red;text-align:center;margin-top:20vh;'>⚠️ Printing is disabled on this site.</h1>";
-    setTimeout(() => window.close(), 500);
-  };
-
-  // 🧱 Auto-padding for fixed headers (optional)
-  const header = document.querySelector("header");
-  if (header) document.body.style.paddingTop = `${header.offsetHeight}px`;
-
-  // 🖐️ Ensure pinch zoom works
-  document.documentElement.style.touchAction = "pan-x pan-y";
-
-  // 🔒 Overlay protection for images (blocks right-click, drag, and Ctrl)
+  // 🖐️ Mobile: Prevent long-press on images
   document.querySelectorAll("img").forEach(img => {
+    img.setAttribute("draggable", "false");
+
+    // Overlay wrapper for image protection
     const wrapper = document.createElement("div");
     wrapper.classList.add("img-wrapper");
     wrapper.style.position = "relative";
@@ -113,16 +90,39 @@ document.addEventListener("DOMContentLoaded", function () {
     overlay.style.background = "transparent";
     overlay.style.zIndex = "2";
 
+    // Only block right-click and drag on overlay
     overlay.addEventListener("contextmenu", e => {
       e.preventDefault();
       alert("Right-click is disabled on this image.");
     });
-    overlay.addEventListener("mousedown", e => e.preventDefault());
+    overlay.addEventListener("mousedown", e => {
+      if (e.button === 2) e.preventDefault(); // only right-click
+    });
     overlay.addEventListener("dragstart", e => e.preventDefault());
 
     img.parentNode.insertBefore(wrapper, img);
     wrapper.appendChild(img);
     wrapper.appendChild(overlay);
+
+    // Allow regular clicks (single/double click) to propagate to image
+    overlay.style.pointerEvents = "auto";
+    img.addEventListener("touchstart", e => {
+      if (e.touches.length === 1) e.preventDefault();
+    }, { passive: false });
+    img.addEventListener("touchend", e => {}, { passive: true });
   });
+
+  // 🖨️ Block printing
+  window.onbeforeprint = function () {
+    document.body.innerHTML = "<h1 style='color:red;text-align:center;margin-top:20vh;'>⚠️ Printing is disabled on this site.</h1>";
+    setTimeout(() => window.close(), 500);
+  };
+
+  // 🧱 Optional: Auto-padding for fixed headers
+  const header = document.querySelector("header");
+  if (header) document.body.style.paddingTop = `${header.offsetHeight}px`;
+
+  // 🖐️ Ensure pinch zoom works
+  document.documentElement.style.touchAction = "pan-x pan-y";
 
 });
