@@ -1,6 +1,5 @@
 /**
- * imgTextProtect.js — Full Maximum Protection for Static Pages (Hardened)
- * Combines original protections + hardened extras
+ * imgTextProtect.js — Full Maximum Protection for Static Pages (Hardened, Mobile Fixed)
  */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -72,7 +71,8 @@ document.addEventListener("DOMContentLoaded", function () {
     overlay.style.zIndex = "999999";
     overlay.style.cursor = "default";
 
-    ["click","mousedown","mouseup","dblclick","contextmenu","dragstart"].forEach(evt => {
+    // Block all clicks/taps
+    ["click","mousedown","mouseup","dblclick","contextmenu","dragstart","touchstart","touchend"].forEach(evt => {
       overlay.addEventListener(evt, e => {
         e.preventDefault();
         e.stopPropagation();
@@ -91,8 +91,16 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => window.close(), 500);
   };
 
-  // 🖐️ Ensure pinch zoom works
-  document.documentElement.style.touchAction = "manipulation";
+  // 🖐️ Allow pinch zoom (two fingers) but block single tap on images
+  document.documentElement.style.touchAction = "pan-x pan-y";
+  document.addEventListener("touchstart", function(e){
+    if (e.touches.length === 1 && e.target.closest("img, .img-wrapper, .img-overlay")) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+    // 2+ fingers → let browser handle pinch
+  }, true);
 
   // 🧱 DevTools detection
   setInterval(function(){
