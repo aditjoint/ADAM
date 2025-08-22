@@ -43,18 +43,65 @@ function initMobileZoom() {
     pageContent.style.transform = `scale(${currentScale})`;
   }
 
-  document.getElementById('zoom-in').addEventListener('click', () => zoomPage(1.1));
-  document.getElementById('zoom-out').addEventListener('click', () => zoomPage(0.9));
+  const zoomInBtn = document.getElementById('zoom-in');
+  const zoomOutBtn = document.getElementById('zoom-out');
+
+  if (zoomInBtn) zoomInBtn.addEventListener('click', () => zoomPage(1.1));
+  if (zoomOutBtn) zoomOutBtn.addEventListener('click', () => zoomPage(0.9));
 
   // Hide zoom buttons on desktop
-  if (window.innerWidth >= 768) zoomControls.style.display = 'none';
+  if (window.innerWidth >= 768) {
+    zoomControls.style.display = 'none';
+  }
 }
 
 /* -------------------------------
-  Other functions (mobile menu, tabs, scroll animation, etc.)
+  Placeholder functions for site logic
 --------------------------------*/
-function initMobileMenu() { /* existing code */ }
-function initTabs() { /* existing code */ }
-function initScrollAnimation() { /* existing code */ }
-function initServiceCardEffects() { /* existing code */ }
+function initMobileMenu() {
+  const toggleBtn = document.querySelector(".mobile-menu-toggle");
+  const menu = document.querySelector("nav ul");
+  if (toggleBtn && menu) {
+    toggleBtn.addEventListener("click", () => {
+      menu.classList.toggle("open");
+    });
+  }
+}
 
+function initTabs() {
+  const tabs = document.querySelectorAll("[data-tab]");
+  const contents = document.querySelectorAll("[data-tab-content]");
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      contents.forEach(c => c.classList.remove("active"));
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+      const target = document.querySelector(tab.dataset.tab);
+      if (target) target.classList.add("active");
+    });
+  });
+}
+
+function initScrollAnimation() {
+  const elements = document.querySelectorAll(".animate-on-scroll");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  });
+  elements.forEach(el => observer.observe(el));
+}
+
+function initServiceCardEffects() {
+  const cards = document.querySelectorAll(".service-cards .card");
+  cards.forEach(card => {
+    card.addEventListener("mouseenter", () => {
+      card.classList.add("hovered");
+    });
+    card.addEventListener("mouseleave", () => {
+      card.classList.remove("hovered");
+    });
+  });
+}
