@@ -1852,6 +1852,10 @@ body::before {
 }
 
 
+
+/* --------------------------------------------
+Mobile zoom control fixed at bottom right
+-------------------------------------------- */
 #mobile-zoom-controls {
   position: floating;
   right: 20px;
@@ -1862,4 +1866,45 @@ body::before {
 #mobile-zoom-controls button {
   display: block;
   margin: 5px 0;
+}
+
+
+
+/* --------------------------------------------
+Mobile zoom control fixed at bottom right
+-------------------------------------------- */
+#mobile-zoom-controls {
+  position: floating;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
+}
+
+#mobile-zoom-controls button {
+  padding: 12px 18px;
+  font-size: 20px;
+  border-radius: 8px;
+  border: none;
+  background: #007BFF;
+  color: #fff;
+  cursor: pointer;
+}
+
+#mobile-zoom-controls button:nth-child(2) {
+  background: #555;
+}
+
+/* Hide on desktop wider than 1200px (optional) */
+@media (min-width: 1200px) {
+  #mobile-zoom-controls {
+    display: none;
+  }
+}
+/* Page content default */
+#page-content {
+  transition: transform 0.3s ease; /* smooth zoom effect */
+  transform-origin: top center;
 }
