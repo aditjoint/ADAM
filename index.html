@@ -1,89 +1,784 @@
-/**
- * imgTextProtect.js — Enhanced Version
- * Keeps all original protections + improved key blocking
- */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>ADAM Consult - Your Trusted Partner in Engineering, Infrastructure, and Digital Growth</title>
+  <meta name="description" content="We provide integrated solutions across Static Machinery, Equipment, Energy Distribution and Metering, IT and Non-IT Facility Infrastructure, Digital Transformation (Telecom, IT, and Industrial Automation), Strategic Consulting, and Product Marketing. With a focus on innovation and operational excellence, we help organizations modernize their infrastructure, optimize performance, and achieve sustainable growth across diverse sectors." />
 
-document.addEventListener("DOMContentLoaded", function () {
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+  <link rel="stylesheet" href="/css/protect.css" /> <!-- 🔒 Protection CSS -->
 
-  // 🔒 Block right-click globally
-  document.addEventListener("contextmenu", function (e) {
-    e.preventDefault();
-    if (e.target.tagName === "IMG" || e.target.closest("img")) {
-      alert("Right-click is disabled on images.");
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- 🔒 Inline Protection Fallback -->
+  <style>
+    html, body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
     }
-  });
-
-  // 🔒 Disable dragging globally
-  document.querySelectorAll("*").forEach(el => {
-    el.setAttribute("draggable", "false");
-  });
-  document.addEventListener("dragstart", e => e.preventDefault());
-
-  // 🔒 Prevent copy/cut/paste globally except form inputs
-  ["copy", "cut", "paste"].forEach(event => {
-    document.addEventListener(event, function (e) {
-      const tag = e.target.tagName.toLowerCase();
-      if (!["input","textarea"].includes(tag)) {
-        e.preventDefault();
-        alert("Copying is disabled on this site.");
-      }
-    });
-  });
-
-  // 🔒 Block keyboard shortcuts for DevTools / Save / Copy
-  document.addEventListener("keydown", function (e) {
-    const key = e.key.toLowerCase();
-    const keyCode = e.keyCode || e.which;
-
-    const blockedKeys = ['c','u','i','j','a','x','v','s','p'];
-
-    // Enhanced: Capture phase to ensure first listener triggers
-    if (
-      keyCode === 123 || // F12
-      ((e.ctrlKey || e.metaKey) && blockedKeys.includes(key)) || // Ctrl/Cmd+Key
-      (e.ctrlKey && e.shiftKey && ['c','i','j','k','s','p'].includes(key)) || // Ctrl+Shift+Key
-      (e.altKey && keyCode === 115) // Alt+F4 (Windows)
-    ) {
-      e.preventDefault();
-      alert("This keyboard shortcut is disabled.");
-      return false;
+    input, textarea, select, label, a, button {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
     }
+  </style>
+</head>
 
-    // Optional: debug pressed keys
-    // console.log(`Key pressed: ${key}, code: ${keyCode}, ctrl: ${e.ctrlKey}, shift: ${e.shiftKey}`);
-  }, true); // true = capture phase
+<body>
+  <!-- ✅ Header Placeholder -->
+  <div id="header-placeholder"></div>
+  
 
-  // 🔒 Disable double-click selection
-  document.addEventListener("dblclick", e => e.preventDefault());
+  
+  <!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      
+      <!-- Hero Text -->
+      <div class="hero-text">
+        <span class="hero-subtitle">Focussed Expertise. Adaptive Solutions.</span>
+        <h1 class="hero-title">ADAM Consult</h1>
+        <h2 class="hero-subtitle-large">
+          Your Trusted Partner in Engineering, Infrastructure, and Digital Growth
+        </h2>
+        
+        <p class="hero-description">
+          Our integrated ERP, IoT, and digital transformation solutions play a pivotal role in accelerating sustainability across data centers, industrial plants, logistics hubs, and other high-impact facilities. 
+          By enabling real-time monitoring, predictive maintenance, and intelligent automation, we help organizations optimize resource utilization, reduce carbon emissions, and ensure regulatory compliance. 
+          From energy-efficient infrastructure to lifecycle traceability, our platform empowers enterprises to drive measurable ESG outcomes while maintaining operational resilience and scalability.
+        </p>
 
-  // 🔒 Mobile: Prevent long-press on images, allow pinch zoom
-  document.querySelectorAll("img").forEach(img => {
-    img.setAttribute("draggable", "false");
-    img.addEventListener("mousedown", e => e.preventDefault());
-    img.addEventListener("dragstart", e => e.preventDefault());
-    img.addEventListener("touchstart", e => {
-      if (e.touches.length === 1) e.preventDefault();
-    }, { passive: false });
-    img.addEventListener("touchend", e => {}, { passive: true });
+        <p>We align every solution with your business objectives — because your success fuels ours.</p>
+        <p>🤝 Partner with us to power your progress.</p>
+
+        <!-- Hero Buttons -->
+        <div class="hero-buttons">
+          <a href="about.html" class="btn btn-primary">Get Started</a>
+          <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+        </div>
+
+        <!-- Certifications / Badges -->
+        <div class="certification-badges">
+          <span class="badge">A Trusted Partner</span>
+        </div>
+      </div>
+      
+      <!-- Hero Services -->
+      <div class="hero-services">
+        
+        <!-- Service Card -->
+        <div class="service-card">
+          <i class="fa-solid fa-database"></i>
+          <h3>Infrastructure Solutions</h3>
+          <p>
+            Infrastructure build and operations: Comprehensive planning, design, and management of industrial and commercial facilities, ensuring efficiency, compliance, and operational excellence.
+          </p>
+          <a href="../services/technology-infrastructure.html" class="btn btn-secondary">Select</a>
+        </div>
+        
+        <!-- Service Card -->
+        <div class="service-card">
+          <i class="fa-solid fa-industry"></i>
+          <h3>Industrial Intelligence</h3>
+          <p>
+            Sustainability, audits & energy optimization: In-depth facility audits, asset lifecycle analysis, and implementation of sustainable practices to reduce costs, improve safety, and align with ESG goals.
+          </p>
+          <a href="../services/sustainability-solutions.html" class="btn btn-secondary">Select</a>
+        </div>
+        
+        <!-- Service Card -->
+        <div class="service-card">
+          <i class="fa-solid fa-network-wired"></i>
+          <h3>Digital Enterprise</h3>
+          <p>
+            IT, ITES & digital transformation: Driving enterprise growth by modernizing IT, adopting cloud, securing systems, and digitizing processes tailored for industrial and service sectors.
+          </p>
+          <a href="../services/digital-transformation.html" class="btn btn-secondary">Select</a>
+        </div>
+        
+        <!-- Service Card -->
+        <div class="service-card">
+          <i class="fa-solid fa-gears"></i>
+          <h3>Smart Automation</h3>
+          <p>
+            IoT, mechatronics & control systems: Intelligent automation using IoT, embedded systems, robotics, and smart controls for operational agility and predictive performance.
+          </p>
+          <a href="../services/process-automation.html" class="btn btn-secondary">Select</a>
+        </div>
+      
+      </div>
+    </div>
+  </div>
+</section>
+
+    
+    
+    <!-- Expertise Section -->
+    <section class="expertise">
+        <div class="container">
+            <div class="section-header">
+                <h2>Strategic Solutions for the Modern Enterprise</h2>
+                <p>ADAM Consult offers a diverse range of services designed to optimize performance and drive innovation across various sectors.</p>
+            </div>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <div class="card-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Project Management & Consulting</h3>
+                    <p>Providing strategic guidance and oversight to ensure successful project execution.</p>
+                    <ul class="feature-list">
+                        <li>Strategic project assessment</li>
+                        <li>Resource optimization</li>
+                        <li>Risk management</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <div class="card-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Engineering Solutions</h3>
+                    <p>Delivering customized engineering solutions that enhance efficiency and productivity.</p>
+                    <ul class="feature-list">
+                        <li>Process optimization</li>
+                        <li>Technical implementation</li>
+                        <li>Quality assurance</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <div class="card-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Process Audits</h3>
+                    <p>Conducting thorough evaluations to identify areas for improvement and implement effective solutions.</p>
+                    <ul class="feature-list">
+                        <li>Comprehensive assessment</li>
+                        <li>Compliance verification</li>
+                        <li>Performance enhancement</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <div class="card-icon">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3>Product Marketing</h3>
+                    <p>Developing targeted marketing strategies to maximize product reach and impact.</p>
+                    <ul class="feature-list">
+                        <li>Strategic positioning</li>
+                        <li>Omni-channel marketing strategy</li>
+                        <li>Enterprise go-to-market & B2B proposal support</li>
+
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <div class="card-icon">
+                        <i class="fas fa-digital-tachograph"></i>
+                    </div>
+                    <h3>Cloud & Digital Transformation</h3>
+                    <p>Enterprise-grade modernization through integrated cloud migration and digital technology adoption.</p>
+                    </p>
+                    <ul class="feature-list">
+                        <li>Technology assessment & tailored hybrid cloud integration</li>
+                        <li>Digital strategy and implementation support</li>
+                        <li>Security compliance and AI-based cloud cost control</li>
+                    </ul>
+                </div>
+                <div class="expertise-card">
+                    <div class="card-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI-Powered Solutions</h3>
+                    <p>Leveraging artificial intelligence to enhance decision-making and operational efficiency.</p>
+                    <ul class="feature-list">
+                        <li>AI implementation</li>
+                        <li>Process automation</li>
+                        <li>Predictive analytics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+
+<section class="esg-cards">
+  <div class="card">
+    <div class="icon" aria-hidden="true">🌍</div>
+    <h3>Environmental</h3>
+    <p>Energy efficiency, renewable adoption, waste & water management</p>
+  </div>
+
+  <div class="card">
+    <div class="icon" aria-hidden="true">👥</div>
+    <h3>Social</h3>
+    <p>Employee wellbeing, diversity & inclusion, community engagement</p>
+  </div>
+
+  <div class="card">
+    <div class="icon" aria-hidden="true">⚖️</div>
+    <h3>Governance</h3>
+    <p>Ethical practices, transparency, compliance & reporting</p>
+  </div>
+
+  <div class="card">
+    <div class="icon" aria-hidden="true">✅</div>
+    <h3>Sustainability</h3>
+    <p>Long-term value creation through ESG-driven strategies</p>
+  </div>
+</section>
+
+<style>
+  .esg-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    padding: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .esg-cards .card {
+    border: 1px solid #e6e6e6;
+    border-radius: 16px;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .esg-cards .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+  }
+  .esg-cards .icon {
+    font-size: 28px;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .esg-cards h3 {
+    margin: 0 0 8px;
+    font-size: 1.1rem;
+    color: #0f3c2f; /* deep green */
+  }
+  .esg-cards p {
+    margin: 0;
+    color: #4a5568;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  /* Optional subtle gradient accent */
+  .esg-cards .card:nth-child(1) { border-top: 4px solid #2e7d32; }
+  .esg-cards .card:nth-child(2) { border-top: 4px solid #1976d2; }
+  .esg-cards .card:nth-child(3) { border-top: 4px solid #6a1b9a; }
+  .esg-cards .card:nth-child(4) { border-top: 4px solid #00897b; }
+
+  /* Mobile spacing tweak */
+  @media (max-width: 480px) {
+    .esg-cards { padding: 12px; gap: 12px; }
+    .esg-cards .card { padding: 16px; }
+  }
+</style>
+
+      
+<!-- Section 3: Smart City ESG Caption -->
+<div style="max-width: 960px; margin: 0 auto; padding: 0 20px; font-family: Arial, sans-serif;">
+  <section style="padding: 40px 0; background-color: #f4f8fb; text-align: center;">
+    <div style="max-width: 900px; margin: 0 auto;">
+      <h2 style="font-size: 18px; color: #2c3e50; margin-bottom: 20px; font-weight: normal; line-height: 1.5;">
+        <strong>
+          Software solutions for smart infrastructure that enable the development of sustainable, connected, 
+          and resilient communities — powered by IoT, clean energy, and ESG-driven innovation.
+        </strong>
+      </h2>
+    </div>
+  </section>
+</div>
+  <!-- Section 4: Industry 5.0 Image -->
+  <section style="text-align: center; padding: 20px 0;">
+    <a href="../images/Industry.5.0.png" target="_blank">
+      <img src="../images/Industry.5.0.png" alt="Industry 5.0" style="max-width: 100%; height: auto; border-radius: 8px;">
+    </a>
+  </section>
+</div>
+
+
+  
+<!-- BIzSuite ERP Solution -->
+<section>
+<div class="news-article" style="max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.6;">
+  <h3 style="font-size: 1.8rem; margin-bottom: 15px; color: #0a2a5c;">BizSuite-ERP Solutions</h3>
+  <p>A simple, affordable ERP built for growing businesses — covering finance, inventory, compliance, and more with a modular, budget-friendly approach.</p>
+  <p>Industry-specific solutions for Education, Learning, Healthcare, Manufacturing, and other verticals with modular fitment from the below modules:</p>
+  <div style="text-align: center; margin: 20px 0;">
+    <img src="../images/erp1.png" alt="BizSuite ERP" style="max-width: 100%; height: auto; border-radius: 8px;">
+  </div>
+  <p>A highly scalable, modular ERP solution engineered to streamline and automate core business functions across Sales, Buying, CRM, Accounts, Projects, Support, Payroll, HRMS, Quality Management, Production Planning, Maintenance, Inventory, Assets, Utilities, Subcontracting, Bulk Transactions, Payment Gateways, EDI, Telephony, Communication, Portals, Social, Contacts, Printing, Geo-tagging, Email, Workflow, Analytics, Automation, Website, and Core ERP. Built with seamless integration, customization, and performance at its core, this platform empowers businesses with real-time visibility, intelligent workflows, and centralized control across all departments.</p>
+</div>
+</section>
+  
+  <!--BizSuite ERP Image -->
+  <style>
+  .news-article {
+    max-width: 800px;
+    margin: 40px auto; /* centers the card horizontally */
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    text-align: center;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+
+  .news-article h3 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 16px;
+  }
+
+  .news-article p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 16px;
+  }
+
+  .news-article img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+</style>
+
+  <div class="news-article">
+    <h3>Green Initiatives</h3>
+    <p>In partnership with key institutions, Develop Energy Management Solutions to lead its push into sustainable innovation and green consulting services.</p>
+    <img src="../images/dc.png" alt="Card 14">
+    <div>
+      <h3>Revolutionizing Data Center Facilities with Smart PUE Optimization & Resilient Energy Storage</h3>
+      <p><strong>ADAM Consult</strong> Modernize data center infrastructure by integrating next-generation technologies to enhance energy efficiency, reliability, and environmental sustainability.</p>
+      <img src="../images/pue.png" alt="Card 16">
+      <p><strong>Intelligent PUE Optimization</strong><br>
+      Leveraging AI-powered environmental controls, dynamic workload balancing, and predictive cooling systems, drive down Power Usage Effectiveness (PUE) to near-ideal levels. Through advanced DCIM (Data Center Infrastructure Management) platforms and IoT-enabled sensors, ensure real-time energy monitoring and adaptive optimization—reducing energy waste and carbon footprint across hyperscale and edge facilities.</p>
+
+      <p><strong>Advanced Energy Storage & Power Resilience</strong><br>
+      In collaboration with leading battery technology innovators, we guide/ facilitate the deployment of high-efficiency, low-latency Energy Storage Systems (ESS) including Lithium Titanate (LTO). These systems offer seamless backup, frequency regulation, and peak shaving, ensuring uptime even during grid instability. Our modular, fire-safe storage designs support rapid scalability and compliance with Tier III+ and Tier IV data center standards.</p>
+
+      <p><strong>ESG-Driven Design & Compliance</strong><br>
+      With a focus on green certifications like LEED, Energy Star, and ISO 50001, our solutions not only reduce OPEX but also align with clients’ environmental, social, and governance (ESG) commitments—positioning them as leaders in sustainable digital infrastructure.</p>
+
+      <p>Whether designing new-age colocation hubs or upgrading legacy sites, <strong>ADAM Consult</strong> delivers future-ready, resilient, and efficient data center strategies tailored for a decarbonized, digitally accelerated world.</p>
+    </div>
+  </div>
+    
+  <div class="news-article">
+    <!--Smart Waste Management -->
+    <h3> Smart Waste Management & Circular Resource Optimization</h3>
+    <p><strong>Strategic advisory across the waste value chain</strong> — transforming waste into value through data intelligence, circularity, and ESG-driven planning.</p>
+    <ul>
+      <li>AI-Enhanced Segregation & Intelligent Tracking: Implementation of AI/IoT-based systems for real-time waste profiling and automation at source across institutions and industry setups.</li>
+      <li>Circular Waste-to-Value Systems: Consulting for reuse pathways, recovery models, and integration with recycling/MRF partners to enable closed-loop operations.</li>
+      <li>ESG Metrics & Zero-Waste Roadmaps: Compliance with SWM Rules, EPR, and sustainability disclosures with audit-ready traceability and CSR alignment.</li>
+    </ul>
+  </div>
+
+  
+<!-- LTO BESS for Sustainability and ESG Goals -->
+<div style="max-width: 960px; margin: 0 auto; padding: 0 20px; font-family: Arial, sans-serif;">
+  <section>
+    <!-- Section 1: Header & Description -->
+    <section style="padding: 40px 0; background: #f9f9f9; text-align: center;">
+      <h2 style="font-size: 28px; color: #2c3e50; margin-bottom: 16px;">
+        LTO BESS for Sustainability and ESG Goals
+      </h2>
+      <p style="font-size: 16px; color: #555; margin-bottom: 24px;">
+        <strong>ADIT JOINT, India</strong> &bull; <strong>ENDLESS ENERGY GROUP, Australia</strong> bring you breakthrough energy storage solutions.
+      </p>
+      <p style="font-size: 16px; color: #555; line-height: 1.6; max-width: 800px; margin: 0 auto 32px;">
+        <strong>Zenaji's Lithium Titanate Oxide (LTO) Battery Energy Storage Systems (BESS)</strong> are leading the way in clean, safe, and sustainable energy storage. They offer a next-generation approach for organizations aiming to achieve sustainability goals and comply with stringent ESG frameworks. These systems provide enhanced safety, ultra-fast charging, and long lifecycle benefits that support renewable integration, grid stability, and carbon reduction.
+      </p>
+      <p style="font-size: 15px; color: #444; max-width: 800px; margin: 0 auto;">
+        IEC 62619 – Battery Safety Certification &bull;
+        IEC 62040 – UPS Safety Standards &bull;
+        CE EMC Compliance – Electromagnetic Compatibility &bull;
+        Conformance to Battery Best Practice Guide &bull;
+        UL 1973 – Stationary & Transport Energy Storage Safety &bull;
+        UL 9540 (Pending) – ESS Certification &bull;
+        CEC Accreditation – Approved for Australian Solar Projects
+      </p>
+
+      <a href="../currentaffairs/news.html" class="card">
+      <div class="icon" aria-hidden="true">✅</div>
+      <h3> More details & Zenaji LTO Advanatage</h3>
+      <p>Long-term value creation through your ESG-driven strategies</p>
+      </a>
+      
+    </section>
+  </section>
+</div>
+
+
+  
+<!-- Services Overview Section -->
+
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Consulting & Infrastructure Services</h2>
+            <p>Comprehensive solutions at the intersection of information technology, industrial automation, and energy efficiency to drive innovation and sustainable growth.</p>
+        </div>
+        <div class="service-tabs">
+            <div class="tab-navigation">
+                <button class="tab-btn active" data-tab="tab1">Strategic Consulting</button>
+                <button class="tab-btn" data-tab="tab2">Technology Infrastructure</button>
+                <button class="tab-btn" data-tab="tab3">Digital Transformation</button>
+                <button class="tab-btn" data-tab="tab4">Sustainability Solutions</button>
+                <button class="tab-btn" data-tab="tab5">Process Automation</button>
+                <button class="tab-btn" data-tab="tab6">Project and Contract Management</button>
+            </div>
+
+<div class="tab-content">      
+<!-- Tab 1 -->
+ <div class="tab-pane active" id="tab1">
+    <h3>Industry-specific ERP solutions leveraging BizSuite products</h3>
+    <p>Transforming Industries with Strategic Foresight and Deep Market Knowledge.</p>
+    <div class="service-highlights">
+
+        <div class="service-highlight-item">
+            <div class="icon">
+                <i class="fas fa-layer-group"></i> <!-- More relevant icon -->
+            </div>
+            <h4>Sector-Specific Insight. Strategic Industry Impact.</h4>
+            <p style="font-weight: bold; font-size: 20px; color: #A80000;">Sectors:</p>
+            <ul class="service-features">
+                <li><i class="fas fa-check-circle"></i> Energy and Utilities</li>
+                <li><i class="fas fa-check-circle"></i> Telecom & Media</li>
+                <li><i class="fas fa-check-circle"></i> Tech & Software</li>
+                <li><i class="fas fa-check-circle"></i> Education & Edtech</li>
+                <li><i class="fas fa-check-circle"></i> Real Estate & Infra</li>
+                <li><i class="fas fa-check-circle"></i> Auto and Mobility</li>
+                <li><i class="fas fa-check-circle"></i> Transport & Airlines</li>
+                <li><i class="fas fa-check-circle"></i> NBFCs</li>
+                <li><i class="fas fa-check-circle"></i> Manufacturing</li>
+                <li><i class="fas fa-check-circle"></i> Retail & E-commerce</li>
+                <li><i class="fas fa-check-circle"></i> Foods & Beverages</li>
+                <li><i class="fas fa-check-circle"></i> Healthcare</li>
+                <li><i class="fas fa-check-circle"></i> Logistics & Supply Chain</li>
+                <li><i class="fas fa-check-circle"></i> Digital-Transforming Sectors</li>
+             </ul>
+            </div>
+
+        <div class="service-highlight-item">
+            <div class="icon">
+                <i class="fas fa-cogs"></i> <!-- More relevant icon -->
+            </div>
+            <h4>End-to-End Functional Expertise. Cross-Disciplinary Solutions.</h4>
+            
+            <p style="font-weight: bold; font-size: 20px; color: #D35400;">Functions:</p>
+            <ul class="service-features">
+                <li><i class="fas fa-check-circle"></i> Strategy and Org Development</li>
+                <li><i class="fas fa-check-circle"></i> Innovation & Emerging Tech</li>
+                <li><i class="fas fa-check-circle"></i> Data & BI</li>
+                <li><i class="fas fa-check-circle"></i> HR & Talent</li>
+                <li><i class="fas fa-check-circle"></i> IT & Automation</li>
+                <li><i class="fas fa-check-circle"></i> CX & Service Design</li>
+                <li><i class="fas fa-check-circle"></i> Finance & Control</li>
+                <li><i class="fas fa-check-circle"></i> Product & Innovation</li>
+                <li><i class="fas fa-check-circle"></i> Audit & Compliance</li>
+                <li><i class="fas fa-check-circle"></i> Sales & Marketing</li>
+                <li><i class="fas fa-check-circle"></i> Procurement & OPS</li>
+                <li><i class="fas fa-check-circle"></i> PMO & Delivery</li>
+            </ul>
+        </div>
+   </div>
+    <div class="service-cta">
+         <a href="services/technology-infrastructure.html" class="btn btn-secondary">Explore Services</a>
+     
+    </div>
+</div>
+
+<!-- Tab 2 -->
+<div class="tab-pane" id="tab2">
+    <h3>Technology Infrastructure</h3>
+    <p>Comprehensive infrastructure consulting and solutions for robust, scalable technology environments.</p>
+    <div class="service-highlights">
+
+        <div class="service-highlight-item">
+            <div class="icon">
+                <i class="fas fa-industry"></i>
+            </div>
+            <h4>Data Centers Consultancy</h4>
+            <p>End-to-end planning, operations, and lifecycle by ADAM Consultancy.</p>
+            <ul class="service-features">
+                <li><i class="fas fa-check-circle"></i> Site Selection & Feasibility Analysis</li>
+                <li><i class="fas fa-check-circle"></i> Datacenter Design & Engineering</li>
+                <li><i class="fas fa-check-circle"></i> Project Management & Build Support</li>
+                <li><i class="fas fa-check-circle"></i> Smart Infrastructure</li>
+            </ul>
+        </div>
+
+        <div class="service-highlight-item">
+            <div class="icon">
+                <i class="fas fa-network-wired"></i>
+            </div>
+            <h4>Enterprise IT Infrastructure</h4>
+            <p>Build and optimize cost-optimized IT infrastructure for performance, scalability, and availability.</p>
+            <ul class="service-features">
+                <li><i class="fas fa-check-circle"></i> Network & Systems Architecture</li>
+                <li><i class="fas fa-check-circle"></i> Server, Storage & Virtualization</li>
+                <li><i class="fas fa-check-circle"></i> Cloud & Hybrid Deployments</li>
+                <li><i class="fas fa-check-circle"></i> Maintenance & Monitoring</li>
+             </ul>
+        </div>
+
+    </div>
+    <div class="service-cta">
+          <a href="services/contracts.html" class="btn btn-secondary">Explore Services</a>
+
+    </div>
+</div>
+
+
+     <!-- Tab 3 -->
+<div class="tab-pane" id="tab3">
+    <h3>Digital Transformation</h3>
+    <p>Advanced digital solutions to transform your business operations and technology landscape.</p>
+    <div class="service-highlights">
+
+        <div class="service-highlight-item">
+            <div class="icon"><i class="fas fa-sitemap"></i></div>
+            <h4>Enterprise IT Strategy</h4>
+            <p>Strategic planning and implementation of comprehensive IT solutions for your organization.</p>
+            <ul class="service-features">
+                <li><i class="fas fa-check-circle"></i> IT Infrastructure Assessment & Planning</li>
+                <li><i class="fas fa-check-circle"></i> Hybrid Cloud Strategy & Migration</li>
+                <li><i class="fas fa-check-circle"></i> Digital Workspace Solutions</li>
+                <li><i class="fas fa-check-circle"></i> Enterprise Application Integration</li>
+            </ul>
+        </div>
+
+        <div class="service-highlight-item">
+            <div class="icon"><i class="fas fa-code"></i></div>
+            <h4>Web Application Engineering</h4>
+            <p>Custom web applications that streamline business processes and enhance operational efficiency.</p>
+            <ul class="service-features">
+                <li><i class="fas fa-check-circle"></i> Full-stack web development</li>
+                <li><i class="fas fa-check-circle"></i> API-first architecture</li>
+                <li><i class="fas fa-check-circle"></i> UX/UI driven workflows</li>
+                <li><i class="fas fa-check-circle"></i> Maintenance & scaling support</li>
+             </ul>
+        </div>
+  </div>
+    <div class="service-cta">
+          <a href="services/contracts.html" class="btn btn-secondary">Explore Services</a>
+
+    </div>
+</div>
+
+                
+<!-- Tab 4 -->
+<div class="tab-pane" id="tab4">
+    <h3>Sustainability Solutions</h3>
+    <p>Achieve compliance, efficiency, and ESG milestones through our comprehensive sustainability solutions.</p>
+    <div class="service-highlights">
+
+        <div class="service-highlight-item">
+            <div class="icon"><i class="fas fa-industry"></i></div>
+            <h4>Industrial Facility Audits</h4>
+            <p>Comprehensive assessment of industrial facilities to identify efficiency and compliance opportunities.</p>
+            <ul class="service-features">
+                <li><i class="fas fa-check-circle"></i> Detailed industrial process analysis</li>
+                <li><i class="fas fa-check-circle"></i> Regulatory compliance verification</li>
+                <li><i class="fas fa-check-circle"></i> Resource utilization assessment</li>
+                <li><i class="fas fa-check-circle"></i> Improvement recommendation reports</li>
+            </ul>
+        </div>
+
+        <div class="service-highlight-item">
+            <div class="icon"><i class="fas fa-bolt"></i></div>
+            <h4>Energy Management & Metering</h4>
+            <p>Maximize control and visibility over energy consumption through real-time data and automation.</p>
+            <ul class="service-features">
+                <li><i class="fas fa-check-circle"></i> IoT-enabled smart metering</li>
+                <li><i class="fas fa-check-circle"></i> Real-time data visualization</li>
+                <li><i class="fas fa-check-circle"></i> Predictive energy analytics</li>
+                <li><i class="fas fa-check-circle"></i> Integration with EMS/BMS platforms</li>
+             </ul>
+        </div>
+  </div>
+    <div class="service-cta">
+          <a href="services/contracts.html" class="btn btn-secondary">Explore Services</a>
+     
+    </div>
+</div>
+   
+
+               <!-- Tab 5 -->
+<div class="tab-pane" id="tab5">
+    <h3>Process Automation</h3>
+    <p>Streamline operations, reduce errors, and boost productivity through intelligent automation of your business processes.</p>
+    <div class="service-highlights">
+        
+        <!-- Workflow Automation -->
+        <div class="service-highlight-item">
+            <div class="icon">
+                <i class="fas fa-project-diagram"></i> <!-- Updated icon -->
+            </div>
+            <h4>Workflow Automation</h4>
+            <p>Transform manual processes into efficient, error-free automated workflows that save time and resources.</p>
+            <ul class="service-features">
+                <li><i class="fas fa-check-circle"></i> Business process mapping and automation</li>
+                <li><i class="fas fa-check-circle"></i> Custom workflow solutions</li>
+                <li><i class="fas fa-check-circle"></i> Approval chain automation</li>
+                <li><i class="fas fa-check-circle"></i> Integration with existing enterprise systems</li>
+            </ul>
+        </div>
+
+        <!-- Intelligent Automation -->
+        <div class="service-highlight-item">
+            <div class="icon">
+                <i class="fas fa-robot"></i> <!-- Distinct icon -->
+            </div>
+            <h4>Intelligent Automation</h4>
+            <p>Enhance your automation with AI and machine learning for adaptive, intelligent process optimization.</p>
+            <ul class="service-features">
+                <li><i class="fas fa-check-circle"></i> Predictive analytics processes</li>
+                <li><i class="fas fa-check-circle"></i> Smart document processing models</li>
+                <li><i class="fas fa-check-circle"></i> Recommendation and suggestion engines</li>
+                <li><i class="fas fa-check-circle"></i> ML-powered decision-support systems</li>
+            </ul>
+        </div>
+    </div>
+    <div class="service-cta">
+         <a href="services/contracts.html" class="btn btn-secondary">Explore Services</a>
+     
+    </div>
+</div>
+
+<!-- Tab 6 -->
+<div class="tab-pane" id="tab6">
+    <h3>Project & Contract-Based Technical Services</h3>
+    <p>Scalable, sector-agnostic technical services tailored for time-bound IT initiatives, digital programs, and complex deployments.</p>
+    <div class="service-highlights">
+
+        <!-- Flexible IT Project Execution -->
+        <div class="service-highlight-item">
+            <div class="icon">
+                <i class="fas fa-project-diagram"></i>
+            </div>
+            <h4>Flexible IT Project Execution</h4>
+            <p>End-to-end delivery and technical capacity building for project-based, milestone-driven IT services across domains.</p>
+            <ul class="service-features">
+                <li><i class="fas fa-check-circle"></i> PMO & Deployment Management</li>
+                <li><i class="fas fa-check-circle"></i> Technical Pre-Sales & Proposal Support</li>
+                <li><i class="fas fa-check-circle"></i> Solution & IT Architecture Design</li>
+                <li><i class="fas fa-check-circle"></i> SaaS / Platform Engineering</li>
+                <li><i class="fas fa-check-circle"></i> On-Demand Technical Advisory</li>
+            </ul>
+        </div>
+
+        <!-- Contract-Based Specialist Engagement -->
+        <div class="service-highlight-item">
+            <div class="icon">
+                <i class="fas fa-user-cog"></i> <!-- Expert advisory icon -->
+            </div>
+            <h4>Contract-Based Specialist Engagement</h4>
+            <p>Deploy skilled consultants, architects, and engineers under short or long-term contracts for your IT, automation, or platform transformation projects.</p>
+            <ul class="service-features">
+                <li><i class="fas fa-check-circle"></i> Role-based SME Assignment</li>
+                <li><i class="fas fa-check-circle"></i> Contract Staffing for IT & Infra Projects</li>
+                <li><i class="fas fa-check-circle"></i> Project Health Checks & Risk Audits</li>
+                <li><i class="fas fa-check-circle"></i> Skill Augmentation for Agile Teams</li>
+                <li><i class="fas fa-check-circle"></i> Time & Material or Fixed-Model Contracts</li>
+            </ul>
+        </div>
+    </div>
+    <div class="service-cta">
+         <a href="services/contracts.html" class="btn btn-secondary">Explore Services</a>
+    </div>
+</div>
+        </div> <!-- End of service-tabs -->
+    </div> <!-- End of container -->
+    </div>
+
+  
+
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Infrastructure?</h2>
+                <p>Contact us today to discuss how our technology and engineering solutions can help your organization achieve efficiency, sustainability, and innovation.</p>
+                <a href="../contact.html" class="btn btn-primary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DO NOT TOUCH BELOW CODES -->
+  
+ <!-- ✅ Footer Placeholder -->
+  <div id="footer-placeholder"></div>    
+ <!-- ✅ Load header and footer dynamically and then initialize scripts -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Load Header
+    fetch("/header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header-placeholder").innerHTML = html;
+
+        // ✅ Wait for DOM injection, then bind mobile menu
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.getElementById("mobile-menu");
+
+        if (toggle && nav) {
+          toggle.addEventListener("click", function () {
+            nav.classList.toggle("active");
+          });
+        }
+
+        // ✅ Optional: re-run dropdown initialization if needed
+        if (typeof initDropdowns === "function") initDropdowns();
+      });
+
+    // Load Footer
+    fetch("/footer.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("footer-placeholder").innerHTML = html;
+
+        // ✅ Load protection script after footer
+        const protect = document.createElement("script");
+        protect.src = "/js/imgTextProtect.js";
+        document.body.appendChild(protect);
+      });
+
+    // ✅ Load core scripts after all above
+    const main = document.createElement("script");
+    main.src = "/js/main.js";
+    main.onload = () => {
+      if (typeof initTabs === "function") initTabs();
+      if (typeof initHeroAnimation === "function") initHeroAnimation();
+      // Add other initializers if needed
+    };
+    document.body.appendChild(main);
+
+    const dropdown = document.createElement("script");
+    dropdown.src = "/js/dropdown.js";
+    document.body.appendChild(dropdown);
   });
-
-  // 🔒 Mobile & desktop: Block long-press / selection on all text
-  document.querySelectorAll("p, h1, h2, h3, h4, h5, h6, span, div, li, td, th, pre, code").forEach(el => {
-    el.style.userSelect = "none";
-    el.addEventListener("touchstart", e => { if(e.touches.length===1) e.preventDefault(); }, {passive:false});
-  });
-
-  // 🖨️ Block printing
-  window.onbeforeprint = function () {
-    document.body.innerHTML = "<h1 style='color:red;text-align:center;margin-top:20vh;'>⚠️ Printing is disabled on this site.</h1>";
-    setTimeout(() => window.close(), 500);
-  };
-
-  // 🧱 Auto-padding for fixed headers (optional)
-  const header = document.querySelector("header");
-  if (header) document.body.style.paddingTop = `${header.offsetHeight}px`;
-
-  // 🖐️ Ensure pinch zoom works
-  document.documentElement.style.touchAction = "pan-x pan-y";
-
-});
+</script>
+  <!-- Global Scripts -->
+  <script src="/js/main.js"></script>
+  <script src="/js/dropdown.js"></script>
+</body>
+</html>
