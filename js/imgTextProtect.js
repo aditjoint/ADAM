@@ -46,13 +46,17 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
   });
 
-  // 🔒 Mobile: Prevent long-press on images
+  // 🔒 Mobile: Prevent long-press on images (but allow pinch zoom)
   document.querySelectorAll("img").forEach(img => {
     img.setAttribute("draggable", "false");
     img.addEventListener("mousedown", e => e.preventDefault());
     img.addEventListener("dragstart", e => e.preventDefault());
     img.addEventListener("touchstart", e => {
-      e.preventDefault();
+      if (e.touches.length === 1) {
+        // Block single-finger long press
+        e.preventDefault();
+      }
+      // Two-finger (pinch zoom) is allowed
     }, { passive: false });
   });
 
@@ -68,4 +72,3 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.style.paddingTop = `${header.offsetHeight}px`;
   }
 });
-
