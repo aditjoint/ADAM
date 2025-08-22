@@ -695,71 +695,52 @@ Deployment of intelligent automation using IoT, embedded systems, robotics, and 
   </div>
 </section>
 
-<!-- ✅ Zoom Controls (Fixed Position) -->
-<div id="mobile-zoom-controls">
-  <button id="zoom-in">+</button>
-  <button id="zoom-out">−</button>
-</div>
-
-<!-- ✅ Footer Placeholder -->
-<div id="footer-placeholder"></div>
-
+    
+  <!-- ✅ Footer Placeholder -->
+  <div id="footer-placeholder"></div>    
+ <!-- ✅ Load header and footer dynamically and then initialize scripts -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // Zoom logic
-    let zoomLevel = 1;
-    const zoomStep = 0.1;
-    const minZoom = 0.5;
-    const maxZoom = 2.0;
-    const body = document.body;
-
-    const zoomInBtn = document.getElementById("zoom-in");
-    const zoomOutBtn = document.getElementById("zoom-out");
-
-    if (zoomInBtn && zoomOutBtn) {
-      zoomInBtn.addEventListener("click", function () {
-        zoomLevel = Math.min(zoomLevel + zoomStep, maxZoom);
-        body.style.transform = `scale(${zoomLevel})`;
-        body.style.transformOrigin = "top center";
-      });
-
-      zoomOutBtn.addEventListener("click", function () {
-        zoomLevel = Math.max(zoomLevel - zoomStep, minZoom);
-        body.style.transform = `scale(${zoomLevel})`;
-        body.style.transformOrigin = "top center";
-      });
-    }
-
-    // ✅ Load Header
+    // Load Header
     fetch("/header.html")
-      .then((res) => res.text())
-      .then((html) => {
+      .then(res => res.text())
+      .then(html => {
         document.getElementById("header-placeholder").innerHTML = html;
 
+        // ✅ Wait for DOM injection, then bind mobile menu
         const toggle = document.getElementById("menu-toggle");
         const nav = document.getElementById("mobile-menu");
+
         if (toggle && nav) {
-          toggle.addEventListener("click", () => {
+          toggle.addEventListener("click", function () {
             nav.classList.toggle("active");
           });
         }
+
+        // ✅ Optional: re-run dropdown initialization if needed
         if (typeof initDropdowns === "function") initDropdowns();
       });
 
-    // ✅ Load Footer
+    // Load Footer
     fetch("/footer.html")
-      .then((res) => res.text())
-      .then((html) => {
+      .then(res => res.text())
+      .then(html => {
         document.getElementById("footer-placeholder").innerHTML = html;
 
+        // ✅ Load protection script after footer
         const protect = document.createElement("script");
         protect.src = "/js/imgTextProtect.js";
         document.body.appendChild(protect);
       });
 
-    // ✅ Load core scripts
+    // ✅ Load core scripts after all above
     const main = document.createElement("script");
     main.src = "/js/main.js";
+    main.onload = () => {
+      if (typeof initTabs === "function") initTabs();
+      if (typeof initHeroAnimation === "function") initHeroAnimation();
+      // Add other initializers if needed
+    };
     document.body.appendChild(main);
 
     const dropdown = document.createElement("script");
@@ -767,5 +748,8 @@ Deployment of intelligent automation using IoT, embedded systems, robotics, and 
     document.body.appendChild(dropdown);
   });
 </script>
+  <!-- Global Scripts -->
+  <script src="/js/main.js"></script>
+  <script src="/js/dropdown.js"></script>
 </body>
 </html>
