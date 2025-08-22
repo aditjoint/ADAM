@@ -213,7 +213,7 @@ if (document.querySelector('.hero')) {
 }
 
 /**
- * Initialize mobile zoom (NEW)
+ * Initialize mobile zoom
  */
 function initMobileZoom() {
     const zoomControls = document.getElementById('mobile-zoom-controls');
@@ -240,6 +240,3 @@ function initMobileZoom() {
         zoomControls.style.display = 'none';
     }
 }
-
-
-
