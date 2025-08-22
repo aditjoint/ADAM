@@ -1,6 +1,6 @@
 /**
- * imgTextProtect.js — Full Maximum Protection for Static Pages (Hardened)
- * Combines your original full protections + extra traps
+ * imgTextProtect.js — Full Maximum Protection (Clean + Hardened)
+ * Duplicates removed, all protections retained
  */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -8,7 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // 🔒 Block right-click globally
   document.addEventListener("contextmenu", function (e) {
     e.preventDefault();
+    e.stopPropagation();
     alert("Right-click is disabled on this site.");
+    return false;
   }, true);
 
   // 🔒 Disable dragging globally
@@ -39,9 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("This keyboard shortcut is disabled.");
       return false;
     }
-
-    if ((e.ctrlKey || e.metaKey) && key === 'a') { e.preventDefault(); alert("Select All is disabled."); }
-    if ((e.ctrlKey || e.metaKey) && key === 'p') { e.preventDefault(); alert("Printing is disabled."); }
   }, true);
 
   // 🔒 Disable double-click selection only on text
@@ -98,7 +97,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const header = document.querySelector("header");
   if (header) document.body.style.paddingTop = `${header.offsetHeight}px`;
 
-  
   // -------------------- HARDENING EXTRAS --------------------
 
   // 🔒 Trap PrintScreen key
@@ -116,47 +114,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }, 1000);
 
-  // 🔒 Re-bind protections constantly
-  setInterval(()=>{
-    document.oncontextmenu = ()=>false;
-    document.onselectstart = ()=>false;
-    document.onkeydown = (e)=>{e.preventDefault();return false;};
-  }, 2000);
-
 });
-
-// overlay creation (already in your JS)
-const wrapper = document.createElement("div");
-wrapper.classList.add("img-wrapper");
-const overlay = document.createElement("div");
-overlay.classList.add("img-overlay");
-
-// prevent all mouse events
-["mousedown", "mouseup", "click", "dblclick", "contextmenu", "dragstart"].forEach(evt => {
-  overlay.addEventListener(evt, e => e.preventDefault());
-});
-
-// attach overlay above image safely
-if (typeof img !== 'undefined' && img && img.parentNode) {
-  img.parentNode.insertBefore(wrapper, img);
-  wrapper.appendChild(img);
-  wrapper.appendChild(overlay);
-}
 
 /* ============================================================
-   >>> APPENDED REINFORCEMENTS (do not remove; nothing above changed)
+   >>> FINAL REINFORCEMENTS
    ============================================================ */
 
-// 🛡️ Stronger right/middle-click suppression (keeps your original, adds redundancy)
-document.oncontextmenu = function(){ return false; };
-window.addEventListener("contextmenu", function(e){
+// Strongest right-click suppression
+document.oncontextmenu = () => false;
+window.addEventListener("contextmenu", function (e) {
   e.preventDefault();
   e.stopPropagation();
   return false;
 }, true);
 
-// Block middle-click (auxclick) to stop “open in new tab”
-window.addEventListener("auxclick", function(e){
+// Block middle-click (auxclick)
+window.addEventListener("auxclick", function (e) {
   if (e.button === 1 || e.button === 2) {
     e.preventDefault();
     e.stopPropagation();
@@ -164,9 +137,20 @@ window.addEventListener("auxclick", function(e){
   }
 }, true);
 
+// 🚫 Block images from opening directly when clicked/dragged
+["click","mousedown","mouseup"].forEach(evt => {
+  document.addEventListener(evt, function (e) {
+    const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
+    if (imgEl) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  }, true);
+});
+
 // ✅ Preserve normal browsing (left-clicks on links/buttons/inputs still work)
-document.addEventListener("click", function(e){
-  // Allow default for interactive elements
+document.addEventListener("click", function (e) {
   const tag = e.target.closest("a, button, input, textarea, select, label, summary, details");
   if (tag) return; // let it through
 }, true);
@@ -174,14 +158,12 @@ document.addEventListener("click", function(e){
 // 📱 Allow pinch-zoom while blocking single-finger touches on images
 (function enablePinchZoomButBlockSingleFinger(){
   try { document.documentElement.style.touchAction = "manipulation"; } catch(_) {}
-
   document.addEventListener("touchstart", function(e){
     const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
     if (!imgEl) return;
 
     if (e.touches && e.touches.length >= 2) {
       e.stopImmediatePropagation(); // allow pinch
-      return;
     } else if (e.touches && e.touches.length === 1) {
       e.preventDefault();
       e.stopImmediatePropagation();
@@ -195,7 +177,7 @@ document.addEventListener("click", function(e){
       if (!imgEl) return;
 
       if (e.touches && e.touches.length >= 2) {
-        e.stopImmediatePropagation(); // allow pinch gesture
+        e.stopImmediatePropagation(); // allow pinch
       } else {
         e.preventDefault();
         e.stopImmediatePropagation();
@@ -207,72 +189,8 @@ document.addEventListener("click", function(e){
 
 // 🧱 Extra: periodic hardening to reapply global locks
 setInterval(function(){
-  document.oncontextmenu = function(){ return false; };
+  document.oncontextmenu = () => false;
 }, 1500);
 
 // 🧯 Safety: don’t block scroll/wheel unintentionally
-window.addEventListener("wheel", function(){ /* no-op: keep scrolling */ }, {passive:true});
-
-
-/* ============================================================
-   >>> FINAL RIGHT-CLICK / MOUSE / TOUCH PROTECTION LAYER
-   ============================================================ */
-
-// Strongest right-click trap (works on all elements)
-window.addEventListener("contextmenu", function (e) {
-  e.preventDefault();
-  e.stopPropagation();
-  alert("Right-click is disabled on this site.");
-  return false;
-}, true);
-
-// Block middle-click (scroll wheel button & auxclick)
-window.addEventListener("auxclick", function (e) {
-  if (e.button === 1 || e.button === 2) {
-    e.preventDefault();
-    e.stopPropagation();
-    return false;
-  }
-}, true);
-
-// Preserve left-click for interactive elements
-document.addEventListener("click", function (e) {
-  const tag = e.target.closest("a, button, input, textarea, select, label, summary, details");
-  if (tag) return; // let normal clicks through
-}, true);
-
-// Keep scrolling functional
-window.addEventListener("wheel", function () {
-  // no-op: allow scroll
-}, { passive: true });
-
-// Allow pinch zoom but block single-finger long press on images
-document.addEventListener("touchstart", function (e) {
-  const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
-  if (!imgEl) return;
-
-  if (e.touches && e.touches.length >= 2) {
-    e.stopImmediatePropagation(); // allow pinch zoom
-  } else if (e.touches && e.touches.length === 1) {
-    e.preventDefault();
-    e.stopImmediatePropagation();
-    return false;
-  }
-}, true);
-
-// 🚫 Block images from opening directly when clicked/dragged
-["click","mousedown","mouseup"].forEach(evt=>{
-  document.addEventListener(evt, function (e) {
-    const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
-    if (imgEl) {
-      e.preventDefault();
-      e.stopPropagation();
-      return false;
-    }
-  }, true);
-});
-
-// Extra: periodic re-binding to harden protections
-setInterval(function () {
-  document.oncontextmenu = () => false;
-}, 1500);
+window.addEventListener("wheel", function(){}, {passive:true});
