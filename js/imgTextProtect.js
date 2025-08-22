@@ -1,28 +1,27 @@
 /**
  * imgTextProtect.js
- * Blocks: right-click, image drag/save, copy, keyboard shortcuts, printing.
+ * Blocks: right-click, drag/save, copy, keyboard shortcuts, printing.
  * Safe for: scroll, form inputs, links, navigation.
  * Mobile: Allows pinch zoom, blocks long-press on images.
  */
 
 document.addEventListener("DOMContentLoaded", function () {
 
-  // 🔒 Block right-click on images
+  // 🔒 Block right-click globally
   document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
     if (e.target.tagName === "IMG" || e.target.closest("img")) {
-      e.preventDefault();
       alert("Right-click is disabled on images.");
     }
   });
 
-  // 🔒 Disable drag globally
-  document.addEventListener("dragstart", function (e) {
-    if (e.target.tagName === "IMG" || e.target.closest("img")) {
-      e.preventDefault();
-    }
+  // 🔒 Disable dragging globally
+  document.querySelectorAll("*").forEach(el => {
+    el.setAttribute("draggable", "false");
   });
+  document.addEventListener("dragstart", e => e.preventDefault());
 
-  // 🔒 Prevent copy/cut/paste globally, allow form inputs
+  // 🔒 Prevent copy/cut/paste globally except form inputs
   ["copy", "cut", "paste"].forEach(event => {
     document.addEventListener(event, function (e) {
       const tag = e.target.tagName.toLowerCase();
@@ -33,15 +32,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // 🔒 Block DevTools / Save / Copy keyboard shortcuts
+  // 🔒 Block keyboard shortcuts for DevTools / Save / Copy
   document.addEventListener("keydown", function (e) {
     const key = e.key.toLowerCase();
     const keyCode = e.keyCode || e.which;
 
+    const blockedKeys = ['c','u','i','j','a','x','v','s','p'];
+
     if (
       keyCode === 123 || // F12
-      ((e.ctrlKey || e.metaKey) && ['c','u','i','j','a','x','v','s','p'].includes(key)) || // Ctrl/Cmd+Key
-      (e.ctrlKey && e.shiftKey && ['c','i','j','k'].includes(key)) // Ctrl+Shift+Key
+      ((e.ctrlKey || e.metaKey) && blockedKeys.includes(key)) || // Ctrl/Cmd+Key
+      (e.ctrlKey && e.shiftKey && ['c','i','j','k','s','p'].includes(key)) || // Ctrl+Shift+Key
+      (e.altKey && keyCode === 115) // Alt+F4 (Windows)
     ) {
       e.preventDefault();
       alert("This keyboard shortcut is disabled.");
@@ -50,23 +52,23 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // 🔒 Disable double-click selection
-  document.addEventListener("dblclick", function (e) {
-    e.preventDefault();
-  });
+  document.addEventListener("dblclick", e => e.preventDefault());
 
   // 🔒 Mobile: Prevent long-press on images, allow pinch zoom
   document.querySelectorAll("img").forEach(img => {
     img.setAttribute("draggable", "false");
-
     img.addEventListener("mousedown", e => e.preventDefault());
     img.addEventListener("dragstart", e => e.preventDefault());
-
     img.addEventListener("touchstart", e => {
-      if (e.touches.length === 1) e.preventDefault(); // block single-touch long press
+      if (e.touches.length === 1) e.preventDefault();
     }, { passive: false });
-
-    // optional: touchend safe
     img.addEventListener("touchend", e => {}, { passive: true });
+  });
+
+  // 🔒 Mobile & desktop: Block long-press / selection on all text
+  document.querySelectorAll("p, h1, h2, h3, h4, h5, h6, span, div, li, td, th, pre, code").forEach(el => {
+    el.style.userSelect = "none";
+    el.addEventListener("touchstart", e => { if(e.touches.length===1) e.preventDefault(); }, {passive:false});
   });
 
   // 🖨️ Block printing
