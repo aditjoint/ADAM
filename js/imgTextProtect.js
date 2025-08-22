@@ -1,5 +1,5 @@
 /**
- * imgTextProtect.js — Full Maximum Protection for Static Pages (Hardened, Mobile Fixed)
+ * imgTextProtect.js — Full Maximum Protection (Left-Click on Images Disabled)
  */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }, true);
 
-  // 🔒 Disable double-click selection only on text
+  // 🔒 Disable double-click selection on text
   document.querySelectorAll("p, h1, h2, h3, h4, h5, h6, span, div, li, td, th, pre, code").forEach(el => {
     el.style.userSelect = "none";
     el.addEventListener("dblclick", e => e.preventDefault(), true);
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // 🔒 Absolute Image Protection
   document.querySelectorAll("img").forEach(img => {
     img.setAttribute("draggable", "false");
-    img.style.pointerEvents = "none"; // disable browser native actions
+    img.style.pointerEvents = "none";
     img.style.userSelect = "none";
 
     const wrapper = document.createElement("div");
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
     overlay.style.zIndex = "999999";
     overlay.style.cursor = "default";
 
-    // Block all clicks/taps
+    // Block all interactions
     ["click","mousedown","mouseup","dblclick","contextmenu","dragstart","touchstart","touchend"].forEach(evt => {
       overlay.addEventListener(evt, e => {
         e.preventDefault();
@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => window.close(), 500);
   };
 
-  // 🖐️ Allow pinch zoom (two fingers) but block single tap on images
+  // 🖐️ Allow pinch zoom (two fingers only)
   document.documentElement.style.touchAction = "pan-x pan-y";
   document.addEventListener("touchstart", function(e){
     if (e.touches.length === 1 && e.target.closest("img, .img-wrapper, .img-overlay")) {
@@ -99,7 +99,6 @@ document.addEventListener("DOMContentLoaded", function () {
       e.stopPropagation();
       return false;
     }
-    // 2+ fingers → let browser handle pinch
   }, true);
 
   // 🧱 DevTools detection
@@ -140,15 +139,15 @@ window.addEventListener("auxclick", function(e){
   }
 }, true);
 
-// ✅ Allow left-click on interactive elements only
+// ✅ Allow normal links, BUT block links on/around images
 document.addEventListener("click", function(e){
-  const tag = e.target.closest("a, button, input, textarea, select, label, summary, details");
-  if (tag) return; // let it through
-  if (e.target.closest("img, .img-wrapper, .img-overlay")) {
+  // If inside image wrapper/overlay → block
+  if (e.target.closest("img, .img-wrapper, .img-overlay, a[href$='.jpg'], a[href$='.png'], a[href$='.jpeg'], a[href$='.gif']")) {
     e.preventDefault();
     e.stopPropagation();
     return false;
   }
+  // Otherwise allow left-click (buttons, forms, normal links)
 }, true);
 
 // 🧱 Periodic re-application of locks
@@ -156,5 +155,5 @@ setInterval(function(){
   document.oncontextmenu = function(){ return false; };
 }, 1500);
 
-// 🧯 Safety: don’t block scroll
+// 🧯 Keep scroll working
 window.addEventListener("wheel", function(){}, {passive:true});
