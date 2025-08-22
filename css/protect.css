@@ -57,12 +57,15 @@ img.protected-img {
 }
 
 /* ✅ Optional overlay wrapper to block save-as and drag */
+/* overlay blocks all mouse events */
 .img-wrapper {
   position: relative;
   display: inline-block;
 }
 .img-wrapper img {
-  display: block;
+  pointer-events: none; /* block clicks on the image itself */
+  user-select: none;
+  -webkit-user-drag: none;
 }
 .img-overlay {
   position: absolute;
@@ -71,5 +74,6 @@ img.protected-img {
   width: 100%;
   height: 100%;
   background: transparent;
-  z-index: 2;
+  z-index: 9999;
+  cursor: default;
 }
