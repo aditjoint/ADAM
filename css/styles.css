@@ -1873,21 +1873,33 @@ Mobile zoom control at Footer
     right: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     z-index: 9999;
 }
 
 #mobile-zoom-controls button {
-    padding: 10px 15px;
-    font-size: 16px;
-    border-radius: 8px;
+    padding: 14px 18px;
+    font-size: 20px;
+    border-radius: 10px;
     border: none;
     background: #007BFF;
     color: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: transform 0.2s, background 0.2s;
 }
 
+#mobile-zoom-controls button:hover {
+    transform: scale(1.1);
+    background: #0056b3;
+}
+
+/* Slightly different color for Zoom Out */
 #mobile-zoom-controls button:nth-child(2) {
     background: #555;
+}
+
+#mobile-zoom-controls button:nth-child(2):hover {
+    background: #333;
 }
 
 /* Hide on desktop */
@@ -1897,6 +1909,12 @@ Mobile zoom control at Footer
     }
 }
 
-
-
-
+/* Make buttons bigger for high pixel ratio devices */
+@media (max-width: 768px) {
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        #mobile-zoom-controls button {
+            padding: 18px 22px;
+            font-size: 24px;
+        }
+    }
+}
