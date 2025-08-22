@@ -2,6 +2,7 @@
  * imgTextProtect.js
  * Blocks: right-click, image drag/save, copy, keyboard shortcuts, printing.
  * Safe for: scroll, form inputs, links, navigation.
+ * Mobile: Allows pinch zoom, blocks long-press on images.
  */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -46,18 +47,22 @@ document.addEventListener("DOMContentLoaded", function () {
     e.preventDefault();
   });
 
-  // 🔒 Mobile: Prevent long-press on images (but allow pinch zoom)
+  // 🔒 Mobile: Prevent long-press on images, allow pinch-zoom
   document.querySelectorAll("img").forEach(img => {
     img.setAttribute("draggable", "false");
     img.addEventListener("mousedown", e => e.preventDefault());
     img.addEventListener("dragstart", e => e.preventDefault());
+
     img.addEventListener("touchstart", e => {
       if (e.touches.length === 1) {
-        // Block single-finger long press
+        // Single-finger touch -> block long press
         e.preventDefault();
       }
-      // Two-finger (pinch zoom) is allowed
+      // Multi-touch (pinch zoom) is allowed
     }, { passive: false });
+
+    // Optional: prevent long-press menu on iOS
+    img.addEventListener("touchend", e => {}, { passive: true });
   });
 
   // 🖨️ Prevent printing
@@ -71,4 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (header) {
     document.body.style.paddingTop = `${header.offsetHeight}px`;
   }
+
+  // 🖐️ Ensure pinch zoom works
+  document.documentElement.style.touchAction = "pan-x pan-y";
 });
