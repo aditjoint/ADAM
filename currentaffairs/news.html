@@ -9,7 +9,7 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="/css/styles.css" />
   <link rel="stylesheet" href="/css/responsive.css" />
-  <link rel="stylesheet" href="/css/protect.css" /> <!-- 🔒 Protection CSS -->
+
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -320,11 +320,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(html => {
             document.getElementById("footer-placeholder").innerHTML = html;
 
-            // Load protection script after footer
-            const protect = document.createElement("script");
-            protect.src = "/js/imgTextProtect.js";
-            document.body.appendChild(protect);
-
+       
             // Initialize mobile zoom if footer contains zoom controls
             if (typeof initMobileZoom === "function") initMobileZoom();
         });
