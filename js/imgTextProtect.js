@@ -273,3 +273,30 @@ document.addEventListener("touchstart", function (e) {
 setInterval(function () {
   document.oncontextmenu = () => false;
 }, 1500);
+// 🚫 Block images from opening directly when clicked/dragged
+document.addEventListener("click", function (e) {
+  const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
+  if (imgEl) {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+  }
+}, true);
+
+document.addEventListener("mousedown", function (e) {
+  const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
+  if (imgEl) {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+  }
+}, true);
+
+document.addEventListener("mouseup", function (e) {
+  const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
+  if (imgEl) {
+    e.preventDefault();
+    e.stopPropagation();
+    return false;
+  }
+}, true);
