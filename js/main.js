@@ -1,7 +1,7 @@
 /**
  * ADIT Joint - Main JavaScript
  * Author: ADIT Joint
- * Version: 1.1
+ * Version: 1.0
  */
 
 // Execute when the DOM is fully loaded
@@ -18,11 +18,52 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize service card hover effects
     initServiceCardEffects();
 
-    // Push the body content down by the actual header height
+      // Push the body content down by the actual header height
     const header = document.querySelector("header");
     if (header) {
         const headerHeight = header.offsetHeight;
         document.body.style.paddingTop = `${headerHeight}px`;
+    }
+});
+
+/**
+ * Initialize the mobile menu
+ */
+function initMobileMenu() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+    if (mobileMenuToggle && mainNav) {
+        // Toggle the menu when the hamburger icon is clicked
+        mobileMenuToggle.addEventListener('click', function () {
+            mainNav.classList.toggle('active');
+
+            // Toggle hamburger icon
+            const icon = this.querySelector('i');
+            if (mainNav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close menu on clicking outside
+        document.addEventListener('click', function (event) {
+            const isInsideNav = mainNav.contains(event.target);
+            const isToggle = mobileMenuToggle.contains(event.target);
+            const isMenuOpen = mainNav.classList.contains('active');
+
+            if (!isInsideNav && !isToggle && isMenuOpen) {
+                mainNav.classList.remove('active');
+
+                const icon = mobileMenuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
     }
 
     // Dropdown toggle logic for mobile
