@@ -1863,7 +1863,6 @@ body::before {
 
 
 
-
 /* --------------------------------------------
 Mobile zoom control at Footer
 -------------------------------------------- */
@@ -1886,6 +1885,7 @@ Mobile zoom control at Footer
     color: #fff;
     box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     transition: transform 0.2s, background 0.2s;
+    cursor: pointer;
 }
 
 #mobile-zoom-controls button:hover {
@@ -1902,19 +1902,17 @@ Mobile zoom control at Footer
     background: #333;
 }
 
-/* Hide on desktop */
+/* Hide zoom controls on desktop */
 @media (min-width: 768px) {
     #mobile-zoom-controls {
         display: none !important;
     }
 }
 
-/* Make buttons bigger for high pixel ratio devices */
-@media (max-width: 768px) {
-    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-        #mobile-zoom-controls button {
-            padding: 18px 22px;
-            font-size: 24px;
-        }
+/* Bigger buttons for high pixel density screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    #mobile-zoom-controls button {
+        padding: 18px 22px;
+        font-size: 24px;
     }
 }
