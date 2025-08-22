@@ -295,7 +295,7 @@ document.addEventListener("touchstart", function (e) {
   if (!imgEl) return;
 
   if (e.touches.length >= 2) {
-    // ✅ Allow pinch zoom
+    // ✅ Allow pinch zoom (2+ fingers)
     e.stopImmediatePropagation();
   } else {
     // 🚫 Block single-finger tap/long press
@@ -310,7 +310,7 @@ document.addEventListener("touchstart", function (e) {
     const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
     if (!imgEl) return;
 
-    if (e.touches && e.touches.length >= 3) {
+    if (e.touches && e.touches.length >= 2) {
       // ✅ Allow pinch zoom
       e.stopImmediatePropagation();
     } else {
@@ -321,3 +321,6 @@ document.addEventListener("touchstart", function (e) {
     }
   }, true);
 });
+
+
+
