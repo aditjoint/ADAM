@@ -273,30 +273,51 @@ document.addEventListener("touchstart", function (e) {
 setInterval(function () {
   document.oncontextmenu = () => false;
 }, 1500);
-// 🚫 Block images from opening directly when clicked/dragged
-document.addEventListener("click", function (e) {
+/* ============================================================
+   >>> FINAL HARDENED IMAGE / TOUCH PROTECTION
+   ============================================================ */
+
+// 🚫 Fully block images from opening or being clicked
+["click","mousedown","mouseup","dblclick","auxclick"].forEach(evt => {
+  document.addEventListener(evt, function(e){
+    const imgEl = e.target.closest("img, .img-wrapper, .img-overlay, a[href$='.jpg'], a[href$='.png'], a[href$='.jpeg'], a[href$='.gif']");
+    if (imgEl) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      return false;
+    }
+  }, true);
+});
+
+// 📱 Mobile touch handling
+document.addEventListener("touchstart", function (e) {
   const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
-  if (imgEl) {
+  if (!imgEl) return;
+
+  if (e.touches.length >= 2) {
+    // ✅ Allow pinch zoom
+    e.stopImmediatePropagation();
+  } else {
+    // 🚫 Block single-finger tap/long press
     e.preventDefault();
-    e.stopPropagation();
+    e.stopImmediatePropagation();
     return false;
   }
 }, true);
 
-document.addEventListener("mousedown", function (e) {
-  const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
-  if (imgEl) {
-    e.preventDefault();
-    e.stopPropagation();
-    return false;
-  }
-}, true);
+["touchmove","touchend","touchcancel"].forEach(evt=>{
+  document.addEventListener(evt, function(e){
+    const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
+    if (!imgEl) return;
 
-document.addEventListener("mouseup", function (e) {
-  const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
-  if (imgEl) {
-    e.preventDefault();
-    e.stopPropagation();
-    return false;
-  }
-}, true);
+    if (e.touches && e.touches.length >= 2) {
+      // ✅ Allow pinch zoom
+      e.stopImmediatePropagation();
+    } else {
+      // 🚫 Block single-finger drag/hold
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      return false;
+    }
+  }, true);
+});
