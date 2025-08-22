@@ -743,49 +743,55 @@ Deployment of intelligent automation using IoT, embedded systems, robotics, and 
   
 
     <!-- Call to Action Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Transform Your Infrastructure?</h2>
-                <p>Contact us today to discuss how our technology and engineering solutions can help your organization achieve efficiency, sustainability, and innovation.</p>
-                <a href="../contact.html" class="btn btn-primary">Get In Touch</a>
-            </div>
-        </div>
-    </section>
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <h2>Ready to Transform Your Infrastructure?</h2>
+      <p>
+        Contact us today to discuss how our technology and engineering
+        solutions can help your organization achieve efficiency,
+        sustainability, and innovation.
+      </p>
+      <a href="../contact.html" class="btn btn-primary">Get In Touch</a>
+    </div>
+  </div>
+</section>
 
+<!-- ✅ Zoom Controls (Fixed Position) -->
+<div id="mobile-zoom-controls">
+  <button id="zoom-in">+</button>
+  <button id="zoom-out">−</button>
+</div>
 
+<!-- ✅ Footer Placeholder -->
+<div id="footer-placeholder"></div>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  let zoomLevel = 1;          // Current zoom
-  const zoomStep = 0.1;       // Increment/decrement per click
-  const minZoom = 0.5;        // Minimum zoom
-  const maxZoom = 2.0;        // Maximum zoom
-  const body = document.body;
+  document.addEventListener("DOMContentLoaded", function () {
+    // Zoom logic
+    let zoomLevel = 1;
+    const zoomStep = 0.1;
+    const minZoom = 0.5;
+    const maxZoom = 2.0;
+    const body = document.body;
 
-  const zoomInBtn = document.getElementById("zoom-in");
-  const zoomOutBtn = document.getElementById("zoom-out");
+    const zoomInBtn = document.getElementById("zoom-in");
+    const zoomOutBtn = document.getElementById("zoom-out");
 
-  zoomInBtn.addEventListener("click", function() {
-    zoomLevel = Math.min(zoomLevel + zoomStep, maxZoom);
-    body.style.transform = `scale(${zoomLevel})`;
-    body.style.transformOrigin = "top center";
-  });
+    if (zoomInBtn && zoomOutBtn) {
+      zoomInBtn.addEventListener("click", function () {
+        zoomLevel = Math.min(zoomLevel + zoomStep, maxZoom);
+        body.style.transform = `scale(${zoomLevel})`;
+        body.style.transformOrigin = "top center";
+      });
 
-  zoomOutBtn.addEventListener("click", function() {
-    zoomLevel = Math.max(zoomLevel - zoomStep, minZoom);
-    body.style.transform = `scale(${zoomLevel})`;
-    body.style.transformOrigin = "top center";
-  });
-});
-</script>
+      zoomOutBtn.addEventListener("click", function () {
+        zoomLevel = Math.max(zoomLevel - zoomStep, minZoom);
+        body.style.transform = `scale(${zoomLevel})`;
+        body.style.transformOrigin = "top center";
+      });
+    }
 
-  </div> 
-  
-
-    
-  <!-- ✅ Footer Placeholder -->
-  <div id="footer-placeholder"></div>    
  <!-- ✅ Load header and footer dynamically and then initialize scripts -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -836,11 +842,5 @@ document.addEventListener("DOMContentLoaded", function() {
     document.body.appendChild(dropdown);
   });
 </script>
-  <!-- Global Scripts -->
-  <script src="/js/main.js"></script>
-  <script src="/js/dropdown.js"></script>
-  </div>
-</body>
-</html>
 </body>
 </html>
