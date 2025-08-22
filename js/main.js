@@ -25,50 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.paddingTop = `${headerHeight}px`;
     }
 
-    // Initialize mobile zoom
-    initMobileZoom();
-});
-
-/**
- * Initialize the mobile menu
- */
-function initMobileMenu() {
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const mainNav = document.querySelector('.main-nav');
-    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-
-    if (mobileMenuToggle && mainNav) {
-        // Toggle the menu when the hamburger icon is clicked
-        mobileMenuToggle.addEventListener('click', function () {
-            mainNav.classList.toggle('active');
-
-            // Toggle hamburger icon
-            const icon = this.querySelector('i');
-            if (mainNav.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-
-        // Close menu on clicking outside
-        document.addEventListener('click', function (event) {
-            const isInsideNav = mainNav.contains(event.target);
-            const isToggle = mobileMenuToggle.contains(event.target);
-            const isMenuOpen = mainNav.classList.contains('active');
-
-            if (!isInsideNav && !isToggle && isMenuOpen) {
-                mainNav.classList.remove('active');
-
-                const icon = mobileMenuToggle.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-    }
-
     // Dropdown toggle logic for mobile
     if (dropdownToggles.length > 0) {
         dropdownToggles.forEach(toggle => {
