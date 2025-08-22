@@ -70,35 +70,7 @@
   </div>
   <!-- Mobile Zoom Controls Ends -->
 
-<!-- Rest of your page content -->
-<!-- Paste all your existing hero, expertise, ESG, news-article, service tabs, call-to-action, etc. exactly as it is in your current code -->
-
-<!-- Zoom Buttons Script -->
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  let zoomLevel = 1;          // Current zoom
-  const zoomStep = 0.1;       // Increment/decrement per click
-  const minZoom = 0.5;        // Minimum zoom
-  const maxZoom = 2.0;        // Maximum zoom
-  const body = document.body;
-
-  const zoomInBtn = document.getElementById("zoom-in");
-  const zoomOutBtn = document.getElementById("zoom-out");
-
-  zoomInBtn.addEventListener("click", function() {
-    zoomLevel = Math.min(zoomLevel + zoomStep, maxZoom);
-    body.style.transform = `scale(${zoomLevel})`;
-    body.style.transformOrigin = "top center";
-  });
-
-  zoomOutBtn.addEventListener("click", function() {
-    zoomLevel = Math.max(zoomLevel - zoomStep, minZoom);
-    body.style.transform = `scale(${zoomLevel})`;
-    body.style.transformOrigin = "top center";
-  });
-});
-</script>
-
+    
   
     <!-- Hero Section -->
     <section class="hero">
@@ -760,60 +732,77 @@ Deployment of intelligent automation using IoT, embedded systems, robotics, and 
 
 
     
-  <!-- ✅ Footer Placeholder -->
-  <div id="footer-placeholder"></div>    
- <!-- ✅ Load header and footer dynamically and then initialize scripts -->
+<!-- Zoom Controls -->
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Load Header
-    fetch("/header.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("header-placeholder").innerHTML = html;
+document.addEventListener("DOMContentLoaded", function () {
+  let zoomLevel = 1;
+  const zoomStep = 0.1;
+  const minZoom = 0.5;
+  const maxZoom = 2.0;
+  const body = document.body;
 
-        // ✅ Wait for DOM injection, then bind mobile menu
-        const toggle = document.getElementById("menu-toggle");
-        const nav = document.getElementById("mobile-menu");
+  const zoomInBtn = document.getElementById("zoom-in");
+  const zoomOutBtn = document.getElementById("zoom-out");
 
-        if (toggle && nav) {
-          toggle.addEventListener("click", function () {
-            nav.classList.toggle("active");
-          });
-        }
+  if (zoomInBtn && zoomOutBtn) {
+    zoomInBtn.addEventListener("click", function () {
+      zoomLevel = Math.min(zoomLevel + zoomStep, maxZoom);
+      body.style.transform = `scale(${zoomLevel})`;
+      body.style.transformOrigin = "top center";
+    });
 
-        // ✅ Optional: re-run dropdown initialization if needed
-        if (typeof initDropdowns === "function") initDropdowns();
-      });
-
-    // Load Footer
-    fetch("/footer.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("footer-placeholder").innerHTML = html;
-
-        // ✅ Load protection script after footer
-        const protect = document.createElement("script");
-        protect.src = "/js/imgTextProtect.js";
-        document.body.appendChild(protect);
-      });
-
-    // ✅ Load core scripts after all above
-    const main = document.createElement("script");
-    main.src = "/js/main.js";
-    main.onload = () => {
-      if (typeof initTabs === "function") initTabs();
-      if (typeof initHeroAnimation === "function") initHeroAnimation();
-      // Add other initializers if needed
-    };
-    document.body.appendChild(main);
-
-    const dropdown = document.createElement("script");
-    dropdown.src = "/js/dropdown.js";
-    document.body.appendChild(dropdown);
-  });
+    zoomOutBtn.addEventListener("click", function () {
+      zoomLevel = Math.max(zoomLevel - zoomStep, minZoom);
+      body.style.transform = `scale(${zoomLevel})`;
+      body.style.transformOrigin = "top center";
+    });
+  }
+});
 </script>
-  <!-- Global Scripts -->
-  <script src="/js/main.js"></script>
-  <script src="/js/dropdown.js"></script>
-</body>
-</html>
+
+<!-- Header/Footer Dynamic Load -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Load Header
+  fetch("/header.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("header-placeholder").innerHTML = html;
+
+      const toggle = document.getElementById("menu-toggle");
+      const nav = document.getElementById("mobile-menu");
+
+      if (toggle && nav) {
+        toggle.addEventListener("click", function () {
+          nav.classList.toggle("active");
+        });
+      }
+
+      if (typeof initDropdowns === "function") initDropdowns();
+    });
+
+  // Load Footer
+  fetch("/footer.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("footer-placeholder").innerHTML = html;
+
+      const protect = document.createElement("script");
+      protect.src = "/js/imgTextProtect.js";
+      document.body.appendChild(protect);
+    });
+
+  // Load core scripts
+  const main = document.createElement("script");
+  main.src = "/js/main.js";
+  main.onload = () => {
+    if (typeof initTabs === "function") initTabs();
+    if (typeof initHeroAnimation === "function") initHeroAnimation();
+  };
+  document.body.appendChild(main);
+
+  const dropdown = document.createElement("script");
+  dropdown.src = "/js/dropdown.js";
+  document.body.appendChild(dropdown);
+});
+</script>
