@@ -105,3 +105,26 @@ function initServiceCardEffects() {
     });
   });
 }
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const tabButtons = document.querySelectorAll(".tab-btn");
+  const tabPanes = document.querySelectorAll(".tab-pane");
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener("click", function () {
+      // Remove active class from all buttons
+      tabButtons.forEach(b => b.classList.remove("active"));
+      // Add active class to clicked button
+      this.classList.add("active");
+
+      // Hide all tab panes
+      tabPanes.forEach(pane => pane.classList.remove("active"));
+      // Show the selected tab pane
+      const target = document.getElementById(this.dataset.tab);
+      if (target) target.classList.add("active");
+    });
+  });
+});
+</script>
+
