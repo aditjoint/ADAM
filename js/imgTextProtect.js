@@ -1,8 +1,6 @@
 /**
- * imgTextProtect.js
- * Blocks: right-click, drag/save, copy, keyboard shortcuts, printing.
- * Safe for: scroll, form inputs, links, navigation.
- * Mobile: Allows pinch zoom, blocks long-press on images.
+ * imgTextProtect.js — Enhanced Version
+ * Keeps all original protections + improved key blocking
  */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -39,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const blockedKeys = ['c','u','i','j','a','x','v','s','p'];
 
+    // Enhanced: Capture phase to ensure first listener triggers
     if (
       keyCode === 123 || // F12
       ((e.ctrlKey || e.metaKey) && blockedKeys.includes(key)) || // Ctrl/Cmd+Key
@@ -49,7 +48,10 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("This keyboard shortcut is disabled.");
       return false;
     }
-  });
+
+    // Optional: debug pressed keys
+    // console.log(`Key pressed: ${key}, code: ${keyCode}, ctrl: ${e.ctrlKey}, shift: ${e.shiftKey}`);
+  }, true); // true = capture phase
 
   // 🔒 Disable double-click selection
   document.addEventListener("dblclick", e => e.preventDefault());
@@ -83,4 +85,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 🖐️ Ensure pinch zoom works
   document.documentElement.style.touchAction = "pan-x pan-y";
+
 });
