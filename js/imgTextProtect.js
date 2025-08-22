@@ -173,23 +173,16 @@ document.addEventListener("click", function(e){
 
 // 📱 Allow pinch-zoom while blocking single-finger touches on images
 (function enablePinchZoomButBlockSingleFinger(){
-  // 1) Override the earlier touchAction to allow pinch (we do NOT remove your line above)
   try { document.documentElement.style.touchAction = "manipulation"; } catch(_) {}
 
-  // 2) Add capture-phase listeners that:
-  //    - Block single-finger taps/long-press on images
-  //    - Allow 2+ fingers (pinch) by stopping lower-level blockers
   document.addEventListener("touchstart", function(e){
     const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
     if (!imgEl) return;
 
     if (e.touches && e.touches.length >= 2) {
-      // Allow pinch: stop the original bubble-phase preventers from firing
-      e.stopImmediatePropagation();
-      // no preventDefault → browser can handle pinch
+      e.stopImmediatePropagation(); // allow pinch
       return;
     } else if (e.touches && e.touches.length === 1) {
-      // Block single-finger actions on/over images
       e.preventDefault();
       e.stopImmediatePropagation();
       return false;
@@ -202,9 +195,9 @@ document.addEventListener("click", function(e){
       if (!imgEl) return;
 
       if (e.touches && e.touches.length >= 2) {
-        e.stopImmediatePropagation(); // allow pinch gesture to proceed
+        e.stopImmediatePropagation(); // allow pinch gesture
       } else {
-        e.preventDefault(); // block single-finger drag/hold
+        e.preventDefault();
         e.stopImmediatePropagation();
         return false;
       }
@@ -259,15 +252,25 @@ document.addEventListener("touchstart", function (e) {
   if (!imgEl) return;
 
   if (e.touches && e.touches.length >= 2) {
-    // Allow pinch zoom
-    e.stopImmediatePropagation();
+    e.stopImmediatePropagation(); // allow pinch zoom
   } else if (e.touches && e.touches.length === 1) {
-    // Block single finger long-press
     e.preventDefault();
     e.stopImmediatePropagation();
     return false;
   }
 }, true);
+
+// 🚫 Block images from opening directly when clicked/dragged
+["click","mousedown","mouseup"].forEach(evt=>{
+  document.addEventListener(evt, function (e) {
+    const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
+    if (imgEl) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  }, true);
+});
 
 // Extra: periodic re-binding to harden protections
 setInterval(function () {
