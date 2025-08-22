@@ -1,7 +1,7 @@
 /**
  * imgTextProtect.js — Full Maximum Protection for Static Pages
  * Images cannot be clicked, dragged, or opened in new tab
- * Blocks right-click, copy/paste, keyboard shortcuts, double-click on text
+ * Blocks all mouse interactions, keyboard shortcuts, text selection
  * Allows pinch zoom and scrolling
  */
 
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, true);
   });
 
-  // 🔒 Block keyboard shortcuts for DevTools / Save / Copy / Print / Select All
+  // 🔒 Block keyboard shortcuts (DevTools / Save / Copy / Print / Select All)
   document.addEventListener("keydown", function (e) {
     const key = e.key.toLowerCase();
     const keyCode = e.keyCode || e.which;
@@ -53,11 +53,10 @@ document.addEventListener("DOMContentLoaded", function () {
     el.addEventListener("touchstart", e => { if(e.touches.length===1) e.preventDefault(); }, {passive:false});
   });
 
-  // 🔒 Protect images completely: no click, no drag, no new tab
+  // 🔒 Protect images completely: block all mouse/touch interaction
   document.querySelectorAll("img").forEach(img => {
     img.setAttribute("draggable", "false");
 
-    // Overlay wrapper to block all interactions
     const wrapper = document.createElement("div");
     wrapper.classList.add("img-wrapper");
     wrapper.style.position = "relative";
@@ -71,22 +70,21 @@ document.addEventListener("DOMContentLoaded", function () {
     overlay.style.width = "100%";
     overlay.style.height = "100%";
     overlay.style.background = "transparent";
-    overlay.style.zIndex = "2";
+    overlay.style.zIndex = "9999";
 
-    // Block right-click, drag, click, double-click
-    overlay.addEventListener("contextmenu", e => e.preventDefault());
-    overlay.addEventListener("mousedown", e => e.preventDefault());
-    overlay.addEventListener("dragstart", e => e.preventDefault());
-    overlay.addEventListener("click", e => e.preventDefault());
-    overlay.addEventListener("dblclick", e => e.preventDefault());
+    // Block all mouse events on overlay
+    ["mousedown", "mouseup", "click", "dblclick", "contextmenu", "dragstart"].forEach(evt => {
+      overlay.addEventListener(evt, e => e.preventDefault());
+    });
 
     img.parentNode.insertBefore(wrapper, img);
     wrapper.appendChild(img);
     wrapper.appendChild(overlay);
 
-    // Mobile touch prevention
-    img.addEventListener("touchstart", e => e.preventDefault(), { passive:false });
-    img.addEventListener("touchend", e => {}, { passive:true });
+    // Block touch events for mobile
+    ["touchstart", "touchend", "touchmove", "touchcancel"].forEach(evt => {
+      img.addEventListener(evt, e => e.preventDefault(), {passive:false});
+    });
   });
 
   // 🖨️ Block printing
