@@ -7,10 +7,11 @@ html, body {
   overflow-x: hidden;
   overflow-y: auto;
   touch-action: pan-x pan-y; /* allows pinch zoom and scrolling */
-
-  /* Removed global user-select:none to enable mobile zoom and accessibility */
   -webkit-touch-callout: none;
-  /* user-select intentionally NOT disabled globally */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 /* ✅ Allow input & form interaction */
@@ -30,12 +31,10 @@ img {
   user-select: none !important;
 }
 
-/* 🚫 Disable selection only on elements with class 'no-select' */
-/* Apply this class in HTML on static content you want protected */
-.no-select,
-h1.no-select, h2.no-select, h3.no-select, h4.no-select, h5.no-select, h6.no-select,
-p.no-select, span.no-select, strong.no-select,
-div.no-select {
+/* 🚫 Disable selection on static content */
+h1, h2, h3, h4, h5, h6,
+p, span, strong,
+div:not(.allow-select) {
   -webkit-user-select: none !important;
   -moz-user-select: none !important;
   -ms-user-select: none !important;
