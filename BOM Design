@@ -1,1 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ERP Module Costing</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+      color: #333;
+    }
 
+    header, footer {
+      background: #003366;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+    }
+
+    h2 {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    table {
+      width: 95%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px 10px;
+      text-align: left;
+    }
+
+    th {
+      background: #003366;
+      color: #fff;
+    }
+
+    tr:nth-child(even) {
+      background: #f2f2f2;
+    }
+
+    .note {
+      width: 95%;
+      margin: 30px auto;
+      padding: 15px;
+      background: #fff3cd;
+      border: 1px solid #ffeeba;
+      color: #856404;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ✅ HEADER PLACEHOLDER -->
+<header>
+  <h1>ERP Package Module & Costing</h1>
+</header>
+
+<main>
+  <h2>Core ERP Modules with Costs</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>S/N</th>
+        <th>Core ERP Modules</th>
+        <th>Global Std. Individual Modules To Pick</th>
+        <th>Cost (INR)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Finance -->
+      <tr><td rowspan="9">1</td><td rowspan="9">Finance & Accounting</td><td>General Ledger (GL)</td><td>67,925</td></tr>
+      <tr><td>Accounts Payable (AP)</td><td>67,925</td></tr>
+      <tr><td>Accounts Receivable (AR)</td><td>67,925</td></tr>
+      <tr><td>Fixed Asset Management</td><td>67,925</td></tr>
+      <tr><td>Bank & Cash Management</td><td>67,925</td></tr>
+      <tr><td>Tax Management (GST/VAT etc.)</td><td>67,925</td></tr>
+      <tr><td>Financial Reporting</td><td>67,925</td></tr>
+      <tr><td>Cost Accounting</td><td>67,925</td></tr>
+      <tr><td>Budgeting & Forecasting</td><td>67,925</td></tr>
+
+      <!-- Inventory -->
+      <tr><td rowspan="6">2</td><td rowspan="6">Inventory Management</td><td>Stock Ledger</td><td>57,200</td></tr>
+      <tr><td>Stock Transfers</td><td>57,200</td></tr>
+      <tr><td>Batch & Serial Tracking</td><td>57,200</td></tr>
+      <tr><td>Stock Valuation</td><td>57,200</td></tr>
+      <tr><td>Cycle Counting</td><td>57,200</td></tr>
+      <tr><td>Reorder Management</td><td>57,200</td></tr>
+
+      <!-- Procurement -->
+      <tr><td rowspan="7">3</td><td rowspan="7">Procurement / Purchase</td><td>Procurement / Purchase</td><td>75,075</td></tr>
+      <tr><td>Purchase Requisition</td><td>75,075</td></tr>
+      <tr><td>Supplier Quotation & Comparison</td><td>75,075</td></tr>
+      <tr><td>Purchase Order (PO) Management</td><td>75,075</td></tr>
+      <tr><td>Goods Receipt Note (GRN)</td><td>75,075</td></tr>
+      <tr><td>Vendor Performance & Rating</td><td>75,075</td></tr>
+      <tr><td>Contract Management</td><td>75,075</td></tr>
+
+      <!-- (continue the rest of your list in same pattern) -->
+
+      <!-- Example: Quality -->
+      <tr><td rowspan="4">12</td><td rowspan="4">Quality Management (QMS)</td><td>Incoming / In-process / Final Inspection</td><td>Solution Based Cost</td></tr>
+      <tr><td>Non-Conformance Reporting (NCR)</td><td>Solution Based Cost</td></tr>
+      <tr><td>CAPA (Corrective Action Preventive Action)</td><td>Solution Based Cost</td></tr>
+      <tr><td>Test Templates & Certificates</td><td>Solution Based Cost</td></tr>
+
+      <!-- (you would keep adding rows for HR, Maintenance, Compliance, etc. the same way) -->
+
+    </tbody>
+  </table>
+
+  <div class="note">
+    <p><strong>Notes:</strong></p>
+    <ul>
+      <li>All prices in INR, Taxes Extra, subject to change at solution design stage.</li>
+      <li>Implementation cost depends on number of users, modules, and customizations.</li>
+      <li>Hosting on customer's infrastructure. Support is application-only and chargeable.</li>
+      <li>On-site support/change tickets: INR 20,000 per manday (8 hours) + travel & stay extra.</li>
+    </ul>
+  </div>
+</main>
+
+<!-- ✅ FOOTER PLACEHOLDER -->
+<footer>
+  <p>&copy; 2025 Smartinfologiks - ERP Package</p>
+</footer>
+
+</body>
+</html>
