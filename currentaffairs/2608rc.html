@@ -69,187 +69,317 @@
   <div id="header-placeholder"></div>
 
 <main>
-  <h2>ERP Modules with Estimation</h2>
+  <h2>ERP Modules with Estimated Cost</h2>
   <table>
     <thead>
       <tr>
-        <th>S/C</th>
-        <th>Core Modules</th>
-        <th>Modules Extensions to Pick</th>
-        <th>Estimation (INR) per each line item</th>
+        <th>S/N</th>
+        <th>Core ERP Modules</th>
+        <th>Module Extensions to Pick</th>
+        <th>Cost per Each (INR)</th>
       </tr>
     </thead>
     <tbody>
-      <!-- 1 Finance -->
-      <tr><td rowspan="9">FA</td><td rowspan="9">Finance & Accounting</td><td>General Ledger (GL)</td><td>67,925</td></tr>
-      <tr><td>Accounts Payable (AP)</td><td>67,925</td></tr>
-      <tr><td>Accounts Receivable (AR)</td><td>67,925</td></tr>
-      <tr><td>Fixed Asset Management</td><td>67,925</td></tr>
-      <tr><td>Bank & Cash Management</td><td>67,925</td></tr>
-      <tr><td>Tax Management (GST/VAT etc.)</td><td>67,925</td></tr>
-      <tr><td>Financial Reporting</td><td>67,925</td></tr>
-      <tr><td>Cost Accounting</td><td>67,925</td></tr>
-      <tr><td>Budgeting & Forecasting</td><td>67,925</td></tr>
+      <!-- 1. Finance & Accounting -->
+      <tr>
+        <td rowspan="10">FA</td>
+        <td rowspan="10">Finance & Accounting</td>
+        <td>General Ledger (GL)</td>
+        <td>611,325</td>
+      </tr>
+      <tr><td>Accounts Payable (AP)</td><td></td></tr>
+      <tr><td>Accounts Receivable (AR)</td><td></td></tr>
+      <tr><td>Fixed Asset Management</td><td></td></tr>
+      <tr><td>Bank & Cash Management</td><td></td></tr>
+      <tr><td>Tax Management (GST/VAT etc.)</td><td></td></tr>
+      <tr><td>Financial Reporting</td><td></td></tr>
+      <tr><td>Cost Accounting</td><td></td></tr>
+      <tr><td>Budgeting & Forecasting</td><td></td></tr>
 
-      <!-- 2 Inventory -->
-      <tr><td rowspan="6">INV</td><td rowspan="6">Inventory Management</td><td>Stock Ledger</td><td>57,200</td></tr>
-      <tr><td>Stock Transfers</td><td>57,200</td></tr>
-      <tr><td>Batch & Serial Tracking</td><td>57,200</td></tr>
-      <tr><td>Stock Valuation</td><td>57,200</td></tr>
-      <tr><td>Cycle Counting</td><td>57,200</td></tr>
-      <tr><td>Reorder Management</td><td>57,200</td></tr>
+      <!-- 2. Inventory Management -->
+      <tr>
+        <td rowspan="7">INV</td>
+        <td rowspan="7">Inventory Management</td>
+        <td>Stock Ledger</td>
+        <td>343,200</td>
+      </tr>
+      <tr><td>Stock Transfers</td><td></td></tr>
+      <tr><td>Batch & Serial Tracking</td><td></td></tr>
+      <tr><td>Stock Valuation</td><td></td></tr>
+      <tr><td>Cycle Counting</td><td></td></tr>
+      <tr><td>Reorder Management</td><td></td></tr>
 
-      <!-- 3 Procurement -->
-      <tr><td rowspan="7">PU</td><td rowspan="7">Procurement / Purchase</td><td>Procurement / Purchase</td><td>75,075</td></tr>
-      <tr><td>Purchase Requisition</td><td>75,075</td></tr>
-      <tr><td>Supplier Quotation & Comparison</td><td>75,075</td></tr>
-      <tr><td>Purchase Order (PO) Management</td><td>75,075</td></tr>
-      <tr><td>Goods Receipt Note (GRN)</td><td>75,075</td></tr>
-      <tr><td>Vendor Performance & Rating</td><td>75,075</td></tr>
-      <tr><td>Contract Management</td><td>75,075</td></tr>
+      <!-- 3. Procurement / Purchase -->
+      <tr>
+        <td rowspan="8">PR</td>
+        <td rowspan="8">Procurement / Purchase</td>
+        <td>Procurement / Purchase</td>
+        <td>525,525</td>
+      </tr>
+      <tr><td>Purchase Requisition</td><td></td></tr>
+      <tr><td>Supplier Quotation & Comparison</td><td></td></tr>
+      <tr><td>Purchase Order (PO) Management</td><td></td></tr>
+      <tr><td>Goods Receipt Note (GRN)</td><td></td></tr>
+      <tr><td>Vendor Performance & Rating</td><td></td></tr>
+      <tr><td>Contract Management</td><td></td></tr>
 
-      <!-- 4 Sales -->
-      <tr><td rowspan="6">SD</td><td rowspan="6">Sales & Distribution (SD)</td><td>Quotation & Order Management</td><td>75,075</td></tr>
-      <tr><td>Sales Invoice & Delivery</td><td>75,075</td></tr>
-      <tr><td>Sales Return</td><td>75,075</td></tr>
-      <tr><td>Pricing & Discounts</td><td>75,075</td></tr>
-      <tr><td>Shipping & Logistics</td><td>75,075</td></tr>
-      <tr><td>Customer Credit Limit</td><td>75,075</td></tr>
+      <!-- 4. Sales & Distribution -->
+      <tr>
+        <td rowspan="6">SD</td>
+        <td rowspan="6">Sales & Distribution (SD)</td>
+        <td>Quotation & Order Management</td>
+        <td>450,450</td>
+      </tr>
+      <tr><td>Sales Invoice & Delivery</td><td></td></tr>
+      <tr><td>Sales Return</td><td></td></tr>
+      <tr><td>Pricing & Discounts</td><td></td></tr>
+      <tr><td>Shipping & Logistics</td><td></td></tr>
+      <tr><td>Customer Credit Limit</td><td></td></tr>
 
-      <!-- 5 CRM -->
-      <tr><td rowspan="6">CRM</td><td rowspan="6">Customer Relationship Management (CRM)</td><td>Lead & Opportunity Management</td><td>64,350</td></tr>
-      <tr><td>Sales Pipeline</td><td>64,350</td></tr>
-      <tr><td>Follow-ups & Reminders</td><td>64,350</td></tr>
-      <tr><td>Campaigns & Email Marketing</td><td>64,350</td></tr>
-      <tr><td>Customer Interaction History</td><td>64,350</td></tr>
-      <tr><td>Support Tickets</td><td>64,350</td></tr>
+      <!-- 5. CRM -->
+      <tr>
+        <td rowspan="6">CRM</td>
+        <td rowspan="6">Customer Relationship Management (CRM)</td>
+        <td>Lead & Opportunity Management</td>
+        <td>386,100</td>
+      </tr>
+      <tr><td>Sales Pipeline</td><td></td></tr>
+      <tr><td>Follow-ups & Reminders</td><td></td></tr>
+      <tr><td>Campaigns & Email Marketing</td><td></td></tr>
+      <tr><td>Customer Interaction History</td><td></td></tr>
+      <tr><td>Support Tickets</td><td></td></tr>
 
-      <!-- 6 Project -->
-      <tr><td rowspan="5">PM</td><td rowspan="5">Project Management</td><td>Project Planning & Tasks</td><td>67,925</td></tr>
-      <tr><td>Resource Allocation</td><td>67,925</td></tr>
-      <tr><td>Timesheets</td><td>67,925</td></tr>
-      <tr><td>Cost Tracking</td><td>67,925</td></tr>
-      <tr><td>Milestones & Gantt Charts</td><td>67,925</td></tr>
+      <!-- 6. Project Management -->
+      <tr>
+        <td rowspan="5">PM</td>
+        <td rowspan="5">Project Management</td>
+        <td>Project Planning & Tasks</td>
+        <td>339,625</td>
+      </tr>
+      <tr><td>Resource Allocation</td><td></td></tr>
+      <tr><td>Timesheets</td><td></td></tr>
+      <tr><td>Cost Tracking</td><td></td></tr>
+      <tr><td>Milestones & Gantt Charts</td><td></td></tr>
 
-      <!-- 7 Multi Currency -->
-      <tr><td rowspan="3">GEN</td><td rowspan="3">Multi-Currency & Localization</td><td>Currency Conversion</td><td>53,625</td></tr>
-      <tr><td>Regional Tax Compliance</td><td>53,625</td></tr>
-      <tr><td>Language Packs</td><td>53,625</td></tr>
+      <!-- 7. Multi-Currency & Localization -->
+      <tr>
+        <td rowspan="3">GEN</td>
+        <td rowspan="3">Multi-Currency & Localization</td>
+        <td>Currency Conversion</td>
+        <td>160,875</td>
+      </tr>
+      <tr><td>Regional Tax Compliance</td><td></td></tr>
+      <tr><td>Language Packs</td><td></td></tr>
 
-      <!-- 8 API -->
-      <tr><td>API</td><td>API & Integration Engine</td><td>REST/GraphQL APIs</td><td>153,625</td></tr>
+      <!-- 8. API & Integration -->
+      <tr>
+        <td>API</td>
+        <td>API & Integration Engine</td>
+        <td>REST/GraphQL APIs</td>
+        <td>153,625</td>
+      </tr>
 
-      <!-- 9 Asset -->
-      <tr><td rowspan="4">AM</td><td rowspan="4">Asset Management</td><td>Asset Lifecycle (acquisition to disposal)</td><td>75,075</td></tr>
-      <tr><td>Depreciation Scheduling</td><td>75,075</td></tr>
-      <tr><td>Maintenance Scheduling</td><td>75,075</td></tr>
-      <tr><td>Asset Tagging & Tracking</td><td>75,075</td></tr>
+      <!-- 9. Asset Management -->
+      <tr>
+        <td rowspan="4">AM</td>
+        <td rowspan="4">Asset Management</td>
+        <td>Asset Lifecycle (acquisition to disposal)</td>
+        <td>On request</td>
+      </tr>
+      <tr><td>Depreciation Scheduling</td><td></td></tr>
+      <tr><td>Maintenance Scheduling</td><td></td></tr>
+      <tr><td>Asset Tagging & Tracking</td><td></td></tr>
 
-      <!-- 10 Warehouse -->
-      <tr><td rowspan="6">WH</td><td rowspan="6">Warehouse Management</td><td>Multi-Warehouse Setup</td><td>64,350</td></tr>
-      <tr><td>Putaway & Picking</td><td>64,350</td></tr>
-      <tr><td>Location/Bin Management</td><td>64,350</td></tr>
-      <tr><td>Barcode & RFID Integration</td><td>64,350</td></tr>
-      <tr><td>Inventory Aging</td><td>64,350</td></tr>
-      <tr><td>Cross-docking</td><td>64,350</td></tr>
+      <!-- 10. Business Intelligence -->
+      <tr>
+        <td rowspan="4">BI</td>
+        <td rowspan="4">Business Intelligence / Analytics</td>
+        <td>Dashboards</td>
+        <td>286,000</td>
+      </tr>
+      <tr><td>KPI Tracking</td><td></td></tr>
+      <tr><td>Custom Reports</td><td></td></tr>
+      <tr><td>Data Warehousing & ETL</td><td></td></tr>
 
-      <!-- 11 Manufacturing -->
-      <tr><td rowspan="7">MRP</td><td rowspan="7">Manufacturing / Production (MRP)</td><td>Bill of Materials (BOM)</td><td>57,200</td></tr>
-      <tr><td>Work Orders</td><td>57,200</td></tr>
-      <tr><td>Production Planning & Scheduling</td><td>57,200</td></tr>
-      <tr><td>Capacity Planning</td><td>57,200</td></tr>
-      <tr><td>Shop Floor Control</td><td>57,200</td></tr>
-      <tr><td>Job Costing</td><td>57,200</td></tr>
-      <tr><td>Routing & Workstations</td><td>57,200</td></tr>
+      <!-- 11. Cross-Functional Integration -->
+      <tr>
+        <td rowspan="4">cFIM</td>
+        <td rowspan="4">Cross-Functional / Integration Modules</td>
+        <td>User & Role Management</td>
+        <td>286,000</td>
+      </tr>
+      <tr><td>Access Permissions</td><td></td></tr>
+      <tr><td>Role Hierarchies</td><td></td></tr>
+      <tr><td>Audit Trail</td><td></td></tr>
 
-      <!-- 12 Quality -->
-      <tr><td rowspan="4">QMS</td><td rowspan="4">Quality Management (QMS)</td><td>Incoming / In-process / Final Inspection</td><td>Indicative Pricing</td></tr>
-      <tr><td>Non-Conformance Reporting (NCR)</td><td>Indicative Pricing</td></tr>
-      <tr><td>CAPA (Corrective Action Preventive Action)</td><td>Indicative Pricing</td></tr>
-      <tr><td>Test Templates & Certificates</td><td>Indicative Pricing</td></tr>
+      <!-- 12. Warehouse Management -->
+      <tr>
+        <td rowspan="6">WH</td>
+        <td rowspan="6">Warehouse Management</td>
+        <td>Multi-Warehouse Setup</td>
+        <td>386,100</td>
+      </tr>
+      <tr><td>Putaway & Picking</td><td></td></tr>
+      <tr><td>Location/Bin Management</td><td></td></tr>
+      <tr><td>Barcode & RFID Integration</td><td></td></tr>
+      <tr><td>Inventory Aging</td><td></td></tr>
+      <tr><td>Cross-docking</td><td></td></tr>
 
-      <!-- 13 Cross Functional -->
-      <tr><td rowspan="4">cFIM</td><td rowspan="4">Cross-Functional / Integration Modules</td><td>User & Role Management</td><td>71,500</td></tr>
-      <tr><td>Access Permissions</td><td>71,500</td></tr>
-      <tr><td>Role Hierarchies</td><td>71,500</td></tr>
-      <tr><td>Audit Trail</td><td>71,500</td></tr>
+      <!-- 13. Manufacturing / Production -->
+      <tr>
+        <td rowspan="7">MRP</td>
+        <td rowspan="7">Manufacturing / Production (MRP)</td>
+        <td>Bill of Materials (BOM)</td>
+        <td>711,325</td>
+      </tr>
+      <tr><td>Work Orders</td><td></td></tr>
+      <tr><td>Production Planning & Scheduling</td><td></td></tr>
+      <tr><td>Capacity Planning</td><td></td></tr>
+      <tr><td>Shop Floor Control</td><td></td></tr>
+      <tr><td>Job Costing</td><td></td></tr>
+      <tr><td>Routing & Workstations</td><td></td></tr>
 
-      <!-- 14 HR -->
-      <tr><td rowspan="7">HRMS</td><td rowspan="7">Human Resource Management (HRM/HRMS)</td><td>Employee Master</td><td>Indicative Pricing</td></tr>
-      <tr><td>Payroll & Salary Processing</td><td>Indicative Pricing</td></tr>
-      <tr><td>Leave & Attendance</td><td>Indicative Pricing</td></tr>
-      <tr><td>Recruitment</td><td>Indicative Pricing</td></tr>
-      <tr><td>Appraisal & PMS</td><td>Indicative Pricing</td></tr>
-      <tr><td>Employee Self Service (ESS)</td><td>Indicative Pricing</td></tr>
-      <tr><td>Time Tracking</td><td>Indicative Pricing</td></tr>
+      <!-- 14. Quality Management -->
+      <tr>
+        <td rowspan="4">QMS</td>
+        <td rowspan="4">Quality Management (QMS)</td>
+        <td>Incoming / In-process / Final Inspection</td>
+        <td>On request</td>
+      </tr>
+      <tr><td>Non-Conformance Reporting (NCR)</td><td></td></tr>
+      <tr><td>CAPA (Corrective Action Preventive Action)</td><td></td></tr>
+      <tr><td>Test Templates & Certificates</td><td></td></tr>
 
-      <!-- 15 Maintenance -->
-      <tr><td rowspan="4">EAM</td><td rowspan="4">Maintenance Management (EAM / CMMS)</td><td>Preventive Maintenance</td><td>Indicative Pricing</td></tr>
-      <tr><td>Breakdown Maintenance</td><td>Indicative Pricing</td></tr>
-      <tr><td>Work Orders</td><td>Indicative Pricing</td></tr>
-      <tr><td>Maintenance Logs & Costing</td><td>Indicative Pricing</td></tr>
+      <!-- 15. HRMS -->
+      <tr>
+        <td rowspan="7">HRMS</td>
+        <td rowspan="7">Human Resource Management (HRM/HRMS)</td>
+        <td>Employee Master</td>
+        <td>611,325</td>
+      </tr>
+      <tr><td>Payroll & Salary Processing</td><td></td></tr>
+      <tr><td>Leave & Attendance</td><td></td></tr>
+      <tr><td>Recruitment</td><td></td></tr>
+      <tr><td>Appraisal & PMS</td><td></td></tr>
+      <tr><td>Employee Self Service (ESS)</td><td></td></tr>
+      <tr><td>Time Tracking</td><td></td></tr>
 
-      <!-- 16 BI -->
-      <tr><td rowspan="4">BI</td><td rowspan="4">Business Intelligence / Analytics</td><td>Dashboards</td><td>71,500</td></tr>
-      <tr><td>KPI Tracking</td><td>71,500</td></tr>
-      <tr><td>Custom Reports</td><td>71,500</td></tr>
-      <tr><td>Data Warehousing & ETL</td><td>71,500</td></tr>
+      <!-- 16. Maintenance Management -->
+      <tr>
+        <td rowspan="4">EAM</td>
+        <td rowspan="4">Maintenance Management (EAM / CMMS)</td>
+        <td>Preventive Maintenance</td>
+        <td>On request</td>
+      </tr>
+      <tr><td>Breakdown Maintenance</td><td></td></tr>
+      <tr><td>Work Orders</td><td></td></tr>
+      <tr><td>Maintenance Logs & Costing</td><td></td></tr>
 
-      <!-- 17 Compliance -->
-      <tr><td rowspan="4">CA</td><td rowspan="4">Compliance & Audit</td><td>Regulatory Compliance (ISO, FDA, GMP)</td><td>Indicative Pricing</td></tr>
-      <tr><td>Internal Audits</td><td>Indicative Pricing</td></tr>
-      <tr><td>Document Control</td><td>Indicative Pricing</td></tr>
-      <tr><td>Digital Signatures</td><td>Indicative Pricing</td></tr>
+      <!-- 17. Compliance & Audit -->
+      <tr>
+        <td rowspan="4">CA</td>
+        <td rowspan="4">Compliance & Audit</td>
+        <td>Regulatory Compliance (ISO, FDA, GMP)</td>
+        <td>On request</td>
+      </tr>
+      <tr><td>Internal Audits</td><td></td></tr>
+      <tr><td>Document Control</td><td></td></tr>
+      <tr><td>Digital Signatures</td><td></td></tr>
 
-      <!-- 18 DMS -->
-      <tr><td rowspan="3">DMS</td><td rowspan="3">Document Management System (DMS)</td><td>Document Repository</td><td>Indicative Pricing</td></tr>
-      <tr><td>Version Control</td><td>Indicative Pricing</td></tr>
-      <tr><td>Access Control</td><td>Indicative Pricing</td></tr>
+      <!-- 18. Document Management System -->
+      <tr>
+        <td rowspan="3">DMS</td>
+        <td rowspan="3">Document Management System (DMS)</td>
+        <td>Document Repository</td>
+        <td>On request</td>
+      </tr>
+      <tr><td>Version Control</td><td></td></tr>
+      <tr><td>Access Control</td><td></td></tr>
 
-      <!-- 19 E-Commerce -->
-      <tr><td rowspan="3">eCOM</td><td rowspan="3">E-Commerce Integration</td><td>Shopify, WooCommerce, Magento connectors</td><td>Indicative Pricing</td></tr>
-      <tr><td>Product Sync</td><td>Indicative Pricing</td></tr>
-      <tr><td>Order Sync & Fulfillment</td><td>Indicative Pricing</td></tr>
+      <!-- 19. E-Commerce Integration -->
+      <tr>
+        <td rowspan="3">eCOM</td>
+        <td rowspan="3">E-Commerce Integration</td>
+        <td>Shopify, WooCommerce</td>
+        <td>On request</td>
+      </tr>
+      <tr><td>Product Sync</td><td></td></tr>
+      <tr><td>Order Sync & Fulfillment</td><td></td></tr>
 
-      <!-- 20 POS -->
-      <tr><td rowspan="4">POS</td><td rowspan="4">Point of Sale (POS)</td><td>POS Terminals</td><td>Indicative Pricing</td></tr>
-      <tr><td>Barcode Scanning</td><td>Indicative Pricing</td></tr>
-      <tr><td>Real-time Stock Sync</td><td>Indicative Pricing</td></tr>
-      <tr><td>Offline Mode</td><td>Indicative Pricing</td></tr>
+      <!-- 20. POS -->
+      <tr>
+        <td rowspan="4">POS</td>
+        <td rowspan="4">Point of Sale (POS)</td>
+        <td>POS Terminals</td>
+        <td>On request</td>
+      </tr>
+      <tr><td>Barcode Scanning</td><td></td></tr>
+      <tr><td>Real-time Stock Sync</td><td></td></tr>
+      <tr><td>Offline Mode</td><td></td></tr>
 
-      <!-- 21 Transport -->
-      <tr><td rowspan="4">21</td><td rowspan="4">Transport & Fleet Management</td><td>Vehicle Master & Maintenance</td><td>Indicative Pricing</td></tr>
-      <tr><td>Route Planning</td><td>Indicative Pricing</td></tr>
-      <tr><td>Trip Sheets & Fuel Logs</td><td>Indicative Pricing</td></tr>
-      <tr><td>Driver Allocation</td><td>Indicative Pricing</td></tr>
+      <!-- 21. Transport & Fleet -->
+      <tr>
+        <td rowspan="4">TRFM</td>
+        <td rowspan="4">Transport & Fleet Management</td>
+        <td>Vehicle Master & Maintenance</td>
+        <td>On request</td>
+      </tr>
+      <tr><td>Route Planning</td><td></td></tr>
+      <tr><td>Trip Sheets & Fuel Logs</td><td></td></tr>
+      <tr><td>Driver Allocation</td><td></td></tr>
 
-      <!-- 22 LMS -->
-      <tr><td rowspan="4">LMS</td><td rowspan="4">Learning & Training (LMS)</td><td>Course Management</td><td>Indicative Pricing</td></tr>
-      <tr><td>Employee Training Plans</td><td>Indicative Pricing</td></tr>
-      <tr><td>Certifications</td><td>Indicative Pricing</td></tr>
-      <tr><td>Skill Tracking</td><td>Indicative Pricing</td></tr>
+      <!-- 22. Learning & Training -->
+      <tr>
+        <td rowspan="4">LMS</td>
+        <td rowspan="4">Learning & Training (LMS)</td>
+        <td>Course Management</td>
+        <td>On request</td>
+      </tr>
+      <tr><td>Employee Training Plans</td><td></td></tr>
+      <tr><td>Certifications</td><td></td></tr>
+      <tr><td>Skill Tracking</td><td></td></tr>
 
-      <!-- 23 Energy -->
-      <tr><td rowspan="3">ESG</td><td rowspan="3">Energy & Sustainability Management</td><td>Energy Consumption Logs</td><td>Indicative Pricing</td></tr>
-      <tr><td>Emission Tracking</td><td>Indicative Pricing</td></tr>
-      <tr><td>Green KPI Reporting</td><td>Indicative Pricing</td></tr>
+      <!-- 23. Energy & Sustainability -->
+      <tr>
+        <td rowspan="3">ESG</td>
+        <td rowspan="3">Energy & Sustainability Management</td>
+        <td>Energy Consumption Logs</td>
+        <td>On request</td>
+      </tr>
+      <tr><td>Emission Tracking</td><td></td></tr>
+      <tr><td>Green KPI Reporting</td><td></td></tr>
 
-      <!-- 24 Workflow -->
-      <tr><td rowspan="3">WF</td><td rowspan="3">Workflow & Approvals</td><td>Multi-level Approvals</td><td>Indicative Pricing</td></tr>
-      <tr><td>Escalations</td><td>Indicative Pricing</td></tr>
-      <tr><td>Notifications</td><td>Indicative Pricing</td></tr>
+      <!-- 24. Workflow & Approvals -->
+      <tr>
+        <td rowspan="3">WFA</td>
+        <td rowspan="3">Workflow & Approvals</td>
+        <td>Multi-level Approvals</td>
+        <td>On request</td>
+      </tr>
+      <tr><td>Escalations</td><td></td></tr>
+      <tr><td>Notifications</td><td></td></tr>
 
-      <!-- 25 Webhooks -->
-      <tr><td rowspan="5">WEBH</td><td rowspan="5">Webhooks</td><td>Third-party System Connectors</td><td>Indicative Pricing</td></tr>
-      <tr><td>IoT & Automation</td><td>Indicative Pricing</td></tr>
-      <tr><td>Sensor Integration</td><td>Indicative Pricing</td></tr>
-      <tr><td>PLC/SCADA Data Collection</td><td>Indicative Pricing</td></tr>
-      <tr><td>Realtime Alerts</td><td>Indicative Pricing</td></tr>
+      <!-- 25. Webhooks -->
+      <tr>
+        <td rowspan="5">WEBH</td>
+        <td rowspan="5">Webhooks</td>
+        <td>Third-party System Connectors</td>
+        <td>On request</td>
+      </tr>
+      <tr><td>IoT & Automation</td><td></td></tr>
+      <tr><td>Sensor Integration</td><td></td></tr>
+      <tr><td>PLC/SCADA Data Collection</td><td></td></tr>
+      <tr><td>Realtime Alerts</td><td></td></tr>
 
-      <!-- 26 Chatbots -->
-      <tr><td rowspan="3">cBOT</td><td rowspan="3">Chatbots & AI Assistants</td><td>Conversational UI</td><td>Indicative Pricing</td></tr>
-      <tr><td>Auto-ticketing</td><td>Indicative Pricing</td></tr>
-      <tr><td>Predictive Analytics</td><td>Indicative Pricing</td></tr>
+      <!-- 26. Chatbots & AI -->
+      <tr>
+        <td rowspan="3">cBOT</td>
+        <td rowspan="3">Chatbots & AI Assistants</td>
+        <td>Conversational UI</td>
+        <td>On request</td>
+      </tr>
+      <tr><td>Auto-ticketing</td><td></td></tr>
+      <tr><td>Predictive Analytics</td><td></td></tr>
     </tbody>
   </table>
 
