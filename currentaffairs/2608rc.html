@@ -55,20 +55,26 @@
         }
     
     table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-      font-size: 14px;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 8px 12px;
-      text-align: left;
-    }
-    thead {
-      background: #444;
-      color: #fff;
-    }
+  width: 60%;                 /* smaller than 80% */
+  max-width: 700px;           /* prevents very large tables */
+  border-collapse: collapse;
+  margin: 20px auto;          /* auto = centers horizontally */
+  font-size: 14px;
+  background: #fff;           /* clean background */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* subtle card effect */
+  border-radius: 6px;         /* rounded corners */
+  overflow: hidden;           /* ensures radius works with thead */
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px 14px;
+  text-align: left;
+}
+thead {
+  background: #444;
+  color: #fff;
+}
+    
     .note {
       margin: 20px 0;
       padding: 15px;
