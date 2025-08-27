@@ -287,51 +287,61 @@
   </section>
 
 
-<!-- ✅ Footer Placeholder -->
-<div id="footer-placeholder"></div>    
-
-<!-- ✅ Load header and footer dynamically and then initialize scripts -->
+    
+   <!-- ✅ Footer Placeholder -->
+  <div id="footer-placeholder"></div>    
+ <!-- ✅ Load header and footer dynamically and then initialize scripts -->
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function () {
     // Load Header
     fetch("/header.html")
-        .then(res => res.text())
-        .then(html => {
-            document.getElementById("header-placeholder").innerHTML = html;
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header-placeholder").innerHTML = html;
 
-            // Bind mobile menu after header loads
-            const toggle = document.getElementById("menu-toggle");
-            const nav = document.getElementById("mobile-menu");
-            if (toggle && nav) {
-                toggle.addEventListener("click", function () {
-                    nav.classList.toggle("active");
-                });
-            }
+        // ✅ Wait for DOM injection, then bind mobile menu
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.getElementById("mobile-menu");
 
-            // Optional: re-run dropdown initialization if needed
-            if (typeof initDropdowns === "function") initDropdowns();
-        });
+        if (toggle && nav) {
+          toggle.addEventListener("click", function () {
+            nav.classList.toggle("active");
+          });
+        }
+
+        // ✅ Optional: re-run dropdown initialization if needed
+        if (typeof initDropdowns === "function") initDropdowns();
+      });
 
     // Load Footer
     fetch("/footer.html")
-        .then(res => res.text())
-        .then(html => {
-            document.getElementById("footer-placeholder").innerHTML = html;
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("footer-placeholder").innerHTML = html;
 
-       
-            // Initialize mobile zoom if footer contains zoom controls
-            if (typeof initMobileZoom === "function") initMobileZoom();
-        });
+        // ✅ Load protection script after footer
+        const protect = document.createElement("script");
+        protect.src = "/js/imgTextProtect.js";
+        document.body.appendChild(protect);
+      });
 
-    // Load core scripts dynamically (once)
+    // ✅ Load core scripts after all above
     const main = document.createElement("script");
     main.src = "/js/main.js";
+    main.onload = () => {
+      if (typeof initTabs === "function") initTabs();
+      if (typeof initHeroAnimation === "function") initHeroAnimation();
+      // Add other initializers if needed
+    };
     document.body.appendChild(main);
 
     const dropdown = document.createElement("script");
     dropdown.src = "/js/dropdown.js";
     document.body.appendChild(dropdown);
-});
+  });
 </script>
+  <!-- Global Scripts -->
+  <script src="/js/main.js"></script>
+  <script src="/js/dropdown.js"></script>
 </body>
 </html>
