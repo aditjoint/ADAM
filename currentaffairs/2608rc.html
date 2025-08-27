@@ -35,7 +35,7 @@
       -ms-user-select: text;
       user-select: text;
     }
-    main {
+main {
   padding: 20px;
   max-width: 1200px;
   margin: auto;
@@ -64,31 +64,34 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   border-radius: 6px;
   overflow: hidden;
-  table-layout: fixed; /* ensures consistent column widths */
+  table-layout: fixed; /* fixed layout for consistent column widths */
 }
 .ratecard-table th, .ratecard-table td {
   border: 1px solid #ddd;
   padding: 10px 12px;
   text-align: left;
   word-wrap: break-word;
+  white-space: normal; /* allows text wrapping */
 }
 .ratecard-table thead {
   background: #444;
   color: #fff;
 }
+
 /* ERP Table Column Widths */
-.ratecard-table th:nth-child(1) { width: 15%; }
-.ratecard-table th:nth-child(2) { width: 25%; }
-.ratecard-table th:nth-child(3) { width: 15%; }
-.ratecard-table th:nth-child(4) { width: 15%; }
-.ratecard-table th:nth-child(5) { width: 10%; }
-.ratecard-table th:nth-child(6) { width: 10%; }
-.ratecard-table th:nth-child(7) { width: 10%; }
+.ratecard-table:nth-of-type(1) th:nth-child(1) { width: 15%; }
+.ratecard-table:nth-of-type(1) th:nth-child(2) { width: 25%; }
+.ratecard-table:nth-of-type(1) th:nth-child(3) { width: 15%; }
+.ratecard-table:nth-of-type(1) th:nth-child(4) { width: 15%; }
+.ratecard-table:nth-of-type(1) th:nth-child(5) { width: 10%; }
+.ratecard-table:nth-of-type(1) th:nth-child(6) { width: 10%; }
+.ratecard-table:nth-of-type(1) th:nth-child(7) { width: 10%; }
+
 /* UPS Table Column Widths */
 .ratecard-table:nth-of-type(2) th:nth-child(1) { width: 5%; }
 .ratecard-table:nth-of-type(2) th:nth-child(2) { width: 20%; }
-.ratecard-table:nth-of-type(2) th:nth-child(3) { width: 30%; }
-.ratecard-table:nth-of-type(2) th:nth-child(4) { width: 25%; }
+.ratecard-table:nth-of-type(2) th:nth-child(3) { width: 25%; }
+.ratecard-table:nth-of-type(2) th:nth-child(4) { width: 30%; }
 .ratecard-table:nth-of-type(2) th:nth-child(5) { width: 20%; }
 
 .note {
@@ -132,6 +135,7 @@
         </tr>
       </thead>
       <tbody>
+        <!-- All your ERP rows remain exactly the same -->
         <tr>
           <td><strong>Finance & Accounting</strong></td>
           <td>GL, AP, AR, Fixed Assets, Bank, Tax, Reporting, Budgeting</td>
@@ -264,7 +268,6 @@
 
   <div class="note">
     <ul>
-      <p><strong>Special Notes:</strong></p>
       <li><strong>Solution:</strong> Software pricing* based on actual processes and modules can be optimized substantially for improved cost efficiency.</li>
       <li>The above estimation (is a modular approach for a medium enterprise, ERP package license for up to 100 users) can be further optimized based on integrated workflow design.</li>
       <li>Indian SMEs - can have very well discounted & optimized cost of the digitalization as per their budget plan, and limited scope.</li>
@@ -312,34 +315,33 @@
           <td>GP-HU1000XL</td>
           <td>1280Wh, 1000VA</td>
           <td>Home/ SoHO</td>
-          <td>34,913</td>
+          <td>35,000</td>
         </tr>
         <tr>
           <td>3</td>
           <td>GP-SU1300L</td>
           <td>960Wh, 1000VA</td>
           <td>Home/ SoHO - Solar Compatible</td>
-          <td>39,798</td>
+          <td>40,000</td>
         </tr>
         <tr>
           <td>4</td>
           <td>GP-SU1300XL</td>
           <td>1280Wh, 1000VA</td>
           <td>Home/ SoHO - Solar Compatible</td>
-          <td>41,922</td>
+          <td>42,000</td>
         </tr>
       </tbody>
     </table>
   </div>
 
   <div class="note">
-    <p><strong>Special Notes:</strong></p>
     <ul>
       <li>+18% GST Extra at actual</li>
       <li>Freight Extra at actual</li>
       <li>Five years* warranty and 10+ years* Inverter Life</li>
       <li>OEM - Apple Energy | Greenpower | EVEVER</li>
-      <li>For product details contact: <a href="mailto:sales@adamconsult.com">sales@adamconsult.com</a></li>
+      <li>For product details contact us: <a href="mailto:sales@adamconsult.com">sales@adamconsult.com</a></li>
     </ul>
   </div>
 </main>
