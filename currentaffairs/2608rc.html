@@ -51,9 +51,13 @@ main {
   margin: 0;
   line-height: 1.4;
 }
+html, body {
+  overflow-x: auto !important;  /* let page scroll horizontally if needed */
+}
 .table-container {
   width: 100%;
   overflow-x: auto;
+   -webkit-overflow-scrolling: touch; /* smooth iOS scroll */
   margin: 20px 0;
 }
 .ratecard-table {
@@ -64,20 +68,47 @@ main {
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   border-radius: 6px;
   overflow: hidden;
-  table-layout: fixed; /* fixed layout for consistent column widths */
+  table-layout: auto;  /* let table adapt instead of being forced */
 }
-.ratecard-table th, .ratecard-table td {
+.ratecard-table th, 
+.ratecard-table td {
   border: 1px solid #ddd;
   padding: 10px 12px;
   text-align: left;
   word-wrap: break-word;
-  white-space: normal; /* allows text wrapping */
+  white-space: normal; /* wrap long text instead of stretching */
 }
 .ratecard-table thead {
   background: #444;
   color: #fff;
 }
 
+@media (max-width: 600px) {
+  .ratecard-table thead {
+    display: none; /* hide table headers */
+  }
+  .ratecard-table tr {
+    display: block;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+  }
+  .ratecard-table td {
+    display: block;
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+  .ratecard-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-weight: bold;
+    text-align: left;
+  }
+}
+
+    
 /* ERP Table Column Widths */
 .ratecard-table:nth-of-type(1) th:nth-child(1) { width: 15%; }
 .ratecard-table:nth-of-type(1) th:nth-child(2) { width: 22%; }
