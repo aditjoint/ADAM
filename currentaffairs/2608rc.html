@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-  <title>ADAM Consult - ERP Modules Estimation</title>
+  <title>ADAM Consult - ERP and UPS ratecards</title>
   <meta name="description" content="ERP package estimation for Finance, Inventory, Sales, CRM, HRMS, Manufacturing, BI, and more. Includes module-level pricing and solution-based costing for enterprise ERP solutions." />
 
   <!-- Stylesheets -->
@@ -36,243 +36,253 @@
       user-select: text;
     }
     main {
-      padding: 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-  
-    .ratecard-section {
-      text-align: center;       /* centers text */
-      margin-top: 1.5rem;       /* spacing = one row below header */
-      }
-
-    .ratecard-section h2 {
-      font-size: 1.8rem;        /* around 28–30px */
-      font-weight: 600;
-      color: #000;              /* pure black text */
-      margin: 0;                /* remove default margins */
-      line-height: 1.4;
-        }
-    
-  .table-container .ratecard-table {
-  width: 95%;                 /* smaller than 100% */
-  max-width: 1200px;           /* prevents very large tables */
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+.ratecard-section {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+.ratecard-section h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #000;
+  margin: 0;
+  line-height: 1.4;
+}
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin: 20px 0;
+}
+.ratecard-table {
+  width: 100%;
   border-collapse: collapse;
-  margin: 20px auto;          /* auto = centers horizontally */
   font-size: 14px;
-  background: #fff;           /* clean background */
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* subtle card effect */
-  border-radius: 6px;         /* rounded corners */
-  overflow: hidden;           /* ensures radius works with thead */
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  table-layout: fixed; /* ensures consistent column widths */
 }
-th, td {
+.ratecard-table th, .ratecard-table td {
   border: 1px solid #ddd;
-  padding: 10px 14px;
+  padding: 10px 12px;
   text-align: left;
+  word-wrap: break-word;
 }
-thead {
+.ratecard-table thead {
   background: #444;
   color: #fff;
 }
-    
-    .note {
-      margin: 20px 0;
-      padding: 15px;
-      background: #f9f9f9;
-      border-left: 4px solid #444;
-    }
+/* ERP Table Column Widths */
+.ratecard-table th:nth-child(1) { width: 15%; }
+.ratecard-table th:nth-child(2) { width: 25%; }
+.ratecard-table th:nth-child(3) { width: 15%; }
+.ratecard-table th:nth-child(4) { width: 15%; }
+.ratecard-table th:nth-child(5) { width: 10%; }
+.ratecard-table th:nth-child(6) { width: 10%; }
+.ratecard-table th:nth-child(7) { width: 10%; }
+/* UPS Table Column Widths */
+.ratecard-table:nth-of-type(2) th:nth-child(1) { width: 5%; }
+.ratecard-table:nth-of-type(2) th:nth-child(2) { width: 20%; }
+.ratecard-table:nth-of-type(2) th:nth-child(3) { width: 30%; }
+.ratecard-table:nth-of-type(2) th:nth-child(4) { width: 25%; }
+.ratecard-table:nth-of-type(2) th:nth-child(5) { width: 20%; }
 
-    @media (max-width: 768px) {
-  .table-container .ratecard-table {
-    width: 100% !important; /* expand on small screens */
+.note {
+  margin: 20px 0;
+  padding: 15px;
+  background: #f9f9f9;
+  border-left: 4px solid #444;
+  font-size: 14px;
+  line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .ratecard-table {
     font-size: 12px;
   }
 }
-  </style>
+</style>
 </head>
-  
 <body>
-  <!-- ✅ Header Placeholder -->
-  <div id="header-placeholder"></div>
 
+<!-- ✅ Header Placeholder -->
+<div id="header-placeholder"></div>
 
-<!-- Section Header -->
+<main>
+  <!-- Section Header -->
+  <div class="ratecard-section">
+    <h2>Enterprise Platform & ERP Implementation: Cost Estimation and Guide</h2>
+  </div>
 
-<div class="ratecard-section">
-  <h2>Enterprise Platform & ERP Implementation: Cost Estimation and Guide</h2>
-</div>
-  
-<!-- Estimation Table -->
   <!-- ERP Modules Estimation Table -->
-<div class="table-container">
-  <table class="ratecard-table">
-    <thead>
-      <tr>
-        <th>Core ERP Modules</th>
-        <th>Modules Extended</th>
-        <th>Estimated Software Cost* in INR (for 100 Users)</th>
-        <th>Implementation Cost (Functional Setup)</th>
-        <th>AMC / Annual Support</th>
-        <th>Timeline (Weeks)</th>
-        <th>Notes</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Finance & Accounting</strong></td>
-        <td>GL, AP, AR, Fixed Assets, Bank, Tax, Reporting, Budgeting</td>
-        <td>15,00,000</td>
-        <td>15,00,000-25,00,000</td>
-        <td>3,00,000</td>
-        <td>6–12</td>
-        <td>ERPNEXT open-source; Commercial includes license</td>
-      </tr>
-      <tr>
-        <td><strong>Inventory Management</strong></td>
-        <td>Stock Ledger, Transfers, Batch/Serial, Valuation, Cycle Counting</td>
-        <td>10,00,000</td>
-        <td>9,00,000-15,00,000</td>
-        <td>2,00,000</td>
-        <td>5–10</td>
-        <td>Multi-warehouse optional</td>
-      </tr>
-      <tr>
-        <td><strong>Procurement / Purchase</strong></td>
-        <td>Requisition, Quotation, PO, GRN, Vendor Rating, Contract</td>
-        <td>10,00,000</td>
-        <td>9,00,000-15,00,000</td>
-        <td>2,00,000</td>
-        <td>4–8</td>
-        <td>Setup workflows per vendor type</td>
-      </tr>
-      <tr>
-        <td><strong>Sales & Distribution</strong></td>
-        <td>Quotation, Order, Invoice, Delivery, Sales Return, Pricing</td>
-        <td>10,00,000</td>
-        <td>9,00,000-15,00,000</td>
-        <td>2,00,000</td>
-        <td>5–9</td>
-        <td>Includes sales reporting</td>
-      </tr>
-      <tr>
-        <td><strong>CRM</strong></td>
-        <td>Leads, Opportunities, Pipeline, Campaigns, Support Tickets</td>
-        <td>10,00,000</td>
-        <td>9,00,000-15,00,000</td>
-        <td>2,00,000</td>
-        <td>4–8</td>
-        <td>Optional marketing automation</td>
-      </tr>
-      <tr>
-        <td><strong>Project Management</strong></td>
-        <td>Planning, Tasks, Resource Allocation, Timesheets, Cost Tracking</td>
-        <td>10,00,000</td>
-        <td>9,00,000-15,00,000</td>
-        <td>2,00,000</td>
-        <td>3–6</td>
-        <td>For multi-project scheduling</td>
-      </tr>
-      <tr>
-        <td><strong>HRMS</strong></td>
-        <td>Employee Master, Payroll, Leave, Recruitment, Appraisal, ESS</td>
-        <td>10,00,000</td>
-        <td>7,00,000-15,00,000</td>
-        <td>2,00,000</td>
-        <td>4–7</td>
-        <td>Multi-country payroll extra</td>
-      </tr>
-      <tr>
-        <td><strong>Asset Management</strong></td>
-        <td>Lifecycle, Depreciation, Tagging, Maintenance Scheduling</td>
-        <td>10,00,000</td>
-        <td>9,00,000-12,00,000</td>
-        <td>2,00,000</td>
-        <td>3–6</td>
-        <td>Fixed assets tracking</td>
-      </tr>
-      <tr>
-        <td><strong>Warehouse Management</strong></td>
-        <td>Multi-warehouse, Putaway, Picking, Barcode/RFID, Cross-docking</td>
-        <td>10,00,000</td>
-        <td>9,00,000-12,00,000</td>
-        <td>2,00,000</td>
-        <td>5–10</td>
-        <td>Optional IoT integration</td>
-      </tr>
-      <tr>
-        <td><strong>Manufacturing (MRP)</strong></td>
-        <td>BOM, Work Orders, Planning, Shop Floor, Routing</td>
-        <td>15,00,000</td>
-        <td>15,00,000-25,00,000</td>
-        <td>3,00,000</td>
-        <td>6–12</td>
-        <td>Capacity planning included</td>
-      </tr>
-      <tr>
-        <td><strong>Quality Management</strong></td>
-        <td>Inspections, NCR, CAPA, Certificates</td>
-        <td>10,00,000</td>
-        <td>9,00,000-15,00,000</td>
-        <td>3,00,000</td>
-        <td>4–8</td>
-        <td>Optional ISO/GMP compliance</td>
-      </tr>
-      <tr>
-        <td><strong>Maintenance (EAM/CMMS)</strong></td>
-        <td>Preventive, Breakdown, Work Orders, Logs</td>
-        <td>12,00,000</td>
-        <td>7,00,000-15,00,000</td>
-        <td>3,00,000</td>
-        <td>3–6</td>
-        <td>Asset maintenance workflows</td>
-      </tr>
-      <tr>
-        <td><strong>BI / Analytics</strong></td>
-        <td>Dashboards, KPI Tracking, Reports</td>
-        <td>10,00,000</td>
-        <td>9,00,000-12,00,000</td>
-        <td>2,00,000–5,00,000</td>
-        <td>4–8</td>
-        <td>Optional ETL & data warehouse</td>
-      </tr>
-      <tr>
-        <td><strong>Compliance & Document Mgmt</strong></td>
-        <td>Regulatory, Audits, DMS</td>
-        <td>10,00,000</td>
-        <td>9,00,000-15,00,000</td>
-        <td>3,00,000</td>
-        <td>3–6</td>
-        <td>Optional digital signature integration</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-
+  <div class="table-container">
+    <table class="ratecard-table">
+      <thead>
+        <tr>
+          <th>Core ERP Modules</th>
+          <th>Modules Extended</th>
+          <th>Estimated Software Cost* in INR (for 100 Users)</th>
+          <th>Implementation Cost (Functional Setup)</th>
+          <th>AMC / Annual Support</th>
+          <th>Timeline (Weeks)</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Finance & Accounting</strong></td>
+          <td>GL, AP, AR, Fixed Assets, Bank, Tax, Reporting, Budgeting</td>
+          <td>15,00,000</td>
+          <td>15,00,000-25,00,000</td>
+          <td>3,00,000</td>
+          <td>6–12</td>
+          <td>ERPNEXT open-source; Commercial includes license</td>
+        </tr>
+        <tr>
+          <td><strong>Inventory Management</strong></td>
+          <td>Stock Ledger, Transfers, Batch/Serial, Valuation, Cycle Counting</td>
+          <td>10,00,000</td>
+          <td>9,00,000-15,00,000</td>
+          <td>2,00,000</td>
+          <td>5–10</td>
+          <td>Multi-warehouse optional</td>
+        </tr>
+        <tr>
+          <td><strong>Procurement / Purchase</strong></td>
+          <td>Requisition, Quotation, PO, GRN, Vendor Rating, Contract</td>
+          <td>10,00,000</td>
+          <td>9,00,000-15,00,000</td>
+          <td>2,00,000</td>
+          <td>4–8</td>
+          <td>Setup workflows per vendor type</td>
+        </tr>
+        <tr>
+          <td><strong>Sales & Distribution</strong></td>
+          <td>Quotation, Order, Invoice, Delivery, Sales Return, Pricing</td>
+          <td>10,00,000</td>
+          <td>9,00,000-15,00,000</td>
+          <td>2,00,000</td>
+          <td>5–9</td>
+          <td>Includes sales reporting</td>
+        </tr>
+        <tr>
+          <td><strong>CRM</strong></td>
+          <td>Leads, Opportunities, Pipeline, Campaigns, Support Tickets</td>
+          <td>10,00,000</td>
+          <td>9,00,000-15,00,000</td>
+          <td>2,00,000</td>
+          <td>4–8</td>
+          <td>Optional marketing automation</td>
+        </tr>
+        <tr>
+          <td><strong>Project Management</strong></td>
+          <td>Planning, Tasks, Resource Allocation, Timesheets, Cost Tracking</td>
+          <td>10,00,000</td>
+          <td>9,00,000-15,00,000</td>
+          <td>2,00,000</td>
+          <td>3–6</td>
+          <td>For multi-project scheduling</td>
+        </tr>
+        <tr>
+          <td><strong>HRMS</strong></td>
+          <td>Employee Master, Payroll, Leave, Recruitment, Appraisal, ESS</td>
+          <td>10,00,000</td>
+          <td>7,00,000-15,00,000</td>
+          <td>2,00,000</td>
+          <td>4–7</td>
+          <td>Multi-country payroll extra</td>
+        </tr>
+        <tr>
+          <td><strong>Asset Management</strong></td>
+          <td>Lifecycle, Depreciation, Tagging, Maintenance Scheduling</td>
+          <td>10,00,000</td>
+          <td>9,00,000-12,00,000</td>
+          <td>2,00,000</td>
+          <td>3–6</td>
+          <td>Fixed assets tracking</td>
+        </tr>
+        <tr>
+          <td><strong>Warehouse Management</strong></td>
+          <td>Multi-warehouse, Putaway, Picking, Barcode/RFID, Cross-docking</td>
+          <td>10,00,000</td>
+          <td>9,00,000-12,00,000</td>
+          <td>2,00,000</td>
+          <td>5–10</td>
+          <td>Optional IoT integration</td>
+        </tr>
+        <tr>
+          <td><strong>Manufacturing (MRP)</strong></td>
+          <td>BOM, Work Orders, Planning, Shop Floor, Routing</td>
+          <td>15,00,000</td>
+          <td>15,00,000-25,00,000</td>
+          <td>3,00,000</td>
+          <td>6–12</td>
+          <td>Capacity planning included</td>
+        </tr>
+        <tr>
+          <td><strong>Quality Management</strong></td>
+          <td>Inspections, NCR, CAPA, Certificates</td>
+          <td>10,00,000</td>
+          <td>9,00,000-15,00,000</td>
+          <td>3,00,000</td>
+          <td>4–8</td>
+          <td>Optional ISO/GMP compliance</td>
+        </tr>
+        <tr>
+          <td><strong>Maintenance (EAM/CMMS)</strong></td>
+          <td>Preventive, Breakdown, Work Orders, Logs</td>
+          <td>12,00,000</td>
+          <td>7,00,000-15,00,000</td>
+          <td>3,00,000</td>
+          <td>3–6</td>
+          <td>Asset maintenance workflows</td>
+        </tr>
+        <tr>
+          <td><strong>BI / Analytics</strong></td>
+          <td>Dashboards, KPI Tracking, Reports</td>
+          <td>10,00,000</td>
+          <td>9,00,000-12,00,000</td>
+          <td>2,00,000–5,00,000</td>
+          <td>4–8</td>
+          <td>Optional ETL & data warehouse</td>
+        </tr>
+        <tr>
+          <td><strong>Compliance & Document Mgmt</strong></td>
+          <td>Regulatory, Audits, DMS</td>
+          <td>10,00,000</td>
+          <td>9,00,000-15,00,000</td>
+          <td>3,00,000</td>
+          <td>3–6</td>
+          <td>Optional digital signature integration</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="note">
-    <p><strong>Notes:</strong></p>
-<ul>
-  <li><strong>Solution:</strong> Software pricing* based on actual processes and modules can be optimized substantially for improved cost efficiency.</li>
-  <li>The above estimation (is a modular approach for a medium enterprise, ERP package license for up to 100 users) can be further optimized based on integrated workflow design.</li>
-  <li>Indian SMEs - can have very well discounted & optimized cost of the digitalization as per their budget plan, and limited scope.</li>
-  <li>All rates/price points are in INR, exclusive of taxes. Estimations are indicative for a modular approach and refined after the integrated solution design stage.</li>
-  <li>Development and implementation costs vary depending on ERP package type, number of user licenses, selected modules, extensions, and customizations.</li>
-  <li>Third-party costs, customizations, legacy data migration, and related efforts will be charged additionally based on the actual scenario.</li>
-  <li>Cloud hosting remains on the customer's infrastructure. Application support is provided remotely only upon upfront payment.</li>
-  <li>Annual support is nomally charged at <strong>22%*-35%* of License and Implementation cost</strong>.</li>
-  <li>On-site support or change tickets:  
-      <ul>
-        <li><strong>Dev-Ops:</strong> Price on Demand</li>
-        <li><strong>Functional:</strong> Price on Demand</li>
-        <li>One man-day = 8 hours (pricing provided on demand, excluding travel & accommodation charges).</li>
-      </ul>
-  </li>
-</ul>
+    <ul>
+      <li><strong>Solution:</strong> Software pricing* based on actual processes and modules can be optimized substantially for improved cost efficiency.</li>
+      <li>The above estimation (is a modular approach for a medium enterprise, ERP package license for up to 100 users) can be further optimized based on integrated workflow design.</li>
+      <li>Indian SMEs - can have very well discounted & optimized cost of the digitalization as per their budget plan, and limited scope.</li>
+      <li>All rates/price points are in INR, exclusive of taxes. Estimations are indicative for a modular approach and refined after the integrated solution design stage.</li>
+      <li>Development and implementation costs vary depending on ERP package type, number of user licenses, selected modules, extensions, and customizations.</li>
+      <li>Third-party costs, customizations, legacy data migration, and related efforts will be charged additionally based on the actual scenario.</li>
+      <li>Cloud hosting remains on the customer's infrastructure. Application support is provided remotely only upon upfront payment.</li>
+      <li>Annual support is normally charged at <strong>22%*-35%* of License and Implementation cost</strong>.</li>
+      <li>On-site support or change tickets:  
+          <ul>
+            <li><strong>Dev-Ops:</strong> Price on Demand</li>
+            <li><strong>Functional:</strong> Price on Demand</li>
+            <li>One man-day = 8 hours (pricing provided on demand, excluding travel & accommodation charges).</li>
+          </ul>
+      </li>
+    </ul>
   </div>
-</main>
-  
-<!-- New Section: HOME UPS & INVERTER Rate Card -->
+
+  <!-- HOME UPS & INVERTER Rate Card Section -->
   <div class="ratecard-section">
     <h2>HOME UPS & INVERTER (with Lithium-Ion battery pack in-built)</h2>
   </div>
@@ -283,8 +293,8 @@ thead {
         <tr>
           <th>S/N</th>
           <th>Model No.</th>
-           <th>Specs</th>
-           <th>Usecase/ Application</th>
+          <th>Specs</th>
+          <th>Usecase / Application</th>
           <th>Price* in INR</th>
         </tr>
       </thead>
@@ -301,21 +311,21 @@ thead {
           <td>GP-HU1000XL</td>
           <td>1280Wh, 1000VA</td>
           <td>Home/ SoHO</td>
-          <td>35,000</td>
+          <td>34,913</td>
         </tr>
         <tr>
           <td>3</td>
           <td>GP-SU1300L</td>
           <td>960Wh, 1000VA</td>
           <td>Home/ SoHO - Solar Compatible</td>
-          <td>40,000</td>
+          <td>39,798</td>
         </tr>
         <tr>
           <td>4</td>
-          <td>GP-SU1300XL </td>
+          <td>GP-SU1300XL</td>
           <td>1280Wh, 1000VA</td>
           <td>Home/ SoHO - Solar Compatible</td>
-          <td>42,000</td>
+          <td>41,922</td>
         </tr>
       </tbody>
     </table>
@@ -327,9 +337,10 @@ thead {
       <li>Freight Extra at actual</li>
       <li>Five years* warranty and 10+ years* Inverter Life</li>
       <li>OEM - Apple Energy | Greenpower | EVEVER</li>
-      <li>For product details contact us: <a href="mailto:sales@adamconsult.com">sales@adamconsult.com</a></li>
+      <li>For product details contact: <a href="mailto:sales@adamconsult.com">sales@adamconsult.com</a></li>
     </ul>
   </div>
+</main>
   
   
   <!-- Call to Action Section -->
