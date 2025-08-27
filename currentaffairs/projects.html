@@ -97,6 +97,33 @@
       text-decoration: underline;
     }
 
+    /* ✅ FIX: Align and resize industry images */
+    .card-container {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .image-card {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; /* center horizontally */
+      gap: 20px;
+    }
+    .image-card img {
+      max-width: 160px;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .image-card img:hover {
+      transform: scale(1.05);
+    }
+    @media (max-width: 600px) {
+      .image-card img {
+        max-width: 120px; /* smaller images on mobile */
+      }
+    }
   </style>
 </head>
 
@@ -167,8 +194,6 @@
       </div>
     </div>
   </section>
-
-  
 
   <!-- ✅ Footer Placeholder -->
   <div id="footer-placeholder"></div>
