@@ -116,23 +116,42 @@
     }
 
 
-/* Target only the last two UPS spec tables' containers */
+
+/* ✅ Reduce total width of last two UPS spec tables only */
 .table-container:last-of-type,
 .table-container:nth-last-of-type(2) {
-  max-width: 100%;          /* fill main width */
-  margin: 20px auto;        /* center if needed */
+  max-width: 800px;       /* smaller than main ERP table */
+  margin: 20px auto;      /* center it */
 }
 
-/* Ensure tables inside fill the container */
+/* Ensure table inside container fills its reduced width */
 .table-container:last-of-type table,
 .table-container:nth-last-of-type(2) table {
   width: 100%;
-  table-layout: fixed;      /* keep column widths */
+  table-layout: fixed;    /* keep column widths */
 }
-.upsspecs-table th:nth-child(1),
-.upsspecs-table td:nth-child(1) { width: 35%; }
-.upsspecs-table th:nth-child(2),
-.upsspecs-table td:nth-child(2) { width: 65%; }
+
+/* Column widths for these two tables */
+.table-container:last-of-type table th:nth-child(1),
+.table-container:last-of-type table td:nth-child(1),
+.table-container:nth-last-of-type(2) table th:nth-child(1),
+.table-container:nth-last-of-type(2) table td:nth-child(1) {
+  width: 35%;  /* Parameter column */
+}
+
+.table-container:last-of-type table th:nth-child(2),
+.table-container:last-of-type table td:nth-child(2),
+.table-container:nth-last-of-type(2) table th:nth-child(2),
+.table-container:nth-last-of-type(2) table td:nth-child(2) {
+  width: 65%;  /* Specification column */
+}
+
+
+
+
+
+
+    
     
     
     @media (max-width: 768px) {
