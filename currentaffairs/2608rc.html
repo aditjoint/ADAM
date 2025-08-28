@@ -100,35 +100,6 @@
     .ups-table th:nth-child(3) { width: 25%; }
     .ups-table th:nth-child(4) { width: 30%; }
     .ups-table th:nth-child(5) { width: 20%; }
-
-
-/* ✅ Spec Table Column Widths (2 columns) */
-.ups-table th:nth-child(1),
-.ups-table td:nth-child(1) {
-  width: 35%;  /* Parameter column */
-}
-
-.ups-table th:nth-child(2),
-.ups-table td:nth-child(2) {
-  width: 65%;  /* Specification column */
-}
-
-/* Target only the last two UPS spec tables */
-.table-container:last-of-type,
-.table-container:nth-last-of-type(2) {
-  max-width: 800px; /* match ERP table width */
-  margin: 20px auto; /* center the table */
-}
-
-.table-container:last-of-type table,
-.table-container:nth-last-of-type(2) table {
-  table-layout: fixed; /* enforce fixed layout */
-  width: 100%;
-}
-
-
-
-    
     
     .note {
       margin: 20px 0;
