@@ -115,6 +115,26 @@
       line-height: 1.5;
     }
 
+
+/* Target only the last two UPS spec tables' containers */
+.table-container:last-of-type,
+.table-container:nth-last-of-type(2) {
+  max-width: 100%;          /* fill main width */
+  margin: 20px auto;        /* center if needed */
+}
+
+/* Ensure tables inside fill the container */
+.table-container:last-of-type table,
+.table-container:nth-last-of-type(2) table {
+  width: 100%;
+  table-layout: fixed;      /* keep column widths */
+}
+.upsspecs-table th:nth-child(1),
+.upsspecs-table td:nth-child(1) { width: 35%; }
+.upsspecs-table th:nth-child(2),
+.upsspecs-table td:nth-child(2) { width: 65%; }
+    
+    
     @media (max-width: 768px) {
       .ratecard-table {
         font-size: 12px;
@@ -366,7 +386,7 @@
   </div>
 
   <div class="table-container">
-    <table class="ratecard-table upsspecs-table">
+    <table class="ratecard-table ups-table">
       <thead>
         <tr>
           <th>Parameter</th>
@@ -414,7 +434,7 @@
   </div>
 
   <div class="table-container">
-    <table class="ratecard-table upsspecs-table">
+    <table class="ratecard-table ups-table">
       <thead>
         <tr>
           <th>Parameter</th>
