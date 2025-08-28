@@ -93,7 +93,7 @@
     .erp-table th:nth-child(5) { width: 9%; }
     .erp-table th:nth-child(6) { width: 9%; }
     .erp-table th:nth-child(7) { width: 25%; } /* widened Notes column */
-
+    
     /* ✅ UPS Table Column Widths */
     .ups-table th:nth-child(1) { width: 5%; }  /* S/N reduced */
     .ups-table th:nth-child(2) { width: 20%; }
@@ -101,17 +101,26 @@
     .ups-table th:nth-child(4) { width: 30%; }
     .ups-table th:nth-child(5) { width: 20%; }
 
+
+
+
+
+    
     /* ✅ Spec Table Column Widths (2 columns) */
-.ups-table th:nth-child(1),
-.ups-table td:nth-child(1) {
-  width: 35%;  /* Parameter column */
+    /* Target only the last two UPS spec tables */
+.table-container:last-of-type,
+.table-container:nth-last-of-type(2) {
+  max-width: 800px; /* or match ERP table width */
+  margin: 20px auto; /* center the table */
 }
 
-.ups-table th:nth-child(2),
-.ups-table td:nth-child(2) {
-  width: 65%;  /* Specification column */
+.table-container:last-of-type table,
+.table-container:nth-last-of-type(2) table {
+  table-layout: fixed; /* enforce fixed layout */
+  width: 100%;
 }
 
+    
     .note {
       margin: 20px 0;
       padding: 15px;
