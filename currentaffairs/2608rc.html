@@ -101,6 +101,17 @@
     .ups-table th:nth-child(4) { width: 30%; }
     .ups-table th:nth-child(5) { width: 20%; }
 
+    /* ✅ Spec Table Column Widths (2 columns) */
+.ups-table th:nth-child(1),
+.ups-table td:nth-child(1) {
+  width: 35%;  /* Parameter column */
+}
+
+.ups-table th:nth-child(2),
+.ups-table td:nth-child(2) {
+  width: 65%;  /* Specification column */
+}
+
     .note {
       margin: 20px 0;
       padding: 15px;
