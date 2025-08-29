@@ -86,55 +86,110 @@
   color: #fff;
 }
 
+
+
+
+
+
+/* ===== UPS Table ===== */
+.ups-container {
+  max-width: 1200px;
+  margin: 20px auto;
+}
+
+.ups-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 14px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.ups-table th,
+.ups-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+  word-wrap: break-word;
+}
+
+.ups-table thead {
+  background: #444;
+  color: #fff;
+}
+
 .ups-table th:nth-child(1), .ups-table td:nth-child(1) { width:5%; }
 .ups-table th:nth-child(2), .ups-table td:nth-child(2) { width:20%; }
 .ups-table th:nth-child(3), .ups-table td:nth-child(3) { width:25%; }
 .ups-table th:nth-child(4), .ups-table td:nth-child(4) { width:30%; }
 .ups-table th:nth-child(5), .ups-table td:nth-child(5) { width:20%; }
 
-.hu1000-table th, .hu1000-table td,
-.su1300-table th, .su1300-table td { width:50%; }
-
-
-
-
-/* GP-HU1000 Table Independent Styling */
-.hu1000-table {
-  max-width: 1200px;          /* reduce table width */
+/* ===== Technical Specifications Tables ===== */
+.hu1000-container,
+.su1300-container {
+  max-width: 1000px;
   margin: 20px auto;
 }
 
-.hu1000-table table {
-  width: 100%;
-  table-layout: fixed;
-}
-
-/* GP-SU1300 Table Independent Styling */
+.hu1000-table,
 .su1300-table {
-  max-width: 1200px;          /* reduce table width */
-  margin: 20px auto;
-}
-
-.su1300-table table {
   width: 100%;
+  border-collapse: collapse;
   table-layout: fixed;
+  font-size: 14px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  overflow: hidden;
 }
 
-/* Optional: Column width adjustments for both */
-.hu1000-table table th:nth-child(1),
-.hu1000-table table td:nth-child(1),
-.su1300-table table th:nth-child(1),
-.su1300-table table td:nth-child(1) {
+.hu1000-table th, .hu1000-table td,
+.su1300-table th, .su1300-table td {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  word-wrap: break-word;
+  text-align: left;
+}
+
+.hu1000-table thead,
+.su1300-table thead {
+  background: #444;
+  color: #fff;
+}
+
+.hu1000-table th:nth-child(1),
+.hu1000-table td:nth-child(1),
+.su1300-table th:nth-child(1),
+.su1300-table td:nth-child(1) {
   width: 35%;
 }
 
-.hu1000-table table th:nth-child(2),
-.hu1000-table table td:nth-child(2),
-.su1300-table table th:nth-child(2),
-.su1300-table table td:nth-child(2) {
+.hu1000-table th:nth-child(2),
+.hu1000-table td:nth-child(2),
+.su1300-table th:nth-child(2),
+.su1300-table td:nth-child(2) {
   width: 65%;
 }
 
+/* ===== Notes under UPS Table ===== */
+.note {
+  margin: 20px 0;
+  padding: 15px;
+  background: #f9f9f9;
+  border-left: 4px solid #444;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .ups-table, .hu1000-table, .su1300-table {
+    font-size: 12px;
+  }
+}
 
 
 
