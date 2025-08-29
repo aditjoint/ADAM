@@ -1,235 +1,141 @@
 
+
+  /* ✅ Ratecards Table Style */
+
 <style>
-    html, body {
-      font-family: 'Roboto', sans-serif;
-      line-height: 1.6;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      margin: 0;
-      padding: 0;
-    }
-    input, textarea, select, label, a, button {
-      -webkit-user-select: text;
-      -moz-user-select: text;
-      -ms-user-select: text;
-      user-select: text;
-    }
-    main {
-      padding: 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .ratecard-section {
-      text-align: center;
-      margin-top: 1.5rem;
-    }
-    .ratecard-section h2 {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #000;
-      margin: 0;
-      line-height: 1.4;
-    }
+  html, body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin: 0;
+    padding: 0;
+  }
+  input, textarea, select, label, a, button {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+  main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  .ratecard-section {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+  .ratecard-section h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #000;
+    margin: 0;
+    line-height: 1.4;
+  }
 
-    /* ✅ Table Container */
-    .table-container {
-      width: 100%;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      margin: 20px 0;
-    }
+  /* ✅ Table Container */
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 20px 0;
+  }
 
-    /* ✅ Base Table Style */
+  /* ✅ Base Table Style */
+  .ratecard-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    table-layout: auto;
+    min-width: 600px;
+  }
+  .ratecard-table th, 
+  .ratecard-table td {
+    border: 1px solid #ddd;
+    padding: 10px 12px;
+    text-align: left;
+    word-wrap: break-word;
+    white-space: normal;
+  }
+  .ratecard-table thead {
+    background: #444;
+    color: #fff;
+  }
+
+  /* ✅ ERP Table Column Widths */
+  .erp-table th:nth-child(1) { width: 15%; }
+  .erp-table th:nth-child(2) { width: 22%; }
+  .erp-table th:nth-child(3) { width: 10%; }
+  .erp-table th:nth-child(4) { width: 10%; }
+  .erp-table th:nth-child(5) { width: 9%; }
+  .erp-table th:nth-child(6) { width: 9%; }
+  .erp-table th:nth-child(7) { width: 25%; } /* widened Notes column */
+
+  /* ✅ UPS Table Column Widths (general) */
+  .ups-table th:nth-child(1) { width: 5%; }
+  .ups-table th:nth-child(2) { width: 20%; }
+  .ups-table th:nth-child(3) { width: 25%; }
+  .ups-table th:nth-child(4) { width: 30%; }
+  .ups-table th:nth-child(5) { width: 20%; }
+
+  /* ✅ UPS Specifications Table Column Widths */
+  .ups-specs th:nth-child(1) { width: 35%; }
+  .ups-specs th:nth-child(2) { width: 65%; }
+
+  /* ✅ GP-HU1000 Table Independent Styling */
+  .hu1000-table {
+    max-width: 1200px;
+    margin: 20px auto;
+  }
+  .hu1000-table table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  /* ✅ GP-SU1300 Table Independent Styling */
+  .su1300-table {
+    max-width: 1200px;
+    margin: 20px auto;
+  }
+  .su1300-table table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  /* ✅ Column adjustments for HU1000 & SU1300 tables */
+  .hu1000-table th:nth-child(1),
+  .hu1000-table td:nth-child(1),
+  .su1300-table th:nth-child(1),
+  .su1300-table td:nth-child(1) {
+    width: 35%;
+  }
+  .hu1000-table th:nth-child(2),
+  .hu1000-table td:nth-child(2),
+  .su1300-table th:nth-child(2),
+  .su1300-table td:nth-child(2) {
+    width: 65%;
+  }
+
+  /* ✅ Notes */
+  .note {
+    margin: 20px 0;
+    padding: 15px;
+    background: #f9f9f9;
+    border-left: 4px solid #444;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
     .ratecard-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-      background: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      border-radius: 6px;
-      overflow: hidden;
-      table-layout: auto;
-      min-width: 600px;
+      font-size: 12px;
     }
-    .ratecard-table th, 
-    .ratecard-table td {
-      border: 1px solid #ddd;
-      padding: 10px 12px;
-      text-align: left;
-      word-wrap: break-word;
-      white-space: normal;
-    }
-    .ratecard-table thead {
-      background: #444;
-      color: #fff;
-    }
-
-    /* ✅ ERP Table Column Widths */
-    .erp-table th:nth-child(1) { width: 15%; }
-    .erp-table th:nth-child(2) { width: 22%; }
-    .erp-table th:nth-child(3) { width: 10%; }
-    .erp-table th:nth-child(4) { width: 10%; }
-    .erp-table th:nth-child(5) { width: 9%; }
-    .erp-table th:nth-child(6) { width: 9%; }
-    .erp-table th:nth-child(7) { width: 25%; } /* widened Notes column */
-    
-   
-    
-    .note {
-      margin: 20px 0;
-      padding: 15px;
-      background: #f9f9f9;
-      border-left: 4px solid #444;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    
-    
-    @media (max-width: 768px) {
-      .ratecard-table {
-        font-size: 12px;
-      }
-    }
-  </style>
-
-
-
-
- <style>
-    html, body {
-      font-family: 'Roboto', sans-serif;
-      line-height: 1.6;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      margin: 0;
-      padding: 0;
-    }
-    input, textarea, select, label, a, button {
-      -webkit-user-select: text;
-      -moz-user-select: text;
-      -ms-user-select: text;
-      user-select: text;
-    }
-    main {
-      padding: 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .ratecard-section {
-      text-align: center;
-      margin-top: 1.5rem;
-    }
-    .ratecard-section h2 {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #000;
-      margin: 0;
-      line-height: 1.4;
-    }
-
-    /* ✅ Table Container */
-    .table-container {
-      width: 100%;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      margin: 20px 0;
-    }
-
-    /* ✅ Base Table Style */
-    .ratecard-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-      background: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      border-radius: 6px;
-      overflow: hidden;
-      table-layout: auto;
-      min-width: 600px;
-    }
-    .ratecard-table th, 
-    .ratecard-table td {
-      border: 1px solid #ddd;
-      padding: 10px 12px;
-      text-align: left;
-      word-wrap: break-word;
-      white-space: normal;
-    }
-    .ratecard-table thead {
-      background: #444;
-      color: #fff;
-    }
-
-    
-    /* ✅ UPS Table Column Widths */
-    .ups-table th:nth-child(1) { width: 5%; }  /* S/N reduced */
-    .ups-table th:nth-child(2) { width: 20%; }
-    .ups-table th:nth-child(3) { width: 25%; }
-    .ups-table th:nth-child(4) { width: 30%; }
-    .ups-table th:nth-child(5) { width: 20%; }
-
-     /* ✅ UPS Specifications Table Column Widths */
-    .ups-table th:nth-child(1) { width: 35%; } 
-    .ups-table th:nth-child(2) { width: 65%; }
-
-    
-    .note {
-      margin: 20px 0;
-      padding: 15px;
-      background: #f9f9f9;
-      border-left: 4px solid #444;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    
-    
-    @media (max-width: 768px) {
-      .ratecard-table {
-        font-size: 12px;
-      }
-    }
-  </style>
-
-/* GP-HU1000 Table Independent Styling */
-.hu1000-table {
-  max-width: 1200px;          /* reduce table width */
-  margin: 20px auto;
-}
-
-.hu1000-table table {
-  width: 100%;
-  table-layout: fixed;
-}
-
-/* GP-SU1300 Table Independent Styling */
-.su1300-table {
-  max-width: 1200px;          /* reduce table width */
-  margin: 20px auto;
-}
-
-.su1300-table table {
-  width: 100%;
-  table-layout: fixed;
-}
-
-/* Optional: Column width adjustments for both */
-.hu1000-table table th:nth-child(1),
-.hu1000-table table td:nth-child(1),
-.su1300-table table th:nth-child(1),
-.su1300-table table td:nth-child(1) {
-  width: 35%;
-}
-
-.hu1000-table table th:nth-child(2),
-.hu1000-table table td:nth-child(2),
-.su1300-table table th:nth-child(2),
-.su1300-table table td:nth-child(2) {
-  width: 65%;
-}
-  </style>
+  }
+</style>
