@@ -96,6 +96,50 @@
 .su1300-table th, .su1300-table td { width:50%; }
 
 
+
+
+/* GP-HU1000 Table Independent Styling */
+.hu1000-table {
+  max-width: 1200px;          /* reduce table width */
+  margin: 20px auto;
+}
+
+.hu1000-table table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* GP-SU1300 Table Independent Styling */
+.su1300-table {
+  max-width: 1200px;          /* reduce table width */
+  margin: 20px auto;
+}
+
+.su1300-table table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* Optional: Column width adjustments for both */
+.hu1000-table table th:nth-child(1),
+.hu1000-table table td:nth-child(1),
+.su1300-table table th:nth-child(1),
+.su1300-table table td:nth-child(1) {
+  width: 35%;
+}
+
+.hu1000-table table th:nth-child(2),
+.hu1000-table table td:nth-child(2),
+.su1300-table table th:nth-child(2),
+.su1300-table table td:nth-child(2) {
+  width: 65%;
+}
+
+
+
+
+
+
 /* ===== Notes ===== */
 .note {
   margin: 20px 0;
