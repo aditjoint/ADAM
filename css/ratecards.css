@@ -51,17 +51,25 @@
   -webkit-overflow-scrolling: touch;
 }
 
-/* ✅ Base ratecard table */
+/* ===== Base Table Container ===== */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin: 20px 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ===== Base Table Style ===== */
 .ratecard-table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed; /* fixed layout for consistent columns */
+  table-layout: fixed; /* fixed layout ensures column widths */
   font-size: 14px;
   background: #fff;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   border-radius: 6px;
   overflow: hidden;
-  min-width: 600px; /* ensures horizontal scroll if needed */
+  min-width: 600px;
 }
 
 .ratecard-table th,
@@ -78,34 +86,21 @@
   color: #fff;
 }
 
-/* ✅ UPS Tables Column Widths */
-.ups-table th:nth-child(1),
-.ups-table td:nth-child(1) { width: 5%; }
+/* ===== UPS Table Column Widths ===== */
+.ups-table th:nth-child(1), .ups-table td:nth-child(1) { width: 5%; }
+.ups-table th:nth-child(2), .ups-table td:nth-child(2) { width: 20%; }
+.ups-table th:nth-child(3), .ups-table td:nth-child(3) { width: 25%; }
+.ups-table th:nth-child(4), .ups-table td:nth-child(4) { width: 30%; }
+.ups-table th:nth-child(5), .ups-table td:nth-child(5) { width: 20%; }
 
-.ups-table th:nth-child(2),
-.ups-table td:nth-child(2) { width: 20%; }
+/* ===== HU1000 / SU1300 Specs Column Widths ===== */
+.hu1000-table th:nth-child(1), .hu1000-table td:nth-child(1),
+.su1300-table th:nth-child(1), .su1300-table td:nth-child(1) { width: 35%; }
 
-.ups-table th:nth-child(3),
-.ups-table td:nth-child(3) { width: 25%; }
+.hu1000-table th:nth-child(2), .hu1000-table td:nth-child(2),
+.su1300-table th:nth-child(2), .su1300-table td:nth-child(2) { width: 65%; }
 
-.ups-table th:nth-child(4),
-.ups-table td:nth-child(4) { width: 30%; }
-
-.ups-table th:nth-child(5),
-.ups-table td:nth-child(5) { width: 20%; }
-
-/* ✅ Technical Specs Tables (HU1000, SU1300) Column Widths */
-.hu1000-table th:nth-child(1),
-.hu1000-table td:nth-child(1),
-.su1300-table th:nth-child(1),
-.su1300-table td:nth-child(1) { width: 35%; }
-
-.hu1000-table th:nth-child(2),
-.hu1000-table td:nth-child(2),
-.su1300-table th:nth-child(2),
-.su1300-table td:nth-child(2) { width: 65%; }
-
-/* ✅ Notes */
+/* ===== Notes ===== */
 .note {
   margin: 20px 0;
   padding: 15px;
@@ -115,11 +110,9 @@
   line-height: 1.5;
 }
 
-/* ✅ Responsive tweaks */
+/* ===== Responsive ===== */
 @media (max-width: 768px) {
   .ratecard-table {
     font-size: 12px;
   }
 }
-
-
