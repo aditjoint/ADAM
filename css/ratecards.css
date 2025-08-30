@@ -4,7 +4,6 @@ html, body {
   line-height: 1.6;
   margin: 0;
   padding: 0;
-  background-image: url('your-background-image-url.jpg'); /* Set your background image here */
   background-size: cover;
   background-position: center;
   background-attachment: fixed; /* Ensure the background doesn't scroll */
