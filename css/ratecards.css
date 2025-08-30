@@ -28,18 +28,17 @@ main {
 /* ===== Table Container (horizontal scroll) ===== */
 .table-container {
   width: 100%;
-  overflow-x: auto; /* horizontal scroll */
+  overflow-x: auto;
   position: relative;
 }
 
 /* ===== Base Table Styles ===== */
 table {
-  border-collapse: separate !important; /* required for sticky column */
+  border-collapse: separate !important; /* must be separate for sticky */
   border-spacing: 0;
   font-size: 14px;
   background: #fff;
-  width: 1200px;      /* all tables same width */
-  table-layout: fixed; /* maintain column widths */
+  min-width: 1200px; /* all tables scroll horizontally */
 }
 
 th, td {
@@ -61,6 +60,7 @@ table td:first-child {
   position: sticky;
   left: 0;
   z-index: 3;
+  background: #fff;
   border-right: 1px solid #ddd;
 }
 
@@ -68,11 +68,6 @@ table th:first-child {
   background: #444;
   color: #fff;
   z-index: 5; /* header above cells */
-}
-
-table td:first-child {
-  background: #fff;
-  color: #000;
 }
 
 /* ===== ERP Table Column Widths ===== */
@@ -111,8 +106,7 @@ table td:first-child {
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   table {
-    width: 100%;       /* scale to container on mobile */
+    width: 100%;
     font-size: 12px;
-    table-layout: auto; /* allow flexible layout */
   }
 }
