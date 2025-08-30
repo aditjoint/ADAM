@@ -80,11 +80,11 @@ table th:first-child {
 .erp-table th:nth-child(7), .erp-table td:nth-child(7) { width:20%; }
 
 /* ===== UPS Table Column Widths ===== */
-.ups-table th:nth-child(1), .ups-table td:nth-child(1) { width:15%; }
+.ups-table th:nth-child(1), .ups-table td:nth-child(1) { width:10%; }
 .ups-table th:nth-child(2), .ups-table td:nth-child(2) { width:20%; }
-.ups-table th:nth-child(3), .ups-table td:nth-child(3) { width:40%; }
-.ups-table th:nth-child(4), .ups-table td:nth-child(4) { width:25%; }
-
+.ups-table th:nth-child(3), .ups-table td:nth-child(3) { width:35%; }
+.ups-table th:nth-child(4), .ups-table td:nth-child(4) { width:20%; }
+.ups-table th:nth-child(5), .ups-table td:nth-child(5) { width:15%; }
 
 /* ===== hu1000 & su1300 Table Column Widths ===== */
 .hu1000-table th:nth-child(1), .hu1000-table td:nth-child(1),
