@@ -39,7 +39,7 @@ main {
 /* ✅ Table Container */
 .table-container {
   width: 100%;
-  overflow-x: auto;
+  overflow-x: auto; /* Ensures horizontal scrolling */
   margin: 20px 0;
   -webkit-overflow-scrolling: touch;
 }
@@ -48,10 +48,11 @@ main {
 .ratecard-table,
 .ups-table,
 .hu1000-table,
-.su1300-table {
+.su1300-table,
+.erp-table {  /* Apply same rule for ERP table */
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed;
+  table-layout: fixed;  /* Ensures columns are fixed */
   font-size: 14px;
   background: #fff;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -66,7 +67,9 @@ main {
 .hu1000-table th,
 .hu1000-table td,
 .su1300-table th,
-.su1300-table td {
+.su1300-table td,
+.erp-table th,
+.erp-table td {  /* Apply the same to ERP */
   padding: 10px 12px;
   text-align: left;
   border: 1px solid #ddd;
@@ -77,16 +80,17 @@ main {
 .ratecard-table thead,
 .ups-table thead,
 .hu1000-table thead,
-.su1300-table thead {
+.su1300-table thead,
+.erp-table thead {
   background: #444;
   color: #fff;
 }
 
 /* ===== ERP Table Specifics ===== */
 .erp-table th:nth-child(1), .erp-table td:nth-child(1) { width:10%; }
-.erp-table th:nth-child(2), .erp-table td:nth-child(2) { width:25%; }
-.erp-table th:nth-child(3), .erp-table td:nth-child(3) { width:8%; }
-.erp-table th:nth-child(4), .erp-table td:nth-child(4) { width:7%; }
+.erp-table th:nth-child(2), .erp-table td:nth-child(2) { width:20%; }
+.erp-table th:nth-child(3), .erp-table td:nth-child(3) { width:10%; }
+.erp-table th:nth-child(4), .erp-table td:nth-child(4) { width:10%; }
 .erp-table th:nth-child(5), .erp-table td:nth-child(5) { width:10%; }
 .erp-table th:nth-child(6), .erp-table td:nth-child(6) { width:10%; }
 .erp-table th:nth-child(7), .erp-table td:nth-child(7) { width:20%; }
@@ -124,7 +128,8 @@ main {
   .ups-table,
   .hu1000-table,
   .su1300-table,
-  .ratecard-table {
+  .ratecard-table,
+  .erp-table {  /* Apply to ERP table as well */
     font-size: 12px;
   }
 }
