@@ -1,5 +1,4 @@
 /* ===== protect.css — Global Content & Image Protection ===== */
-
 /* ✅ Base layout and scroll control */
 html, body {
   margin: 0;
@@ -32,13 +31,22 @@ img {
 }
 
 /* 🚫 Disable selection on static content */
-h1, h2, h3, h4, h5, h6,
+/* Exclude h1, h2, h3 from this disable rule */
+h4, h5, h6,
 p, span, strong,
 div:not(.allow-select) {
   -webkit-user-select: none !important;
   -moz-user-select: none !important;
   -ms-user-select: none !important;
   user-select: none !important;
+}
+
+/* Make h1, h2, h3 explicitly selectable */
+h1, h2, h3 {
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+  user-select: text !important;
 }
 
 /* 🖨️ Fully block printing */
