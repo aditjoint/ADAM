@@ -83,11 +83,11 @@ main {
 }
 
 /* ===== UPS Table Specifics ===== */
-.ups-table th:nth-child(1), .ups-table td:nth-child(1) { width:8%; }
-.ups-table th:nth-child(2), .ups-table td:nth-child(2) { width:25%; }
+.ups-table th:nth-child(1), .ups-table td:nth-child(1) { width:10%; }
+.ups-table th:nth-child(2), .ups-table td:nth-child(2) { width:20%; }
 .ups-table th:nth-child(3), .ups-table td:nth-child(3) { width:35%; }
 .ups-table th:nth-child(4), .ups-table td:nth-child(4) { width:20%; }
-.ups-table th:nth-child(5), .ups-table td:nth-child(5) { width:12%; }
+.ups-table th:nth-child(5), .ups-table td:nth-child(5) { width:15%; }
 
 /* ===== Technical Specifications Tables (hu1000 & su1300) ===== */
 .hu1000-table th:nth-child(1), .hu1000-table td:nth-child(1),
