@@ -5,8 +5,7 @@ Watermark “ADAM Consult (https://adamconsult.com)”
  is visible behind tables.
 All tables maintain same width (min-width: 1200px).
 Mobile-friendly: tables scale and remain scrollable.
-No HTML changes needed, watermark added via CSS pseudo-element.
-*/
+No HTML changes needed, watermark added via CSS pseudo-element.*/
 html, body {
   font-family: 'Roboto', sans-serif;
   line-height: 1.6;
