@@ -35,7 +35,7 @@ main {
 
 .erp-table-container::before,
 .ups-table-container::before {
-  content: "https://adamconsult.com";
+  content: "https://adamconsult.com; contact us: sales@adamconsult.com";
   position: absolute;
   top: 50%;
   left: 50%;
