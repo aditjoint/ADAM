@@ -32,6 +32,21 @@ main {
   position: relative;
 }
 
+/* ===== Watermark behind ERP and UPS tables only ===== */
+.erp-table-container::before,
+.ups-table-container::before {
+  content: "https://adamconsult.com";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  font-size: 36px;
+  color: rgba(0,0,0,0.08); /* subtle watermark */
+  z-index: 0;               /* behind table content */
+  pointer-events: none;     /* allows table interaction */
+  white-space: nowrap;
+}
+
 /* ===== Base Table Styles ===== */
 table {
   border-collapse: separate !important; /* must be separate for sticky */
