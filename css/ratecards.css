@@ -1,4 +1,4 @@
-/* ✅ Ratecards Table Style */
+/* ===== Global Styles ===== */
 html, body {
   font-family: 'Roboto', sans-serif;
   line-height: 1.6;
@@ -36,12 +36,13 @@ main {
   line-height: 1.4;
 }
 
-/* ✅ Table Container */
+/* ===== Table Container (horizontal scroll) ===== */
 .table-container {
   width: 100%;
   overflow-x: auto; /* Enables horizontal scrolling */
   margin: 20px 0;
   -webkit-overflow-scrolling: touch; /* Smooth scrolling for touch devices */
+  position: relative;
 }
 
 /* ===== Base Table Style ===== */
@@ -49,10 +50,10 @@ main {
 .ups-table,
 .hu1000-table,
 .su1300-table,
-.erp-table {  /* Apply the same rule to all tables */
+.erp-table {  
   width: 100%;
   border-collapse: collapse;
-  table-layout: auto;  /* Let the table adjust to the content size */
+  table-layout: auto;
   font-size: 14px;
   background: #fff;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -69,7 +70,7 @@ main {
 .su1300-table th,
 .su1300-table td,
 .erp-table th,
-.erp-table td {  /* Apply the same to all tables */
+.erp-table td {
   padding: 10px 12px;
   text-align: left;
   border: 1px solid #ddd;
@@ -86,7 +87,25 @@ main {
   color: #fff;
 }
 
-/* ===== ERP Table Specifics ===== */
+/* ===== Sticky First Column for ERP Table ===== */
+.erp-table th:first-child,
+.erp-table td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2; /* ensures first column stays on top */
+}
+
+.erp-table th:first-child {
+  background: #444; 
+  color: #fff;
+}
+
+.erp-table td:first-child {
+  background: #fff;
+  color: #000;
+}
+
+/* ===== ERP Table Specific Column Widths ===== */
 .erp-table th:nth-child(1), .erp-table td:nth-child(1) { width:20%; }
 .erp-table th:nth-child(2), .erp-table td:nth-child(2) { width:20%; }
 .erp-table th:nth-child(3), .erp-table td:nth-child(3) { width:10%; }
@@ -95,7 +114,7 @@ main {
 .erp-table th:nth-child(6), .erp-table td:nth-child(6) { width:10%; }
 .erp-table th:nth-child(7), .erp-table td:nth-child(7) { width:20%; }
 
-/* ===== UPS Table Specifics ===== */
+/* ===== UPS Table Specific Column Widths ===== */
 .ups-table th:nth-child(1), .ups-table td:nth-child(1) { width:10%; }
 .ups-table th:nth-child(2), .ups-table td:nth-child(2) { width:20%; }
 .ups-table th:nth-child(3), .ups-table td:nth-child(3) { width:35%; }
@@ -129,8 +148,9 @@ main {
   .hu1000-table,
   .su1300-table,
   .ratecard-table,
-  .erp-table {  /* Apply to ERP table as well */
+  .erp-table {
     font-size: 12px;
   }
 }
+
 
