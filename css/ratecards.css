@@ -87,7 +87,7 @@ main {
 }
 
 /* ===== ERP Table Specifics ===== */
-.erp-table th:nth-child(1), .erp-table td:nth-child(1) { width:10%; }
+.erp-table th:nth-child(1), .erp-table td:nth-child(1) { width:20%; }
 .erp-table th:nth-child(2), .erp-table td:nth-child(2) { width:20%; }
 .erp-table th:nth-child(3), .erp-table td:nth-child(3) { width:10%; }
 .erp-table th:nth-child(4), .erp-table td:nth-child(4) { width:10%; }
