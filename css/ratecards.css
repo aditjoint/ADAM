@@ -10,19 +10,21 @@ main {
   padding: 20px;
   max-width: 1200px;
   margin: auto;
+  position: relative; /* required for watermark pseudo-element if inside main */
 }
 
-.ratecard-section {
-  text-align: center;
-  margin-top: 1.5rem;
-}
-
-.ratecard-section h2 {
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: #000;
-  margin: 0;
-  line-height: 1.4;
+/* ===== Watermark for all tables/pages ===== */
+body::before {
+  content: "ADAM Consult (https://adamconsult.com)";
+  position: fixed;           /* stays while scrolling horizontally and vertically */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  font-size: 48px;           /* adjust size */
+  color: rgba(0,0,0,0.08);   /* subtle transparency */
+  z-index: 1;                /* behind content */
+  white-space: nowrap;
+  pointer-events: none;      /* allow clicks through watermark */
 }
 
 /* ===== Table Container (horizontal scroll) ===== */
@@ -30,15 +32,16 @@ main {
   width: 100%;
   overflow-x: auto;
   position: relative;
+  z-index: 2; /* ensures table is above watermark */
 }
 
 /* ===== Base Table Styles ===== */
 table {
-  border-collapse: separate !important; /* must be separate for sticky */
+  border-collapse: separate !important; /* must be separate for sticky column */
   border-spacing: 0;
   font-size: 14px;
   background: #fff;
-  min-width: 1200px; /* all tables scroll horizontally */
+  min-width: 1200px; /* all tables scroll horizontally if smaller */
 }
 
 th, td {
@@ -80,11 +83,11 @@ table th:first-child {
 .erp-table th:nth-child(7), .erp-table td:nth-child(7) { width:20%; }
 
 /* ===== UPS Table Column Widths ===== */
-.ups-table th:nth-child(1), .ups-table td:nth-child(1) { width:15%; }
+.ups-table th:nth-child(1), .ups-table td:nth-child(1) { width:10%; }
 .ups-table th:nth-child(2), .ups-table td:nth-child(2) { width:20%; }
-.ups-table th:nth-child(3), .ups-table td:nth-child(3) { width:40%; }
-.ups-table th:nth-child(4), .ups-table td:nth-child(4) { width:25%; }
-
+.ups-table th:nth-child(3), .ups-table td:nth-child(3) { width:35%; }
+.ups-table th:nth-child(4), .ups-table td:nth-child(4) { width:20%; }
+.ups-table th:nth-child(5), .ups-table td:nth-child(5) { width:15%; }
 
 /* ===== hu1000 & su1300 Table Column Widths ===== */
 .hu1000-table th:nth-child(1), .hu1000-table td:nth-child(1),
