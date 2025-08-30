@@ -2,19 +2,8 @@
 html, body {
   font-family: 'Roboto', sans-serif;
   line-height: 1.6;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   margin: 0;
   padding: 0;
-}
-
-input, textarea, select, label, a, button {
-  -webkit-user-select: text;
-  -moz-user-select: text;
-  -ms-user-select: text;
-  user-select: text;
 }
 
 main {
@@ -36,79 +25,57 @@ main {
   line-height: 1.4;
 }
 
-/* ===== Table Container (horizontal scroll) ===== */
+/* ===== Table Container ===== */
 .table-container {
   width: 100%;
-  overflow-x: auto; /* Enables horizontal scrolling */
-  margin: 20px 0;
-  -webkit-overflow-scrolling: touch;
+  overflow-x: auto; /* horizontal scroll */
   position: relative;
 }
 
-/* ===== Base Table Style ===== */
-.ratecard-table,
-.ups-table,
-.hu1000-table,
-.su1300-table,
-.erp-table {
-  width: max-content; /* allows horizontal scroll */
-  min-width: 100%;
-  border-collapse: separate; /* must be separate for sticky to work */
+/* ===== Base Table Styles ===== */
+table {
+  border-collapse: separate !important; /* must be separate for sticky */
   border-spacing: 0;
   font-size: 14px;
   background: #fff;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  border-radius: 6px;
-  overflow: hidden;
+  min-width: 600px; /* ensures scroll if table wider */
+  width: max-content;
 }
 
-.ratecard-table th,
-.ratecard-table td,
-.ups-table th,
-.ups-table td,
-.hu1000-table th,
-.hu1000-table td,
-.su1300-table th,
-.su1300-table td,
-.erp-table th,
-.erp-table td {
+th, td {
   padding: 10px 12px;
   text-align: left;
   border: 1px solid #ddd;
-  word-wrap: break-word;
   white-space: nowrap;
 }
 
-.ratecard-table thead,
-.ups-table thead,
-.hu1000-table thead,
-.su1300-table thead,
-.erp-table thead {
+/* ===== Table Headers ===== */
+thead {
   background: #444;
   color: #fff;
 }
 
-/* ===== Sticky First Column for ERP Table ===== */
-.erp-table th:first-child,
-.erp-table td:first-child {
+/* ===== Sticky First Column for All Tables ===== */
+table th:first-child,
+table td:first-child {
   position: sticky;
   left: 0;
-  z-index: 2;
+  z-index: 3;
   border-right: 1px solid #ddd;
 }
 
-.erp-table th:first-child {
+table th:first-child {
   background: #444;
   color: #fff;
-  z-index: 5; /* ensure header above td */
+  z-index: 5; /* header above cells */
 }
 
-.erp-table td:first-child {
+table td:first-child {
   background: #fff;
   color: #000;
 }
 
-/* ===== ERP Table Specific Column Widths ===== */
+/* ===== ERP Table Column Widths ===== */
 .erp-table th:nth-child(1), .erp-table td:nth-child(1) { width:20%; }
 .erp-table th:nth-child(2), .erp-table td:nth-child(2) { width:20%; }
 .erp-table th:nth-child(3), .erp-table td:nth-child(3) { width:10%; }
@@ -117,25 +84,21 @@ main {
 .erp-table th:nth-child(6), .erp-table td:nth-child(6) { width:10%; }
 .erp-table th:nth-child(7), .erp-table td:nth-child(7) { width:20%; }
 
-/* ===== UPS Table Specific Column Widths ===== */
+/* ===== UPS Table Column Widths ===== */
 .ups-table th:nth-child(1), .ups-table td:nth-child(1) { width:10%; }
 .ups-table th:nth-child(2), .ups-table td:nth-child(2) { width:20%; }
 .ups-table th:nth-child(3), .ups-table td:nth-child(3) { width:35%; }
 .ups-table th:nth-child(4), .ups-table td:nth-child(4) { width:20%; }
 .ups-table th:nth-child(5), .ups-table td:nth-child(5) { width:15%; }
 
-/* ===== Technical Specifications Tables (hu1000 & su1300) ===== */
+/* ===== hu1000 & su1300 Table Column Widths ===== */
 .hu1000-table th:nth-child(1), .hu1000-table td:nth-child(1),
-.su1300-table th:nth-child(1), .su1300-table td:nth-child(1) {
-  width: 35%;
-}
+.su1300-table th:nth-child(1), .su1300-table td:nth-child(1) { width: 35%; }
 
 .hu1000-table th:nth-child(2), .hu1000-table td:nth-child(2),
-.su1300-table th:nth-child(2), .su1300-table td:nth-child(2) {
-  width: 65%;
-}
+.su1300-table th:nth-child(2), .su1300-table td:nth-child(2) { width: 65%; }
 
-/* ===== Notes under UPS Table ===== */
+/* ===== Notes ===== */
 .note {
   margin: 20px 0;
   padding: 15px;
@@ -147,11 +110,7 @@ main {
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
-  .ups-table,
-  .hu1000-table,
-  .su1300-table,
-  .ratecard-table,
-  .erp-table {
+  table {
     font-size: 12px;
   }
 }
