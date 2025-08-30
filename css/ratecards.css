@@ -32,9 +32,10 @@ main {
   z-index: 1;         /* ensures watermark stays behind table content */
 }
 
+/* Watermark styling, specific to ERP and UPS tables */
 .erp-table-container::before,
 .ups-table-container::before {
-  content: "https://adamconsult.com; contact us: sales@adamconsult.com";
+  content: "https://adamconsult.com";
   position: absolute;
   top: 50%;
   left: 50%;
