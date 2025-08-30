@@ -32,7 +32,7 @@ main {
   position: relative;
 }
 
-/* ===== Watermark behind ERP and UPS tables only ===== */
+/* ===== Watermark only behind ERP and UPS tables ===== */
 .erp-table-container::before,
 .ups-table-container::before {
   content: "https://adamconsult.com";
@@ -40,20 +40,20 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-30deg);
-  font-size: 36px;
-  color: rgba(0,0,0,0.08); /* subtle watermark */
-  z-index: 0;               /* behind table content */
-  pointer-events: none;     /* allows table interaction */
+  font-size: 36px;           /* adjust the size of the text */
+  color: rgba(0,0,0,0.1);    /* subtle watermark text color */
+  z-index: -1;               /* watermark stays behind table content */
+  pointer-events: none;      /* prevents watermark from blocking table interaction */
   white-space: nowrap;
 }
 
 /* ===== Base Table Styles ===== */
 table {
-  border-collapse: separate !important; /* must be separate for sticky */
+  border-collapse: separate !important; /* needed for sticky column */
   border-spacing: 0;
   font-size: 14px;
   background: #fff;
-  min-width: 1200px; /* all tables scroll horizontally */
+  min-width: 1200px; /* ensures horizontal scroll */
 }
 
 th, td {
