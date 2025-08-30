@@ -37,7 +37,7 @@ main {
 }
 
 /* ✅ Table Container */
-.table-container {
+.table-container { /* General table container */
   width: 100%;
   overflow-x: auto; /* Ensures horizontal scrolling */
   margin: 20px 0;
@@ -49,7 +49,7 @@ main {
 .ups-table,
 .hu1000-table,
 .su1300-table,
-.erp-table {  /* Apply same rule for ERP table */
+.erp-table {  /* Apply the same rule to all tables */
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;  /* Ensures columns are fixed */
@@ -69,7 +69,7 @@ main {
 .su1300-table th,
 .su1300-table td,
 .erp-table th,
-.erp-table td {  /* Apply the same to ERP */
+.erp-table td {  /* Apply the same to all tables */
   padding: 10px 12px;
   text-align: left;
   border: 1px solid #ddd;
