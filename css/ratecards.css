@@ -37,11 +37,11 @@ main {
 }
 
 /* ✅ Table Container */
-.table-container { /* General table container */
+.table-container {
   width: 100%;
-  overflow-x: auto; /* Ensures horizontal scrolling */
+  overflow-x: auto; /* Enables horizontal scrolling */
   margin: 20px 0;
-  -webkit-overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling for touch devices */
 }
 
 /* ===== Base Table Style ===== */
@@ -52,7 +52,7 @@ main {
 .erp-table {  /* Apply the same rule to all tables */
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed;  /* Ensures columns are fixed */
+  table-layout: auto;  /* Let the table adjust to the content size */
   font-size: 14px;
   background: #fff;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -74,7 +74,7 @@ main {
   text-align: left;
   border: 1px solid #ddd;
   word-wrap: break-word;
-  white-space: normal;
+  white-space: nowrap; /* Prevent content from wrapping inside cells */
 }
 
 .ratecard-table thead,
@@ -133,3 +133,4 @@ main {
     font-size: 12px;
   }
 }
+
