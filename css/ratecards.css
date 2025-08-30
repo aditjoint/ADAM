@@ -1,4 +1,12 @@
-/* ===== Global Styles ===== */
+/* ===== Global Styles =====
+Sticky first column works for all tables.
+Horizontal scroll enabled for every table.
+Watermark “ADAM Consult (https://adamconsult.com)”
+ is visible behind tables.
+All tables maintain same width (min-width: 1200px).
+Mobile-friendly: tables scale and remain scrollable.
+No HTML changes needed, watermark added via CSS pseudo-element.
+*/
 html, body {
   font-family: 'Roboto', sans-serif;
   line-height: 1.6;
@@ -10,21 +18,21 @@ main {
   padding: 20px;
   max-width: 1200px;
   margin: auto;
-  position: relative; /* required for watermark pseudo-element if inside main */
+  position: relative;
 }
 
 /* ===== Watermark for all tables/pages ===== */
 body::before {
   content: "ADAM Consult (https://adamconsult.com)";
-  position: fixed;           /* stays while scrolling horizontally and vertically */
+  position: fixed;           /* stays visible while scrolling */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-30deg);
   font-size: 48px;           /* adjust size */
-  color: rgba(0,0,0,0.08);   /* subtle transparency */
-  z-index: 1;                /* behind content */
+  color: rgba(0,0,0,0.1);    /* subtle but visible */
+  z-index: 9999;             /* above table background */
   white-space: nowrap;
-  pointer-events: none;      /* allow clicks through watermark */
+  pointer-events: none;      /* allows clicks through watermark */
 }
 
 /* ===== Table Container (horizontal scroll) ===== */
@@ -32,7 +40,7 @@ body::before {
   width: 100%;
   overflow-x: auto;
   position: relative;
-  z-index: 2; /* ensures table is above watermark */
+  z-index: 2; /* ensures table content above watermark */
 }
 
 /* ===== Base Table Styles ===== */
@@ -41,7 +49,7 @@ table {
   border-spacing: 0;
   font-size: 14px;
   background: #fff;
-  min-width: 1200px; /* all tables scroll horizontally if smaller */
+  min-width: 1200px; /* all tables scroll horizontally if container smaller */
 }
 
 th, td {
