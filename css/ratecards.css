@@ -17,31 +17,31 @@ main {
 .table-container {
   width: 100%;
   overflow-x: auto;
-  position: relative; /* required for pseudo-element positioning */
-  z-index: 1;         /* ensures table content above watermark */
+  position: relative; /* required for watermark positioning */
+  z-index: 1;
 }
 
-/* ===== Watermark only behind tables ===== */
+/* ===== Simple Text Watermark behind table ===== */
 .table-container::before {
   content: "ADAM Consult (https://adamconsult.com)";
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-30deg);
-  font-size: 48px;           /* adjust size */
-  color: rgba(0,0,0,0.08);   /* subtle and professional */
-  z-index: 0;                 /* behind table content */
-  pointer-events: none;       /* allows table interaction */
+  font-size: 36px;          /* adjust size */
+  color: rgba(0,0,0,0.08);  /* subtle text watermark */
+  z-index: 0;                /* behind table content */
+  pointer-events: none;      /* allows table interaction */
   white-space: nowrap;
 }
 
 /* ===== Base Table Styles ===== */
 table {
-  border-collapse: separate !important; /* must be separate for sticky column */
+  border-collapse: separate !important; /* needed for sticky column */
   border-spacing: 0;
   font-size: 14px;
   background: #fff;
-  min-width: 1200px; /* all tables scroll horizontally if container smaller */
+  min-width: 1200px; /* ensures horizontal scroll */
 }
 
 th, td {
@@ -57,7 +57,7 @@ thead {
   color: #fff;
 }
 
-/* ===== Sticky First Column for All Tables ===== */
+/* ===== Sticky First Column ===== */
 table th:first-child,
 table td:first-child {
   position: sticky;
@@ -70,7 +70,7 @@ table td:first-child {
 table th:first-child {
   background: #444;
   color: #fff;
-  z-index: 5; /* header above cells */
+  z-index: 5; /* above table cells */
 }
 
 /* ===== ERP Table Column Widths ===== */
