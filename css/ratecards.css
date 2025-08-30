@@ -4,25 +4,19 @@ html, body {
   line-height: 1.6;
   margin: 0;
   padding: 0;
+  background-image: url('your-background-image-url.jpg'); /* Set your background image here */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Ensure the background doesn't scroll */
 }
 
+/* Ensure the watermark and table area stays visible even with page overflow */
 main {
   padding: 20px;
   max-width: 1200px;
   margin: auto;
-}
-
-.ratecard-section {
-  text-align: center;
-  margin-top: 1.5rem;
-}
-
-.ratecard-section h2 {
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: #000;
-  margin: 0;
-  line-height: 1.4;
+  position: relative;
+  overflow: visible; /* Allow children elements (like watermark) to overflow */
 }
 
 /* ===== Table Container (horizontal scroll) ===== */
@@ -33,6 +27,12 @@ main {
 }
 
 /* ===== Watermark only behind ERP and UPS tables ===== */
+.erp-table-container,
+.ups-table-container {
+  position: relative; /* position relative for watermark */
+  z-index: 1;         /* ensures watermark stays behind table content */
+}
+
 .erp-table-container::before,
 .ups-table-container::before {
   content: "https://adamconsult.com";
@@ -42,14 +42,17 @@ main {
   transform: translate(-50%, -50%) rotate(-30deg);
   font-size: 36px;           /* adjust the size of the text */
   color: rgba(0,0,0,0.1);    /* subtle watermark text color */
-  z-index: -1;               /* watermark stays behind table content */
+  z-index: -1;               /* ensures watermark stays behind table content */
   pointer-events: none;      /* prevents watermark from blocking table interaction */
   white-space: nowrap;
+  max-width: 100%;            /* ensure watermark text doesn’t overflow */
+  overflow: hidden;          /* prevent watermark from flowing outside */
+  text-overflow: ellipsis;   /* Optional: adds ellipsis if the watermark text is too long */
 }
 
 /* ===== Base Table Styles ===== */
 table {
-  border-collapse: separate !important; /* needed for sticky column */
+  border-collapse: separate !important; /* must be separate for sticky column */
   border-spacing: 0;
   font-size: 14px;
   background: #fff;
