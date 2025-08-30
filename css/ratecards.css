@@ -41,7 +41,7 @@ main {
   width: 100%;
   overflow-x: auto; /* Enables horizontal scrolling */
   margin: 20px 0;
-  -webkit-overflow-scrolling: touch; /* Smooth scrolling for touch devices */
+  -webkit-overflow-scrolling: touch;
   position: relative;
 }
 
@@ -50,10 +50,11 @@ main {
 .ups-table,
 .hu1000-table,
 .su1300-table,
-.erp-table {  
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: auto;
+.erp-table {
+  width: max-content; /* allows horizontal scroll */
+  min-width: 100%;
+  border-collapse: separate; /* must be separate for sticky to work */
+  border-spacing: 0;
   font-size: 14px;
   background: #fff;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -75,7 +76,7 @@ main {
   text-align: left;
   border: 1px solid #ddd;
   word-wrap: break-word;
-  white-space: nowrap; /* Prevent content from wrapping inside cells */
+  white-space: nowrap;
 }
 
 .ratecard-table thead,
@@ -92,12 +93,14 @@ main {
 .erp-table td:first-child {
   position: sticky;
   left: 0;
-  z-index: 2; /* ensures first column stays on top */
+  z-index: 2;
+  border-right: 1px solid #ddd;
 }
 
 .erp-table th:first-child {
-  background: #444; 
+  background: #444;
   color: #fff;
+  z-index: 5; /* ensure header above td */
 }
 
 .erp-table td:first-child {
@@ -152,5 +155,3 @@ main {
     font-size: 12px;
   }
 }
-
-
