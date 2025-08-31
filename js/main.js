@@ -195,4 +195,3 @@ if (document.querySelector('.hero')) {
         heroSection.style.backgroundPosition = `center ${scroll * 0.3}px`;
     });
 }
-
