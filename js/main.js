@@ -4,36 +4,28 @@
  * Version: 1.0
  */
 // Execute when the DOM is fully loaded JS to set daily background
-document.addEventListener('DOMContentLoaded', function() {
-    const today = new Date();
-    const day = today.getDate(); // 1-31
 
+document.addEventListener('DOMContentLoaded', function() {
+
+    // --- Header padding for main ---
+    const header = document.querySelector("header");
     const main = document.querySelector("main");
+    if (header && main) {
+        const headerHeight = header.offsetHeight;
+        main.style.paddingTop = `${headerHeight}px`;
+    }
+
+    // --- Daily background ---
     if (main) {
+        const today = new Date();
+        const day = today.getDate(); // 1-31
         const imagePath = `/images/daily-backgrounds/bg-${day}.jpg`;
         main.style.backgroundImage = `url('${imagePath}')`;
         main.style.backgroundSize = 'cover';
         main.style.backgroundPosition = 'center';
         main.style.backgroundRepeat = 'no-repeat';
-        main.style.backgroundAttachment = 'fixed'; // optional parallax-like effect
+        main.style.backgroundAttachment = 'fixed'; // or 'scroll' if header scrolls
     }
-});
-
-    // Initialize the mobile menu functionality
-    initMobileMenu();
-    // Initialize tab switching functionality
-    initTabs();
-    // Initialize scroll animation
-    initScrollAnimation();
-    // Initialize service card hover effects
-    initServiceCardEffects();
-    // Push the body content down by the actual header height
-    const header = document.querySelector("header");
-    if (header) {
-        const headerHeight = header.offsetHeight;
-        document.body.style.paddingTop = `${headerHeight}px`;
-    }
-});
 
 /**
  * Initialize the mobile menu
