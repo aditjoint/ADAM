@@ -1490,7 +1490,6 @@ footer {
     z-index: 1; /* ensures content stays above overlay */
 }
 
-
 /* Date-wise background images */
 body.day1  { background-image: url("../images/daily-backgrounds/bg1.jpg"); }
 body.day2  { background-image: url("../images/daily-backgrounds/bg2.jpg"); }
