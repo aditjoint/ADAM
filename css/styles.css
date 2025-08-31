@@ -73,8 +73,6 @@
     --container-max-width: 1200px;
     --container-padding: 1rem;
 }
-
-/* Reset & Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -84,102 +82,19 @@ html {
     scroll-behavior: smooth;
     font-size: 16px;
 }
-
-/* --------------------------------------------
-   Fixed Stacking Context and Background Setup
--------------------------------------------- */
-
-/* Fixed header */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px; /* fixed height for header */
-  z-index: 1100;
-  background-color: var(--white);
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  align-items: center;
-}
-
-/* Padding top on body = header height to prevent content hiding */
 body {
     font-family: 'Segoe UI', 'Roboto', sans-serif;
     font-size: var(--font-size-base);
     color: var(--text-dark);
     line-height: 1.6;
-
     background-color: #f4f6f8;
-
     margin: 0;
-    padding-top: 80px; /* equal to fixed header height */
+    padding: 0;
     position: relative;
     z-index: 0;
     overflow-x: hidden;
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    transition: background-image 0.8s ease-in-out;
+    padding-top: 80px; /* adjust to actual rendered header height */
 }
-
-/* Overlay for background image dimming without blocking clicks */
-body::before {
-    content: "";
-    position: fixed;
-    top: 80px; /* below fixed header */
-    left: 0;
-    right: 0;
-    bottom: 0; /* above footer if footer is fixed, adjust otherwise */
-    background-color: rgba(255, 255, 255, 0.85);
-    pointer-events: none;
-    z-index: -1;
-}
-
-/* Fix stacking context so dropdowns sit above overlay */
-body > *:not(header):not(.navbar):not(.dropdown) {
-    position: relative;
-    z-index: 0;
-}
-
-/* Date-wise background images */
-body.day1  { background-image: url("/images/daily-backgrounds/bg1.jpg"); }
-body.day2  { background-image: url("/images/daily-backgrounds/bg2.jpg"); }
-body.day3  { background-image: url("/images/daily-backgrounds/bg3.jpg"); }
-body.day4  { background-image: url("/images/daily-backgrounds/bg4.jpg"); }
-body.day5  { background-image: url("/images/daily-backgrounds/bg5.jpg"); }
-body.day6  { background-image: url("/images/daily-backgrounds/bg6.jpg"); }
-body.day7  { background-image: url("/images/daily-backgrounds/bg7.jpg"); }
-body.day8  { background-image: url("/images/daily-backgrounds/bg8.jpg"); }
-body.day9  { background-image: url("/images/daily-backgrounds/bg9.jpg"); }
-body.day10 { background-image: url("/images/daily-backgrounds/bg10.jpg"); }
-body.day11 { background-image: url("/images/daily-backgrounds/bg11.jpg"); }
-body.day12 { background-image: url("/images/daily-backgrounds/bg12.jpg"); }
-body.day13 { background-image: url("/images/daily-backgrounds/bg13.jpg"); }
-body.day14 { background-image: url("/images/daily-backgrounds/bg14.jpg"); }
-body.day15 { background-image: url("/images/daily-backgrounds/bg15.jpg"); }
-body.day16 { background-image: url("/images/daily-backgrounds/bg16.jpg"); }
-body.day17 { background-image: url("/images/daily-backgrounds/bg17.jpg"); }
-body.day18 { background-image: url("/images/daily-backgrounds/bg18.jpg"); }
-body.day19 { background-image: url("/images/daily-backgrounds/bg19.jpg"); }
-body.day20 { background-image: url("/images/daily-backgrounds/bg20.jpg"); }
-body.day21 { background-image: url("/images/daily-backgrounds/bg21.jpg"); }
-body.day22 { background-image: url("/images/daily-backgrounds/bg22.jpg"); }
-body.day23 { background-image: url("/images/daily-backgrounds/bg23.jpg"); }
-body.day24 { background-image: url("/images/daily-backgrounds/bg24.jpg"); }
-body.day25 { background-image: url("/images/daily-backgrounds/bg25.jpg"); }
-body.day26 { background-image: url("/images/daily-backgrounds/bg26.jpg"); }
-body.day27 { background-image: url("/images/daily-backgrounds/bg27.jpg"); }
-body.day28 { background-image: url("/images/daily-backgrounds/bg28.jpg"); }
-body.day29 { background-image: url("/images/daily-backgrounds/bg29.jpg"); }
-body.day30 { background-image: url("/images/daily-backgrounds/bg30.jpg"); }
-body.day31 { background-image: url("/images/daily-backgrounds/bg31.jpg"); }
-
-/* --------------------------------------------
-  Typography and General Styles - unchanged  
--------------------------------------------- */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-primary);
     font-weight: 700;
@@ -187,17 +102,26 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
     color: var(--text-dark);
 }
-h1 { font-size: var(--font-size-3xl); }
-h2 { font-size: var(--font-size-2xl); }
-h3 { font-size: var(--font-size-xl); }
-h4 { font-size: var(--font-size-lg); }
-p { margin-bottom: var(--spacing-md); }
+h1 {
+    font-size: var(--font-size-3xl);
+}
+h2 {
+    font-size: var(--font-size-2xl);
+}
+h3 {
+    font-size: var(--font-size-xl);
+}
+h4 {
+    font-size: var(--font-size-lg);
+}
+p {
+    margin-bottom: var(--spacing-md);
+}
 a {
     color: var(--primary-color);
     text-decoration: none;
     transition: color var(--transition-fast);
 }
-a:hover { color: var(--primary-dark); }
 .values-list {
     list-style: none;
     padding: 0;
@@ -209,6 +133,9 @@ a:hover { color: var(--primary-dark); }
 }
 .values-list li strong {
     color: var(--primary-color);
+}
+a:hover {
+    color: var(--primary-dark);
 }
 ul, ol {
     margin-bottom: var(--spacing-md);
@@ -255,16 +182,25 @@ section {
     border-top: 1px solid var(--gray-300);
     margin: var(--spacing-3xl) 0;
 }
-
 /* --------------------------------------------
-  Header & Navigation
+   Header & Navigation
 -------------------------------------------- */
+/* Fixed header */
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--white);
+  box-shadow: var(--shadow-sm);
+}
 .header-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: var(--spacing-sm) 0;
 }
+/* Logo */
 .logo a {
     display: flex;
     align-items: center;
@@ -290,6 +226,7 @@ section {
     font-weight: 700;
     font-size: 1.2rem;
 }
+/* Navigation */
 .main-nav {
     display: flex;
 }
@@ -344,33 +281,16 @@ section {
     position: absolute;
     top: 100%;
     left: 0;
-    z-index: 1200;
+    z-index: 1000;
     min-width: 220px;
     padding: var(--spacing-sm) 0;
-    background-color: #fff; /* solid white */
+    background-color: var(--white);
     border-radius: var(--border-radius-sm);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    box-shadow: var(--shadow-md);
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
     transition: all var(--transition-normal);
-    display: none;
-}
-/* Show dropdown on hover for devices supporting hover */
-@media (hover: hover) {
-  .dropdown:hover .dropdown-menu {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-}
-/* Show dropdown on mobile when active */
-.dropdown.active .dropdown-menu {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateY(0) !important;
 }
 .dropdown-menu li {
     margin: 0;
@@ -384,8 +304,14 @@ section {
 }
 .dropdown-menu a:hover {
     background-color: var(--primary-light);
-    color: var(--primary-dark);
-    cursor: pointer;
+}
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.dropdown:hover .dropdown-toggle i {
+    transform: rotate(180deg);
 }
 /* Mobile Menu Toggle */
 .mobile-menu-toggle {
@@ -394,11 +320,20 @@ section {
     cursor: pointer;
     color: var(--text-dark);
 }
+/* Mobile Active Dropdown */
+.dropdown.active .dropdown-menu {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
 /* CTA Button */
 .cta-button .btn {
     padding: var(--spacing-sm) var(--spacing-lg);
 }
-/* Buttons */
+/* --------------------------------------------
+   Buttons
+-------------------------------------------- */
 .btn {
     display: inline-block;
     font-weight: 500;
@@ -453,23 +388,13 @@ section {
     color: var(--white);
     border-color: var(--primary-dark);
 }
+/* Button Groups */
 .hero-buttons {
     display: flex;
     gap: var(--spacing-md);
     margin-top: var(--spacing-lg);
     flex-wrap: wrap;
 }
-/* --------------------------------------------
-  Do not impact the dropdown buttons by date wise background images  
--------------------------------------------- */
-/* Fix stacking context for dropdown menus */
-body > *:not(header):not(.navbar):not(.dropdown) {
-  position: relative;
-  z-index: 0;
-}
-
-
-
 /* --------------------------------------------
    Hero Section
 -------------------------------------------- */
