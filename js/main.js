@@ -3,13 +3,6 @@
  * Author: ADIT Joint
  * Version: 1.0
  */
-// Execute when the DOM is fully loaded JS to set daily background
-
-/**
- * ADIT Joint - Main JavaScript
- * Author: ADIT Joint
- * Version: 1.0
- */
 
 document.addEventListener('DOMContentLoaded', function() {
 
