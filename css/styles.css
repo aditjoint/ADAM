@@ -1543,6 +1543,13 @@ body.watermarked::before {
   }
 }
 
+/* Desktop dropdown hover */
+@media (min-width: 992px) {
+    .dropdown:hover > .dropdown-menu {
+        display: block;
+    }
+}
+
 /* Overlay for background image dimming without blocking clicks */
 /* Ensure overlay doesn't block clicks and dropdowns appear above it */
 body::before {
