@@ -2,42 +2,38 @@
 body {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
   font-family: Arial, sans-serif;
+  min-height: 100vh;
+
+  /* Daily background setup */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed; /* Fixed while scrolling */
   transition: background-image 0.8s ease-in-out;
-  position: relative; /* Needed for overlay */
+  position: relative;
   overflow-x: hidden;
 }
 
-/* ===== Overlay for background dimming ===== */
+/* ===== Overlay for light fade effect ===== */
 body::before {
   content: "";
-  position: fixed; 
+  position: fixed; /* covers entire viewport */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.25); /* light semi-transparent overlay to reduce image intensity */
-  pointer-events: none; 
-  z-index: -1; /* stay behind all page content */
+  background-color: rgba(255, 255, 255, 0.85); /* light overlay to dim image slightly */
+  pointer-events: none;
+  z-index: -1; /* stays behind content */
 }
 
-/* Keep all content above background */
+/* ===== Ensure content stays normal ===== */
 body > * {
   position: relative;
-  z-index: 0; /* normal content layering */
+  z-index: 0; /* all page elements stay above overlay */
 }
 
-/* ===== Optional: Section-specific semi-transparent backgrounds ===== */
-.section-bg, .table-container, .note, .cta-section {
-  background-color: rgba(0, 0, 0, 0.5); /* dark transparent layer */
-  border-radius: 10px;
-  padding: 15px;
-  color: #fff;
-}
 
 /* ===== Daily Background Images ===== */
 body.day1 { background-image: url("/images/daily-backgrounds/bg1.jpg"); }
