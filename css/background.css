@@ -1,52 +1,36 @@
-/* ===== Body Setup ===== */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  min-height: 100vh;
-
-  /* Daily background setup */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed; /* Fixed while scrolling */
-  transition: background-image 0.8s ease-in-out;
-  position: relative;
-  overflow-x: hidden;
-}
-
-/* ===== Overlay for light fade effect ===== */
+/* Overlay */
 body::before {
   content: "";
-  position: fixed; /* covers entire viewport */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.85); /* light overlay to dim image slightly */
-  pointer-events: none;
-  z-index: -1; /* stays behind all content */
+  background-color: rgba(255,255,255,0.85);
+  pointer-events: none; /* IMPORTANT: allow clicks through overlay */
+  z-index: 0; /* behind all content */
 }
 
-/* ===== Ensure content stays normal ===== */
+/* All page content */
 body > * {
   position: relative;
-  z-index: 0; /* all page elements stay above overlay */
+  z-index: 1; /* above overlay */
 }
 
-/* ===== Header & Dropdown Layering ===== */
-header, .navbar, .dropdown {
-  position: relative; /* important for stacking */
-  z-index: 10; /* above overlay */
+/* Header & dropdowns */
+header, .navbar, .dropdown, .dropdown-menu {
+  position: relative;
+  z-index: 10; /* always above overlay */
 }
 
+/* Ensure dropdown menus stay above header */
 .dropdown-menu {
   position: absolute;
   display: none;
   top: 100%;
   left: 0;
-  z-index: 20; /* above header */
-  background-color: #fff; /* menu background */
+  z-index: 20;
+  background-color: #fff;
   box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
