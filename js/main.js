@@ -5,14 +5,17 @@
  */
 // Execute when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Add daily background class to body
+    // Add daily background class to <main> instead of body
     const today = new Date();
     let day = today.getDate(); // 1 - 31
     if (day < 1 || day > 31) {
         day = 1;
     }
     const dayClass = 'day' + day;
-    document.body.classList.add(dayClass);
+    const main = document.querySelector("main");
+    if (main) {
+        main.classList.add(dayClass);
+    }
 
     // Initialize the mobile menu functionality
     initMobileMenu();
@@ -192,3 +195,4 @@ if (document.querySelector('.hero')) {
         heroSection.style.backgroundPosition = `center ${scroll * 0.3}px`;
     });
 }
+
