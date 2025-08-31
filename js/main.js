@@ -3,16 +3,18 @@
  * Author: ADIT Joint
  * Version: 1.0
  */
-
 document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('header');
+    const main = document.querySelector('main');
 
-    // --- Header padding for main ---
-    const header = document.querySelector("header");
-    const main = document.querySelector("main");
     if (header && main) {
-        const headerHeight = header.offsetHeight;
-        main.style.paddingTop = `${headerHeight}px`;
+        const setMainPadding = () => {
+            main.style.paddingTop = header.offsetHeight + 'px';
+        };
+        setMainPadding(); // initial
+        window.addEventListener('resize', setMainPadding); // update on resize
     }
+});
 
     // --- Daily background ---
     if (main) {
