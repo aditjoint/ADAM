@@ -267,7 +267,10 @@ header {
 }
 /* Dropdown Menu */
 .dropdown {
-    position: relative;
+    position: absolute;
+    z-index: 1000; /* should now appear above overlay */
+}
+
 }
 .dropdown-toggle {
     display: flex;
@@ -1541,23 +1544,27 @@ body.watermarked::before {
 }
 
 /* Overlay for background image dimming without blocking clicks */
+/* Ensure overlay doesn't block clicks and dropdowns appear above it */
 body::before {
     content: "";
     position: fixed;
     top: 80px; /* below fixed header */
     left: 0;
     right: 0;
-    bottom: 0; /* above footer if footer is fixed, adjust otherwise */
+    bottom: 0;
     background-color: rgba(255, 255, 255, 0.85);
-    pointer-events: none;
-    z-index: -1;
+    pointer-events: none; /* very important */
+    z-index: -1; /* stays behind content */
 }
 
-/* Fix stacking context so dropdowns sit above overlay */
-body > *:not(header):not(.navbar):not(.dropdown) {
+/* Only apply relative positioning to sections if needed */
+.cards-section,
+main,
+footer {
     position: relative;
-    z-index: 0;
+    z-index: 1; /* ensures content stays above overlay */
 }
+
 
 /* Date-wise background images */
 body.day1  { background-image: url("/images/daily-backgrounds/bg1.jpg"); }
