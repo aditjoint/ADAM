@@ -3,19 +3,21 @@
  * Author: ADIT Joint
  * Version: 1.0
  */
-// Execute when the DOM is fully loaded
+// Execute when the DOM is fully loaded JS to set daily background
 document.addEventListener('DOMContentLoaded', function() {
-    // Add daily background class to <main> instead of body
     const today = new Date();
-    let day = today.getDate(); // 1 - 31
-    if (day < 1 || day > 31) {
-        day = 1;
-    }
-    const dayClass = 'day' + day;
+    const day = today.getDate(); // 1-31
+
     const main = document.querySelector("main");
     if (main) {
-        main.classList.add(dayClass);
+        const imagePath = `/images/daily-backgrounds/bg-${day}.jpg`;
+        main.style.backgroundImage = `url('${imagePath}')`;
+        main.style.backgroundSize = 'cover';
+        main.style.backgroundPosition = 'center';
+        main.style.backgroundRepeat = 'no-repeat';
+        main.style.backgroundAttachment = 'fixed'; // optional parallax-like effect
     }
+});
 
     // Initialize the mobile menu functionality
     initMobileMenu();
