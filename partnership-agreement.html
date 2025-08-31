@@ -173,20 +173,41 @@
     </section>
 
 
-    
-
-<!-- Footer -->
-<footer>
-  &copy; 2025 ADAM Consult, ADIT Joint LLP. All rights reserved.
-</footer>
-
-<!-- Load protection script AFTER footer -->
+<!-- DO NOT TOUCH BELOW CODES -->
+  
+ <!-- ✅ Footer Placeholder -->
+  <div id="footer-placeholder"></div>    
+ <!-- ✅ Load header and footer dynamically and then initialize scripts -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const protect = document.createElement("script");
-    protect.src = "../js/imgTextProtect.js"; // Adjust path as needed
-    document.body.appendChild(protect);
-  });
-</script>
+    // Load Header
+    fetch("/header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header-placeholder").innerHTML = html;
 
-</body>
+        // ✅ Wait for DOM injection, then bind mobile menu
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.getElementById("mobile-menu");
+
+        if (toggle && nav) {
+          toggle.addEventListener("click", function () {
+            nav.classList.toggle("active");
+          });
+        }
+
+        // ✅ Optional: re-run dropdown initialization if needed
+        if (typeof initDropdowns === "function") initDropdowns();
+      });
+
+    // Load Footer
+    fetch("/footer.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("footer-placeholder").innerHTML = html;
+
+        // ✅ Load protection script after footer
+        const protect = document.createElement("script");
+        protect.src = "/js/imgTextProtect.js";
+        document.body.appendChild(protect);
+      });
