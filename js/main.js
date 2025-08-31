@@ -33,17 +33,9 @@ document.addEventListener('DOMContentLoaded', function() {
     /**
      * Set daily background image
      */
-    if(main) {
-        const today = new Date();
-        const day = today.getDate(); // 1-31
-        const imagePath = `/images/daily-backgrounds/bg-${day}.jpg`;
-        main.style.backgroundImage = `url('${imagePath}')`;
-        main.style.backgroundSize = 'cover';
-        main.style.backgroundPosition = 'center';
-        main.style.backgroundRepeat = 'no-repeat';
-        main.style.backgroundAttachment = 'fixed'; // optional parallax
-    }
-
+// ✅ Add daily class to body
+const today = new Date().getDate(); // 1-31
+document.body.classList.add(`day${today}`);
     /**
      * Initialize the mobile menu
      */
