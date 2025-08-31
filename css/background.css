@@ -4,26 +4,30 @@ body {
   padding: 0;
   min-height: 100vh;
   font-family: Arial, sans-serif;
-
-  /* Background setup */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   transition: background-image 0.8s ease-in-out;
   position: relative; /* Needed for overlay */
+  overflow-x: hidden;
 }
 
 /* ===== Overlay for readability ===== */
 body::before {
   content: "";
-  position: fixed;  /* Cover the whole screen */
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.5); /* Adjust transparency (0–1) */
-  pointer-events: none; /* Allows clicks through overlay */
-  z-index: -1; /* Stay behind page content */
+  background-color: rgba(0,0,0,0.3); /* Semi-transparent overlay */
+  pointer-events: none; 
+  z-index: 1; /* Overlay above background but below content */
+}
+
+body > * {
+  position: relative;
+  z-index: 2; /* Content above overlay */
 }
 
 /* ===== Daily Background Images ===== */
