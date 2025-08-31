@@ -25,7 +25,7 @@ body::before {
   height: 100%;
   background-color: rgba(255, 255, 255, 0.85); /* light overlay to dim image slightly */
   pointer-events: none;
-  z-index: -1; /* stays behind content */
+  z-index: -1; /* stays behind all content */
 }
 
 /* ===== Ensure content stays normal ===== */
@@ -34,17 +34,36 @@ body > * {
   z-index: 0; /* all page elements stay above overlay */
 }
 
+/* ===== Header & Dropdown Layering ===== */
+header, .navbar, .dropdown {
+  position: relative; /* important for stacking */
+  z-index: 10; /* above overlay */
+}
+
+.dropdown-menu {
+  position: absolute;
+  display: none;
+  top: 100%;
+  left: 0;
+  z-index: 20; /* above header */
+  background-color: #fff; /* menu background */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
 
 /* ===== Daily Background Images ===== */
-body.day1 { background-image: url("/images/daily-backgrounds/bg1.jpg"); }
-body.day2 { background-image: url("/images/daily-backgrounds/bg2.jpg"); }
-body.day3 { background-image: url("/images/daily-backgrounds/bg3.jpg"); }
-body.day4 { background-image: url("/images/daily-backgrounds/bg4.jpg"); }
-body.day5 { background-image: url("/images/daily-backgrounds/bg5.jpg"); }
-body.day6 { background-image: url("/images/daily-backgrounds/bg6.jpg"); }
-body.day7 { background-image: url("/images/daily-backgrounds/bg7.jpg"); }
-body.day8 { background-image: url("/images/daily-backgrounds/bg8.jpg"); }
-body.day9 { background-image: url("/images/daily-backgrounds/bg9.jpg"); }
+body.day1  { background-image: url("/images/daily-backgrounds/bg1.jpg"); }
+body.day2  { background-image: url("/images/daily-backgrounds/bg2.jpg"); }
+body.day3  { background-image: url("/images/daily-backgrounds/bg3.jpg"); }
+body.day4  { background-image: url("/images/daily-backgrounds/bg4.jpg"); }
+body.day5  { background-image: url("/images/daily-backgrounds/bg5.jpg"); }
+body.day6  { background-image: url("/images/daily-backgrounds/bg6.jpg"); }
+body.day7  { background-image: url("/images/daily-backgrounds/bg7.jpg"); }
+body.day8  { background-image: url("/images/daily-backgrounds/bg8.jpg"); }
+body.day9  { background-image: url("/images/daily-backgrounds/bg9.jpg"); }
 body.day10 { background-image: url("/images/daily-backgrounds/bg10.jpg"); }
 body.day11 { background-image: url("/images/daily-backgrounds/bg11.jpg"); }
 body.day12 { background-image: url("/images/daily-backgrounds/bg12.jpg"); }
@@ -63,7 +82,4 @@ body.day24 { background-image: url("/images/daily-backgrounds/bg24.jpg"); }
 body.day25 { background-image: url("/images/daily-backgrounds/bg25.jpg"); }
 body.day26 { background-image: url("/images/daily-backgrounds/bg26.jpg"); }
 body.day27 { background-image: url("/images/daily-backgrounds/bg27.jpg"); }
-body.day28 { background-image: url("/images/daily-backgrounds/bg28.jpg"); }
-body.day29 { background-image: url("/images/daily-backgrounds/bg29.jpg"); }
-body.day30 { background-image: url("/images/daily-backgrounds/bg30.jpg"); }
-body.day31 { background-image: url("../images/daily-backgrounds/bg31.jpg"); }
+body.day28 { background-image: url("/images
