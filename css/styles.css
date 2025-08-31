@@ -73,20 +73,15 @@
     --container-max-width: 1200px;
     --container-padding: 1rem;
 }
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 html {
     scroll-behavior: smooth;
     font-size: 16px;
-    overflow-x: auto; /* allow horizontal pinch zoom on mobile */
-    touch-action: pan-x pan-y; /* ensures pinch-zoom works */
 }
-
 body {
     font-family: 'Segoe UI', 'Roboto', sans-serif;
     font-size: var(--font-size-base);
@@ -97,11 +92,9 @@ body {
     padding: 0;
     position: relative;
     z-index: 0;
-    overflow-x: auto; /* fix mobile pinch zoom */
+    overflow-x: hidden;
     padding-top: 80px; /* adjust to actual rendered header height */
 }
-
-/* Typography */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-primary);
     font-weight: 700;
@@ -109,22 +102,49 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.2;
     color: var(--text-dark);
 }
-h1 { font-size: var(--font-size-3xl); }
-h2 { font-size: var(--font-size-2xl); }
-h3 { font-size: var(--font-size-xl); }
-h4 { font-size: var(--font-size-lg); }
-p { margin-bottom: var(--spacing-md); }
-
+h1 {
+    font-size: var(--font-size-3xl);
+}
+h2 {
+    font-size: var(--font-size-2xl);
+}
+h3 {
+    font-size: var(--font-size-xl);
+}
+h4 {
+    font-size: var(--font-size-lg);
+}
+p {
+    margin-bottom: var(--spacing-md);
+}
 a {
     color: var(--primary-color);
     text-decoration: none;
     transition: color var(--transition-fast);
 }
-a:hover { color: var(--primary-dark); }
-
-ul, ol { margin-bottom: var(--spacing-md); padding-left: var(--spacing-lg); }
-img { max-width: 100%; height: auto; }
-
+.values-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.values-list li {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.5;
+}
+.values-list li strong {
+    color: var(--primary-color);
+}
+a:hover {
+    color: var(--primary-dark);
+}
+ul, ol {
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-lg);
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
 /* Container */
 .container {
     width: 100%;
@@ -132,11 +152,19 @@ img { max-width: 100%; height: auto; }
     margin: 0 auto;
     padding: 0 var(--container-padding);
 }
-
 /* Section Spacing */
-section { padding: var(--spacing-3xl) 0; }
-.section-header { text-align: center; margin-bottom: var(--spacing-3xl); }
-.section-header h2 { position: relative; display: inline-block; margin-bottom: var(--spacing-md); }
+section {
+    padding: var(--spacing-3xl) 0;
+}
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+}
+.section-header h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: var(--spacing-md);
+}
 .section-header h2::after {
     content: '';
     display: block;
@@ -145,23 +173,39 @@ section { padding: var(--spacing-3xl) 0; }
     background-color: var(--primary-color);
     margin: var(--spacing-sm) auto 0;
 }
-.section-header p { max-width: 800px; margin: 0 auto; color: var(--text-medium); }
-.section-divider { border-top: 1px solid var(--gray-300); margin: var(--spacing-3xl) 0; }
-
+.section-header p {
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--text-medium);
+}
+.section-divider {
+    border-top: 1px solid var(--gray-300);
+    margin: var(--spacing-3xl) 0;
+}
 /* --------------------------------------------
    Header & Navigation
 -------------------------------------------- */
+/* Fixed header */
 header {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: var(--white);
-    box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--white);
+  box-shadow: var(--shadow-sm);
 }
-.header-content { display: flex; align-items: center; justify-content: space-between; padding: var(--spacing-sm) 0; }
-
-.logo a { display: flex; align-items: center; text-decoration: none; }
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-sm) 0;
+}
+/* Logo */
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
 .logo-icon {
     background-color: var(--primary-color);
     width: 30px;
@@ -172,12 +216,30 @@ header {
     justify-content: center;
     margin-right: var(--spacing-xs);
 }
-.logo-icon .letter { color: var(--white); font-weight: 700; font-size: 1.2rem; }
-.logo-text { color: var(--text-dark); font-weight: 700; font-size: 1.2rem; }
-
-.main-nav { display: flex; }
-.nav-links { display: flex; list-style: none; margin: 0; padding: 0; }
-.nav-links li { position: relative; margin: 0 var(--spacing-md); }
+.logo-icon .letter {
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+.logo-text {
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+/* Navigation */
+.main-nav {
+    display: flex;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.nav-links li {
+    position: relative;
+    margin: 0 var(--spacing-md);
+}
 .nav-links a {
     display: inline-block;
     padding: var(--spacing-sm) 0;
@@ -187,7 +249,12 @@ header {
     transition: color var(--transition-fast);
 }
 .nav-links a:hover,
-.nav-links a.active { color: var(--primary-color); }
+.nav-links a.active {
+    color: var(--primary-color);
+}
+.nav-links a.active {
+    position: relative;
+}
 .nav-links a.active::after {
     content: '';
     position: absolute;
@@ -197,11 +264,19 @@ header {
     height: 3px;
     background-color: var(--primary-color);
 }
-
 /* Dropdown Menu */
-.dropdown { position: relative; z-index: 1000; }
-.dropdown-toggle { display: flex; align-items: center; }
-.dropdown-toggle i { margin-left: var(--spacing-xs); font-size: var(--font-size-sm); transition: transform var(--transition-fast); }
+.dropdown {
+    position: relative;
+}
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+}
+.dropdown-toggle i {
+    margin-left: var(--spacing-xs);
+    font-size: var(--font-size-sm);
+    transition: transform var(--transition-fast);
+}
 .dropdown-menu {
     position: absolute;
     top: 100%;
@@ -217,7 +292,9 @@ header {
     transform: translateY(10px);
     transition: all var(--transition-normal);
 }
-.dropdown-menu li { margin: 0; }
+.dropdown-menu li {
+    margin: 0;
+}
 .dropdown-menu a {
     display: block;
     padding: var(--spacing-sm) var(--spacing-md);
@@ -225,30 +302,31 @@ header {
     font-weight: 400;
     white-space: nowrap;
 }
-.dropdown-menu a:hover { background-color: var(--primary-light); }
-.dropdown:hover .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-.dropdown:hover .dropdown-toggle i { transform: rotate(180deg); }
-
+.dropdown-menu a:hover {
+    background-color: var(--primary-light);
+}
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.dropdown:hover .dropdown-toggle i {
+    transform: rotate(180deg);
+}
 /* Mobile Menu Toggle */
-.mobile-menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-dark); }
-.dropdown.active .dropdown-menu { display: block !important; opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; }
-
-/* --------------------------------------------
-   Buttons
--------------------------------------------- */
-.btn { display: inline-block; font-weight: 500; text-align: center; border: 1px solid transparent; padding: var(--spacing-sm) var(--spacing-xl); font-size: var(--font-size-base); line-height: 1.5; border-radius: var(--border-radius-sm); transition: all var(--transition-normal); cursor: pointer; }
-.btn-primary { background-color: var(--primary-color); color: var(--white); border-color: var(--primary-color); }
-.btn-primary:hover { background-color: var(--primary-dark); border-color: var(--primary-dark); }
-.btn-secondary { background-color: var(--white); color: var(--primary-color); border-color: var(--primary-color); }
-.btn-secondary:hover { background-color: var(--primary-light); border-color: var(--primary-color); }
-.btn-outline { background-color: transparent; color: var(--text-dark); border-color: var(--gray-300); }
-.btn-outline:hover { background-color: var(--gray-200); border-color: var(--gray-400); }
-.btn-block { display: block; width: 100%; }
-.btn.active { background-color: var(--primary-dark); border-color: var(--primary-dark); color: var(--white); }
-
-/* Remaining sections (Hero, About, Expertise, Services, Contact, Footer) remain unchanged, no need to repeat */
-
-
+.mobile-menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-dark);
+}
+/* Mobile Active Dropdown */
+.dropdown.active .dropdown-menu {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+}
 /* CTA Button */
 .cta-button .btn {
     padding: var(--spacing-sm) var(--spacing-lg);
@@ -1460,68 +1538,4 @@ body.watermarked::before {
     min-height: 100vh;
   }
 }
-
-/* Desktop dropdown hover */
-@media (min-width: 992px) {
-    .dropdown:hover > .dropdown-menu {
-        display: block;
-    }
-}
-
-/* Overlay for background image dimming without blocking clicks */
-/* Ensure overlay doesn't block clicks and dropdowns appear above it */
-body::before {
-    content: "";
-    position: fixed;
-    top: 80px; /* below fixed header */
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(255, 255, 255, 0.85);
-    pointer-events: none; /* very important */
-    z-index: -1; /* stays behind content */
-}
-
-/* Only apply relative positioning to sections if needed */
-.cards-section,
-main,
-footer {
-    position: relative;
-    z-index: 1; /* ensures content stays above overlay */
-}
-
-/* Date-wise background images */
-body.day1  { background-image: url("../images/daily-backgrounds/bg1.jpg"); }
-body.day2  { background-image: url("../images/daily-backgrounds/bg2.jpg"); }
-body.day3  { background-image: url("../images/daily-backgrounds/bg3.jpg"); }
-body.day4  { background-image: url("../images/daily-backgrounds/bg4.jpg"); }
-body.day5  { background-image: url("../images/daily-backgrounds/bg5.jpg"); }
-body.day6  { background-image: url("../images/daily-backgrounds/bg6.jpg"); }
-body.day7  { background-image: url("../images/daily-backgrounds/bg7.jpg"); }
-body.day8  { background-image: url("../images/daily-backgrounds/bg8.jpg"); }
-body.day9  { background-image: url("../images/daily-backgrounds/bg9.jpg"); }
-body.day10 { background-image: url("../images/daily-backgrounds/bg10.jpg"); }
-body.day11 { background-image: url("../images/daily-backgrounds/bg11.jpg"); }
-body.day12 { background-image: url("../images/daily-backgrounds/bg12.jpg"); }
-body.day13 { background-image: url("../images/daily-backgrounds/bg13.jpg"); }
-body.day14 { background-image: url("../images/daily-backgrounds/bg14.jpg"); }
-body.day15 { background-image: url("../images/daily-backgrounds/bg15.jpg"); }
-body.day16 { background-image: url("../images/daily-backgrounds/bg16.jpg"); }
-body.day17 { background-image: url("../images/daily-backgrounds/bg17.jpg"); }
-body.day18 { background-image: url("../images/daily-backgrounds/bg18.jpg"); }
-body.day19 { background-image: url("../images/daily-backgrounds/bg19.jpg"); }
-body.day20 { background-image: url("../images/daily-backgrounds/bg20.jpg"); }
-body.day21 { background-image: url("../images/daily-backgrounds/bg21.jpg"); }
-body.day22 { background-image: url("../images/daily-backgrounds/bg22.jpg"); }
-body.day23 { background-image: url("../images/daily-backgrounds/bg23.jpg"); }
-body.day24 { background-image: url("../images/daily-backgrounds/bg24.jpg"); }
-body.day25 { background-image: url("../images/daily-backgrounds/bg25.jpg"); }
-body.day26 { background-image: url("../images/daily-backgrounds/bg26.jpg"); }
-body.day27 { background-image: url("../images/daily-backgrounds/bg27.jpg"); }
-body.day28 { background-image: url("../images/daily-backgrounds/bg28.jpg"); }
-body.day29 { background-image: url("../images/daily-backgrounds/bg29.jpg"); }
-body.day30 { background-image: url("../images/daily-backgrounds/bg30.jpg"); }
-body.day31 { background-image: url("../images/daily-backgrounds/bg31.jpg"); }
-
-
 /* END STYLE*/
