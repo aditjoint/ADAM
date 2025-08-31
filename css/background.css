@@ -1,15 +1,32 @@
-/* ===== Daily Backgrounds ===== */
+/* ===== Body Setup ===== */
 body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  font-family: Arial, sans-serif;
+
+  /* Background setup */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   transition: background-image 0.8s ease-in-out;
+  position: relative; /* Needed for overlay */
 }
 
-/* Day 1 to 31 */
+/* ===== Overlay for readability ===== */
+body::before {
+  content: "";
+  position: fixed;  /* Cover the whole screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5); /* Adjust transparency (0–1) */
+  pointer-events: none; /* Allows clicks through overlay */
+  z-index: -1; /* Stay behind page content */
+}
+
+/* ===== Daily Background Images ===== */
 body.day1 { background-image: url("/images/daily-backgrounds/bg1.jpg"); }
 body.day2 { background-image: url("/images/daily-backgrounds/bg2.jpg"); }
 body.day3 { background-image: url("/images/daily-backgrounds/bg3.jpg"); }
@@ -41,4 +58,3 @@ body.day28 { background-image: url("/images/daily-backgrounds/bg28.jpg"); }
 body.day29 { background-image: url("/images/daily-backgrounds/bg29.jpg"); }
 body.day30 { background-image: url("/images/daily-backgrounds/bg30.jpg"); }
 body.day31 { background-image: url("/images/daily-backgrounds/bg31.jpg"); }
-
