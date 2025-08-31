@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="/css/styles.css" />
   <link rel="stylesheet" href="/css/responsive.css" />
   <link rel="stylesheet" href="/css/protect.css" /> <!-- 🔒 Protection CSS -->
-  <link rel="stylesheet" href="/css/background.css" /> <!-- Daily Background CSS -->
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
@@ -33,15 +32,11 @@
       user-select: text;
     }
   </style>
-
-  <!-- Daily Background JS -->
-  <script src="/js/background.js" defer></script>
 </head>
 
-<body class="watermarked">
+<body>
   <!-- ✅ Header Placeholder -->
   <div id="header-placeholder"></div>
-
 
     <!-- Service Header Section -->
     <section class="service-header">
@@ -280,9 +275,6 @@
     document.body.appendChild(dropdown);
   });
 </script>
-  <script>
-    const today = new Date().getDate(); // 1-31
-    document.body.classList.add(`day${today}`);
-  </script>
+
 </body>
 </html>
