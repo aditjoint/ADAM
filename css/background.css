@@ -1,11 +1,11 @@
-/* ===== Body Setup ===== */
+/* background.css */
+
+/* Daily background setup */
 body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
   min-height: 100vh;
-
-  /* Daily background setup */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -13,9 +13,10 @@ body {
   transition: background-image 0.8s ease-in-out;
   position: relative;
   overflow-x: hidden;
+  padding-top: 80px; /* if header is fixed, adjust accordingly */
 }
 
-/* ===== Overlay for light fade effect ===== */
+/* Overlay for light fade effect */
 body::before {
   content: "";
   position: fixed; /* covers entire viewport */
@@ -23,38 +24,12 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.85); /* light overlay to dim image slightly */
+  background-color: rgba(255, 255, 255, 0.85);
   pointer-events: none;
-  z-index: -1; /* stays behind all content */
+  z-index: -1;
 }
 
-/* ===== Ensure content stays normal ===== */
-body > * {
-  position: relative;
-  z-index: 0; /* all page elements stay above overlay */
-}
-
-/* ===== Header & Dropdown Layering ===== */
-header, .navbar, .dropdown {
-  position: relative; /* important for stacking */
-  z-index: 10; /* above overlay */
-}
-
-.dropdown-menu {
-  position: absolute;
-  display: none;
-  top: 100%;
-  left: 0;
-  z-index: 20; /* above header */
-  background-color: #fff; /* menu background */
-  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-}
-
-.dropdown:hover .dropdown-menu {
-  display: block;
-}
-
-/* ===== Daily Background Images ===== */
+/* Date-wise background images by class */
 body.day1  { background-image: url("/images/daily-backgrounds/bg1.jpg"); }
 body.day2  { background-image: url("/images/daily-backgrounds/bg2.jpg"); }
 body.day3  { background-image: url("/images/daily-backgrounds/bg3.jpg"); }
@@ -86,3 +61,4 @@ body.day28 { background-image: url("/images/daily-backgrounds/bg28.jpg"); }
 body.day29 { background-image: url("/images/daily-backgrounds/bg29.jpg"); }
 body.day30 { background-image: url("/images/daily-backgrounds/bg30.jpg"); }
 body.day31 { background-image: url("/images/daily-backgrounds/bg31.jpg"); }
+
