@@ -39,10 +39,12 @@
   </style>
 </head>
 
-<body>
+<body class="watermarked">
   <!-- ✅ Header Placeholder -->
   <div id="header-placeholder"></div>
 
+
+  
     <!-- Service Header Section -->
     <section class="service-header">
       <div class="container">
@@ -229,6 +231,8 @@
     document.body.appendChild(dropdown);
   });
 </script>
-
+  <script>
+    const today = new Date().getDate(); // 1-31
+    document.body.classList.add(`day${today}`);
 </body>
 </html>
