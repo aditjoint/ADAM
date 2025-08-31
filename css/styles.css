@@ -94,6 +94,7 @@ body {
     z-index: 0;
     overflow-x: hidden;
     padding-top: 80px; /* adjust to actual rendered header height */
+    margin-top: 20px; /* extra spacing if needed */
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-primary);
