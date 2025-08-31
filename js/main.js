@@ -1,15 +1,13 @@
 /**
- * ADIT Joint - Main JavaScript
- * Author: ADIT Joint
- * Version: 1.0
+ * ADIT Joint - Unified Main JavaScript
+ * Handles header, dropdowns, mobile menu, daily backgrounds, and scroll animations
  */
 document.addEventListener('DOMContentLoaded', function() {
 
     const main = document.querySelector("main");
+    const headerPlaceholder = document.getElementById("header-placeholder");
 
-    /**
-     * Adjust main padding to push content below header
-     */
+    /** Adjust main padding below header */
     function adjustMainPadding() {
         const header = document.querySelector("header");
         if(header && main) {
@@ -20,8 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial adjustment
     adjustMainPadding();
 
-    // Observe header injection if header is loaded dynamically
-    const headerPlaceholder = document.getElementById("header-placeholder");
+    // Observe dynamic header injection
     if(headerPlaceholder) {
         const observer = new MutationObserver(() => adjustMainPadding());
         observer.observe(headerPlaceholder, { childList: true, subtree: true });
@@ -30,65 +27,68 @@ document.addEventListener('DOMContentLoaded', function() {
     // Adjust on window resize
     window.addEventListener("resize", adjustMainPadding);
 
-    /**
-     * Set daily background image
-     */
-// ✅ Add daily class to body
-const today = new Date().getDate(); // 1-31
-document.body.classList.add(`day${today}`);
-    /**
-     * Initialize the mobile menu
-     */
+    /** Set daily background image */
+    (function setDailyBackground() {
+        const today = new Date();
+        const day = today.getDate(); // 1-31
+        const body = document.body;
+        // Remove previous day classes
+        body.className = body.className.replace(/\bday\d{1,2}\b/g, '');
+        body.classList.add(`day${day}`);
+        // Optional overlay: already handled via CSS
+    })();
+
+    /** Initialize mobile menu toggle */
     function initMobileMenu() {
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         const mainNav = document.querySelector('.main-nav');
-        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-        if (mobileMenuToggle && mainNav) {
+
+        if(mobileMenuToggle && mainNav) {
             mobileMenuToggle.addEventListener('click', function () {
                 mainNav.classList.toggle('active');
                 const icon = this.querySelector('i');
-                if(mainNav.classList.contains('active')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
+                if(icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
                 }
             });
 
+            // Close menu when clicking outside
             document.addEventListener('click', function(event) {
                 const isInsideNav = mainNav.contains(event.target);
                 const isToggle = mobileMenuToggle.contains(event.target);
-                const isMenuOpen = mainNav.classList.contains('active');
-                if(!isInsideNav && !isToggle && isMenuOpen) {
+                if(!isInsideNav && !isToggle && mainNav.classList.contains('active')) {
                     mainNav.classList.remove('active');
                     const icon = mobileMenuToggle.querySelector('i');
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
+                    if(icon) {
+                        icon.classList.add('fa-bars');
+                        icon.classList.remove('fa-times');
+                    }
                 }
             });
         }
+    }
 
-        if(dropdownToggles.length > 0) {
-    dropdownToggles.forEach(toggle => {
-        toggle.addEventListener('click', function(e){
-            if(window.innerWidth < 992) { // only for mobile
-                e.preventDefault();
-                const parent = this.parentElement;
-                parent.classList.toggle('active');
-                const icon = this.querySelector('i');
-                if(icon) {
-                    icon.style.transform = parent.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+    /** Initialize dropdowns: click for mobile, hover for desktop */
+    function initDropdowns() {
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function(e){
+                if(window.innerWidth < 992) { // mobile only
+                    e.preventDefault();
+                    const parent = this.parentElement;
+                    parent.classList.toggle('active');
+                    const icon = this.querySelector('i');
+                    if(icon) {
+                        icon.style.transform = parent.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+                    }
                 }
-            }
+            });
         });
-    });
-}
+    }
 
-
-    /**
-     * Initialize tab switching functionality
-     */
+    /** Initialize tabs */
     function initTabs() {
         const tabBtns = document.querySelectorAll('.tab-btn');
         const tabPanes = document.querySelectorAll('.tab-pane');
@@ -105,47 +105,7 @@ document.body.classList.add(`day${today}`);
         }
     }
 
-    /**
-     * Initialize scroll animation effects
-     */
-    function initScrollAnimation() {
-        const elements = document.querySelectorAll('.expertise-card, .service-card, .about-image, .value-box');
-
-        function isInViewport(element) {
-            const rect = element.getBoundingClientRect();
-            return rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8;
-        }
-
-        function handleScrollAnimation() {
-            elements.forEach(el => {
-                if(isInViewport(el)) el.classList.add('animated');
-            });
-        }
-
-        handleScrollAnimation();
-        window.addEventListener('scroll', handleScrollAnimation);
-    }
-
-    /**
-     * Initialize service card hover effects
-     */
-    function initServiceCardEffects() {
-        const serviceCards = document.querySelectorAll('.hero-services .service-card, .expertise-card');
-        if(serviceCards.length > 0) {
-            serviceCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px)';
-                });
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = '';
-                });
-            });
-        }
-    }
-
-    /**
-     * Smooth scroll to anchor links
-     */
+    /** Smooth scroll for anchors */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e){
             if(this.classList.contains('dropdown-toggle')) return;
@@ -162,9 +122,7 @@ document.body.classList.add(`day${today}`);
         });
     });
 
-    /**
-     * Highlight current navigation link
-     */
+    /** Highlight current navigation link */
     (function highlightCurrentPage() {
         const currentPage = window.location.pathname;
         const navLinks = document.querySelectorAll('.nav-links a');
@@ -182,21 +140,8 @@ document.body.classList.add(`day${today}`);
         });
     })();
 
-    /**
-     * Parallax effect for hero section
-     */
-    if(document.querySelector('.hero')) {
-        window.addEventListener('scroll', function(){
-            const scroll = window.pageYOffset;
-            const hero = document.querySelector('.hero');
-            hero.style.backgroundPosition = `center ${scroll * 0.3}px`;
-        });
-    }
-
     // Initialize all
     initMobileMenu();
+    initDropdowns();
     initTabs();
-    initScrollAnimation();
-    initServiceCardEffects();
 });
-
