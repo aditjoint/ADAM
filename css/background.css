@@ -1,1 +1,18 @@
+/* background.css */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 1s ease-in-out;
+}
 
+/* Define background for each day (example with 5, expand to 31) */
+body.day1 { background-image: url("images/daily-backgrounds/bg1.jpg"); }
+body.day2 { background-image: url("images/daily-backgrounds/bg2.jpg"); }
+body.day3 { background-image: url("images/daily-backgrounds/bg3.jpg"); }
+body.day4 { background-image: url("images/daily-backgrounds/bg4.jpg"); }
+body.day5 { background-image: url("images/daily-backgrounds/bg5.jpg"); }
+/* ... continue up to day31 */
