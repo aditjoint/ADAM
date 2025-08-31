@@ -70,21 +70,21 @@ document.body.classList.add(`day${today}`);
         }
 
         if(dropdownToggles.length > 0) {
-            dropdownToggles.forEach(toggle => {
-                toggle.addEventListener('click', function(e){
-                    if(window.innerWidth < 992) {
-                        e.preventDefault();
-                        const parent = this.parentElement;
-                        parent.classList.toggle('active');
-                        const icon = this.querySelector('i');
-                        if(icon) {
-                            icon.style.transform = parent.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
-                        }
-                    }
-                });
-            });
-        }
-    }
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e){
+            if(window.innerWidth < 992) { // only for mobile
+                e.preventDefault();
+                const parent = this.parentElement;
+                parent.classList.toggle('active');
+                const icon = this.querySelector('i');
+                if(icon) {
+                    icon.style.transform = parent.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+                }
+            }
+        });
+    });
+}
+
 
     /**
      * Initialize tab switching functionality
