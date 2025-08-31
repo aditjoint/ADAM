@@ -395,6 +395,18 @@ header {
     margin-top: var(--spacing-lg);
     flex-wrap: wrap;
 }
+
+/* --------------------------------------------
+  Do not impact the dropdown buttons by date wise background images  
+-------------------------------------------- */
+/* Fix stacking context for dropdown menus */
+body > *:not(header):not(.navbar):not(.dropdown) {
+  position: relative;
+  z-index: 0;
+}
+
+
+
 /* --------------------------------------------
    Hero Section
 -------------------------------------------- */
