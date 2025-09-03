@@ -503,13 +503,12 @@ body {
 .hero-description {
     font-size: var(--font-size-lg);
     margin-bottom: var(--spacing-xl);
-    max-width: 100%;         /* allow full width for justification */
+    max-width: 800px;
     color: rgba(255, 255, 255, 0.9);
     text-align: justify !important;  /* force justification */
     line-height: 1.6;
     hyphens: auto;           /* optional: breaks long words for smoother justification */
 }
-
 
 .certification-badges {
     display: flex;
