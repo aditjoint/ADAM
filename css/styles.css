@@ -503,6 +503,8 @@ body {
     margin-bottom: var(--spacing-xl);
     max-width: 600px;
     color: rgba(255, 255, 255, 0.9);
+    text-align: justify;   /* ✅ this makes it left + right aligned */
+    line-height: 1.6;      /* optional: improves readability */
 }
 
 .certification-badges {
