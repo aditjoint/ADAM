@@ -125,8 +125,12 @@ table th:first-child {
   .hu1000-table,
   .su1300-table {
     min-width: 100%; /* allow table to shrink a bit on smaller screens */
+  width: 100%;
+  overflow-x: auto;
+  position: relative;
+  
   }
-}
+
 
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
