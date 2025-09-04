@@ -121,6 +121,13 @@ table th:first-child {
   line-height: 1.5;
 }
 
+@media (max-width: 1200px) {
+  .hu1000-table,
+  .su1300-table {
+    min-width: 100%; /* allow table to shrink a bit on smaller screens */
+  }
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   table {
