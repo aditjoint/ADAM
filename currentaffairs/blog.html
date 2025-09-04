@@ -12,221 +12,164 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="/css/styles.css" />
-  <link rel="stylesheet" href="/css/responsive.css" />
-  <link rel="stylesheet" href="/css/protect.css" />
+<link rel="stylesheet" href="/css/styles.css" />
+<link rel="stylesheet" href="/css/responsive.css" />
+<link rel="stylesheet" href="/css/protect.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
-  <!-- Inline User-Select Protection -->
-  <style>
-    html, body {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-    input, textarea, select, label, a, button {
-      -webkit-user-select: text;
-      -moz-user-select: text;
-      -ms-user-select: text;
-      user-select: text;
-    }
+<style>
+html, body { user-select:none; }
+input, textarea, select, label, a, button { user-select:text; }
 
-    /* ===== Whitepaper Page Styles ===== */
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.7;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-    }
+body {
+  font-family: 'Georgia', 'Times New Roman', serif; /* book-style font */
+  line-height: 1.8;
+  margin: 0;
+  padding: 0;
+  background-color: #fdfdfd;
+  color: #222;
+}
 
-    header {
-      background: linear-gradient(90deg, #0d47a1, #1976d2);
-      color: white;
-      padding: 2rem;
-      text-align: center;
-    }
+header {
+  background: linear-gradient(90deg,#0d47a1,#1976d2);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-      line-height: 1.2;
-    }
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
 
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 2rem 1rem;
-      background-color: white;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      border-radius: 8px;
-    }
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 2rem 2rem;
+  background-color: #fff;
+  color: #222;
+}
 
-    h2 {
-      color: #0d47a1;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-    }
+/* Headings */
+h2 {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.8rem;
+  color: #0d47a1;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.25rem;
+}
 
-    h3 {
-      color: #1976d2;
-      margin-top: 1.5rem;
-      margin-bottom: 0.75rem;
-    }
+h3 {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 1.4rem;
+  color: #1976d2;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
 
-    p {
-      margin: 1rem 0;
-    }
+/* Paragraphs & Lists */
+p {
+  margin: 1rem 0;
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: justify; /* classic book style */
+}
 
-    ul {
-      margin: 1rem 0 1rem 2rem;
-      line-height: 1.6;
-    }
+ul {
+  margin: 1rem 0 1rem 2rem;
+  line-height: 1.8;
+}
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0;
-    }
+ol {
+  margin: 1rem 0 1rem 2rem;
+  line-height: 1.8;
+}
 
-    th, td {
-      border: 1px solid #ccc;
-      padding: 0.5rem;
-      text-align: left;
-    }
+img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+  display: block;
+}
 
-    th {
-      background-color: #e3f2fd;
-    }
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background-color: #eee;
+  font-size: 0.9rem;
+  color: #555;
+}
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background-color: #eee;
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    /* News / Card Sections */
-    .news-section {
-      background-color: #ffffff;
-      padding: 50px 20px;
-      text-align: center;
-      border-bottom: 5px solid #eee;
-    }
-
-    .news-section h2 {
-      font-size: 32px;
-      margin-bottom: 40px;
-      color: #333;
-    }
-
-    .news-article {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      margin: 0 auto 40px auto;
-      padding: 20px;
-      background-color: #f9f9f9;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      max-width: 100%;
-    }
-
-    .news-article h3 {
-      font-size: 24px;
-      margin-bottom: 10px;
-      color: #007BFF;
-    }
-
-    .news-article p {
-      font-size: 18px;
-      color: #555;
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-
-    .service-cta {
-      text-align: right;
-      margin-top: 20px;
-      padding-right: 20px;
-    }
-
-    @media (max-width: 768px) {
-      main {
-        margin: 1rem;
-        padding: 1rem;
-      }
-      .news-article {
-        padding: 15px;
-      }
-      .news-article h3 {
-        font-size: 20px;
-      }
-      .news-article p {
-        font-size: 16px;
-      }
-    }
-  </style>
+/* Responsive Enhancements */
+@media(max-width:768px){
+  main { padding:1rem; margin:1rem; }
+  h2 { font-size:1.5rem; }
+  h3 { font-size:1.2rem; }
+  p, ul, ol { font-size:0.95rem; }
+}
+</style>
 </head>
 
 <body>
-  <!-- Header Placeholder -->
-  <div id="header-placeholder"></div>
 
-  <header>
-    <h1>India-First Technology as a Business Continuity Imperative</h1>
-  </header>
+<div id="header-placeholder"></div>
 
-  <main>
+<header>
+  <h1>India-First Technology as a Business Continuity Imperative</h1>
+</header>
 
-    <section id="disclaimer" class="news-article">
-      <h3>Disclaimer</h3>
-      <p>The content presented in this whitepaper is a narrative analysis based on the author’s research, understanding, and interpretation of available information. Readers are advised to independently verify facts, data, and evidence before making any business, financial, or strategic decisions. The author and publisher do not assume any responsibility for outcomes resulting from actions taken based on this document.</p>
-    </section>
+<main>
+  <section id="disclaimer">
+    <h2>Disclaimer</h2>
+    <p>The content presented in this whitepaper is a narrative analysis based on the author’s research, understanding, and interpretation of available information. Readers are advised to independently verify facts, data, and evidence before making any business, financial, or strategic decisions. The author and publisher do not assume any responsibility for outcomes resulting from actions taken based on this document.</p>
+  </section>
 
-    <section id="executive-summary" class="news-article">
-      <h3>Executive Summary</h3>
-      <p>The escalating imposition of U.S. sanctions on various countries has demonstrated how international trade and financial measures can ripple through economies, affecting not only targeted nations but also the global economic and geopolitical landscape...</p>
-    </section>
+  <section id="executive-summary">
+    <h2>Executive Summary</h2>
+    <p>The escalating imposition of U.S. sanctions on various countries has demonstrated how international trade and financial measures can ripple through economies, affecting not only targeted nations but also the global economic and geopolitical landscape...</p>
+  </section>
 
-    <section id="introduction" class="news-article">
-      <h3>Introduction: Global Sanctions & Lessons Learned</h3>
-      <p>Sanctions are economic, financial, or trade restrictions imposed by countries or multilateral institutions to influence the behavior of target states...</p>
-    </section>
+  <section id="introduction">
+    <h2>Introduction: Global Sanctions & Lessons Learned</h2>
+    <p>Sanctions are economic, financial, or trade restrictions imposed by countries or multilateral institutions to influence the behavior of target states...</p>
+  </section>
 
-    <section id="economic-impacts" class="news-article">
-      <h3>Economic & Financial Impacts of Sanctions (Global Examples)</h3>
-      <ul>
-        <li><strong>Severe Economic Contraction:</strong> Venezuela: 99% reduction in government revenues; oil production declined 87% (2015–2020)...</li>
-        <li><strong>Currency Collapse and Financial Isolation:</strong> Major devaluations and exclusion from SWIFT disrupt trade and foreign investment...</li>
-        <li><strong>Capital Flight and Investment Withdrawal:</strong> Sanctions create investor uncertainty, leading to capital flight and reduced FDI...</li>
-      </ul>
-    </section>
+  <section id="economic-impacts">
+    <h2>Economic & Financial Impacts of Sanctions (Global Examples)</h2>
+    <ul>
+      <li><strong>Severe Economic Contraction:</strong> Venezuela: 99% reduction in government revenues; oil production declined 87% (2015–2020)...</li>
+      <li><strong>Currency Collapse and Financial Isolation:</strong> Major devaluations and exclusion from SWIFT disrupt trade and foreign investment...</li>
+      <li><strong>Capital Flight and Investment Withdrawal:</strong> Sanctions create investor uncertainty, leading to capital flight and reduced FDI...</li>
+    </ul>
+  </section>
 
-    <section id="humanitarian" class="news-article">
-      <h3>Humanitarian & Social Consequences</h3>
-      <ul>
-        <li><strong>Supply Shortages and Inflation:</strong> Sanctions disrupt supply chains for food, medicine, and essential technologies...</li>
-        <li><strong>Civil Unrest and Political Instability:</strong> Economic hardship fuels social unrest...</li>
-      </ul>
-    </section>
+  <section id="humanitarian">
+    <h2>Humanitarian & Social Consequences</h2>
+    <ul>
+      <li><strong>Supply Shortages and Inflation:</strong> Sanctions disrupt supply chains for food, medicine, and essential technologies...</li>
+      <li><strong>Civil Unrest and Political Instability:</strong> Economic hardship fuels social unrest...</li>
+    </ul>
+  </section>
 
-    <section id="geopolitical" class="news-article">
-      <h3>Geopolitical & Security Risks</h3>
-      <ul>
-        <li><strong>Regional Destabilization:</strong> Sanctions can trigger proxy conflicts, military confrontations, and infrastructure targeting...</li>
-        <li><strong>Shift in Alliances and Influence:</strong> Sanctioned nations often pivot to alternative economic and military partners...</li>
-      </ul>
-    </section>
+  <section id="geopolitical">
+    <h2>Geopolitical & Security Risks</h2>
+    <ul>
+      <li><strong>Regional Destabilization:</strong> Sanctions can trigger proxy conflicts, military confrontations, and infrastructure targeting...</li>
+      <li><strong>Shift in Alliances and Influence:</strong> Sanctioned nations often pivot to alternative economic and military partners...</li>
+    </ul>
+  </section>
 
-    <section id="final-viewpoint" class="news-article">
-      <h3>Final Viewpoint</h3>
-      <p>The analysis clearly demonstrates that dependence on foreign software, hardware, and critical services increases vulnerability during sanctions, potentially leading to economic, operational, and financial disruptions...</p>
-      <p><strong>Thanks for reading this !!!</strong> We hope this narrative helps guide informed and strategic decisions.</p>
-    </section>
+  <section id="final-viewpoint">
+    <h2>Final Viewpoint</h2>
+    <p>The analysis clearly demonstrates that dependence on foreign software, hardware, and critical services increases vulnerability during sanctions, potentially leading to economic, operational, and financial disruptions...</p>
+    <p><strong>Thanks for reading this !!!</strong> We hope this narrative helps guide informed and strategic decisions.</p>
+  </section>
+</main>
 
   </main>
 
