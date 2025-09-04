@@ -41,67 +41,150 @@
   <div id="header-placeholder"></div>
   
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.7;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        header {
-            background: linear-gradient(90deg, #0d47a1, #1976d2);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
-        }
-        main {
-            max-width: 900px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-            background-color: white;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-            border-radius: 8px;
-        }
-        h2 {
-            color: #0d47a1;
-            margin-top: 2rem;
-        }
-        h3 {
-            color: #1976d2;
-            margin-top: 1.5rem;
-        }
-        p {
-            margin: 1rem 0;
-        }
-        ul {
-            margin: 1rem 0 1rem 2rem;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-        }
-        th, td {
-            border: 1px solid #ccc;
-            padding: 0.5rem;
-            text-align: left;
-        }
-        th {
-            background-color: #e3f2fd;
-        }
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background-color: #eee;
-            font-size: 0.9rem;
-            color: #555;
-        }
-    </style>
+/* General Page Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(90deg, #0d47a1, #1976d2);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem 1rem;
+    background-color: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+/* Headings */
+h2 {
+    color: #0d47a1;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    color: #1976d2;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Paragraphs & Lists */
+p {
+    margin: 1rem 0;
+}
+
+ul {
+    margin: 1rem 0 1rem 2rem;
+    line-height: 1.6;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+th {
+    background-color: #e3f2fd;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #eee;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* News / Card Sections */
+.news-section {
+    background-color: #ffffff;
+    padding: 50px 20px;
+    text-align: center;
+    border-bottom: 5px solid #eee;
+}
+
+.news-section h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.news-article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+.news-article h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #007BFF;
+}
+
+.news-article p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Right-Aligned Call-to-Action / Buttons */
+.service-cta {
+    text-align: right;
+    margin-top: 20px;
+    padding-right: 20px;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+    main {
+        margin: 1rem;
+        padding: 1rem;
+    }
+    .news-article {
+        padding: 15px;
+    }
+    .news-article h3 {
+        font-size: 20px;
+    }
+    .news-article p {
+        font-size: 16px;
+    }
+}
+</style>
+
 </head>
 <body>
 
