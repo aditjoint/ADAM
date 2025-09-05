@@ -1687,6 +1687,59 @@ body.watermarked::before {
   user-select: none;
 }
 
+.blog {
+  max-width: 900px;            /* Limits content width for readability */
+  margin: 0 auto;              /* Centers content horizontally */
+  padding: 40px 20px;          /* Space around content */
+  background-color: #ffffff;   /* White background */
+  border-radius: 10px;         /* Rounded corners */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.8;            /* Readable line spacing */
+  color: #333333;              /* Dark text */
+}
+
+.blog h1 {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+.blog h2 {
+  font-size: 1.5rem;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.blog p {
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.blog ul {
+  margin-bottom: 15px;
+  padding-left: 20px;
+}
+
+.blog li {
+  margin-bottom: 10px;
+}
+
+/* Optional: responsive adjustments */
+@media (max-width: 768px) {
+  .blog {
+    padding: 20px 15px;
+  }
+  .blog h1 {
+    font-size: 1.8rem;
+  }
+  .blog h2 {
+    font-size: 1.3rem;
+  }
+}
+
+
 @media (max-width: 768px) {
   .main-nav {
     position: absolute;
