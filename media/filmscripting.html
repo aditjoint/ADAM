@@ -1,1 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>ADAM Consult - Your Trusted Partner in Engineering, Infrastructure, and Sustainability</title>
+  <meta name="description" content="We provide integrated solutions across Static Machinery, Equipment, Energy Distribution and Metering, IT and Non-IT Facility Infrastructure, Digital Transformation (Telecom, IT, and Industrial Automation), Strategic Consulting, and Product Marketing. With a focus on innovation and operational excellence, we help organizations modernize their infrastructure, optimize performance, and achieve sustainable growth across diverse sectors." />
 
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+  <link rel="stylesheet" href="/css/protect.css" /> <!-- 🔒 Protection CSS -->
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- 🔒 Inline Protection Fallback -->
+  <style>
+    html, body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    input, textarea, select, label, a, button {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ✅ Header Placeholder -->
+  <div id="header-placeholder"></div>
+
+    <!-- Service Header Section -->
+    <section class="service-header">
+      <div class="container">
+        <h1>FILM - ENTERTAINMENT SCRIPT WRITING / CONSULTANCY SERVICES</h1>
+        
+<title>Film & Entertainment Scriptwriting Services</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background: #f8f9fa;
+color: #333;
+}
+header {
+background: #212529;
+color: #fff;
+text-align: center;
+padding: 2rem 1rem;
+}
+header h1 {
+margin: 0;
+font-size: 2rem;
+}
+main {
+padding: 2rem;
+max-width: 900px;
+margin: auto;
+}
+h2 {
+color: #212529;
+border-bottom: 2px solid #dee2e6;
+padding-bottom: 0.5rem;
+margin-bottom: 1rem;
+}
+ul {
+list-style-type: decimal;
+padding-left: 1.5rem;
+line-height: 1.8;
+}
+ul li {
+margin-bottom: 0.5rem;
+}
+footer {
+text-align: center;
+background: #212529;
+color: #fff;
+padding: 1rem;
+margin-top: 2rem;
+font-size: 0.9rem;
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Film & Entertainment Scriptwriting / Consultancy Services</h1>
+</header>
+
+
+<main>
+<h2>Our Services</h2>
+<ul>
+<li>Feature Film / Web Series Script Writing in Hindi, English, and Urdu</li>
+<li>Feature Film / Web Series Script Analysis & Editing as Script Doctor</li>
+<li>Hindi-Urdu Songs / Ghazals Writing</li>
+<li>Feature Film / Web Series / TV Serial Script Hindi Language Correction</li>
+<li>Feature Film / Web Series Dialogues’ Hindi Language Diction Monitoring at Recording Studios</li>
+<li>Hindi Language Monitoring of All Contents at Recording Studios</li>
+<li>Hindi Language Diction Tuition to Actors</li>
+<li>English to Hindi Language Translation for Films, Entertainment & General Contents</li>
+</ul>
+</main>
+        
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Ready to Transform Your Infrastructure?</h2>
+          <p>Contact us today to discuss how our technology and engineering solutions can help your organization achieve efficiency, sustainability, and innovation.</p>
+          <a href="../contact.html" class="btn btn-primary">Get In Touch</a>
+        </div>
+      </div>
+    </section>
+
+  
+ <!-- ✅ Footer Placeholder -->
+  <div id="footer-placeholder"></div>    
+ <!-- ✅ Load header and footer dynamically and then initialize scripts -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Load Header
+    fetch("/header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header-placeholder").innerHTML = html;
+
+        // ✅ Wait for DOM injection, then bind mobile menu
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.getElementById("mobile-menu");
+
+        if (toggle && nav) {
+          toggle.addEventListener("click", function () {
+            nav.classList.toggle("active");
+          });
+        }
+
+        // ✅ Optional: re-run dropdown initialization if needed
+        if (typeof initDropdowns === "function") initDropdowns();
+      });
+
+    // Load Footer
+    fetch("/footer.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("footer-placeholder").innerHTML = html;
+
+        // ✅ Load protection script after footer
+        const protect = document.createElement("script");
+        protect.src = "/js/imgTextProtect.js";
+        document.body.appendChild(protect);
+      });
+
+    // ✅ Load core scripts after all above
+    const main = document.createElement("script");
+    main.src = "/js/main.js";
+    main.onload = () => {
+      if (typeof initTabs === "function") initTabs();
+      if (typeof initHeroAnimation === "function") initHeroAnimation();
+      // Add other initializers if needed
+    };
+    document.body.appendChild(main);
+
+    const dropdown = document.createElement("script");
+    dropdown.src = "/js/dropdown.js";
+    document.body.appendChild(dropdown);
+  });
+</script>
+
+</body>
+</html>
