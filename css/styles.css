@@ -1687,30 +1687,6 @@ body.watermarked::before {
   user-select: none;
 }
 
-/* Watermark */
-.container::before {
-  content: "ADAM Consult - ADIT Joint LLP"; /* 🔹 Change text here */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-30deg);
-  font-size: 72px;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.04); /* faint white */
-  white-space: nowrap;
-  pointer-events: none; /* so links/buttons work normally */
-  z-index: 0;
-}
-
-.container {
-  position: relative; /* Needed for watermark positioning */
-  z-index: 1;
-}
-
-.article, .sidebar, header.hero, footer {
-  position: relative;
-  z-index: 2;
-}
 
 
 
