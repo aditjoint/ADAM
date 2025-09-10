@@ -1707,7 +1707,10 @@ body.watermarked::before {
   z-index: 1;
 }
 
-
+.article, .sidebar, header.hero, footer {
+  position: relative;
+  z-index: 2;
+}
 
 
 
