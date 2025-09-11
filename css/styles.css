@@ -238,9 +238,9 @@ body {
 }
 .logo-icon {
     background-color: var(--primary-color);
-    width: 30px;
-    height: 30px;
-    border-radius: 4px;
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -251,6 +251,8 @@ body {
     color: var(--white);
     font-weight: 700;
     font-size: 1.2rem;
+    font-family: "Noto Sans Oriya", sans-serif; /* Odia font support */
+    text-align: center;
 }
 
 .logo-text {
