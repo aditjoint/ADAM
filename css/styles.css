@@ -259,6 +259,28 @@ body {
     font-size: 1.2rem;
 }
 
+      /* Logo image settings */
+.logo-img {
+  height: 40px;    /* scale the logo smaller */
+  width: auto;     /* maintain aspect ratio */
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Optional: if you want header background intact */
+.adam-header {
+  background: #fff;  /* or your theme color */
+  padding: 10px 20px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+
 /* Navigation */
 .main-nav {
     display: flex;
@@ -594,7 +616,7 @@ body {
     height: 400px;
     border-radius: var(--border-radius-md);
     overflow: hidden;
-    background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-image: url('../images/bg31.jpg');
     background-size: cover;
     background-position: center;
     box-shadow: var(--shadow-lg);
@@ -1299,7 +1321,7 @@ body {
 
 .form-group select {
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23495057' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-image: url('../images/bg30.jpg');
     background-repeat: no-repeat;
     background-position: right 10px center;
     padding-right: 40px;
@@ -1687,9 +1709,6 @@ body.watermarked::before {
   user-select: none;
 }
 
-
-
-
 .blog {
   max-width: 900px;            /* Limits content width for readability */
   margin: 0 auto;              /* Centers content horizontally */
@@ -1875,7 +1894,7 @@ body {
   font-family: Arial, sans-serif;
 
   /* Background image setup */
-  background-image: url('../images/sustainability-bg.jpg'); /* Change to your image path */
+  background-image: url('../images/bg30.jpg'); /* Change to your image path */
   background-size: cover; /* Fill the screen */
   background-position: center;
   background-repeat: no-repeat;
@@ -1898,4 +1917,5 @@ body::before {
   pointer-events: none;
   z-index: -1;
 }
+
 /* END STYLE*/
