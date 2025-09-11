@@ -251,26 +251,12 @@ body {
     color: var(--white);
     font-weight: 700;
     font-size: 1.2rem;
-    font-family: "Noto Sans Oriya", sans-serif; /* Odia font support */
-    text-align: center;
 }
 
 .logo-text {
     color: var(--text-dark);
     font-weight: 700;
     font-size: 1.2rem;
-
-.logo-img {
-    max-height: 45px;   /* never grows beyond this */
-    width: auto;
-    display: block;
-}
-   @media (max-width: 768px) {
-  .logo-img {
-    max-height: 35px;
-  }
-
-   
 }
 
 /* Navigation */
