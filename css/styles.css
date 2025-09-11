@@ -1687,9 +1687,6 @@ body.watermarked::before {
   user-select: none;
 }
 
-
-
-
 .blog {
   max-width: 900px;            /* Limits content width for readability */
   margin: 0 auto;              /* Centers content horizontally */
