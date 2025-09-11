@@ -259,6 +259,18 @@ body {
     color: var(--text-dark);
     font-weight: 700;
     font-size: 1.2rem;
+
+.logo-img {
+    max-height: 45px;   /* never grows beyond this */
+    width: auto;
+    display: block;
+}
+   @media (max-width: 768px) {
+  .logo-img {
+    max-height: 35px;
+  }
+
+   
 }
 
 /* Navigation */
