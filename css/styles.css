@@ -205,14 +205,14 @@ section {
 }
 
 /* --------------------------------------------
-   Header & Navigation (combined/reduced repeats)
+   Header & Navigation
 -------------------------------------------- */
 header {
     position: sticky;
     top: 0;
     width: 100%;
     z-index: 1000;
-    background-color: var(--white);  /* or #fff */
+    background-color: var(--white);
     box-shadow: var(--shadow-sm);
 }
 .header-content {
@@ -222,89 +222,66 @@ header {
     height: 60px;
     padding: var(--spacing-sm) 0;
 }
-.logo, .footer-logo {
+
+/* ✅ Header Logo */
+.logo {
     display: flex;
     align-items: center;
-    background: none;     
     margin: 0;
     padding: 0;
+    background: none;
 }
-/* --------------------------------------------
-   Header
--------------------------------------------- */
-header {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  background-color: var(--white);
-  box-shadow: var(--shadow-sm);
-}
-
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 60px;
-  padding: var(--spacing-sm) 0;
-  position: relative;
-  z-index: 1001; /* above background layers */
-}
-
-/* Logo */
-.logo {
-  display: flex;
-  align-items: center;
-}
-
 .logo a {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-  position: relative;
-  z-index: 1100;   /* keeps link above nav */
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    position: relative;
+    z-index: 1100;   /* ensure always clickable */
+    pointer-events: auto;
 }
-
 .logo img {
-  height: 45px;
-  width: auto;
-  display: block;
-  border: none;
-  margin: 0;
-  padding: 0;
+    height: 45px;    /* adjust as needed */
+    width: auto;
+    display: block;
 }
 
-/* Remove old icon box (not needed if using logo.png) */
-.logo-icon {
-  display: none;
+/* ✅ Footer Logo */
+.footer-logo {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    background: none;
 }
-
-/* Logo text (optional if you keep text next to logo) */
-.logo-text {
-  color: var(--text-dark);
-  font-weight: 700;
-  font-size: 1.2rem;
-  margin-left: 8px;
+.footer-logo .logo-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
+.footer-logo .logo-text {
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
 
 /* Navigation */
 .main-nav {
     display: flex;
 }
-
 .nav-links {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
 }
-
 .nav-links li {
     position: relative;
     margin: 0 var(--spacing-md);
 }
-
 .nav-links a {
     display: inline-block;
     padding: var(--spacing-sm) 0;
@@ -313,16 +290,13 @@ header {
     text-decoration: none;
     transition: color var(--transition-fast);
 }
-
 .nav-links a:hover,
 .nav-links a.active {
     color: var(--primary-color);
 }
-
 .nav-links a.active {
     position: relative;
 }
-
 .nav-links a.active::after {
     content: '';
     position: absolute;
@@ -337,18 +311,15 @@ header {
 .dropdown {
     position: relative;
 }
-
 .dropdown-toggle {
     display: flex;
     align-items: center;
 }
-
 .dropdown-toggle i {
     margin-left: var(--spacing-xs);
     font-size: var(--font-size-sm);
     transition: transform var(--transition-fast);
 }
-
 .dropdown-menu {
     position: absolute;
     top: 100%;
@@ -364,11 +335,9 @@ header {
     transform: translateY(10px);
     transition: all var(--transition-normal);
 }
-
 .dropdown-menu li {
     margin: 0;
 }
-
 .dropdown-menu a {
     display: block;
     padding: var(--spacing-sm) var(--spacing-md);
@@ -376,17 +345,14 @@ header {
     font-weight: 400;
     white-space: nowrap;
 }
-
 .dropdown-menu a:hover {
     background-color: var(--primary-light);
 }
-
 .dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
-
 .dropdown:hover .dropdown-toggle i {
     transform: rotate(180deg);
 }
@@ -422,54 +388,45 @@ header {
     transition: all var(--transition-normal);
     cursor: pointer;
 }
-
 .btn-primary {
     background-color: var(--primary-color);
     color: var(--white);
     border-color: var(--primary-color);
 }
-
 .btn-primary:hover {
     background-color: var(--primary-dark);
     color: var(--white);
     border-color: var(--primary-dark);
 }
-
 .btn-secondary {
     background-color: var(--white);
     color: var(--primary-color);
     border-color: var(--primary-color);
 }
-
 .btn-secondary:hover {
     background-color: var(--primary-light);
     color: var(--primary-color);
     border-color: var(--primary-color);
 }
-
 .btn-outline {
     background-color: transparent;
     color: var(--text-dark);
     border-color: var(--gray-300);
 }
-
 .btn-outline:hover {
     background-color: var(--gray-200);
     color: var(--text-dark);
     border-color: var(--gray-400);
 }
-
 .btn-block {
     display: block;
     width: 100%;
 }
-
 .btn.active {
     background-color: var(--primary-dark);
     color: var(--white);
     border-color: var(--primary-dark);
 }
-
 /* Button Groups */
 .hero-buttons {
     display: flex;
