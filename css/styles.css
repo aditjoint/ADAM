@@ -205,83 +205,72 @@ section {
 }
 
 /* --------------------------------------------
-   Header & Navigation
+   Header & Navigation (combined/reduced repeats)
 -------------------------------------------- */
-/* sticky header */
 header {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  background-color: var(--white);
-  box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--white);  /* or #fff */
+    box-shadow: var(--shadow-sm);
 }
-
-/* Push content down so it’s not behind header */
-body {
-  margin: 0;
-  padding-top: 80px; /* adjust to actual rendered header height */
-}
-
 .header-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 60px;
     padding: var(--spacing-sm) 0;
 }
-
-
-/* Logo */
+.logo, .footer-logo {
+    display: flex;
+    align-items: center;
+    background: none;     
+    margin: 0;
+    padding: 0;
+}
 .logo a {
     display: flex;
     align-items: center;
     text-decoration: none;
 }
-.logo-icon {
+.logo-icon, .footer-logo .logo-icon {
     background-color: var(--primary-color);
-    width: 30px;
-    height: 30x;
     border-radius: 4px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: var(--spacing-xs);
 }
-
+.logo-icon {
+    width: 100px;
+    height: 100px;
+}
+.footer-logo .logo-icon {
+    width: 30px;
+    height: 30px;
+}
 .logo-icon .letter {
     color: var(--white);
     font-weight: 700;
     font-size: 1.2rem;
 }
-
-.logo-text {
+.logo-text, .footer-logo .logo-text {
     color: var(--text-dark);
     font-weight: 700;
     font-size: 1.2rem;
 }
-
-
-/* Logo image alignment and sizing for header */
-.logo img {
-    height: 100px;         /* Adjust height to fit header */
-    width: auto;
-    display: block;       /* removes inline spacing */
-    margin: 0;            /* removes default margin */
-    padding: 0;           /* removes default padding */
-    vertical-align: middle;
-    background: none;     /* removes any background color */
-    border: none;
+.footer-logo .logo-text {
+    color: var(--white);
 }
-
-/* Logo container */
-.logo {
-    display: flex;
-    align-items: center;
-    background: none;     /* ensure no background */
+.logo img {
+    height: 100px;
+    width: auto;
+    display: block;
     margin: 0;
     padding: 0;
-    padding-left: 0;
-    padding-right: 0;
+    vertical-align: middle;
+    background: none;
+    border: none;
 }
 
 
