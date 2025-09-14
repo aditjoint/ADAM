@@ -229,50 +229,29 @@ header {
     margin: 0;
     padding: 0;
 }
-.logo a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-.logo-icon, .footer-logo .logo-icon {
-    background-color: var(--primary-color);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.logo-icon {
-    width: 100px;
-    height: 100px;
-}
-.footer-logo .logo-icon {
-    width: 30px;
-    height: 30px;
-}
-.logo-icon .letter {
-    color: var(--white);
-    font-weight: 700;
-    font-size: 1.2rem;
-}
-.logo-text, .footer-logo .logo-text {
-    color: var(--text-dark);
-    font-weight: 700;
-    font-size: 1.2rem;
-}
-.footer-logo .logo-text {
-    color: var(--white);
-}
-.logo img {
-    height: 45px;
-    width: auto;
-    display: block;
-    margin: 0;
-    padding: 0;
-    vertical-align: middle;
-    background: none;
-    border: none;
+/* --------------------------------------------
+   Header
+-------------------------------------------- */
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--white);
+  box-shadow: var(--shadow-sm);
 }
 
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: var(--spacing-sm) 0;
+  position: relative;
+  z-index: 1001; /* above background layers */
+}
+
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -281,15 +260,31 @@ header {
 .logo a {
   display: inline-flex;
   align-items: center;
+  text-decoration: none;
   position: relative;
-  z-index: 1100;     /* always above nav */
-  pointer-events: auto;
+  z-index: 1100;   /* keeps link above nav */
 }
 
 .logo img {
-  height: 45px;      /* keep logo aligned to header */
+  height: 45px;
   width: auto;
   display: block;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove old icon box (not needed if using logo.png) */
+.logo-icon {
+  display: none;
+}
+
+/* Logo text (optional if you keep text next to logo) */
+.logo-text {
+  color: var(--text-dark);
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-left: 8px;
 }
 
 
@@ -337,11 +332,6 @@ header {
     height: 3px;
     background-color: var(--primary-color);
 }
-
-
-
-
-
 
 /* Dropdown Menu */
 .dropdown {
