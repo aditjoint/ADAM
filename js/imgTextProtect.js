@@ -7,6 +7,7 @@
 const exemptLogoElements = document.querySelectorAll(".logo a, .footer-logo a");
 exemptLogoElements.forEach(el => {
     el.style.pointerEvents = "auto"; // ensure clicks work
+    el.setAttribute("data-exempt", "true"); // mark as exempt
 });
 
 
@@ -60,6 +61,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 🔒 Protect images completely: block all mouse/touch interaction
   document.querySelectorAll("img").forEach(img => {
+
+    // ✅ Skip exempt logos
+    if (img.closest("a[data-exempt='true']")) return;
+
     img.setAttribute("draggable", "false");
 
     const wrapper = document.createElement("div");
@@ -145,9 +150,12 @@ overlay.classList.add("img-overlay");
 
 // attach overlay above image safely
 if (typeof img !== 'undefined' && img && img.parentNode) {
-  img.parentNode.insertBefore(wrapper, img);
-  wrapper.appendChild(img);
-  wrapper.appendChild(overlay);
+  // ✅ Skip if inside exempt logo link
+  if (!img.closest("a[data-exempt='true']")) {
+    img.parentNode.insertBefore(wrapper, img);
+    wrapper.appendChild(img);
+    wrapper.appendChild(overlay);
+  }
 }
 
 /* ============================================================
@@ -173,30 +181,21 @@ window.addEventListener("auxclick", function(e){
 
 // ✅ Preserve normal browsing (left-clicks on links/buttons/inputs still work)
 document.addEventListener("click", function(e){
-  // Allow default for interactive elements
   const tag = e.target.closest("a, button, input, textarea, select, label, summary, details");
   if (tag) return; // let it through
 }, true);
 
 // 📱 Allow pinch-zoom while blocking single-finger touches on images
 (function enablePinchZoomButBlockSingleFinger(){
-  // 1) Override the earlier touchAction to allow pinch (we do NOT remove your line above)
   try { document.documentElement.style.touchAction = "manipulation"; } catch(_) {}
-
-  // 2) Add capture-phase listeners that:
-  //    - Block single-finger taps/long-press on images
-  //    - Allow 2+ fingers (pinch) by stopping lower-level blockers
   document.addEventListener("touchstart", function(e){
     const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
     if (!imgEl) return;
 
     if (e.touches && e.touches.length >= 2) {
-      // Allow pinch: stop the original bubble-phase preventers from firing
       e.stopImmediatePropagation();
-      // no preventDefault → browser can handle pinch
       return;
     } else if (e.touches && e.touches.length === 1) {
-      // Block single-finger actions on/over images
       e.preventDefault();
       e.stopImmediatePropagation();
       return false;
@@ -209,9 +208,9 @@ document.addEventListener("click", function(e){
       if (!imgEl) return;
 
       if (e.touches && e.touches.length >= 2) {
-        e.stopImmediatePropagation(); // allow pinch gesture to proceed
+        e.stopImmediatePropagation();
       } else {
-        e.preventDefault(); // block single-finger drag/hold
+        e.preventDefault();
         e.stopImmediatePropagation();
         return false;
       }
@@ -225,14 +224,12 @@ setInterval(function(){
 }, 1500);
 
 // 🧯 Safety: don’t block scroll/wheel unintentionally
-window.addEventListener("wheel", function(){ /* no-op: keep scrolling */ }, {passive:true});
-
+window.addEventListener("wheel", function(){}, {passive:true});
 
 /* ============================================================
    >>> FINAL RIGHT-CLICK / MOUSE / TOUCH PROTECTION LAYER
    ============================================================ */
 
-// Strongest right-click trap (works on all elements)
 window.addEventListener("contextmenu", function (e) {
   e.preventDefault();
   e.stopPropagation();
@@ -240,7 +237,6 @@ window.addEventListener("contextmenu", function (e) {
   return false;
 }, true);
 
-// Block middle-click (scroll wheel button & auxclick)
 window.addEventListener("auxclick", function (e) {
   if (e.button === 1 || e.button === 2) {
     e.preventDefault();
@@ -249,46 +245,41 @@ window.addEventListener("auxclick", function (e) {
   }
 }, true);
 
-// Preserve left-click for interactive elements
 document.addEventListener("click", function (e) {
   const tag = e.target.closest("a, button, input, textarea, select, label, summary, details");
-  if (tag) return; // let normal clicks through
+  if (tag) return;
 }, true);
 
-// Keep scrolling functional
-window.addEventListener("wheel", function () {
-  // no-op: allow scroll
-}, { passive: true });
+window.addEventListener("wheel", function () {}, { passive: true });
 
-// Allow pinch zoom but block single-finger long press on images
 document.addEventListener("touchstart", function (e) {
   const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
   if (!imgEl) return;
 
   if (e.touches && e.touches.length >= 2) {
-    // Allow pinch zoom
     e.stopImmediatePropagation();
   } else if (e.touches && e.touches.length === 1) {
-    // Block single finger long-press
     e.preventDefault();
     e.stopImmediatePropagation();
     return false;
   }
 }, true);
 
-// Extra: periodic re-binding to harden protections
 setInterval(function () {
   document.oncontextmenu = () => false;
 }, 1500);
+
 /* ============================================================
    >>> FINAL HARDENED IMAGE / TOUCH PROTECTION
    ============================================================ */
 
-// 🚫 Fully block images from opening or being clicked
 ["click","mousedown","mouseup","dblclick","auxclick"].forEach(evt => {
   document.addEventListener(evt, function(e){
     const imgEl = e.target.closest("img, .img-wrapper, .img-overlay, a[href$='.jpg'], a[href$='.png'], a[href$='.jpeg'], a[href$='.gif']");
     if (imgEl) {
+      // ✅ Skip exempt logos
+      if (imgEl.closest("a[data-exempt='true']")) return;
+
       e.preventDefault();
       e.stopImmediatePropagation();
       return false;
@@ -296,16 +287,15 @@ setInterval(function () {
   }, true);
 });
 
-// 📱 Mobile touch handling
 document.addEventListener("touchstart", function (e) {
   const imgEl = e.target.closest("img, .img-wrapper, .img-overlay");
   if (!imgEl) return;
 
   if (e.touches.length >= 2) {
-    // ✅ Allow pinch zoom (2+ fingers)
     e.stopImmediatePropagation();
   } else {
-    // 🚫 Block single-finger tap/long press
+    if (imgEl.closest("a[data-exempt='true']")) return;
+
     e.preventDefault();
     e.stopImmediatePropagation();
     return false;
@@ -318,10 +308,10 @@ document.addEventListener("touchstart", function (e) {
     if (!imgEl) return;
 
     if (e.touches && e.touches.length >= 2) {
-      // ✅ Allow pinch zoom
       e.stopImmediatePropagation();
     } else {
-      // 🚫 Block single-finger drag/hold
+      if (imgEl.closest("a[data-exempt='true']")) return;
+
       e.preventDefault();
       e.stopImmediatePropagation();
       return false;
