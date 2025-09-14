@@ -207,7 +207,7 @@ section {
 /* --------------------------------------------
    Header & Navigation
 -------------------------------------------- */
-/* Fixed header */
+/* sticky header */
 header {
   position: sticky;
   top: 0;
@@ -261,6 +261,31 @@ body {
 }
 
 
+/* Logo image alignment and sizing for header */
+.logo img {
+    height: 100px;         /* Adjust height to fit header */
+    width: auto;
+    display: block;       /* removes inline spacing */
+    margin: 0;            /* removes default margin */
+    padding: 0;           /* removes default padding */
+    vertical-align: middle;
+    background: none;     /* removes any background color */
+    border: none;
+}
+
+/* Logo container */
+.logo {
+    display: flex;
+    align-items: center;
+    background: none;     /* ensure no background */
+    margin: 0;
+    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+
 /* Navigation */
 .main-nav {
     display: flex;
@@ -305,6 +330,11 @@ body {
     height: 3px;
     background-color: var(--primary-color);
 }
+
+
+
+
+
 
 /* Dropdown Menu */
 .dropdown {
