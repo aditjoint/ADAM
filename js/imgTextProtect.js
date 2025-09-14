@@ -3,6 +3,13 @@
  * Combines your original full protections + extra traps
  */
 
+// ✅ Exempt header/footer logos from protection
+const exemptLogoElements = document.querySelectorAll(".logo a, .footer-logo a");
+exemptLogoElements.forEach(el => {
+    el.style.pointerEvents = "auto"; // ensure clicks work
+});
+
+
 document.addEventListener("DOMContentLoaded", function () {
 
   // 🔒 Block right-click globally
