@@ -273,6 +273,25 @@ header {
     border: none;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo a {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  z-index: 1100;     /* always above nav */
+  pointer-events: auto;
+}
+
+.logo img {
+  height: 45px;      /* keep logo aligned to header */
+  width: auto;
+  display: block;
+}
+
 
 /* Navigation */
 .main-nav {
