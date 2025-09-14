@@ -224,26 +224,32 @@ header {
 }
 
 /* ✅ Header Logo */
-.logo {
-    display: flex;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    background: none;
+/* Ensure header & footer logos are clickable */
+.logo a,
+.footer-logo a {
+  position: relative;
+  z-index: 2000;        /* higher than nav, menus, overlays */
+  pointer-events: auto; /* allow clicks */
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
 }
-.logo a {
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    position: relative;
-    z-index: 1100;   /* ensure always clickable */
-    pointer-events: auto;
+
+.logo img,
+.footer-logo img {
+  height: 45px;
+  width: auto;
+  display: block;
 }
-.logo img {
-    height: 45px;    /* adjust as needed */
-    width: auto;
-    display: block;
+
+/* Make sure no overlays block clicks */
+header::before,
+header::after,
+footer::before,
+footer::after {
+  pointer-events: none;
 }
+
 
 /* ✅ Footer Logo */
 .footer-logo {
