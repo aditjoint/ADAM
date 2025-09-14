@@ -1,8 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>ADAM Consult - Your Trusted Partner in Engineering, Infrastructure, and Sustainability</title>
+  <meta name="description" content="We provide integrated solutions across Static Machinery, Equipment, Energy Distribution and Metering, IT and Non-IT Facility Infrastructure, Digital Transformation (Telecom, IT, and Industrial Automation), Strategic Consulting, and Product Marketing. With a focus on innovation and operational excellence, we help organizations modernize their infrastructure, optimize performance, and achieve sustainable growth across diverse sectors." />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+  <link rel="stylesheet" href="/css/protect.css" /> <!-- 🔒 Protection CSS -->
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
   <!-- 🔒 Inline Protection Fallback -->
- <link rel="stylesheet" href="/css/protect.css" /> <!-- 🔒 Protection CSS -->
   <style>
     html, body {
       -webkit-user-select: none;
@@ -19,149 +34,9 @@
   </style>
 </head>
 
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Non-Disclosure Agreement (NDA) | ADAM Consult</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f6f8;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 1.5rem;
-      background-color: #fff;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
-      position: relative;
-      z-index: 1;
-    }
-
-    .container::before {
-      content: "ADAM Consult - ADIT Joint LLP";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) rotate(-30deg);
-      font-size: 4rem;
-      color: rgba(43, 79, 129, 0.06);
-      white-space: nowrap;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 2rem;
-      background-color: #fff;
-      box-shadow: 0 0 12px rgba(0, 0, 0, 0.06);
-    }
-
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid #e0e0e0;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-    }
-
-    .logo-icon {
-      background-color: #2b4f81;
-      color: #fff;
-      font-weight: bold;
-      padding: 0.4rem 0.8rem;
-      border-radius: 4px;
-      margin-right: 0.5rem;
-    }
-
-    .logo-text {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #2b4f81;
-    }
-
-    .logo img {
-    height: 100px;
-    width: auto;
-    display: block;
-    margin: 0;
-    padding: 0;
-    vertical-align: middle;
-    background: none;
-    border: none;
-}
-
-
-    .btn-primary {
-      background-color: #2b4f81;
-      color: #fff;
-      padding: 0.6rem 1rem;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-
-    h1, h2 {
-      color: #2b4f81;
-    }
-
-    h1 {
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 0.5rem;
-      margin-top: 1rem;
-    }
-
-    p {
-      margin: 1rem 0;
-    }
-
-    ul {
-      margin: 0.5rem 0 1.5rem 2rem;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #777;
-      margin: 2rem 0 1rem;
-    }
-
-    a {
-      color: #2b4f81;
-    }
-
-    .mobile-menu-toggle {
-      display: none;
-    }
-  </style>
-</head>
 <body>
-  <div class="container">
-    <!-- Header -->
-    <div class="header-content">
-      <a href="../index.html" class="logo">
-        <a href="../index.html">
-          <img src="images/logo.png" alt="Logo" style="height:150px;">
-      </a>
-      <div class="cta-button">
-        <a href="../contact.html" class="btn-primary">Get In Touch</a>
-      </div>
-      <div class="mobile-menu-toggle">
-        <i class="fas fa-bars"></i>
-      </div>
-    </div>
+  <!-- ✅ Header Placeholder -->
+  <div id="header-placeholder"></div>
 
 
     <!-- Main Content -->
@@ -231,18 +106,57 @@
 </p>
 
     
-   <!-- Footer -->
-<footer>
-  &copy; 2025 ADAM Consult, ADIT Joint LLP. All rights reserved.
-</footer>
-
-<!-- Load protection script AFTER footer -->
+ <!-- ✅ Footer Placeholder -->
+  <div id="footer-placeholder"></div>    
+ <!-- ✅ Load header and footer dynamically and then initialize scripts -->
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const protect = document.createElement("script");
-    protect.src = "../js/imgTextProtect.js"; // Adjust path as needed
-    document.body.appendChild(protect);
+    // Load Header
+    fetch("/header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header-placeholder").innerHTML = html;
+
+        // ✅ Wait for DOM injection, then bind mobile menu
+        const toggle = document.getElementById("menu-toggle");
+        const nav = document.getElementById("mobile-menu");
+
+        if (toggle && nav) {
+          toggle.addEventListener("click", function () {
+            nav.classList.toggle("active");
+          });
+        }
+
+        // ✅ Optional: re-run dropdown initialization if needed
+        if (typeof initDropdowns === "function") initDropdowns();
+      });
+
+    // Load Footer
+    fetch("/footer.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("footer-placeholder").innerHTML = html;
+
+        // ✅ Load protection script after footer
+        const protect = document.createElement("script");
+        protect.src = "/js/imgTextProtect.js";
+        document.body.appendChild(protect);
+      });
+
+    // ✅ Load core scripts after all above
+    const main = document.createElement("script");
+    main.src = "/js/main.js";
+    main.onload = () => {
+      if (typeof initTabs === "function") initTabs();
+      if (typeof initHeroAnimation === "function") initHeroAnimation();
+      // Add other initializers if needed
+    };
+    document.body.appendChild(main);
+
+    const dropdown = document.createElement("script");
+    dropdown.src = "/js/dropdown.js";
+    document.body.appendChild(dropdown);
   });
 </script>
-
 </body>
+</html>
