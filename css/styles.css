@@ -263,7 +263,7 @@ header {
     color: var(--white);
 }
 .logo img {
-    height: 100px;
+    height: 150px;
     width: auto;
     display: block;
     margin: 0;
@@ -271,6 +271,7 @@ header {
     vertical-align: middle;
     background: none;
     border: none;
+   
 }
 
 
