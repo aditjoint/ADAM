@@ -328,5 +328,3 @@ document.addEventListener("touchstart", function (e) {
     }
   }, true);
 });
-
-
