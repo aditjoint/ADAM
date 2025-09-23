@@ -586,7 +586,7 @@ footer::after {
     height: 400px;
     border-radius: var(--border-radius-md);
     overflow: hidden;
-    background-image: url('../images/bg31.jpg');
+    background-image: url('../images/industry.png');
     background-size: cover;
     background-position: center;
     box-shadow: var(--shadow-lg);
