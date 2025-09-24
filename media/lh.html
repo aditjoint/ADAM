@@ -11,7 +11,7 @@
   <style>
     :root{
       --brand-color: #0f172a; /* dark navy */
-      --accent: #0ea5a4; /* teal accent for subtle flair */
+      --accent: #0ea5a4; /* teal accent */
       --muted: #6b7280;
       --page-width: 210mm; /* A4 width */
     }
@@ -21,7 +21,6 @@
     @media print {
       body { margin: 0; }
       .page { box-shadow: none; border: none; }
-      .print-only { display: block; }
     }
 
     body{
@@ -55,15 +54,18 @@
       width: 86px;
       height: 86px;
       border-radius: 8px;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(180deg, rgba(14,165,164,0.12), rgba(14,165,164,0.04));
-      color: var(--brand-color);
-      font-weight: 700;
-      font-size: 18px;
       flex-shrink: 0;
       box-shadow: 0 2px 6px rgba(2,6,23,0.04);
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .company {
@@ -158,13 +160,11 @@
 
     .meta-list span{ display:inline-block; }
 
-    /* Print-friendly adjustments */
     @media (max-width:760px){
       header { flex-direction: row; padding: 16px; }
       .contact { text-align: left; min-width: 160px; }
     }
 
-    /* Editable placeholder styling (not printed) */
     .placeholder { color: #9ca3af; }
   </style>
 </head>
@@ -172,14 +172,16 @@
 
   <div class="page" role="document" aria-label="ADIT JOINT LLP Letterhead">
     <header>
-      <div class="logo" aria-hidden="true">AJ</div>
+      <div class="logo">
+        <img src="/image/logo.png" alt="ADIT JOINT LLP Logo">
+      </div>
 
       <div class="company">
         <h1>ADIT JOINT LLP</h1>
-        <div class="tagline"> Engineerring & IT Automation </div>
-
+        <div class="tagline">Engineering & IT Automation</div>
         <div class="address">
-          Registered Office: A-603, SaiKrupa C.H.S, Plot-100, Sector-27, Nerul East, Navi Mumbai – 400706, Maharashtra, India
+          Registered Office: A-603, SaiKrupa C.H.S, Plot-100, Sector-27,<br>
+          Nerul East, Navi Mumbai – 400706, Maharashtra, India
         </div>
       </div>
 
@@ -196,18 +198,16 @@
         <div class="left">
           <strong>Date:</strong> <span class="placeholder">____ / ____ / ______</span>
         </div>
-        <div class="right">
-           <strong></strong>
-        </div>
+        <div class="right"></div>
       </div>
 
       <div>
         To,<br>
-        <strong class="placeholder"></strong><br>
-        <span class="placeholder"></span>
+        <strong class="placeholder">[Bank Manager’s Name]</strong><br>
+        <span class="placeholder">[Bank Name & Branch Address]</span>
       </div>
 
-      <div class="subject">Subject: <span class="placeholder">Purpose of Letter — Opening of Current Account]</span></div>
+      <div class="subject">Subject: <span class="placeholder">Opening of Current Account</span></div>
 
       <p>Dear Sir / Madam,</p>
 
@@ -224,7 +224,9 @@
 
       <div class="signature">
         <div class="sig-line">For ADIT JOINT LLP</div>
-        <div style="margin-top:6px; color:var(--muted); font-size:13px;">(Designated Partner / Authorised Signatory)</div>
+        <div style="margin-top:6px; color:var(--muted); font-size:13px;">
+          (Designated Partner / Authorised Signatory)
+        </div>
       </div>
 
       <div style="margin-top:18px; color:var(--muted); font-size:13px;">
@@ -236,9 +238,7 @@
       <div class="meta-list">
         <span><strong>LLPIN:</strong> <span class="placeholder">ACN-8171</span></span>
         <span><strong>PAN:</strong> <span class="placeholder">ACJFA5861C</span></span>
-       
       </div>
-
       <div style="text-align:right;">
         <small>Registered Office: A-603, SaiKrupa C.H.S, Plot-100, Sector-27, Nerul East, Navi Mumbai - 400706</small>
       </div>
@@ -247,4 +247,3 @@
   
 </body>
 </html>
-
