@@ -1892,14 +1892,47 @@ body::before {
    Experience Overview Section
    File: /css/experience-cards.css
    ========================================= */
-
 .xp-section {
-  text-align: center;
   padding: 80px 20px;
-  background: transparent; /* ✅ transparent background */
-  color: #fff;
+  background: transparent; /* no background */
+  color: #0b0b0b; /* dark text for readability */
+  text-align: center;
   font-family: 'Poppins', sans-serif;
 }
+
+.xp-section h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 50px;
+  background: linear-gradient(90deg, #0077ff, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.xp-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* responsive on small screens */
+  gap: 30px; /* equal spacing */
+}
+
+/* Each card design */
+.xp-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  padding: 30px 40px;
+  width: 240px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.xp-card:hover {
+  transform: translateY(-8px);
+  border-color: #3b82f6;
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+}
+
 
 .xp-title {
   font-size: 2.8rem;
@@ -1920,27 +1953,6 @@ body::before {
 }
 
 
-.xp-card {
-  flex: 1 1 200px;  /* allows 5 cards in a row on large screens */
-  max-width: 220px;
-  min-width: 180px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 40px 20px;
-  text-align: center;
-  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-
-.xp-card:hover {
-  transform: translateY(-8px);
-  border-color: #3b82f6;
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
-}
 
 .xp-glow {
   position: absolute;
@@ -1978,6 +1990,23 @@ body::before {
   color: #9ca3af;
   margin-top: 6px;
 }
+
+/* Big number */
+.xp-number {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #0077ff, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Description text */
+.xp-desc {
+  font-size: 1rem;
+  color: #333;
+  margin-top: 8px;
+}
+
 
 @media (max-width: 600px) {
   .xp-number {
