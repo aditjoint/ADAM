@@ -1857,83 +1857,17 @@ body.watermarked::before {
   }
 }
 
-/* Add this to your main stylesheet (e.g., styles.css) */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-
-  /* Background image setup */
-  background-image: url('../images/sustainability-bg.jpg'); /* Change to your image path */
-  background-size: cover; /* Fill the screen */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed; /* Makes it stay still while scrolling */
-
-  /* Light overlay for fade effect */
-  position: relative;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  /* Adjust transparency and color here */
-  background-color: rgba(255, 255, 255, 0.85); 
-  pointer-events: none;
-  z-index: -1;
-}
-
 /* =========================================
    Experience Overview Section
-   File: /css/experience-cards.css
    ========================================= */
 .xp-section {
   padding: 80px 20px;
-  background: transparent; /* no background */
-  color: #0b0b0b; /* dark text for readability */
+  background: transparent;
+  color: #0b0b0b;
   text-align: center;
   font-family: 'Poppins', sans-serif;
 }
 
-.xp-section h2 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 50px;
-  background: linear-gradient(90deg, #0077ff, #00c6ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.xp-cards {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap; /* responsive on small screens */
-  gap: 30px; /* equal spacing */
-}
-
-/* Each card design */
-.xp-card {
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 16px;
-  padding: 30px 40px;
-  width: 240px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-}
-
-.xp-card:hover {
-  transform: translateY(-8px);
-  border-color: #3b82f6;
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
-}
-
-
 .xp-title {
   font-size: 2.8rem;
   font-weight: 700;
@@ -1944,6 +1878,7 @@ body::before {
   letter-spacing: 1px;
 }
 
+/* Cards Layout */
 .xp-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -1952,8 +1887,25 @@ body::before {
   margin: 0 auto;
 }
 
+/* Each Card */
+.xp-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  padding: 30px 40px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
 
+.xp-card:hover {
+  transform: translateY(-8px);
+  border-color: #3b82f6;
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+}
 
+/* Glow Effect */
 .xp-glow {
   position: absolute;
   top: -40%;
@@ -1971,149 +1923,28 @@ body::before {
   transform: scale(1);
 }
 
+/* Card Text */
 .xp-number {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-  background: linear-gradient(90deg, #22d3ee, #3b82f6, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.xp-label {
-  font-size: 1.1rem;
-  color: #d1d5db;
-}
-
-.xp-description {
-  font-size: 0.9rem;
-  color: #9ca3af;
-  margin-top: 6px;
-}
-
-/* Big number */
-.xp-number {
-  font-size: 2rem;
-  font-weight: 700;
-  background: linear-gradient(90deg, #0077ff, #00c6ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Description text */
-.xp-desc {
-  font-size: 1rem;
-  color: #333;
-  margin-top: 8px;
-}
-
-
-@media (max-width: 600px) {
-  .xp-number {
-    font-size: 2.2rem;
-  }
-  .xp-label {
-    font-size: 1rem;
-  }
-}
-
-
-
-
-
-
-/* Each card design */
-.xp-card {
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 16px;
-  padding: 30px 40px;
-  width: 240px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-}
-
-.xp-card:hover {
-  transform: translateY(-8px);
-  border-color: #3b82f6;
-  box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
-}
-
-
-.xp-title {
   font-size: 2.8rem;
   font-weight: 700;
-  margin-bottom: 50px;
-  background: linear-gradient(90deg, #06b6d4, #3b82f6, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: 1px;
-}
-
-.xp-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-
-
-.xp-glow {
-  position: absolute;
-  top: -40%;
-  left: -40%;
-  width: 180%;
-  height: 180%;
-  background: radial-gradient(circle, rgba(59,130,246,0.25) 0%, transparent 70%);
-  transform: scale(0);
-  transition: transform 0.6s ease-out;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.xp-card:hover .xp-glow {
-  transform: scale(1);
-}
-
-.xp-number {
-  font-size: 3rem;
-  font-weight: 700;
   margin-bottom: 10px;
-  background: linear-gradient(90deg, #22d3ee, #3b82f6, #a855f7);
+  background: linear-gradient(90deg, #0077ff, #00c6ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .xp-label {
   font-size: 1.1rem;
-  color: #d1d5db;
+  color: #333;
 }
 
 .xp-description {
   font-size: 0.9rem;
-  color: #9ca3af;
+  color: #555;
   margin-top: 6px;
 }
 
-/* Big number */
-.xp-number {
-  font-size: 2rem;
-  font-weight: 700;
-  background: linear-gradient(90deg, #0077ff, #00c6ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Description text */
-.xp-desc {
-  font-size: 1rem;
-  color: #333;
-  margin-top: 8px;
-}
-
-
+/* Responsive Design */
 @media (max-width: 600px) {
   .xp-number {
     font-size: 2.2rem;
@@ -2122,7 +1953,4 @@ body::before {
     font-size: 1rem;
   }
 }
-
-
-
 /* END STYLE*/
