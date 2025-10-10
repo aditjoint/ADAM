@@ -586,7 +586,7 @@ footer::after {
     height: 400px;
     border-radius: var(--border-radius-md);
     overflow: hidden;
-    background-image: url('https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-image: url('../images/industry.png');
     background-size: cover;
     background-position: center;
     box-shadow: var(--shadow-lg);
