@@ -2006,46 +2006,70 @@ body::before {
   }
 }
 
+/* ====== Small Cards Section ====== */
 .small-cards {
   padding: 30px 0;
   background: #f9f9f9;
 }
 
+/* Container for all small cards */
 .cards-container {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
   justify-content: center;
+  align-items: stretch;
 }
 
+/* Individual small card */
 .small-card {
   background: #ffffff;
   border: 1px solid #e0e0e0;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  padding: 12px 20px;
+  padding: 14px 18px;
+  width: 180px;
   text-align: center;
   text-decoration: none;
   transition: all 0.3s ease;
-  width: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Card title */
 .small-card h4 {
   font-size: 0.95rem;
   color: #333;
+  font-weight: 600;
   margin: 0;
+  transition: color 0.3s ease;
 }
 
+/* Hover state */
 .small-card:hover {
   background: #007bff;
-  color: #fff;
   border-color: #007bff;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.25);
 }
 
 .small-card:hover h4 {
   color: #fff;
 }
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .small-card {
+    width: 160px;
+    padding: 12px 14px;
+  }
+
+  .small-card h4 {
+    font-size: 0.9rem;
+  }
+}
+
 
 
 /* END STYLE*/
