@@ -2123,6 +2123,53 @@ body::before {
   background-color: #eaf0ff;
   transition: 0.3s;
 }
+.reference-prices-section {
+  padding: 2rem;
+  background-color: #fefefe;
+}
+
+.reference-prices-section h2 {
+  font-size: 1.8rem;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.reference-prices-section .subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 1.2rem;
+}
+
+.reference-prices-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.reference-prices-table th,
+.reference-prices-table td {
+  border: 1px solid #ddd;
+  padding: 12px 16px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.reference-prices-table th {
+  background-color: #004aad;
+  color: #fff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.reference-prices-table tr:nth-child(even) {
+  background-color: #f3f6fb;
+}
+
+.reference-prices-table tr:hover {
+  background-color: #eaf0ff;
+  transition: 0.3s;
+}
 
 
 
