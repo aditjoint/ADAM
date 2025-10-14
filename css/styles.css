@@ -2123,9 +2123,12 @@ body::before {
   background-color: #eaf0ff;
   transition: 0.3s;
 }
+
+
 .reference-prices-section {
   padding: 2rem;
   background-color: #fefefe;
+  text-align: center; /* centers the section title & subtitle */
 }
 
 .reference-prices-section h2 {
@@ -2137,21 +2140,21 @@ body::before {
 .reference-prices-section .subtitle {
   font-size: 1rem;
   color: #666;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
 }
 
 .reference-prices-table {
-  width: 100%;
+  width: 80%;
+  margin: 0 auto; /* centers the table horizontally */
   border-collapse: collapse;
-  min-width: 600px;
 }
 
 .reference-prices-table th,
 .reference-prices-table td {
   border: 1px solid #ddd;
   padding: 12px 16px;
-  text-align: left;
-  vertical-align: top;
+  text-align: center; /* center-align content */
+  vertical-align: middle;
 }
 
 .reference-prices-table th {
