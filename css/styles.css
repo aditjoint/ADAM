@@ -644,8 +644,11 @@ footer::after {
 }
 
 /* CORRECT INTENTION: Only disable clicks when the menu is open */
+body.menu-is-open .mobile-menu-overlay {
+  pointer-events: auto;
+}
 body.menu-is-open .header-content {
-    pointer-events: none;
+  pointer-events: auto;
 }
 
 /* --------------------------------------------
