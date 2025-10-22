@@ -253,6 +253,20 @@ footer::before,
 footer::after {
   pointer-events: none;
 }
+.logo a {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none; /* remove underline */
+}
+
+.logo-text {
+  margin-left: 8px;         /* space between image and text */
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--primary-color); /* or your preferred color */
+  user-select: none;        /* optional: prevent text selection */
+}
 
 
 /* ✅ Footer Logo */
