@@ -3,7 +3,7 @@
  * Combines your original full protections + extra traps
  */
 
-// ✅ Exempt header/footer logos from protection
+
 // ✅ Exempt header/footer logos from protection by enabling pointer events early
 document.addEventListener("DOMContentLoaded", function () {
   const exemptLogoElements = document.querySelectorAll(".logo a, .footer-logo a");
