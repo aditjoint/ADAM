@@ -643,6 +643,10 @@ footer::after {
   }
 }
 
+/* CORRECT INTENTION: Only disable clicks when the menu is open */
+body.menu-is-open .header-content {
+    pointer-events: none;
+}
 
 /* --------------------------------------------
    Expertise Section
