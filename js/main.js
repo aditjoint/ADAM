@@ -38,6 +38,7 @@ function initMobileMenu() {
         // Toggle the menu when the hamburger icon is clicked
         mobileMenuToggle.addEventListener('click', function () {
             mainNav.classList.toggle('active');
+              document.body.classList.toggle('menu-is-open');  // Add this line
 
             // Toggle hamburger icon
             const icon = this.querySelector('i');
@@ -50,6 +51,7 @@ function initMobileMenu() {
             }
         });
 
+        
         // Close menu on clicking outside
         document.addEventListener('click', function (event) {
             const isInsideNav = mainNav.contains(event.target);
@@ -58,10 +60,10 @@ function initMobileMenu() {
 
             if (!isInsideNav && !isToggle && isMenuOpen) {
                 mainNav.classList.remove('active');
-
+                document.body.classList.remove('menu-is-open');  // Add this line
                 const icon = mobileMenuToggle.querySelector('i');
                 icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+                icon.classList.add('fa-bars'); 
             }
         });
     }
