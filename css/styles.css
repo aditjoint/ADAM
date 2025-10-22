@@ -242,6 +242,10 @@ header {
   display: block;
 }
 
+.logo, .logo a {
+  z-index: 2147483647 !important; /* max int to be sure */
+  pointer-events: auto !important;
+}
 /* Make sure no overlays block clicks */
 header::before,
 header::after,
