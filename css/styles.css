@@ -228,7 +228,7 @@ header {
 .logo a,
 .footer-logo a {
   position: relative;
-  z-index: 2000;        /* higher than nav, menus, overlays */
+  z-index: 9999;        /* higher than nav, menus, overlays */
   pointer-events: auto; /* allow clicks */
   display: inline-flex;
   align-items: center;
