@@ -4,10 +4,12 @@
  */
 
 // ✅ Exempt header/footer logos from protection
-const exemptLogoElements = document.querySelectorAll(".logo a, .footer-logo a");
-exemptLogoElements.forEach(el => {
-    el.style.pointerEvents = "auto"; // ensure clicks work
-});
+// ✅ Exempt header/footer logos from protection by enabling pointer events early
+document.addEventListener("DOMContentLoaded", function () {
+  const exemptLogoElements = document.querySelectorAll(".logo a, .footer-logo a");
+  exemptLogoElements.forEach(el => {
+    el.style.pointerEvents = "auto"; // ensure clicks work on logos
+  });
 
 
 document.addEventListener("DOMContentLoaded", function () {
