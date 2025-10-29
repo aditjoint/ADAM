@@ -89,3 +89,7 @@ img.protected-img {
   z-index: 9999;
   cursor: default;
 }
+/* Make all .png images non-clickable without affecting other styles */
+img[src$=".png"] {
+  pointer-events: none !important;
+}
