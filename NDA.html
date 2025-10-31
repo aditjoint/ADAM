@@ -35,6 +35,30 @@
       </div>
     </div>
 
+ /* Print rules */
+    @media print {
+      body::after { display: none; } /* hide watermark in print */
+      .print-btn, .header-content { display: none; }
+      .container { width: 100%; margin: 0; padding: 0.5in; box-shadow: none; }
+      a::after { content: " (" attr(href) ")"; font-size: 0.9em; color: #000; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header-content">
+      <a href="/" class="logo"><img src="/images/logo.png" alt="ADAM Consult Logo"></a>
+      <div style="display:flex;gap:12px;align-items:center;">
+        <a class="btn-primary" href="/" style="text-decoration:none;color:var(--accent)">Home</a>
+      </div>
+    </div>
+
+    <div class="print-btn">
+      <button type="button" onclick="window.print()">🖨️ Print / Download PDF</button>
+    </div>
+
+      
     <!-- Main Content -->
       <!-- Title -->
     <h1>Non-Disclosure Agreement (NDA)</h1>
