@@ -1,11 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- 🔒 Inline Protection Fallback -->
-<link rel="stylesheet" href="/css/protect.css" /> <!-- 🔒 Protection CSS -->
-<link rel="stylesheet" href="css/legal.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Non-Disclosure Agreement (NDA) | ADIT Joint LLP / ADAM Consult</title>
 
+  <!-- Existing Styles -->
+  <link rel="stylesheet" href="/css/protect.css" />
+  <link rel="stylesheet" href="/css/legal.css" />
+
+  <!-- Inline layout + print-friendly rules -->
   <style>
+    :root {
+      --page-width: 900px;
+      --accent: #0a2a43;
+      --muted: #666;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      color: #222;
+      background: #fff;
+      -webkit-font-smoothing:antialiased;
+    }
+    /* Light watermark (screen only) */
+    body::after {
+      content: "CONFIDENTIAL";
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font-size: 4.5rem;
+      color: rgba(10,42,67,0.04);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .container {
+      width: min(var(--page-width), calc(100% - 40px));
+      margin: 36px auto;
+      padding: 26px;
+      background: #fff;
+      z-index: 1;
+    }
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .logo img { height: 56px; }
+    .print-btn { text-align: right; margin-bottom: 8px; }
+    .print-btn button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    h1 { color: var(--accent); margin: 6px 0 12px; font-size: 1.6rem; border-bottom: 2px solid rgba(10,42,67,0.08); padding-bottom: 8px; }
+    h2 { color: var(--accent); margin-top: 18px; font-size: 1.05rem; }
+    p { margin: 10px 0; }
+    ul { margin: 6px 0 12px 20px; }
+    table.signature { width: 100%; border-collapse: collapse; margin-top: 18px; }
+    table.signature th, table.signature td {
+      border: 1px solid #cfcfcf;
+      padding: 10px;
+      vertical-align: top;
+    }
+    footer { margin-top: 24px; color: var(--muted); font-size: 0.9rem; border-top: 1px dashed #eee; padding-top: 10px; text-align: center; }
+
+    /* Prevent content selection except inputs/buttons */
     html, body {
       -webkit-user-select: none;
       -moz-user-select: none;
@@ -18,24 +84,8 @@
       -ms-user-select: text;
       user-select: text;
     }
-  </style>
-</head>
-  
-  <div class="container">
-    <!-- Header -->
-    <div class="header-content">
-      <a href="../index.html" class="logo">
-        <img src="/images/logo.png" alt="ADAM Consult Logo">
-      </a>
-      <div class="cta-button">
-        <a href="../index.html" class="btn-primary">Home</a>
-      </div>
-      <div class="mobile-menu-toggle">
-        <i class="fas fa-bars"></i>
-      </div>
-    </div>
 
- /* Print rules */
+    /* Print rules */
     @media print {
       body::after { display: none; } /* hide watermark in print */
       .print-btn, .header-content { display: none; }
@@ -58,9 +108,7 @@
       <button type="button" onclick="window.print()">🖨️ Print / Download PDF</button>
     </div>
 
-      
-    <!-- Main Content -->
-      <!-- Title -->
+    <!-- Title -->
     <h1>Non-Disclosure Agreement (NDA)</h1>
     <p><strong>Last Updated:</strong> May 27, 2025</p>
     <p><strong>Applicable To:</strong> All Industries and Business Verticals</p>
