@@ -1,16 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 🔒 Inline Protection Fallback -->
-<link rel="stylesheet" href="/css/protect.css" /> <!-- 🔒 Protection CSS -->
-<link rel="stylesheet" href="css/legal.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Non-Disclosure Agreement (NDA) | ADAM Consult - ADIT Joint LLP</title>
 
+  <!-- Existing Styles -->
+  <link rel="stylesheet" href="/css/protect.css" />
+  <link rel="stylesheet" href="/css/legal.css" />
+
+  <!-- Internal Enhancements -->
   <style>
     html, body {
       -webkit-user-select: none;
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      color: #222;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
     }
     input, textarea, select, label, a, button {
       -webkit-user-select: text;
@@ -18,14 +29,57 @@
       -ms-user-select: text;
       user-select: text;
     }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h1, h2 {
+      color: #003366;
+    }
+    h1 {
+      border-bottom: 2px solid #003366;
+      padding-bottom: 10px;
+      font-size: 1.8em;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #777;
+    }
+    .print-btn {
+      text-align: right;
+      margin-bottom: 10px;
+    }
+    .print-btn button {
+      background: #003366;
+      color: #fff;
+      padding: 6px 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .print-btn button:hover {
+      background: #0055aa;
+    }
+    @media print {
+      .header-content, .print-btn, footer { display: none; }
+      body { margin: 0; }
+    }
   </style>
 </head>
-  
+
+<body>
   <div class="container">
+
     <!-- Header -->
     <div class="header-content">
       <a href="../index.html" class="logo">
-        <img src="/images/logo.png" alt="ADAM Consult Logo">
+        <img src="/images/logo.png" alt="ADAM Consult Logo" height="50">
       </a>
       <div class="cta-button">
         <a href="../index.html" class="btn-primary">Home</a>
@@ -35,77 +89,137 @@
       </div>
     </div>
 
+    <!-- Print Button -->
+    <div class="print-btn">
+      <button onclick="window.print()">🖨️ Print / Download PDF</button>
+    </div>
 
     <!-- Main Content -->
     <h1>Non-Disclosure Agreement (NDA)</h1>
-    <p><strong>Last updated:</strong> May 27, 2025</p>
+    <p><strong>Last Updated:</strong> May 27, 2025</p>
+    <p><strong>Applicable To:</strong> All Industries and Business Verticals</p>
 
-    <p>This Non-Disclosure Agreement (“Agreement”) is entered into by and between ADAM Consult, ADIT Joint LLP (“Disclosing Party”) and the recipient (“Receiving Party”) who agrees to the following terms in order to protect confidential and proprietary information.</p>
+    <section>
+      <p>
+        This Non-Disclosure Agreement (“Agreement”) is entered into by and between
+        <strong>ADIT Joint LLP</strong> and its consulting division <strong>ADAM Consult</strong>
+        (the “Disclosing Party”), having its principal place of business at Ahmedabad, Gujarat, India,
+        and the “Receiving Party”, being any individual, company, agency, customer, partner, or entity
+        engaging with ADAM Consult or ADIT Joint LLP. Both are collectively referred to as “Parties”.
+      </p>
+    </section>
 
     <h2>1. Definition of Confidential Information</h2>
-    <p>Confidential Information includes all proprietary data, documents, frameworks, assessments, business plans, financial information, proposals, pricing, reports, and any other information disclosed, whether orally, in writing, electronically, or otherwise, that is designated confidential or would reasonably be understood as confidential.</p>
+    <p>
+      “Confidential Information” includes all proprietary, business, technical, design, financial, or strategic data,
+      disclosed in any form, that would reasonably be considered confidential by its nature. This includes frameworks,
+      blueprints, software, documents, contracts, proposals, and any derivative information.
+    </p>
 
-    <h2>2. Obligations of Receiving Party</h2>
+    <h2>2. Purpose</h2>
+    <p>The Receiving Party agrees to use the Confidential Information solely for legitimate evaluation or engagement purposes with ADIT Joint LLP / ADAM Consult.</p>
+
+    <h2>3. Obligations of the Receiving Party</h2>
     <ul>
-      <li>Maintain strict confidentiality of all Confidential Information received.</li>
-      <li>Use the Confidential Information solely for the purpose of evaluating or conducting business with ADAM Consult.</li>
-      <li>Not disclose Confidential Information to any third party without prior written consent from ADAM Consult.</li>
-      <li>Take reasonable precautions to protect the confidentiality of the information.</li>
+      <li>Maintain strict confidentiality and safeguard the information with utmost care.</li>
+      <li>Use the Confidential Information only for the defined Purpose.</li>
+      <li>Not disclose to any third party without prior written consent.</li>
+      <li>Report any suspected breach or misuse immediately.</li>
     </ul>
 
-    <h2>3. Exclusions from Confidential Information</h2>
-    <p>Confidential Information does not include information that:</p>
+    <h2>4. Exclusions</h2>
+    <p>Confidential Information does not include data that:</p>
     <ul>
-      <li>Is or becomes publicly known through no breach of this Agreement by the Receiving Party.</li>
-      <li>Is received from a third party without breach of any obligation of confidentiality.</li>
-      <li>Is independently developed by the Receiving Party without use of or reference to the Confidential Information.</li>
-      <li>Is required to be disclosed by law or governmental authority, provided the Receiving Party gives prompt notice to ADAM Consult.</li>
+      <li>Becomes public without fault of the Receiving Party;</li>
+      <li>Is obtained lawfully from a third party without restriction;</li>
+      <li>Is independently developed without reference to Confidential Information;</li>
+      <li>Is required by law to be disclosed, with prior notice to ADIT Joint LLP.</li>
     </ul>
 
-    <h2>4. Term and Termination</h2>
-    <p>This Agreement remains in effect during the term of the relationship and for a period of five (5) years following termination or conclusion of any engagement or business relationship between the parties.</p>
+    <h2>5. Ownership and Intellectual Property</h2>
+    <p>All Confidential Information remains the sole property of ADIT Joint LLP / ADAM Consult. No license or ownership rights are granted under this Agreement.</p>
 
-    <h2>5. No License or Ownership Rights</h2>
-    <p>Nothing in this Agreement grants the Receiving Party any rights or licenses to use or exploit the Confidential Information except as expressly permitted for evaluation purposes.</p>
+    <h2>6. Term and Survival</h2>
+    <p>This Agreement remains in force during the engagement and for five (5) years thereafter. All confidentiality obligations survive termination.</p>
 
-    <h2>6. Limitation of Liability</h2>
-    <p>ADAM Consult shall not be held liable for any direct, indirect, incidental, consequential, or punitive damages arising from the use or inability to use the Confidential Information or any solutions or services provided by ADAM Consult, its registered partners, or advisors.</p>
+    <h2>7. Return or Destruction of Materials</h2>
+    <p>Upon written request, the Receiving Party shall return or destroy all Confidential Information and confirm in writing such destruction or return.</p>
 
-    <h2>7. Independent Testing and Validation</h2>
-    <p>Although the solutions and offerings provided by ADAM Consult and its registered partners/advisors are designed in good faith to meet the Receiving Party’s technical requirements and follow best practices and best efforts basis, the Receiving Party is responsible for independently testing, validating, and measuring the consequential benefits and losses arising from the implementation of such solutions throughout the entire deal and support lifecycle.</p>
+    <h2>8. Liability and Indemnification</h2>
+    <p>The Receiving Party agrees to indemnify and hold harmless ADIT Joint LLP and ADAM Consult from all losses or claims arising from breach or misuse of Confidential Information.</p>
 
-    <h2>8. No Liability for Third-Party Communications</h2>
-    <p>ADAM Consult shall not be responsible or liable for any communications, agreements, transactions, or dealings that occur directly between the Receiving Party and third parties, including partners, advisors, or other entities, without the direct involvement of ADAM Consult.</p>
+    <h2>9. Injunctive Relief</h2>
+    <p>Any breach of this Agreement will cause irreparable harm to ADIT Joint LLP. The Disclosing Party shall be entitled to immediate injunctive relief in addition to legal remedies.</p>
 
-    <h2>9. Return or Destruction of Confidential Information</h2>
-    <p>Upon written request from ADAM Consult, the Receiving Party shall promptly return or destroy all materials containing Confidential Information and provide a written certification of such return or destruction.</p>
+    <h2>10. No Liability for Third-Party Acts</h2>
+    <p>ADIT Joint LLP and ADAM Consult shall not be liable for any actions or agreements between the Receiving Party and third parties unless expressly authorized in writing.</p>
 
-    <h2>10. Governing Law and Dispute Resolution</h2>
-    <p>This Agreement shall be governed by and construed in accordance with the laws of India. Any disputes arising under this Agreement shall be subject to the exclusive jurisdiction of the courts of India.</p>
+    <h2>11. Compliance and Website Terms</h2>
+    <p>
+      The Receiving Party acknowledges that it has reviewed and agrees to all legal terms published at
+      <a href="https://www.adamconsult.com" target="_blank">www.adamconsult.com</a>.
+      These terms form an integral part of this Agreement.
+    </p>
 
-    <h2>11. Miscellaneous</h2>
-    <ul>
-      <li>This Agreement constitutes the entire agreement between the parties regarding the subject matter herein.</li>
-      <li>No amendments or modifications shall be valid unless in writing and signed by both parties.</li>
-      <li>If any provision of this Agreement is held invalid or unenforceable, the remaining provisions shall remain in full force and effect.</li>
-    </ul>
+    <h2>12. No Conflict or Non-Compliance by Receiving Party</h2>
+    <p>
+      The Receiving Party confirms that entering this Agreement does not violate any law, regulation, or third-party contract,
+      and agrees to indemnify ADIT Joint LLP against any resulting claims.
+    </p>
 
-    <h2>Contact Information</h2>
-    <p>For questions or requests related to this NDA, please contact us at <a href="mailto:ls@adamconsult.com">ls@adamconsult.com</a>.</p>
+    <h2>13. No Obligation to Proceed</h2>
+    <p>This Agreement imposes no obligation on ADIT Joint LLP or ADAM Consult to pursue any further engagement or business relationship.</p>
 
-  
-<!-- Footer -->
-<footer>
-  &copy; 2025 ADAM Consult, ADIT Joint LLP. All rights reserved.
-</footer>
+    <h2>14. Governing Law and Jurisdiction</h2>
+    <p>
+      This Agreement is governed by the laws of India. All disputes are subject to the exclusive jurisdiction
+      of the courts in Ahmedabad, Gujarat, India.
+    </p>
 
-<!-- Load protection script AFTER footer -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const protect = document.createElement("script");
-    protect.src = "../js/imgTextProtect.js"; // Adjust path as needed
-    document.body.appendChild(protect);
-  });
-</script>
+    <h2>15. Entire Agreement and Severability</h2>
+    <p>This Agreement and the terms on <a href="https://www.adamconsult.com" target="_blank">www.adamconsult.com</a> constitute the entire understanding between the Parties. Invalid provisions shall not affect the remainder.</p>
 
+    <h2>16. Execution and Acceptance</h2>
+    <p>This Agreement may be executed physically or electronically. Digital acknowledgment shall be legally binding.</p>
+
+    <br />
+    <table width="100%" border="1" cellspacing="0" cellpadding="8" style="border-collapse: collapse;">
+      <tr>
+        <th>For ADIT Joint LLP / ADAM Consult</th>
+        <th>For Receiving Party</th>
+      </tr>
+      <tr>
+        <td>
+          Authorized Signatory<br />
+          Name: ___________________________<br />
+          Title: ___________________________<br />
+          Date: ___________________________<br />
+          Seal/Stamp (if applicable)
+        </td>
+        <td>
+          Authorized Signatory<br />
+          Name: ___________________________<br />
+          Title: ___________________________<br />
+          Date: ___________________________<br />
+          Seal/Stamp (if applicable)
+        </td>
+      </tr>
+    </table>
+
+    <footer>
+      © 2025 ADIT Joint LLP | ADAM Consult Division. All Rights Reserved.<br />
+      Use of this document constitutes acceptance of terms at
+      <a href="https://www.adamconsult.com/legal" target="_blank">www.adamconsult.com/legal</a>.
+    </footer>
+  </div>
+
+  <!-- Load Protection Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const protect = document.createElement("script");
+      protect.src = "../js/imgTextProtect.js";
+      document.body.appendChild(protect);
+    });
+  </script>
 </body>
+</html>
