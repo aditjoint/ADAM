@@ -1,12 +1,5 @@
 <?php
-// This file simply redirects to the HTML file
-header("Location: index.html");
-exit();
-?>
-
-
-<?php
-  // Get today's day number (1-31)
+  // Get today's day number (1–31)
   $day = date("j");
 
   // Build background image path (example: bg1.jpg, bg2.jpg, etc.)
@@ -29,9 +22,9 @@ exit();
     }
   </style>
 </head>
-<body style="background-image: url('<?php echo $bgImage; ?>');">
+<body style="background-image: url('<?php echo htmlspecialchars($bgImage, ENT_QUOTES); ?>');">
   <h1 style="color:white; text-align:center; padding-top:50px;">
-    Welcome! Today’s background is <?php echo basename($bgImage); ?>
+    Welcome! Today’s background is <?php echo htmlspecialchars(basename($bgImage)); ?>
   </h1>
 </body>
 </html>
