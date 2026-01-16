@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <title>ADAM Consult - Your Trusted Partner in Engineering, Infrastructure, and Sustainability</title>
+  <meta
+    name="description"
+    content="We provide integrated solutions across Static Machinery, Equipment, Energy Distribution and Metering, IT and Non-IT Facility Infrastructure, Digital Transformation (Telecom, IT, and Industrial Automation), Strategic Consulting, and Product Marketing. With a focus on innovation and operational excellence, we help organizations modernize their infrastructure, optimize performance, and achieve sustainable growth across diverse sectors."
+  />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+  <link rel="stylesheet" href="/css/protect.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- 🔒 Inline Protection Fallback -->
+
+
+
+
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    input,
+    textarea,
+    select,
+    label,
+    a,
+    button {
+      -webkit-user-select: text;
+      -moz-user-select: text;
+      -ms-user-select: text;
+      user-select: text;
+    }
+
+    /* ✅ Projects section styles */
+    .projects-section {
+      background-color: rgba(255, 255, 255, 0.6);
+      padding: 50px 20px 30px;
+      text-align: center;
+      border-bottom: 5px solid #eee;
+      backdrop-filter: blur(5px);
+    }
+    .projects-section h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: #333;
+    }
+    .projects-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    /* ✅ Project cards */
+    .project-card {
+      background-color: rgba(249, 249, 249, 0.85);
+      padding: 20px;
+      width: 260px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+    .project-card h3 {
+      font-size: 22px;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+    .project-card p {
+      font-size: 15px;
+      color: #222;
+      margin-bottom: 15px;
+      line-height: 1.4;
+    }
+
+    /* Media Cards Styles */
+    .media-cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .pip-card {
+      width: 200px;
+      height: 150px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      background-color: rgba(249, 249, 249, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      padding: 5px;
+      box-sizing: border-box;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .pip-card iframe,
+    .pip-card video {
+      width: 100%;
+      height: 100%;
+      border-radius: 8px;
+    }
+    .pip-card audio {
+      width: 100%;
+    }
+    .pip-card.expanded {
+      width: 600px;
+      height: 400px;
+      z-index: 20;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    /* ✅ FIX: Align and resize industry images */
+    .card-container {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .image-card {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .image-card img {
+      max-width: 160px;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .image-card img:hover {
+      transform: scale(1.05);
+    }
+    @media (max-width: 600px) {
+      .image-card img {
+        max-width: 120px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ✅ Header Placeholder -->
+  <div id="header-placeholder"></div>
+
+
+<div class="projects-container media-cards-container">
+  <div class="data-center-card" style="cursor:pointer; border:2px solid #28a745; border-radius:8px; padding:16px; margin:10px; max-width:400px; background:#f8fff8;">
+    <h3>🌿 Green Data Center Boom</h3>
+    <p>Rs 1.60 lakh Cr investment • Navi Mumbai land opportunities</p>
+    <button onclick="toggleDataCenter()" style="background:#28a745; color:white; border:none; padding:8px 16px; border-radius:4px;">Expand Opportunities</button>
+    
+    <div id="dataCenterContent" style="display:none; margin-top:16px; font-size:14px; line-height:1.6;">
+      <h4>Maharashtra Leads Data Center Revolution</h4>
+      <p>Maharashtra leads India's data center revolution with the nation's first Green Integrated Data Centre Park policy, approved by the state cabinet, targeting Rs 1.60 lakh crore investments from global players. This initiative addresses AI-driven storage demands through sustainable tech, creating 500 direct high-skill jobs and 3,000 indirect roles while aligning with India's 2070 carbon-neutral goal.</p>
+      
+      <h4>Prime Land Opportunities - Navi Mumbai</h4>
+      <ul>
+        <li><strong>Mhape:</strong> 50-200 acres, JNPT port proximity, power substations, MHADA IT/ITES zoning</li>
+        <li><strong>Taloja:</strong> 100+ acres, metro connectivity, MIDC Phase II</li>
+        <li><strong>MHADA Colonies:</strong> Redevelopment sites, fast approvals, fiber infrastructure</li>
+      </ul>
+       
+      <h4>ADAM Consult | PROLAND Partnership</h4>
+      <p>ADAM Consult specializes in end-to-end data center land acquisition, regulatory navigation (IT/ITeS policy compliance), and infrastructure partnerships for MSMEs projects. Services include site evaluation, MHADA/MIDC liaison, green certifications, and integration with WESIP Infra—leveraging 32+ years in enterprise solutions.</p>
+    </div>
+  </div>
+
+  <script>
+  function toggleDataCenter() {
+    const content = document.getElementById('dataCenterContent');
+    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+  }
+  </script>
+</div>
+
+
+
+
+
+<div class="projects-container media-cards-container">
+  <div class="news-card" style="cursor:pointer; border:2px solid #28a745; border-radius:8px; padding:16px; margin:10px; max-width:400px; background:#f8fff8;">
+    <h3>🌿 Maharashtra Green Data Centre Park</h3>
+    <button onclick="toggleNews()" style="background:#28a745; color:white; border:none; padding:8px 16px; border-radius:4px;">Expand Details</button>
+    
+    <div id="newsContent" style="display:none; margin-top:16px; font-size:14px; line-height:1.5;">
+      <p><strong>Maharashtra Cabinet approves green integrated data centre park</strong> – expected to attract Rs 1.60 lakh crore investment, making it the first such policy in India.</p>
+      <p>Targets multinational data centre companies with USD 20 billion investments, creating 500 highly-skilled direct jobs and 3,000 indirect modern-tech roles.</p>
+      <p>Addresses AI-driven data demand while tackling energy consumption via green tech, supporting India's 2070 carbon-neutral goal.</p>
+    </div>
+  </div>
+
+  <script>
+  function toggleNews() {
+    const content = document.getElementById('newsContent');
+    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+  }
+  </script>
+</div>
+
+
+<div class="projects-container media-cards-container">
+  <div class="pdf-card" style="cursor:pointer; border:2px solid #007bff; border-radius:8px; padding:16px; margin:10px; max-width:400px; background:#f8fff8;">
+    <h3>📄 Maharashtra IT/ITeS Policy</h3>
+    <p>Official incentives, land norms &amp; approvals for IT parks/data centers.</p>
+    <button onclick="togglePdf()" style="background:#007bff; color:white; border:none; padding:8px 16px; border-radius:4px;">Expand to Read</button>
+    
+    <div id="pdfViewer" style="display:none; margin-top:16px;">
+      <iframe src="https://maitri.maharashtra.gov.in/wp-content/uploads/pdf/IT%20and%20ITes.pdf#toolbar=0&navpanes=0&scrollbar=0" 
+              width="100%" height="600" 
+              style="border:1px solid #ddd; border-radius:4px;">
+      </iframe>
+    </div>
+  </div>
+
+  <script>
+  function togglePdf() {
+    const viewer = document.getElementById('pdfViewer');
+    viewer.style.display = viewer.style.display === 'none' ? 'block' : 'none';
+  }
+  </script>
+</div>
+
+<!-- Media Cards Section -->
+
+    <h2 style="margin-top: 50px;"></h2>
+    <div class="projects-container media-cards-container">
+
+<div class="projects-container media-cards-container">
+  <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/PQitKZSStmk?rel=0&loop=1&playlist=PQitKZSStmk"
+          title="Navi Mumbai Industrial Land for Data Centers & Warehouses"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          style="pointer-events:auto;">
+  </iframe>
+</div>
+
+<div class="projects-container media-cards-container">
+  <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/MfDTvdqhUp0?rel=0&loop=1&playlist=MfDTvdqhUp0&modestbranding=1&controls=1"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          style="pointer-events:auto;">
+  </iframe>
+</div>
+
+      <div class="pip-card" tabindex="0" onclick="toggleExpand(this)" title="Click to expand">
+        <video controls>
+          <source src="/media/sample-video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+      </div>
+      <div class="pip-card" tabindex="0" onclick="toggleExpand(this)" title="Click to expand">
+        <audio controls>
+          <source src="/media/sample-audio.mp3" type="audio/mp3" />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+
+
+      <!-- Add more cards as needed -->
+    </div>
+  </div>
+
+  <!-- Image Cards Section -->
+  <div class="card-container">
+    <div class="image-card">
+      <img src="../images/bottling.png" alt="Navi Mumbai" />
+    </div>
+  </div>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Looking for Industrial or Commercial Land or estate?</h2>
+        <p>Share your requirement—we will match the best verified properties and manage your end-to-end compliance.</p>
+        <a href="../contact.html" class="btn btn-primary">Get In Touch</a> <br>
+        <a href="https://wa.me/918779639965" target="_blank" class="btn btn-primary" style="margin-top: 10px; display: inline-block;">
+          <i class="fab fa-whatsapp"></i> Chat with us to book an appointment with an advisor﻿
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ✅ Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+
+  <!-- ✅ Load header and footer dynamically -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Load Header
+      fetch('/header.html')
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById('header-placeholder').innerHTML = html;
+
+          const toggle = document.getElementById('menu-toggle');
+          const nav = document.getElementById('mobile-menu');
+
+          if (toggle && nav) {
+            toggle.addEventListener('click', function () {
+              nav.classList.toggle('active');
+            });
+          }
+
+          if (typeof initDropdowns === 'function') initDropdowns();
+        });
+
+      // Load Footer
+      fetch('/footer.html')
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById('footer-placeholder').innerHTML = html;
+
+          const protect = document.createElement('script');
+          protect.src = '/js/imgTextProtect.js';
+          document.body.appendChild(protect);
+        });
+
+      // Core scripts
+      const main = document.createElement('script');
+      main.src = '/js/main.js';
+      main.onload = () => {
+        if (typeof initTabs === 'function') initTabs();
+        if (typeof initHeroAnimation === 'function') initHeroAnimation();
+      };
+      document.body.appendChild(main);
+
+      const dropdown = document.createElement('script');
+      dropdown.src = '/js/dropdown.js';
+      dropdown.onload = () => {
+        if (typeof initDropdowns === 'function') initDropdowns();
+      };
+      document.body.appendChild(dropdown);
+    });
+
+    // Expandable PiP card toggle logic
+    function toggleExpand(card) {
+      if (card.classList.contains('expanded')) {
+        card.classList.remove('expanded');
+      } else {
+        // Collapse any expanded cards first
+        document.querySelectorAll('.pip-card.expanded').forEach((c) => c.classList.remove('expanded'));
+        card.classList.add('expanded');
+        card.focus();
+      }
+    }
+
+    // Collapse expanded card on Escape key press
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        document.querySelectorAll('.pip-card.expanded').forEach((c) => c.classList.remove('expanded'));
+      }
+    });
+  </script>
+</body>
+</html>
