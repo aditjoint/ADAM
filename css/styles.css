@@ -188,7 +188,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 70px; /* Increased from 60px to give the logo more breathing room */
+    height: 70px; /* Increased from 60px to give the  more breathing room */
     padding: 0 var(--spacing-md);
 }
 
@@ -205,7 +205,7 @@ header {
 
 /* Specific size for Header Logo */
 .logo img {
-    height: 250px; /* Increased from 45px */
+    height: 55px; /* Increased from 45px */
     width: auto;
     display: block;
     transition: transform 0.2s ease; /* Smooth hover effect */
