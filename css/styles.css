@@ -176,83 +176,61 @@ margin: var(--spacing-3xl) 0;
 Header & Navigation
 -------------------------------------------- */
 header {
-position: sticky;
-top: 0;
-width: 100%;
-z-index: 1000;
-background-color: var(--white);
-box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--white);
+    box-shadow: var(--shadow-sm);
 }
+
 .header-content {
-display: flex;
-align-items: center;
-justify-content: space-between;
-height: 60px;
-padding: var(--spacing-sm) 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px; /* Increased from 60px to give the logo more breathing room */
+    padding: 0 var(--spacing-md);
 }
-/* ✅ Header Logo */
-/* Ensure header & footer logos are clickable */
+
+/* ✅ Unified Logo Styling */
 .logo a,
 .footer-logo a {
-position: relative;
-z-index: 9999;        /* higher than nav, menus, overlays */
-pointer-events: auto; /* allow clicks */
-display: inline-flex;
-align-items: center;
-cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 10; /* Cleaned up from max-int */
 }
-.logo img,
-.footer-logo img {
-height: 400px; 
-width: auto;
-display: block;
+
+/* Specific size for Header Logo */
+.logo img {
+    height: 55px; /* Increased from 45px */
+    width: auto;
+    display: block;
+    transition: transform 0.2s ease; /* Smooth hover effect */
 }
-.logo, .logo a {
-z-index: 2147483647 !important; /* max int to be sure */
-pointer-events: auto !important;
+
+.logo img:hover {
+    transform: scale(1.05); /* Slight pop when hovering */
 }
-/* Make sure no overlays block clicks */
-header::before,
-header::after,
-footer::before,
-footer::after {
-pointer-events: none;
-}
-.logo a {
-display: inline-flex;
-align-items: center;
-cursor: pointer;
-text-decoration: none; /* remove underline */
-}
+
 .logo-text {
-margin-left: 8px;         /* space between image and text */
-font-weight: 700;
-font-size: 1.2rem;
-color: var(--primary-color); /* or your preferred color */
-user-select: none;        /* optional: prevent text selection */
+    margin-left: 10px;
+    font-weight: 700;
+    font-size: 1.4rem; /* Slightly larger for ADAM Suite branding */
+    color: var(--primary-color);
+    user-select: none;
 }
-/* ✅ Footer Logo */
-.footer-logo {
-display: flex;
-align-items: center;
-margin: 0;
-padding: 0;
-background: none;
+
+/* ✅ Footer Specifics */
+.footer-logo img {
+    height: 40px; /* Footers usually take a smaller logo */
+    width: auto;
 }
-.footer-logo .logo-icon {
-width: 30px;
-height: 30px;
-border-radius: 4px;
-background-color: var(--primary-color);
-display: flex;
-align-items: center;
-justify-content: center;
-}
-.footer-logo .logo-text {
-color: var(--white);
-font-weight: 700;
-font-size: 1.2rem;
-}
+
+
+
 /* Navigation */
 .main-nav {
 display: flex;
