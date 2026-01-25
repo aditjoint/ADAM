@@ -205,7 +205,7 @@ header {
 
 /* Specific size for Header Logo */
 .logo img {
-    height: 500px; /* Increased from 45px */
+    height: 100px; /* Increased from 45px */
     width: auto;
     display: block;
     transition: transform 0.2s ease; /* Smooth hover effect */
